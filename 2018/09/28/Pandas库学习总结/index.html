@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/09/28/5bae40d9057a1.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/28/5bae41224d1a0.png">
-<meta property="og:updated_time" content="2019-02-19T14:29:41.837Z">
+<meta property="og:updated_time" content="2019-02-19T16:33:46.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas 库学习总结">
 <meta name="twitter:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。 常用的软件Anaconda是数据分析中运行python的一款利器， 安装教">
@@ -101,7 +101,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -399,11 +399,11 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(&apos;我的文件.csv&apos;)</span><br><span class="line">res = pd.read_csv(f)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>修改数据格式，并存储</p>
+<li>修改数据格式，并存储</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import os</span><br><span class="line">os.chdir(r&apos;E:\detil_data&apos;)</span><br><span class="line"># os.getcwd()</span><br><span class="line">datas = pd.read_csv(&apos;a.csv&apos;,encoding=&apos;gbk&apos;)</span><br><span class="line">datas.to_csv(&apos;test12.csv&apos;, index=False,encoding=&apos;utf_8_sig&apos; )</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当文件特别大， 1个多G时， 可以用for循环查看数据</p>
-</li>
+<ul>
+<li>当文件特别大， 1个多G时， 可以用for循环查看数据</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in data:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -628,8 +628,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/写作系统/" rel="prev" title="写作系统">
-                写作系统 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/阅读系统/" rel="prev" title="阅读系统">
+                阅读系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -800,7 +800,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
