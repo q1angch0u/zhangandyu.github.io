@@ -565,274 +565,17 @@
       
         
           
-            <p>linux学习</p>
-<p>linux本身只操作系统的内核。</p>
-<p>ctrl + d: 键盘输入结束或退出终端<br>ctrl + s: 暂停当前程序， 暂停后按下任意键恢复运营<br>ctrl + z: 将当前程序放到后台运行， 恢复到前台为命令 fg<br>ctrl + a: 将光标移到输入行头， 相当于home键<br>ctrl + e: 将光标移到输入行未，相当于end键<br>ctrk + k: 删除从光标所在位置到行末<br>alt + backspace : 向前删除一个单词<br>shift + paup : 将终端显示向上滚动</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/02/17/报表-临时需求-异常分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="怪兽宇">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://plosti2dy.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180714230136.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="怪兽宇的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/17/报表-临时需求-异常分析/" itemprop="url">业务分析——工作报表、临时需求、异常数据排查</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T00:00:00+08:00">
-                2019-02-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/" itemprop="url" rel="index">
-                    <span itemprop="name">数据分析</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/各项细分/" itemprop="url" rel="index">
-                    <span itemprop="name">各项细分</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、-日报、周报、月报"><a href="#一、-日报、周报、月报" class="headerlink" title="一、 日报、周报、月报"></a>一、 日报、周报、月报</h3><div class="video-container"><iframe src="//www.youtube.com/embed/video_id" frameborder="0" allowfullscreen></iframe></div>
-<p>日报</p>
-<blockquote>
-<p>日报每天都要看。<br>编写数据脚本，实现日报半自动化。 </p>
-</blockquote>
-<p>为什么每天要看日报：</p>
-<ul>
-<li><p>了解公司业务现状<br>  当公司同事询问数据时，能够做到对基础的业务数据脱口而出,一定要对公司的核心指标数据熟记于心</p>
-</li>
-<li><p>培养个人数据敏感性<br>  当每天看数据时，都能够看到数据的波动变化。比如每日客户端活跃用户数都是在550-600万用户之间，突然一天增长到605万，能够做到有所怀疑，并进一步寻找原因。这就是数据敏感性。 </p>
-</li>
-<li><p>提供业务发展建议<br>  通过日报的数据观察，能够知道当产品运营做出哪些优化时， 数据会出现涨跌情况，给业务运营提供发展建议。 </p>
-<p>周报</p>
-<blockquote>
-<p>看短期趋势。</p>
-</blockquote>
-</li>
-</ul>
-<p>周报作用：</p>
-<ul>
-<li>新版本发布往往一到两周，通过一周的时间长短， 可以分析APP新版本的改版效果。</li>
-<li>一周的数据更加稳定， 有说服力。 </li>
-</ul>
-<p> 月报</p>
-<blockquote>
-<p>给出建议。</p>
-</blockquote>
-<p>月报内容：</p>
-<ul>
-<li><p>通过月报对公司业务进行梳理，月报一定要有给业务运营的建议，不能只是罗列数据。 </p>
-</li>
-<li><p>当通过数据变化发现某些活动效果好时， 一定要把分析原因放到月报里去展现，让所有管理层知道，从而推送业务的发展。</p>
-</li>
-</ul>
-<hr>
-<h3 id="二、临时数据需求"><a href="#二、临时数据需求" class="headerlink" title="二、临时数据需求"></a>二、临时数据需求</h3><ol>
-<li>管理层需求：</li>
-</ol>
-<ul>
-<li>优先级最高</li>
-<li>了解需求背景，思考为何要这个数据， 通过这个数据可以进行哪些决策</li>
-<li>一定要进行核对，不能出错，只能给一遍。</li>
-<li>必须时候找上级进行询问</li>
-</ul>
-<ol start="2">
-<li>业务需求：</li>
-</ol>
-<ul>
-<li>询问为何要这个数据</li>
-<li>建立该业务类的分析框架</li>
-<li>只给业务方最核心的需求，其他延伸需求让自己去取数</li>
-<li>坚决不做提数机</li>
-</ul>
-<blockquote>
-<p>例如： 优惠券的使用情况如何，如何优化？<br>建立分析框架：</p>
-<ul>
-<li>优惠券的下发人数</li>
-<li>优惠券的点击人数</li>
-<li>优惠券的使用人数</li>
-<li>优惠券的使用金额</li>
-<li>用户消费优惠券的频次</li>
-<li>优惠券的消费时段</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="三、数据异常排查"><a href="#三、数据异常排查" class="headerlink" title="三、数据异常排查"></a>三、数据异常排查</h3><p>清楚以下三点：</p>
-<ol>
-<li>业务理解</li>
-<li>指标口径</li>
-<li>当前数据产出过程</li>
-</ol>
-<p>数据异常原因分析：</p>
-<ol>
-<li>数据有问题</li>
-</ol>
-<ul>
-<li>将时间轴拉长，看数据是近期异常还是历史异常，对比近三个月数据。</li>
-<li>查看和该指标关联的其他核心指标是否也异常，如果异常，也要一并查看。</li>
-<li>核查埋点是否有问题， 数据是否存在多发情况。</li>
-<li>业务口径是否有问题， 取的数据是不是真正需要的数据。</li>
-<li>写的sql逻辑是否有误， 或者android 和 ios 数据没有相加。 </li>
-</ul>
-<ol start="2">
-<li>业务发生了变化</li>
-</ol>
-<ul>
-<li>同口径下，同比环比数据是否异常， 在长时间轴的条件下进行对比</li>
-<li>进行细拆， 看到底是哪个指标的数据出现了异常， 将该指标和相关的指标一起进行对比</li>
-<li>与负责此指标的负责人进行沟通， 询问他们近期是否做了推广活动。</li>
-<li>产品最近是否发布了新版本，或者某个功能改版存在缺陷问题。 </li>
-</ul>
-<ol start="3">
-<li>其他因素影响</li>
-</ol>
-<ul>
-<li>假期效应： 开学季， 暑期， 四大节日，当地节日</li>
-<li>热点事件：常规热点如运动会，世界杯，其他热点事件</li>
-<li>活动影响： 双11， 618， 支付宝送红包</li>
-<li>政策影响： 金融监管</li>
-<li>底层系统故障： 服务器迁移导致数据丢失</li>
-<li>存在外部刷量作弊情况</li>
-<li>统计口径： 业务逻辑进行了更改， 之前某业务有统计， 但现在不统计了。  数据计算方式改变</li>
-</ul>
-<p>要对异常排查进行闭环</p>
-<ol>
-<li>持续跟踪后期数据是否再次异常<br>比如7.0版本数据存在多发现象， 但7.1版本开发说已更改， 当7.1版本发布之后， 要及时去查看数据是否再次异常。 </li>
-<li>对数据异常一定要记录， 对异常口径要留文档。</li>
-<li>邮件化， 当数据异常排查原因查明， 并且确认更改之后， 发邮件给相关方， 描述数据异常的影响范围和主要结论。 </li>
-</ol>
-<hr>
-<p>作为一名数据分析师， 一定要经常去看这三种报表，培养自己的数据敏感度，了解业务的各种核心指标。</p>
-
-          
+          linux学习
+linux本身只操作系统的内核。
+ctrl + d: 键盘输入结束或退出终端ctrl + s: 暂停当前程序， 暂停后按下任意键恢复运营ctrl + z: 将当前程序放到后台运行， 恢复到前台为命令 fgctrl + a: 将光标移到输入行头， 相当于home键ctrl + e: 将
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/20/linux学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -972,8 +715,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/17/运营/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1124,30 +874,186 @@
       
         
           
-            <p>你必须先遵守才能谈自由与灵活。</p>
-<p>每个人都是自己生活轨迹的制定者，每个人成长的主旋律都在自己手中，要做的事情必须独立承担，任何评价都无法代替我们要面对的事情。 </p>
-<p>1-300天<br>厘清当前的处境。<br>感受到“我要做的”和“我能做的”之间的差距</p>
-<p>300-600天<br>缺什么补什么，有困难解决困难，直接硬上， 用时间换空间，用耐心换进步。抵御“放弃”的诱惑，有时候你会感到无趣，但拼的就是坚持。 </p>
-<p>加载任务的标准： 在原有任务能保持每天做到位并有所进步的基础上，仍然有足够多的心智和力量完成更多的任务。 </p>
-<hr>
-<p>对于一本书， 你能消化多少，不是由采取的方法决定，而是由你自身“消化系统”的能力决定，而这个“消化系统”， 就是学以致用的能力。 </p>
-<p>习惯就是每天都做，如何你哪一天不做这件事了， 就不再是习惯了。 </p>
-<p>对于写作的一个观点： 我写我心，我写我情，我写我世界。 对我而言，写作是用来整理自己的世界，当你把自己梳理好以后，你写的文章也会变得清晰明了，容易<br>理解。当我们关注自己内心的时候，其实更容易处理好与外界的关系。 </p>
-<p>而我们的写作，也就顺理成章地编程了一种对我们内心世界的推演。于是你会得到一些结论，而这些结论正是你身体力行、复盘总结、升华提炼后的结果。你<br>把文字写出来的时候，也许你会想，某本书中早就写了这些。你写的意义又在哪里？意义在于，你自己想明白的，就是你的。书上的只是书上的，终究不是你的。<br>自己想明白的，是从你的体系中萌芽生长出来的；而从书中看到的，非常容易停留在做个笔记画个线，自以为懂了的层面。 </p>
-<p>只有从原理级别、行动层面、复盘角度综合学习并且全面吸收而掌握的知识、技能，才能真正成为我们所需要的武器。</p>
-<hr>
-<p>现在我们每个人的环境都承载了所有前辈的过去，包括出生的家庭环境、所处的城市，都是前辈逐渐积攒的结果。这是我们无法选择的“默认参数”，我们一出生，<br>身上就带了这些参数，需要背着它不断去优化，走完此生。 </p>
-<p>对现状感到不满，对未来感到迷茫，压力很大。而且我们往往会把这些现状当成原因，来指导我们的行动。我迷茫，所以我要如何。 但在某种程度上，更多<br>的是结果而不是原因。我们只是在还过去欠下的债而已。过去的某个时刻我们没有全力投入，没有付出更多的心思，没有做更多的事情，尝试更多的可能性。于是，我们就按照默认的配置，来到当下。 </p>
-<p>当我们一无所有的时候，能选择的也就是每天都行动了。 这是我们唯一能够把握的， 因为唯一相对公平的筹码就是每个人的时间，而我们能做的就是把自己有限的时间投入到某个方面，不断积累，提升形成优势，然后去市场上做交换。我们要把时间持续的、长期稳定地专注在一个点上，并且在这一点上形成自己的优势资源。这其实是一种通过持续行动为自己的成长“复利”的行为。 </p>
-<hr>
-<p>核心技能是没发通过强及时反馈来构建的，也就是你要做好坐冷板凳的准备。而且你也要相信，在这个过程中是不可能天天有强及时反馈的。如何你能守住这种寂寞，<br>就能拨云见日；受不住的话，就是低水平重复建设了。 </p>
-<h2 id="反馈从来都是漫长的，成长从来都不是一蹴而就的。"><a href="#反馈从来都是漫长的，成长从来都不是一蹴而就的。" class="headerlink" title="反馈从来都是漫长的，成长从来都不是一蹴而就的。"></a>反馈从来都是漫长的，成长从来都不是一蹴而就的。</h2><p>你不要想太多，也不要想太远，只要今天写明天写，不要停，慢慢就可以做到了。 </p>
-<hr>
-<p>他最想要的是什么，你能给吗？<br>你最想要的是什么，她能给吗？</p>
-<p>把这两个问题想明白，然后就去追吧。</p>
-<hr>
+          你必须先遵守才能谈自由与灵活。
+每个人都是自己生活轨迹的制定者，每个人成长的主旋律都在自己手中，要做的事情必须独立承担，任何评价都无法代替我们要面对的事情。 
+1-300天厘清当前的处境。感受到“我要做的”和“我能做的”之间的差距
+300-600天缺什么补什么，有困难解决困难，直接硬上， 用时间换空
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/17/《刻意学习》读书笔记 /#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/02/17/报表-临时需求-异常分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="怪兽宇">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://plosti2dy.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180714230136.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="怪兽宇的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/17/报表-临时需求-异常分析/" itemprop="url">业务分析——工作报表、临时需求、异常数据排查</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T00:00:00+08:00">
+                2019-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/各项细分/" itemprop="url" rel="index">
+                    <span itemprop="name">各项细分</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一、 日报、周报、月报
+日报
+
+日报每天都要看。编写数据脚本，实现日报半自动化。 
+
+为什么每天要看日报：
+
+了解公司业务现状  当公司同事询问数据时，能够做到对基础的业务数据脱口而出,一定要对公司的核心指标数据熟记于心
+
+培养个人数据敏感性  当每天看数据时，都能够看到数据的波动变化。比如每日客户
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/17/报表-临时需求-异常分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1298,10 +1204,17 @@
       
         
           
-            <p><a href="https://ark.analysys.cn/blog3zhongyonghuxingweilujingfenxifangfa/" target="_blank" rel="noopener">玩转用户行为路径分析，3种方法就够了</a><br><img src="http://plosti2dy.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190121233044.png" alt="路径分析"><br><img src="http://plosti2dy.bkt.clouddn.com/%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95" alt="三种方法"></p>
-<p><a href="http://www.sylan215.com/upload-to-qiniu.html" target="_blank" rel="noopener">http://www.sylan215.com/upload-to-qiniu.html</a></p>
+          玩转用户行为路径分析，3种方法就够了
+http://www.sylan215.com/upload-to-qiniu.html
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/22/路径分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1452,44 +1365,16 @@
       
         
           
-            <p><img src="https://i.loli.net/2019/01/20/5c44810e998d3.jpg" alt="如何整理大脑思绪？"><br>自己时常有这种感觉，总觉得自己的大脑反应很迟钝，思绪比较混乱，看一个问题想法很模糊，有时心情急躁却找不到问题的解决方法。工作中和别人沟通时，有时词不达意，表达不够清晰，导致工作中出现很多问题。自己也明白自己需要更加深入的思考，但总是没有找到好的办法。</p>
-<p>最近在看《零秒思考》这本书，书中作者提供了一个解决此类问题的方法：<strong>时刻写下自己的想法</strong>。</p>
-<p>我们每天会接受不同的信息，在脑海中会产生大量的想法与感觉。很多时候，这些想法还没有转换成语言之前，便在含混朦胧、内心纠结的状态下消失了。虽然想法会暂时忘记，但是那种纠结的感觉并没有消解，会导致自己的心情消极的，产生精神上的压力，进而让大脑变得迟钝。</p>
-<p>时刻记录自己想法的好处是，写下来能够将纠结于心的情绪发泄出来，在写的过程中对大脑的思绪进行整理，也能更准确的表达自己的想法。这个方法的关键是：在1分钟的时间限制内，迅速写出大量自己的原始感受。</p>
-<p>具体的做法是这样：</p>
-<blockquote>
-<ul>
-<li>写标题： 写出有关大脑中思绪的一个疑问句。</li>
-<li>写内容：写4-6行文字来写下自己的原始想法。</li>
-<li>字数限制：每行文字字数在10-15字之间。</li>
-<li>时间限制：在2分钟之内完成。</li>
-<li>数量限制：每天写10条。</li>
-</ul>
-</blockquote>
-<p>每个做法对应的原理是这样：</p>
-<blockquote>
-<ul>
-<li>标题，用疑问句可以让自己更有写下去的冲动。</li>
-<li>内容，写4-6行文字，能够将自己大脑中浮现的想法基本都写下来，而不至于重复。</li>
-<li>字数，10-15字，让自己不至于写的太短而不能充分表达想法，也不会字数太长在规定时间内写不完。</li>
-<li>时间，限制时间，避免大脑受环境和周围状况的影响。</li>
-<li>数量，每天写10条，不会过多占用时间，更容易坚持。</li>
-</ul>
-</blockquote>
-<p>书中作者要求在A4纸上写，个人感觉不是很方便，自己目前习惯于通过手机自带的【闪念胶囊】软件来进行记录。记录想法的方法与写<a href="https://mp.weixin.qq.com/s/vCGCMMYgZ2RS6vBouh7gbw" target="_blank" rel="noopener">反思日记</a>有些相似，两者都要求把自己的想法写下来，不同之处在于，反思日记是对自己这一天做的事情进行反思记录，而记笔记是对你时刻产生的想法进行记录。</p>
-<p>目前自己按照这个方法写了10天左右，感觉自己一个很大的变化就是下班回家走在路上，可以通过自问自答的方式来对一个问题进行深入的思考。虽然有时也想着想着就跑偏了，但是自己对于思考这件事情，不再有抵触的情绪。</p>
-<p>书中作者还提供了通过回顾记录来挖掘价值的方法：</p>
-<blockquote>
-<ul>
-<li>回顾自己的笔记， 然后再把笔记的内容当做标题， 每个标题再写4-6行。 这样自己对这类问题的思考会更加的深入。 </li>
-<li>多角度的写一个标题。 让自己对带有个人情感的内容作出更冷静的判断， 能够站在别人的角度去看问题。 </li>
-<li>将笔记按照不同领域来进行分类整理。</li>
-<li>每三个月回顾一次笔记，了解自己面临的问题，探寻自己的成长轨迹。</li>
-</ul>
-</blockquote>
-<p>最后，想说的是，看到一个方法论，我们常常会怀疑这样的方法真的有用吗，但问题本质是看你选择<strong>先相信再看见</strong>，还是<strong>先看见再相信</strong>。 我相信时刻记录想法是一个看似简单却对个人成长大有裨益的方法，所以准备践行100天再看看效果。</p>
-
-          
+          自己时常有这种感觉，总觉得自己的大脑反应很迟钝，思绪比较混乱，看一个问题想法很模糊，有时心情急躁却找不到问题的解决方法。工作中和别人沟通时，有时词不达意，表达不够清晰，导致工作中出现很多问题。自己也明白自己需要更加深入的思考，但总是没有找到好的办法。
+最近在看《零秒思考》这本书，书中作者提供了一个解
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/20/《零秒思考》-读书笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1640,571 +1525,19 @@
       
         
           
-            <p><img src="https://i.loli.net/2019/01/13/5c3ae1c08f107.png" alt="反思日记"></p>
-<blockquote>
-<p>“我应该不会拒绝从头到尾把生活再过一遍，只是希望能够获得唯有作家才有的特权——在‘再版’的生活中修正‘初版’的错误，生活的悲哀之处在于我们总是老得太快而又聪明得太晚，等你不再修正的时候，你也就不再了” ——西塞罗《论老年》</p>
-</blockquote>
-<p>在18年下半年，自己有一种感觉特别的强烈，就是总感觉时间过得飞快，而自己还什么都没有做，一周就完了，甚至自己想不到自己上周主要做了哪些事情。于是，自己想了一个办法，来抵抗这种感觉，就是每天写日记。 </p>
-<p>开始的时候，自己主要是记录自己这一天都干了什么，写了一个月之后，自己总感觉自己是在记流水账，刚好那时候，在看一本书《好好学习：个人知识精力管理指南》，里面提到了通过写反思日记的方法来掌握知识，自己按照里面的方法写了 100 多天，感觉还是非常有用的。 </p>
-<p>反思日记主要分为两个部分，反思与日记。反思就是对自己做的事进行思考，对产生结果的原因进行分析。日记则是要每天都要去写，每天都要对自己的生活进行记录。自己现在更加深刻的认识到， 一个人的变化不是突然发生的， 而是发生在每一天做的事情中的。 </p>
-<p>根据自己的实际情况，我给自己制定了反思模板，每天日记的任务主要是回答自己这7个问题。</p>
-<blockquote>
-<ol>
-<li>今天自己做的不好的事情是什么？</li>
-<li>自己当时是怎么想的， 身体是如何反应的</li>
-<li>如果自己再重新来一次， 自己会如何做</li>
-<li>自己今天做的很好的事情是什么</li>
-<li>自己目前最主要的目标是什么</li>
-<li>自己今天任务的完成情况。</li>
-<li>自己明天的计划是什么</li>
-</ol>
-</blockquote>
-<p>这7个问题背后的原理是这样的：</p>
-<ul>
-<li><p>问题1-3，是对自己思考方式的反思。我们平时做一件事情，是基于 <strong>假设-行动-结果</strong> 这样的过程。 而反思，就是通过 <strong>观察结果-研究原来假设-反思校正假设</strong> 这样的顺序对自己思考的再思考。 </p>
-</li>
-<li><p>问题4， 是为了提高自己的自信心。个人认为自己在生活中不够自信，通过每天记录自己做的事情，来让自己增加自信心。 </p>
-</li>
-<li>问题5，提醒自己时刻盯住自己的目标，为了自己的目标而努力。 </li>
-<li>问题6，对比昨天的计划，监督自己今天任务的完成情况。</li>
-<li>问题7，是为明天的事情，做出一个良好的计划。 </li>
-</ul>
-<p>有时候，翻看自己之前的记录，会发现自己当时会面临这样的问题，回过头来再看也是比较有意思的事情，比如, 翻看自己18年10月22号的日记，发现自己是这样想的：<br><img src="https://i.loli.net/2019/01/13/5c3adb19d656f.jpg" alt="反思日记"></p>
-<p>通过写反思日记，自己发现了一些自己反复会犯的问题。比如：</p>
-<blockquote>
-<p>自己下班一回到房子就什么也不想干，总是在刷微博、看美剧，但是自己在看完之后，自己并没有产生放松的愉悦感，在写反思日记的时候，自己总是懊恼自己为什么这样浪费时间，这实际上是自己的精力管理方面出了问题，认识到这个问题之后，现在自己也在尝试各种方式来恢复自己的精力。 </p>
-</blockquote>
-<p>个人认为培养出记反思日记的习惯还是很有必要的，通过记录自己的生活并不断反思， 能够让我更清醒的认识到自己的不足，从而尝试做出改变。</p>
-<p>作者在《好好学习-个人知识精力管理指南》这本书中还提到了通过写反思日记来进行对标管理，把一本书中的知识进行每日的反思等方法。大家可以根据书中的内容，指定自己的个人反思模板。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/01/06/Hive进阶查询/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="怪兽宇">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://plosti2dy.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180714230136.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="怪兽宇的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/06/Hive进阶查询/" itemprop="url">Hive 查询进阶</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">
-                2019-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/Hive/" itemprop="url" rel="index">
-                    <span itemprop="name">Hive</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
-          
-            
-          
+“我应该不会拒绝从头到尾把生活再过一遍，只是希望能够获得唯有作家才有的特权——在‘再版’的生活中修正‘初版’的错误，生活的悲哀之处在于我们总是老得太快而又聪明得太晚，等你不再修正的时候，你也就不再了” ——西塞罗《论老年》
 
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hive-查询进阶笔记"><a href="#Hive-查询进阶笔记" class="headerlink" title="Hive 查询进阶笔记"></a>Hive 查询进阶笔记</h1><blockquote>
-<p>总结一下最近查询用到的Hive查询。</p>
-</blockquote>
-<blockquote>
-<p>目录：</p>
-<ol>
-<li>Hive 查询性能优化</li>
-<li>求两组数据的并集、交集、差集</li>
-<li>Hive 中查询留存率</li>
-<li>Hive 中的窗口函数</li>
-</ol>
-</blockquote>
-<h3 id="Hive查询性能优化"><a href="#Hive查询性能优化" class="headerlink" title="Hive查询性能优化"></a>Hive查询性能优化</h3><ol>
-<li><p>什么是数据倾斜<br>当我们在Hive上进行查询时，因为数据的分散度不够， 导致大量数据集中在一台或者几台服务器上， 导致数据的计算速度远远低于平均计算速度， 计算过程特别耗时。</p>
-</li>
-<li><p>数据倾斜的表现<br>任务进度长时间维持在99%，查看任务监控页面，发现只有少量子任务未完成。</p>
-</li>
-<li><p>如何避免数据倾斜</p>
-<blockquote>
-<ul>
-<li>sql优化</li>
-<li>业务逻辑优化</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><strong>当数据量特别大时，用 group by 代替 count(distinct)</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 求客户端每日的去重uv</span><br><span class="line">with a1 as (</span><br><span class="line">    select </span><br><span class="line">        hit_date,</span><br><span class="line">        user_account </span><br><span class="line">    from</span><br><span class="line">        android_data</span><br><span class="line">    where</span><br><span class="line">        hit_date between &apos;2018-10-01&apos; and&apos;2018-10-03&apos;</span><br><span class="line">    group by</span><br><span class="line">        hit_date, user_account</span><br><span class="line">)</span><br><span class="line">select  </span><br><span class="line">    hit_date,</span><br><span class="line">    count(user_account) as uv </span><br><span class="line">from</span><br><span class="line">    a1 </span><br><span class="line">group by</span><br><span class="line">    hit_date</span><br><span class="line">order by </span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li><strong>join 优化</strong></li>
-</ul>
-<blockquote>
-<p>将条目少的表/子查询放在 Join 操作符的左边。原因是在 Join 操作的 Reduce 阶段，位于 Join 操作符左边的表的内容会被加载进内存，将条目少的表放在左边，可以有效减少发生错误的几率。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># a, b表中， b表最小</span><br><span class="line">select</span><br><span class="line">    a.price_close, b.price_close</span><br><span class="line">from</span><br><span class="line">    b join a on b.ymd = a.ymd AND b.symbol = a.symbol</span><br><span class="line">where</span><br><span class="line">    a.symbol = &apos;apple&apos;</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li><strong>避免 union all 子查询中使用 group by</strong> 【替换 count(distinct) 除外】、<strong>count(distinct)、max、min等。</strong> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account,</span><br><span class="line">            hit_date</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-13&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;</span><br><span class="line">        union all </span><br><span class="line">        select</span><br><span class="line">            user_account,</span><br><span class="line">            hit_date</span><br><span class="line">        from</span><br><span class="line">            client_ios_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-13&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%支付宝%&quot;)</span><br><span class="line">select</span><br><span class="line">    hit_date,</span><br><span class="line">    count(user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1</span><br><span class="line">group by</span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li><strong>避免不同数据类型进行关联</strong></li>
-</ul>
-<blockquote>
-<p>使用CAST函数对数据类型进行转换，语法为cast(value AS TYPE)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    a.price_close,</span><br><span class="line">    b.price_close</span><br><span class="line">from</span><br><span class="line">    a join b  on a.user_id = cast(b.user_id as string)</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and &apos;2018-11-02&apos;</span><br><span class="line">    and </span><br><span class="line">    a.symbol = &apos;apple&apos;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li><strong>无效ID在关联时的数据倾斜问题</strong></li>
-</ul>
-<blockquote>
-<p>把空值的 key 变成一个字符串加上随机数，就能把倾斜的数据分到不同的 reduce 上 ,解决数据倾斜问题。<br>需要用到Case When … Else…End语法</p>
-</blockquote>
-<p>写法1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Select</span><br><span class="line">    *</span><br><span class="line">From </span><br><span class="line">    a Join  b</span><br><span class="line">On</span><br><span class="line">     a.user_id is not null</span><br><span class="line">And </span><br><span class="line">    a.user_id = b.user_id</span><br><span class="line">Union all</span><br><span class="line">Select</span><br><span class="line">    * </span><br><span class="line">from</span><br><span class="line">    a</span><br><span class="line">where</span><br><span class="line">    a.user_id is null</span><br></pre></td></tr></table></figure></p>
-<p>写法2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Select</span><br><span class="line">    *</span><br><span class="line">From</span><br><span class="line">    a left out Join b</span><br><span class="line">On </span><br><span class="line">Case when </span><br><span class="line">    a.user_id is null </span><br><span class="line">then </span><br><span class="line">    concat(‘dp_hive’,rand() ) </span><br><span class="line">else </span><br><span class="line">    a.user_id = b.user_id end;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<ul>
-<li><p><strong>在查询中， 避免使用 select *, 使用条件限制取需要的列。</strong></p>
-</li>
-<li><p><strong>在使用 Join 进行外关联时， 将副表的过滤条件写在 where 后面，会先全表关联， 再进行过滤， 这样会耗费资源。</strong></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    a.price_close, b.price_close</span><br><span class="line">FROM</span><br><span class="line">    b JOIN a ON b.ymd = a.ymd AND b.symbol = a.symbol</span><br><span class="line">WHERE</span><br><span class="line">    s.symbol = &apos;APPLE&apos;</span><br></pre></td></tr></table></figure>
-<p>正确的写法是将 where 条件卸载 on 后面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    a.price_close, b.price_close</span><br><span class="line">FROM</span><br><span class="line">    b JOIN a ON ( b.ymd = a.ymd AND b.symbol = a.symbol and s.symbol = &apos;APPLE&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="求两组数据的交集，-并集，-差集"><a href="#求两组数据的交集，-并集，-差集" class="headerlink" title="求两组数据的交集， 并集， 差集"></a>求两组数据的交集， 并集， 差集</h3><ol>
-<li><strong>并集</strong></li>
-</ol>
-<p>union 与 union all </p>
-<blockquote>
-<p>union, 结果包含所有行， 并删除重复行<br>unoin all, 结果包含所有行， 但不删除重复行</p>
-</blockquote>
-<p>写法1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;</span><br><span class="line">        union </span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%手淘%&quot;)</span><br><span class="line">select</span><br><span class="line">    count(user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>点击支付宝或者手淘活动的人数总共有 435499 人</p>
-</blockquote>
-<p>写法2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;</span><br><span class="line">        union all </span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%手淘%&quot;)</span><br><span class="line">select</span><br><span class="line">    count(user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>点击支付宝或者手淘活动的次数为 665935</p>
-</blockquote>
-<hr>
-<ol start="2">
-<li><strong>交集-intersect函数</strong></li>
-</ol>
-<p>写法1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;</span><br><span class="line">        intersect</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_ios_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%手淘%&quot;)</span><br><span class="line">select</span><br><span class="line">    count(user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p> 点击支付宝又点击手淘活动的人数为 66174</p>
-</blockquote>
-<hr>
-<ol start="3">
-<li><strong>差集-except 函数 与 join写法</strong></li>
-</ol>
-<p>写法1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;</span><br><span class="line">        except</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%手淘%&quot;)</span><br><span class="line">select</span><br><span class="line">    count(user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
-<p>写法2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">use computer_view;</span><br><span class="line">with a1 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos;</span><br><span class="line">            and</span><br><span class="line">            nbtn_name like &quot;%支付宝%&quot;),</span><br><span class="line">a2 as (</span><br><span class="line">        select</span><br><span class="line">            user_account</span><br><span class="line">        from</span><br><span class="line">            client_android_log_view</span><br><span class="line">        where</span><br><span class="line">            hit_date between &apos;2018-12-20&apos; and &apos;2018-12-25&apos;</span><br><span class="line">        and</span><br><span class="line">        nbtn_name like &quot;%支付宝%&quot;)</span><br><span class="line">select</span><br><span class="line">    count(distinct a1.user_account) as pv</span><br><span class="line">from</span><br><span class="line">    a1 left outer join a2 </span><br><span class="line">    on a1.user_account = a2.user_account</span><br><span class="line">    and a2.user_account is  null</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>只参加支付宝活动， 没有参加手淘活动的人数为 369325<br>在求差集时， 需要注意前后顺序， 否则会出现逻辑错误<br>可以发现， 差集 + 交集 =并集， 369325 +  66174 = 435499</p>
-</blockquote>
-<hr>
-<h3 id="HIVE中查询留存率"><a href="#HIVE中查询留存率" class="headerlink" title="HIVE中查询留存率"></a>HIVE中查询留存率</h3><blockquote>
-<p>求11月10-15号每天的1、3、7日留存率</p>
-</blockquote>
-<p>方法1.</p>
-<blockquote>
-<ol>
-<li>统计每天的uv</li>
-<li>统计上一天与本天uv的交集， 需要每一天做交集</li>
-<li>算出留存率</li>
-</ol>
-</blockquote>
-<p>方法2：</p>
-<blockquote>
-<ol>
-<li>统计每天的uv</li>
-<li>使用date_add 函数， 一次性求出10-15号每一天的次1、3、7日留存</li>
-<li>算出留存率</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 统计10-15号每天uv</span><br><span class="line">SELECT  </span><br><span class="line">    hit_date,</span><br><span class="line">    count(distinct user_account) as uv</span><br><span class="line">FROM</span><br><span class="line">    computer_view.client_android_log_view</span><br><span class="line">WHERE   </span><br><span class="line">    hit_date between  &apos;2018-11-10&apos; and &apos;2018-11-15&apos;</span><br><span class="line">group BY </span><br><span class="line">    hit_date</span><br><span class="line">order BY </span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7</span><br><span class="line">with a1 as (</span><br><span class="line">    select </span><br><span class="line">        user_account,</span><br><span class="line">        hit_date</span><br><span class="line">    from </span><br><span class="line">        computer_view.client_android_log_view</span><br><span class="line">    where </span><br><span class="line">        hit_date between  &apos;2018-11-10&apos; and &apos;2018-11-15&apos;</span><br><span class="line">),</span><br><span class="line">a2 as (</span><br><span class="line">        select </span><br><span class="line">        user_account,</span><br><span class="line">        hit_date</span><br><span class="line">    from </span><br><span class="line">        computer_view.client_android_log_view</span><br><span class="line">    where </span><br><span class="line">        hit_date between &apos;2018-11-10&apos; and &apos;2018-11-25&apos;</span><br><span class="line">)</span><br><span class="line">select </span><br><span class="line">    a1.hit_date,</span><br><span class="line">    count(distinct a1.user_account) as uv</span><br><span class="line">from</span><br><span class="line">    a1 join a2 on a1.user_account = a2.user_account</span><br><span class="line">WHERE   </span><br><span class="line">    a2.hit_date =  date_add(a1.hit_date, 1) </span><br><span class="line">group by </span><br><span class="line">    a1.hit_date</span><br><span class="line">order BY</span><br><span class="line">    a1.hit_date</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="HIVE中的窗口函数"><a href="#HIVE中的窗口函数" class="headerlink" title="HIVE中的窗口函数"></a>HIVE中的窗口函数</h3><ol>
-<li><strong>over 函数</strong><blockquote>
-<p>语法： over(partition by ….)<br>作用： 与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 根据日期 和 mac_id 进行分组求每组的数量和， 并按日期排序</span><br><span class="line">select</span><br><span class="line">    hit_date, </span><br><span class="line">    mac_id,</span><br><span class="line">    mac_color,</span><br><span class="line">    day_num,</span><br><span class="line">    sum(day_num) over(partition by hit_date, mac_id order by hit_date) as sum_num</span><br><span class="line">from</span><br><span class="line">    test.datas</span><br></pre></td></tr></table></figure>
-<hr>
-<table>
-<thead>
-<tr>
-<th>hit_date</th>
-<th>mac_id</th>
-<th>mac_color</th>
-<th>day_num</th>
-<th>sum_num</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20171011</td>
-<td>1292</td>
-<td>金色</td>
-<td>11</td>
-<td>89</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>1292</td>
-<td>黑色</td>
-<td>19</td>
-<td>89</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>1292</td>
-<td>粉金</td>
-<td>58</td>
-<td>89</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>1292</td>
-<td>金色</td>
-<td>1</td>
-<td>89</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>2013</td>
-<td>金色</td>
-<td>9</td>
-<td>22</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>2013</td>
-<td>金色</td>
-<td>3</td>
-<td>22</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>1292</td>
-<td>金色</td>
-<td>5</td>
-<td>18</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>1292</td>
-<td>粉金</td>
-<td>1</td>
-<td>18</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>2013</td>
-<td>粉金</td>
-<td>1</td>
-<td>7</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>2013</td>
-<td>金色</td>
-<td>6</td>
-<td>7</td>
-</tr>
-<tr>
-<td>20171013</td>
-<td>1292</td>
-<td>黑色</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>20171013</td>
-<td>2013</td>
-<td>粉金</td>
-<td>2</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># group by 语句</span><br><span class="line">select</span><br><span class="line">    hit_date,</span><br><span class="line">    mac_id,</span><br><span class="line">    sum(day_num) </span><br><span class="line">from</span><br><span class="line">    test.data</span><br><span class="line">group by</span><br><span class="line">    hit_date,</span><br><span class="line">    mac_id</span><br><span class="line">order by</span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
-<hr>
-<table>
-<thead>
-<tr>
-<th>day_id</th>
-<th>mac_id</th>
-<th>sum_num</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20171011</td>
-<td>124609</td>
-<td>1</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>20130</td>
-<td>22</td>
-</tr>
-<tr>
-<td>20171011</td>
-<td>12922</td>
-<td>89</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>12922</td>
-<td>18</td>
-</tr>
-<tr>
-<td>20171012</td>
-<td>20130</td>
-<td>7</td>
-</tr>
-<tr>
-<td>20171013</td>
-<td>12922</td>
-<td>1</td>
-</tr>
-<tr>
-<td>20171013</td>
-<td>20130</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>over(partition by)  与 group by 的区别<br>grou by 字段只能显示与分组聚合相关的字段， 而 over(partition by)<br>可以显示所有字段</p>
-</blockquote>
-<hr>
-<ol start="2">
-<li><strong>LAG 和 LEAD 函数</strong><blockquote>
-<p>语法： LAG(col,n,DEFAULT) 用于统计窗口内往上第n行值;<br>LEAD(col,n,DEFAULT) 用于统计窗口内往下第n行值</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 计算11月1-10号， 不同日期同一用户登陆客户端 pv 量对比</span><br><span class="line"></span><br><span class="line">with a1 as (select</span><br><span class="line">    user_account,</span><br><span class="line">    count(user_account) as pv,</span><br><span class="line">    hit_date</span><br><span class="line">from</span><br><span class="line">    computer_view.client_android_log_view</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and&apos;2018-11-10&apos;</span><br><span class="line">group by</span><br><span class="line">    user_account, hit_date)</span><br><span class="line">select</span><br><span class="line">    user_account,</span><br><span class="line">    a1.hit_date,</span><br><span class="line">    a1.pv,</span><br><span class="line">    lag(a1.pv, 1) over (partition by user_account order by user_account, a1.hit_date) as pv1,</span><br><span class="line">    lead(a1.pv, 1) over(partition by user_account  order by user_account, a1.hit_date) as pv2</span><br><span class="line">from</span><br><span class="line">    a1</span><br><span class="line">limit 100</span><br></pre></td></tr></table></figure>
-<hr>
-<ol start="3">
-<li><strong>first_value() 和 last_value() 函数 =</strong><blockquote>
-<p>语法:first_value() ：比较每个用户浏览次数与第一天浏览次数进行比较，查询返回当前浏览次数以及第一天浏览次数<br>last_value() ： 比较每个用户浏览次数与最新一天浏览次数进行比较，查询返回当前浏览次数以及最新一天浏览次数</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">with a1 as (select</span><br><span class="line">    distinct user_account,</span><br><span class="line">    count(user_account) as pv,</span><br><span class="line">    hit_date</span><br><span class="line">from</span><br><span class="line">    computer_view.client_android_log_view</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and&apos;2018-11-10&apos;</span><br><span class="line">group by</span><br><span class="line">    user_account, hit_date)</span><br><span class="line">select</span><br><span class="line">    distinct user_account,</span><br><span class="line">    a1.hit_date,</span><br><span class="line">    a1.pv,</span><br><span class="line">    first_value(a1.pv) over (partition by user_account order by user_account, a1.hit_date) as pv1,</span><br><span class="line">    last_value(a1.pv) over(partition by user_account  order by user_account, a1.hit_date) as pv2</span><br><span class="line">from</span><br><span class="line">    a1</span><br><span class="line">limit 100</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><strong>rank、dense_rank、 row_number  排序函数</strong></li>
-</ol>
-<blockquote>
-<p>说明： rank函数， 返回数据项在分组中的排名， 排名相等的会留下空位， 如1、2、2、4<br>dense_rank函数， 返回数据项在分组中的排名， 排名相等的不会留下空位， 如1、2、2、3<br>row_number函数， 返回数据项在分组中的排名， 排名不管数据是否相等， 如1、2、3、4</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    a,</span><br><span class="line">    row_number() over(order by b) row_number,</span><br><span class="line">    rank() over(order by b) rank,</span><br><span class="line">    dense_rank() over(order by b) dense_rank </span><br><span class="line">from </span><br><span class="line">    lijie.test_rank</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>row_number</th>
-<th>rank</th>
-<th>dense_rank</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>C</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>D</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr>
-<td>B</td>
-<td>4</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr>
-<td>E</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr>
-<td>F</td>
-<td>6</td>
-<td>6</td>
-<td>5</td>
-</tr>
-<tr>
-<td>G</td>
-<td>7</td>
-<td>7</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<ol start="5">
-<li>业务问题</li>
-</ol>
-<ul>
-<li>求点击【确认充值】按钮的上一步点击的名称</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">use default;</span><br><span class="line">with a as (</span><br><span class="line">select</span><br><span class="line">    user_account,</span><br><span class="line">    btn_name,</span><br><span class="line">    lag(btn_name, 1) over (partition by user_account order by create_timestamp) as previous_btn_name</span><br><span class="line">from</span><br><span class="line">    computer_view.client_android_log_view</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and&apos;2018-11-01&apos;</span><br><span class="line">    and</span><br><span class="line">    btn_name is not null</span><br><span class="line">having</span><br><span class="line">    btn_name like &apos;确认支付&apos;</span><br><span class="line">)</span><br><span class="line">select</span><br><span class="line">    previous_btn_name,</span><br><span class="line">    count(distinct user_account) as c</span><br><span class="line">from</span><br><span class="line">    a</span><br><span class="line">group by</span><br><span class="line">    previous_btn_name</span><br><span class="line">order by</span><br><span class="line">    c desc</span><br><span class="line">limit</span><br><span class="line">    1000</span><br></pre></td></tr></table></figure>
-<p><img src="http://plosti2dy.bkt.clouddn.com/%E7%A1%AE%E8%AE%A4%E6%94%AF%E4%BB%98%E4%B8%8A%E4%B8%80%E6%AD%A5.png" alt="确认支付上一步"></p>
-<ul>
-<li>上一步点击的名称我已经知道了， 现在要想 之前通过上一步点击这些条件之后， 再点击【确认支付】按钮的 去重uv</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">use default;</span><br><span class="line">with a as (</span><br><span class="line">select</span><br><span class="line">    user_account,</span><br><span class="line">    btn_name,</span><br><span class="line">    lag(btn_name, 1) over (partition by user_account order by create_timestamp) as previous_btn_name</span><br><span class="line">from</span><br><span class="line">    computer_view.client_android_log_view</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and&apos;2018-11-01&apos;</span><br><span class="line">    and</span><br><span class="line">    btn_name is not null</span><br><span class="line">having</span><br><span class="line">    btn_name like &apos;确认支付&apos;</span><br><span class="line">)</span><br><span class="line">select</span><br><span class="line">    count(distinct user_account) as c</span><br><span class="line">from</span><br><span class="line">    a</span><br><span class="line">where</span><br><span class="line">    (previous_btn_name like &quot;%10元%&quot; or </span><br><span class="line">    previous_btn_name like &quot;%30元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%50元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%10元%&quot; or </span><br><span class="line">    previous_btn_name like &quot;%30元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%50元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%100元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%200元%&quot; or</span><br><span class="line">    previous_btn_name like &quot;%300元%&quot; )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>125752</p>
-</blockquote>
-<p>参考：<br><a href="https://www.iteblog.com/archives/category/hive/" target="_blank" rel="noopener">过往记忆——hive</a></p>
-<p>‘SELECT hit_date, btn_navigation ,SUM(uv), SUM(pv) \<br>FROM ( \<br>select  \<br>    btn_navigation,  \<br>    hit_date,  \<br>    count(distinct user_account) uv,  \<br>    count(user_account) pv  \<br>from  \<br>    computer_view.client_android_log_view  \<br>where  \<br>    hit_date between “{}” and “{}”  \<br>    and  \<br>    app_version = “7.1.0”  \<br>group by  \<br>    btn_navigation, hit_date  \<br>order by  \<br>    btn_navigation, hit_date \<br>) cb_view  \<br>GROUP BY hit_date, btn_navigation</p>
-
-          
+在18年下半年，自己有一种感觉特别的强烈，就是总感觉时间过得飞快，而自
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/13/反思日记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2355,17 +1688,190 @@
       
         
           
-            <p>自我救赎</p>
-<p>童年遭受过负面的人，自控力和延迟自我满足的能力较弱。</p>
-<p>对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，<br>更不值得放弃眼前就能得到的快乐。</p>
-<p>匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受他人的帮助，就会提醒他们再次想起那种<br>匮乏感， 以及那种匮乏感所带来的羞耻感、面对他人的自卑感、没有力量的虚弱感。</p>
-<p>痛楚感能够帮助我们对自我的情绪更有洞察力。在痛楚感发生时，人们为了减轻这种不适感，被迫去不断思考，<br>探寻思考这种痛楚从何而来？自己究竟为什么感到痛苦？痛楚感是我们自我分析、理解他人、思考世界的最重要的原动力。 </p>
-<p>成长过程中有很多痛楚感的孩子，在长大后成为那些更深刻、更敏锐、更能接受和处理人和生活本质的复杂性的人。 </p>
-<ol>
-<li>以更开放的视角去看待不幸<br>每天花时间，写下你人生中的痛苦给你带来的积极和消极的影响。</li>
-</ol>
+          自我救赎
+童年遭受过负面的人，自控力和延迟自我满足的能力较弱。
+对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，更不值得放弃眼前就能得到的快乐。
+匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/06/自我救赎/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/01/06/Hive进阶查询/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="怪兽宇">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://plosti2dy.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180714230136.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="怪兽宇的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/06/Hive进阶查询/" itemprop="url">Hive 查询进阶</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">
+                2019-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/Hive/" itemprop="url" rel="index">
+                    <span itemprop="name">Hive</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Hive 查询进阶笔记
+总结一下最近查询用到的Hive查询。
+
+
+目录：
+
+Hive 查询性能优化
+求两组数据的并集、交集、差集
+Hive 中查询留存率
+Hive 中的窗口函数
+
+
+Hive查询性能优化
+什么是数据倾斜当我们在Hive上进行查询时，因为数据的分散度不够， 导致大量数据集中在一台或者几
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/06/Hive进阶查询/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
