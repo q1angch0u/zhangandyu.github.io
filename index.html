@@ -711,6 +711,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/02/17/报表-临时需求-异常分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="怪兽宇的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/17/报表-临时需求-异常分析/" itemprop="url">业务分析——工作报表、临时需求、异常数据排查</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T00:00:00+08:00">
+                2019-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/各项细分/" itemprop="url" rel="index">
+                    <span itemprop="name">各项细分</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、-日报、周报、月报"><a href="#一、-日报、周报、月报" class="headerlink" title="一、 日报、周报、月报"></a>一、 日报、周报、月报</h3><div class="video-container"><iframe src="//www.youtube.com/embed/video_id" frameborder="0" allowfullscreen></iframe></div>
+<p>日报</p>
+<blockquote>
+<p>日报每天都要看。<br>编写数据脚本，实现日报半自动化。 </p>
+</blockquote>
+<p>为什么每天要看日报：</p>
+<ul>
+<li><p>了解公司业务现状<br>  当公司同事询问数据时，能够做到对基础的业务数据脱口而出,一定要对公司的核心指标数据熟记于心</p>
+</li>
+<li><p>培养个人数据敏感性<br>  当每天看数据时，都能够看到数据的波动变化。比如每日客户端活跃用户数都是在550-600万用户之间，突然一天增长到605万，能够做到有所怀疑，并进一步寻找原因。这就是数据敏感性。 </p>
+</li>
+<li><p>提供业务发展建议<br>  通过日报的数据观察，能够知道当产品运营做出哪些优化时， 数据会出现涨跌情况，给业务运营提供发展建议。 </p>
+<p>周报</p>
+<blockquote>
+<p>看短期趋势。</p>
+</blockquote>
+</li>
+</ul>
+<p>周报作用：</p>
+<ul>
+<li>新版本发布往往一到两周，通过一周的时间长短， 可以分析APP新版本的改版效果。</li>
+<li>一周的数据更加稳定， 有说服力。 </li>
+</ul>
+<p> 月报</p>
+<blockquote>
+<p>给出建议。</p>
+</blockquote>
+<p>月报内容：</p>
+<ul>
+<li><p>通过月报对公司业务进行梳理，月报一定要有给业务运营的建议，不能只是罗列数据。 </p>
+</li>
+<li><p>当通过数据变化发现某些活动效果好时， 一定要把分析原因放到月报里去展现，让所有管理层知道，从而推送业务的发展。</p>
+</li>
+</ul>
+<hr>
+<h3 id="二、临时数据需求"><a href="#二、临时数据需求" class="headerlink" title="二、临时数据需求"></a>二、临时数据需求</h3><ol>
+<li>管理层需求：</li>
+</ol>
+<ul>
+<li>优先级最高</li>
+<li>了解需求背景，思考为何要这个数据， 通过这个数据可以进行哪些决策</li>
+<li>一定要进行核对，不能出错，只能给一遍。</li>
+<li>必须时候找上级进行询问</li>
+</ul>
+<ol start="2">
+<li>业务需求：</li>
+</ol>
+<ul>
+<li>询问为何要这个数据</li>
+<li>建立该业务类的分析框架</li>
+<li>只给业务方最核心的需求，其他延伸需求让自己去取数</li>
+<li>坚决不做提数机</li>
+</ul>
+<blockquote>
+<p>例如： 优惠券的使用情况如何，如何优化？<br>建立分析框架：</p>
+<ul>
+<li>优惠券的下发人数</li>
+<li>优惠券的点击人数</li>
+<li>优惠券的使用人数</li>
+<li>优惠券的使用金额</li>
+<li>用户消费优惠券的频次</li>
+<li>优惠券的消费时段</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="三、数据异常排查"><a href="#三、数据异常排查" class="headerlink" title="三、数据异常排查"></a>三、数据异常排查</h3><p>清楚以下三点：</p>
+<ol>
+<li>业务理解</li>
+<li>指标口径</li>
+<li>当前数据产出过程</li>
+</ol>
+<p>数据异常原因分析：</p>
+<ol>
+<li>数据有问题</li>
+</ol>
+<ul>
+<li>将时间轴拉长，看数据是近期异常还是历史异常，对比近三个月数据。</li>
+<li>查看和该指标关联的其他核心指标是否也异常，如果异常，也要一并查看。</li>
+<li>核查埋点是否有问题， 数据是否存在多发情况。</li>
+<li>业务口径是否有问题， 取的数据是不是真正需要的数据。</li>
+<li>写的sql逻辑是否有误， 或者android 和 ios 数据没有相加。 </li>
+</ul>
+<ol start="2">
+<li>业务发生了变化</li>
+</ol>
+<ul>
+<li>同口径下，同比环比数据是否异常， 在长时间轴的条件下进行对比</li>
+<li>进行细拆， 看到底是哪个指标的数据出现了异常， 将该指标和相关的指标一起进行对比</li>
+<li>与负责此指标的负责人进行沟通， 询问他们近期是否做了推广活动。</li>
+<li>产品最近是否发布了新版本，或者某个功能改版存在缺陷问题。 </li>
+</ul>
+<ol start="3">
+<li>其他因素影响</li>
+</ol>
+<ul>
+<li>假期效应： 开学季， 暑期， 四大节日，当地节日</li>
+<li>热点事件：常规热点如运动会，世界杯，其他热点事件</li>
+<li>活动影响： 双11， 618， 支付宝送红包</li>
+<li>政策影响： 金融监管</li>
+<li>底层系统故障： 服务器迁移导致数据丢失</li>
+<li>存在外部刷量作弊情况</li>
+<li>统计口径： 业务逻辑进行了更改， 之前某业务有统计， 但现在不统计了。  数据计算方式改变</li>
+</ul>
+<p>要对异常排查进行闭环</p>
+<ol>
+<li>持续跟踪后期数据是否再次异常<br>比如7.0版本数据存在多发现象， 但7.1版本开发说已更改， 当7.1版本发布之后， 要及时去查看数据是否再次异常。 </li>
+<li>对数据异常一定要记录， 对异常口径要留文档。</li>
+<li>邮件化， 当数据异常排查原因查明， 并且确认更改之后， 发邮件给相关方， 描述数据异常的影响范围和主要结论。 </li>
+</ol>
+<hr>
+<p>作为一名数据分析师， 一定要经常去看这三种报表，培养自己的数据敏感度，了解业务的各种核心指标。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/02/17/《刻意学习》读书笔记 /">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -979,269 +1242,6 @@
         
           
             
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/02/17/报表-临时需求-异常分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZY">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="怪兽宇的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/17/报表-临时需求-异常分析/" itemprop="url">业务分析——工作报表、临时需求、异常数据排查</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T00:00:00+08:00">
-                2019-02-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/" itemprop="url" rel="index">
-                    <span itemprop="name">数据分析</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/各项细分/" itemprop="url" rel="index">
-                    <span itemprop="name">各项细分</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、-日报、周报、月报"><a href="#一、-日报、周报、月报" class="headerlink" title="一、 日报、周报、月报"></a>一、 日报、周报、月报</h3><div class="video-container"><iframe src="//www.youtube.com/embed/video_id" frameborder="0" allowfullscreen></iframe></div>
-<p>日报</p>
-<blockquote>
-<p>日报每天都要看。<br>编写数据脚本，实现日报半自动化。 </p>
-</blockquote>
-<p>为什么每天要看日报：</p>
-<ul>
-<li><p>了解公司业务现状<br>  当公司同事询问数据时，能够做到对基础的业务数据脱口而出,一定要对公司的核心指标数据熟记于心</p>
-</li>
-<li><p>培养个人数据敏感性<br>  当每天看数据时，都能够看到数据的波动变化。比如每日客户端活跃用户数都是在550-600万用户之间，突然一天增长到605万，能够做到有所怀疑，并进一步寻找原因。这就是数据敏感性。 </p>
-</li>
-<li><p>提供业务发展建议<br>  通过日报的数据观察，能够知道当产品运营做出哪些优化时， 数据会出现涨跌情况，给业务运营提供发展建议。 </p>
-<p>周报</p>
-<blockquote>
-<p>看短期趋势。</p>
-</blockquote>
-</li>
-</ul>
-<p>周报作用：</p>
-<ul>
-<li>新版本发布往往一到两周，通过一周的时间长短， 可以分析APP新版本的改版效果。</li>
-<li>一周的数据更加稳定， 有说服力。 </li>
-</ul>
-<p> 月报</p>
-<blockquote>
-<p>给出建议。</p>
-</blockquote>
-<p>月报内容：</p>
-<ul>
-<li><p>通过月报对公司业务进行梳理，月报一定要有给业务运营的建议，不能只是罗列数据。 </p>
-</li>
-<li><p>当通过数据变化发现某些活动效果好时， 一定要把分析原因放到月报里去展现，让所有管理层知道，从而推送业务的发展。</p>
-</li>
-</ul>
-<hr>
-<h3 id="二、临时数据需求"><a href="#二、临时数据需求" class="headerlink" title="二、临时数据需求"></a>二、临时数据需求</h3><ol>
-<li>管理层需求：</li>
-</ol>
-<ul>
-<li>优先级最高</li>
-<li>了解需求背景，思考为何要这个数据， 通过这个数据可以进行哪些决策</li>
-<li>一定要进行核对，不能出错，只能给一遍。</li>
-<li>必须时候找上级进行询问</li>
-</ul>
-<ol start="2">
-<li>业务需求：</li>
-</ol>
-<ul>
-<li>询问为何要这个数据</li>
-<li>建立该业务类的分析框架</li>
-<li>只给业务方最核心的需求，其他延伸需求让自己去取数</li>
-<li>坚决不做提数机</li>
-</ul>
-<blockquote>
-<p>例如： 优惠券的使用情况如何，如何优化？<br>建立分析框架：</p>
-<ul>
-<li>优惠券的下发人数</li>
-<li>优惠券的点击人数</li>
-<li>优惠券的使用人数</li>
-<li>优惠券的使用金额</li>
-<li>用户消费优惠券的频次</li>
-<li>优惠券的消费时段</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="三、数据异常排查"><a href="#三、数据异常排查" class="headerlink" title="三、数据异常排查"></a>三、数据异常排查</h3><p>清楚以下三点：</p>
-<ol>
-<li>业务理解</li>
-<li>指标口径</li>
-<li>当前数据产出过程</li>
-</ol>
-<p>数据异常原因分析：</p>
-<ol>
-<li>数据有问题</li>
-</ol>
-<ul>
-<li>将时间轴拉长，看数据是近期异常还是历史异常，对比近三个月数据。</li>
-<li>查看和该指标关联的其他核心指标是否也异常，如果异常，也要一并查看。</li>
-<li>核查埋点是否有问题， 数据是否存在多发情况。</li>
-<li>业务口径是否有问题， 取的数据是不是真正需要的数据。</li>
-<li>写的sql逻辑是否有误， 或者android 和 ios 数据没有相加。 </li>
-</ul>
-<ol start="2">
-<li>业务发生了变化</li>
-</ol>
-<ul>
-<li>同口径下，同比环比数据是否异常， 在长时间轴的条件下进行对比</li>
-<li>进行细拆， 看到底是哪个指标的数据出现了异常， 将该指标和相关的指标一起进行对比</li>
-<li>与负责此指标的负责人进行沟通， 询问他们近期是否做了推广活动。</li>
-<li>产品最近是否发布了新版本，或者某个功能改版存在缺陷问题。 </li>
-</ul>
-<ol start="3">
-<li>其他因素影响</li>
-</ol>
-<ul>
-<li>假期效应： 开学季， 暑期， 四大节日，当地节日</li>
-<li>热点事件：常规热点如运动会，世界杯，其他热点事件</li>
-<li>活动影响： 双11， 618， 支付宝送红包</li>
-<li>政策影响： 金融监管</li>
-<li>底层系统故障： 服务器迁移导致数据丢失</li>
-<li>存在外部刷量作弊情况</li>
-<li>统计口径： 业务逻辑进行了更改， 之前某业务有统计， 但现在不统计了。  数据计算方式改变</li>
-</ul>
-<p>要对异常排查进行闭环</p>
-<ol>
-<li>持续跟踪后期数据是否再次异常<br>比如7.0版本数据存在多发现象， 但7.1版本开发说已更改， 当7.1版本发布之后， 要及时去查看数据是否再次异常。 </li>
-<li>对数据异常一定要记录， 对异常口径要留文档。</li>
-<li>邮件化， 当数据异常排查原因查明， 并且确认更改之后， 发邮件给相关方， 描述数据异常的影响范围和主要结论。 </li>
-</ol>
-<hr>
-<p>作为一名数据分析师， 一定要经常去看这三种报表，培养自己的数据敏感度，了解业务的各种核心指标。</p>
-
           
         
       
@@ -1819,6 +1819,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/01/06/自我救赎/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="怪兽宇的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/06/自我救赎/" itemprop="url">个人情绪控制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">
+                2019-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人系统/" itemprop="url" rel="index">
+                    <span itemprop="name">个人系统</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人系统/阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">阅读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自我救赎</p>
+<p>童年遭受过负面的人，自控力和延迟自我满足的能力较弱。</p>
+<p>对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，<br>更不值得放弃眼前就能得到的快乐。</p>
+<p>匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受他人的帮助，就会提醒他们再次想起那种<br>匮乏感， 以及那种匮乏感所带来的羞耻感、面对他人的自卑感、没有力量的虚弱感。</p>
+<p>痛楚感能够帮助我们对自我的情绪更有洞察力。在痛楚感发生时，人们为了减轻这种不适感，被迫去不断思考，<br>探寻思考这种痛楚从何而来？自己究竟为什么感到痛苦？痛楚感是我们自我分析、理解他人、思考世界的最重要的原动力。 </p>
+<p>成长过程中有很多痛楚感的孩子，在长大后成为那些更深刻、更敏锐、更能接受和处理人和生活本质的复杂性的人。 </p>
+<ol>
+<li>以更开放的视角去看待不幸<br>每天花时间，写下你人生中的痛苦给你带来的积极和消极的影响。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/01/06/Hive进阶查询/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2333,167 +2494,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/01/06/自我救赎/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZY">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="怪兽宇的小站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/06/自我救赎/" itemprop="url">个人情绪控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T00:00:00+08:00">
-                2019-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/个人系统/" itemprop="url" rel="index">
-                    <span itemprop="name">个人系统</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/个人系统/阅读/" itemprop="url" rel="index">
-                    <span itemprop="name">阅读</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>自我救赎</p>
-<p>童年遭受过负面的人，自控力和延迟自我满足的能力较弱。</p>
-<p>对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，<br>更不值得放弃眼前就能得到的快乐。</p>
-<p>匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受他人的帮助，就会提醒他们再次想起那种<br>匮乏感， 以及那种匮乏感所带来的羞耻感、面对他人的自卑感、没有力量的虚弱感。</p>
-<p>痛楚感能够帮助我们对自我的情绪更有洞察力。在痛楚感发生时，人们为了减轻这种不适感，被迫去不断思考，<br>探寻思考这种痛楚从何而来？自己究竟为什么感到痛苦？痛楚感是我们自我分析、理解他人、思考世界的最重要的原动力。 </p>
-<p>成长过程中有很多痛楚感的孩子，在长大后成为那些更深刻、更敏锐、更能接受和处理人和生活本质的复杂性的人。 </p>
-<ol>
-<li>以更开放的视角去看待不幸<br>每天花时间，写下你人生中的痛苦给你带来的积极和消极的影响。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2713,10 +2713,10 @@
 
 
 
-  
-  
 
 
+  
+  
 
 
 
@@ -2761,7 +2761,7 @@
 
   
   
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
   
 
 
