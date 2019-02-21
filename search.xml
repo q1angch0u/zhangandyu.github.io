@@ -76,18 +76,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[个人情绪控制]]></title>
-    <url>%2F2019%2F01%2F06%2F%E8%87%AA%E6%88%91%E6%95%91%E8%B5%8E%2F</url>
-    <content type="text"><![CDATA[自我救赎 童年遭受过负面的人，自控力和延迟自我满足的能力较弱。 对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，更不值得放弃眼前就能得到的快乐。 匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受他人的帮助，就会提醒他们再次想起那种匮乏感， 以及那种匮乏感所带来的羞耻感、面对他人的自卑感、没有力量的虚弱感。 痛楚感能够帮助我们对自我的情绪更有洞察力。在痛楚感发生时，人们为了减轻这种不适感，被迫去不断思考，探寻思考这种痛楚从何而来？自己究竟为什么感到痛苦？痛楚感是我们自我分析、理解他人、思考世界的最重要的原动力。 成长过程中有很多痛楚感的孩子，在长大后成为那些更深刻、更敏锐、更能接受和处理人和生活本质的复杂性的人。 以更开放的视角去看待不幸每天花时间，写下你人生中的痛苦给你带来的积极和消极的影响。]]></content>
-      <categories>
-        <category>个人系统</category>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>情绪</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Hive 查询进阶]]></title>
     <url>%2F2019%2F01%2F06%2FHive%E8%BF%9B%E9%98%B6%E6%9F%A5%E8%AF%A2%2F</url>
     <content type="text"><![CDATA[Hive 查询进阶笔记 总结一下最近查询用到的Hive查询。 目录： Hive 查询性能优化 求两组数据的并集、交集、差集 Hive 中查询留存率 Hive 中的窗口函数 Hive查询性能优化 什么是数据倾斜当我们在Hive上进行查询时，因为数据的分散度不够， 导致大量数据集中在一台或者几台服务器上， 导致数据的计算速度远远低于平均计算速度， 计算过程特别耗时。 数据倾斜的表现任务进度长时间维持在99%，查看任务监控页面，发现只有少量子任务未完成。 如何避免数据倾斜 sql优化 业务逻辑优化 当数据量特别大时，用 group by 代替 count(distinct) 123456789101112131415161718192021# 求客户端每日的去重uvwith a1 as ( select hit_date, user_account from android_data where hit_date between &apos;2018-10-01&apos; and&apos;2018-10-03&apos; group by hit_date, user_account)select hit_date, count(user_account) as uv from a1 group by hit_dateorder by hit_date join 优化 将条目少的表/子查询放在 Join 操作符的左边。原因是在 Join 操作的 Reduce 阶段，位于 Join 操作符左边的表的内容会被加载进内存，将条目少的表放在左边，可以有效减少发生错误的几率。 1234567# a, b表中， b表最小select a.price_close, b.price_closefrom b join a on b.ymd = a.ymd AND b.symbol = a.symbolwhere a.symbol = &apos;apple&apos; 避免 union all 子查询中使用 group by 【替换 count(distinct) 除外】、count(distinct)、max、min等。 12345678910111213141516171819202122232425262728use computer_view;with a1 as ( select user_account, hit_date from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-13&apos; and nbtn_name like &quot;%支付宝%&quot; union all select user_account, hit_date from client_ios_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-13&apos; and nbtn_name like &quot;%支付宝%&quot;)select hit_date, count(user_account) as pvfrom a1group by hit_date 避免不同数据类型进行关联 使用CAST函数对数据类型进行转换，语法为cast(value AS TYPE)123456789select a.price_close, b.price_closefrom a join b on a.user_id = cast(b.user_id as string)where hit_date between &apos;2018-11-01&apos; and &apos;2018-11-02&apos; and a.symbol = &apos;apple&apos; 无效ID在关联时的数据倾斜问题 把空值的 key 变成一个字符串加上随机数，就能把倾斜的数据分到不同的 reduce 上 ,解决数据倾斜问题。需要用到Case When … Else…End语法 写法1：123456789101112131415Select *From a Join bOn a.user_id is not nullAnd a.user_id = b.user_idUnion allSelect * from awhere a.user_id is null 写法2：1234567891011Select *From a left out Join bOn Case when a.user_id is null then concat(‘dp_hive’,rand() ) else a.user_id = b.user_id end; 在查询中， 避免使用 select *, 使用条件限制取需要的列。 在使用 Join 进行外关联时， 将副表的过滤条件写在 where 后面，会先全表关联， 再进行过滤， 这样会耗费资源。 123456SELECT a.price_close, b.price_closeFROM b JOIN a ON b.ymd = a.ymd AND b.symbol = a.symbolWHERE s.symbol = &apos;APPLE&apos; 正确的写法是将 where 条件卸载 on 后面 1234SELECT a.price_close, b.price_closeFROM b JOIN a ON ( b.ymd = a.ymd AND b.symbol = a.symbol and s.symbol = &apos;APPLE&apos;) 求两组数据的交集， 并集， 差集 并集 union 与 union all union, 结果包含所有行， 并删除重复行unoin all, 结果包含所有行， 但不删除重复行 写法1：1234567891011121314151617181920212223use computer_view;with a1 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%支付宝%&quot; union select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%手淘%&quot;)select count(user_account) as pvfrom a1 点击支付宝或者手淘活动的人数总共有 435499 人 写法2：1234567891011121314151617181920212223use computer_view;with a1 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%支付宝%&quot; union all select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%手淘%&quot;)select count(user_account) as pvfrom a1 点击支付宝或者手淘活动的次数为 665935 交集-intersect函数 写法1：1234567891011121314151617181920212223use computer_view;with a1 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%支付宝%&quot; intersect select user_account from client_ios_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-02&apos; and nbtn_name like &quot;%手淘%&quot;)select count(user_account) as pvfrom a1 点击支付宝又点击手淘活动的人数为 66174 差集-except 函数 与 join写法 写法1：1234567891011121314151617181920212223use computer_view;with a1 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos; and nbtn_name like &quot;%支付宝%&quot; except select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos; and nbtn_name like &quot;%手淘%&quot;)select count(user_account) as pvfrom a1 写法2：12345678910111213141516171819202122232425use computer_view;with a1 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-01&apos; and &apos;2018-12-25&apos; and nbtn_name like &quot;%支付宝%&quot;),a2 as ( select user_account from client_android_log_view where hit_date between &apos;2018-12-20&apos; and &apos;2018-12-25&apos; and nbtn_name like &quot;%支付宝%&quot;)select count(distinct a1.user_account) as pvfrom a1 left outer join a2 on a1.user_account = a2.user_account and a2.user_account is null 只参加支付宝活动， 没有参加手淘活动的人数为 369325在求差集时， 需要注意前后顺序， 否则会出现逻辑错误可以发现， 差集 + 交集 =并集， 369325 + 66174 = 435499 HIVE中查询留存率 求11月10-15号每天的1、3、7日留存率 方法1. 统计每天的uv 统计上一天与本天uv的交集， 需要每一天做交集 算出留存率 方法2： 统计每天的uv 使用date_add 函数， 一次性求出10-15号每一天的次1、3、7日留存 算出留存率 123456789101112# 统计10-15号每天uvSELECT hit_date, count(distinct user_account) as uvFROM computer_view.client_android_log_viewWHERE hit_date between &apos;2018-11-10&apos; and &apos;2018-11-15&apos;group BY hit_dateorder BY hit_date 123456789101112131415161718192021222324252627282930# 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7with a1 as ( select user_account, hit_date from computer_view.client_android_log_view where hit_date between &apos;2018-11-10&apos; and &apos;2018-11-15&apos;),a2 as ( select user_account, hit_date from computer_view.client_android_log_view where hit_date between &apos;2018-11-10&apos; and &apos;2018-11-25&apos;)select a1.hit_date, count(distinct a1.user_account) as uvfrom a1 join a2 on a1.user_account = a2.user_accountWHERE a2.hit_date = date_add(a1.hit_date, 1) group by a1.hit_dateorder BY a1.hit_date HIVE中的窗口函数 over 函数 语法： over(partition by ….)作用： 与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能 123456789# 根据日期 和 mac_id 进行分组求每组的数量和， 并按日期排序select hit_date, mac_id, mac_color, day_num, sum(day_num) over(partition by hit_date, mac_id order by hit_date) as sum_numfrom test.datas hit_date mac_id mac_color day_num sum_num 20171011 1292 金色 11 89 20171011 1292 黑色 19 89 20171011 1292 粉金 58 89 20171011 1292 金色 1 89 20171011 2013 金色 9 22 20171011 2013 金色 3 22 20171012 1292 金色 5 18 20171012 1292 粉金 1 18 20171012 2013 粉金 1 7 20171012 2013 金色 6 7 20171013 1292 黑色 1 1 20171013 2013 粉金 2 2 123456789101112# group by 语句select hit_date, mac_id, sum(day_num) from test.datagroup by hit_date, mac_idorder by hit_date day_id mac_id sum_num 20171011 124609 1 20171011 20130 22 20171011 12922 89 20171012 12922 18 20171012 20130 7 20171013 12922 1 20171013 20130 2 over(partition by) 与 group by 的区别grou by 字段只能显示与分组聚合相关的字段， 而 over(partition by)可以显示所有字段 LAG 和 LEAD 函数 语法： LAG(col,n,DEFAULT) 用于统计窗口内往上第n行值;LEAD(col,n,DEFAULT) 用于统计窗口内往下第n行值 123456789101112131415161718192021# 计算11月1-10号， 不同日期同一用户登陆客户端 pv 量对比with a1 as (select user_account, count(user_account) as pv, hit_datefrom computer_view.client_android_log_viewwhere hit_date between &apos;2018-11-01&apos; and&apos;2018-11-10&apos;group by user_account, hit_date)select user_account, a1.hit_date, a1.pv, lag(a1.pv, 1) over (partition by user_account order by user_account, a1.hit_date) as pv1, lead(a1.pv, 1) over(partition by user_account order by user_account, a1.hit_date) as pv2from a1limit 100 first_value() 和 last_value() 函数 = 语法:first_value() ：比较每个用户浏览次数与第一天浏览次数进行比较，查询返回当前浏览次数以及第一天浏览次数last_value() ： 比较每个用户浏览次数与最新一天浏览次数进行比较，查询返回当前浏览次数以及最新一天浏览次数 12345678910111213141516171819with a1 as (select distinct user_account, count(user_account) as pv, hit_datefrom computer_view.client_android_log_viewwhere hit_date between &apos;2018-11-01&apos; and&apos;2018-11-10&apos;group by user_account, hit_date)select distinct user_account, a1.hit_date, a1.pv, first_value(a1.pv) over (partition by user_account order by user_account, a1.hit_date) as pv1, last_value(a1.pv) over(partition by user_account order by user_account, a1.hit_date) as pv2from a1limit 100 rank、dense_rank、 row_number 排序函数 说明： rank函数， 返回数据项在分组中的排名， 排名相等的会留下空位， 如1、2、2、4dense_rank函数， 返回数据项在分组中的排名， 排名相等的不会留下空位， 如1、2、2、3row_number函数， 返回数据项在分组中的排名， 排名不管数据是否相等， 如1、2、3、4 1234567select a, row_number() over(order by b) row_number, rank() over(order by b) rank, dense_rank() over(order by b) dense_rank from lijie.test_rank a row_number rank dense_rank A 1 1 1 C 2 2 2 D 3 3 3 B 4 3 3 E 5 5 4 F 6 6 5 G 7 7 6 业务问题 求点击【确认充值】按钮的上一步点击的名称 1234567891011121314151617181920212223242526use default;with a as (select user_account, btn_name, lag(btn_name, 1) over (partition by user_account order by create_timestamp) as previous_btn_namefrom computer_view.client_android_log_viewwhere hit_date between &apos;2018-11-01&apos; and&apos;2018-11-01&apos; and btn_name is not nullhaving btn_name like &apos;确认支付&apos;)select previous_btn_name, count(distinct user_account) as cfrom agroup by previous_btn_nameorder by c desclimit 1000 上一步点击的名称我已经知道了， 现在要想 之前通过上一步点击这些条件之后， 再点击【确认支付】按钮的 去重uv 1234567891011121314151617181920212223242526272829use default;with a as (select user_account, btn_name, lag(btn_name, 1) over (partition by user_account order by create_timestamp) as previous_btn_namefrom computer_view.client_android_log_viewwhere hit_date between &apos;2018-11-01&apos; and&apos;2018-11-01&apos; and btn_name is not nullhaving btn_name like &apos;确认支付&apos;)select count(distinct user_account) as cfrom awhere (previous_btn_name like &quot;%10元%&quot; or previous_btn_name like &quot;%30元%&quot; or previous_btn_name like &quot;%50元%&quot; or previous_btn_name like &quot;%10元%&quot; or previous_btn_name like &quot;%30元%&quot; or previous_btn_name like &quot;%50元%&quot; or previous_btn_name like &quot;%100元%&quot; or previous_btn_name like &quot;%200元%&quot; or previous_btn_name like &quot;%300元%&quot; ) 125752 参考：过往记忆——hive ‘SELECT hit_date, btn_navigation ,SUM(uv), SUM(pv) \FROM ( \select \ btn_navigation, \ hit_date, \ count(distinct user_account) uv, \ count(user_account) pv \from \ computer_view.client_android_log_view \where \ hit_date between “{}” and “{}” \ and \ app_version = “7.1.0” \group by \ btn_navigation, hit_date \order by \ btn_navigation, hit_date \) cb_view \GROUP BY hit_date, btn_navigation]]></content>
@@ -101,35 +89,21 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[营销活动分析]]></title>
-    <url>%2F2018%2F12%2F22%2F%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[个人情绪控制]]></title>
+    <url>%2F2019%2F01%2F06%2F%E8%87%AA%E6%88%91%E6%95%91%E8%B5%8E%2F</url>
+    <content type="text"><![CDATA[自我救赎 童年遭受过负面的人，自控力和延迟自我满足的能力较弱。 对生活在不可预测的环境中的孩子来说，未来是不可信赖的，不值得等待的，更不值得放弃眼前就能得到的快乐。 匮乏感让人不愿意接受他人的帮助。 一个在资源充足的环境中长大的人，反而更容易要求或者接受别人的帮助。 但对于匮乏感强烈的孩子来说，接受他人的帮助，就会提醒他们再次想起那种匮乏感， 以及那种匮乏感所带来的羞耻感、面对他人的自卑感、没有力量的虚弱感。 痛楚感能够帮助我们对自我的情绪更有洞察力。在痛楚感发生时，人们为了减轻这种不适感，被迫去不断思考，探寻思考这种痛楚从何而来？自己究竟为什么感到痛苦？痛楚感是我们自我分析、理解他人、思考世界的最重要的原动力。 成长过程中有很多痛楚感的孩子，在长大后成为那些更深刻、更敏锐、更能接受和处理人和生活本质的复杂性的人。 以更开放的视角去看待不幸每天花时间，写下你人生中的痛苦给你带来的积极和消极的影响。]]></content>
       <categories>
-        <category>数据分析</category>
-        <category>各项细分</category>
+        <category>个人系统</category>
+        <category>阅读</category>
       </categories>
       <tags>
-        <tag>数据分析</tag>
-        <tag>活动分析</tag>
+        <tag>情绪</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[面试问题]]></title>
-    <url>%2F2018%2F12%2F22%2F%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[面试问题 工作中， 提数数据时，有没有遇到过数据倾斜问题， 什么是数据倾斜， 如何避免数据倾斜问题?]]></content>
-      <categories>
-        <category>数据分析</category>
-        <category>各项细分</category>
-      </categories>
-      <tags>
-        <tag>数据分析</tag>
-        <tag>面试问题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[专题分析]]></title>
-    <url>%2F2018%2F12%2F22%2F%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[专题分析数据分析师的一个重要考核， 就是专题分析的效果 需求沟通 一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告 例如上线活动效果的专题分析流程： 业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。 活动效果的数据情况 目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些 活动的拉新、促活，用户粘性情况， 活动效果的优劣 通过逻辑树进行整理 建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。 通过SQL进行取数验证 分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘 撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。 项目专题分析的特征 有目标——围绕项目KPI来进行。 有节奏——2-3周输出一份完整的报告。 有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。 3.专题分析实战 项目背景：电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 第1阶段：新用户留存整体分析目的： 摸清数据现状， 同时找到若干个切入点。关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 第2阶段： 寻找优化切入点， 一般是1-2个。比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 第3阶段： 不断重复前两个阶段， 继续寻找其他切入点。 同时进行竞品分析， 营销活动分析，用户流失分析等等 每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环， 评判数据分析师的标准： 产出专题分析的质量和数量。 质量就是数据分析落地的点和提神的kpi。 改版分析 新改版页面的效果怎么样？ 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。 分析方向： 改版后， 新功能是否受欢迎 改版后， 对产品的流程转化率是否有提升 改版后， 对产品的整体留存的影响 改版后， 用户究竟如何使用新功 功能活跃比新功能的用户数 / 同期客户端活跃用户数 漏斗转化提升 次日留存、周留存、月留存等指标是否朝着更好的方向发展。 用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。]]></content>
+    <title><![CDATA[业务分析——建立业务数据指标]]></title>
+    <url>%2F2018%2F12%2F22%2F%E5%BB%BA%E7%AB%8B%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87%2F</url>
+    <content type="text"><![CDATA[如何建立业务数据指标 数据君 指标体系不重要，重要的是指标之间的关系 假设进入一个企业， 要从0-1去搭建指标体系。 调研 一方面是业务的调研，比如我们现在有哪些业务？这些业务在行业有没有一些标准的指标？ 另一方面使需求调研，比如哪个部门处于我们业务流程的哪个阶段，他们关注什么指标？ 这两点很重要，因为我们后面做的分析都是要通过指标去看业务的发展，而每个业务发展的阶段都是某个或者某些部门一起来完成，这就会埋下一个很深的伏笔，问题出现了，谁来背锅。 找到适合自己企业的方法论比如互联网企业都在用AARRR，整体的拆分逻辑是【获取-活跃-留存-营收-传播】， 这个模型在各个公司都会被改良，因为太笼统不够细化，但它给了我们一种关键行为的思路。 比如有的分为好几个阶段： 认知、注册、行为、互动、交易、售后、客服等等，你需要对每一个类型进行进一步的拆分。 比如： 认知阶段，也就是你和用户第一次见面在哪里？可以分为线上广告，品牌类推广、SEM\SEO、CPS、CPC等等， 线下的灯箱广告、楼宇、公交广告、地铁等，这样去制定每个渠道的关键性考核指标，比如线下可能多是曝光，不懂可以去进行搜索，这种方法可以依次拆分注册、行为、互动等等。 技巧自己要画几个方框，在方法论走通的前提下，每一个业务动作都话一个方框，注明什么动作，再补充这个动作需要哪些指标，到最后一目了然，领导看后肯定喜悦，这就是指标体系与业务之间的商业画布。 落实在方法论和商业画布的基础上，要对应到部门，比如认知阶段，很多都是市场部、品牌部、渠道从部负责，那么这样指标有问题，你就知道找谁背锅了。 这里面需要注意的一点，现在很多部门的指标比较单一，比如渠道部只负责拉点击，不负责注册，那么你就要通过指标的表现和系统性，考虑跨部门背指标，这一点比较难，但还是要提出来，或者用权重的方式去解决，让领导去拍板，一般指标体系老板都要产于，因为他们想要找个方式来量化一切。 最后以上的部分只是让你从业务和企业的角度梳理出来适合自己的衣服，但是指标既然存在就要有量化之后的数据，最难的是数据之间的关系，所以这里面也要指出每个阶段，每个部门更关注的一些指标，也被称为第一关键指标或者北极星指标，这样会让自己更清晰，而不是简单的对指标进行归类，一个是自上而下，一个是自下而上，思路是不一样的。 核心最核心的一点， 指标体系的搭建其实很简单，主要是如何从你的报告体系中反应出来，比如日报应该反应什么，周报应该反应什么，月报应该反应什么？这就很烧脑了。]]></content>
       <categories>
         <category>数据分析</category>
         <category>各项细分</category>
@@ -140,9 +114,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[业务分析——埋点方案]]></title>
-    <url>%2F2018%2F12%2F22%2F%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%2F</url>
-    <content type="text"><![CDATA[数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题： 需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚]]></content>
+    <title><![CDATA[专题分析]]></title>
+    <url>%2F2018%2F12%2F22%2F%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[专题分析数据分析师的一个重要考核， 就是专题分析的效果 需求沟通 一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告 例如上线活动效果的专题分析流程： 业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。 活动效果的数据情况 目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些 活动的拉新、促活，用户粘性情况， 活动效果的优劣 通过逻辑树进行整理 建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。 通过SQL进行取数验证 分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘 撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。 项目专题分析的特征 有目标——围绕项目KPI来进行。 有节奏——2-3周输出一份完整的报告。 有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。 3.专题分析实战 项目背景：电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 第1阶段：新用户留存整体分析目的： 摸清数据现状， 同时找到若干个切入点。关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 第2阶段： 寻找优化切入点， 一般是1-2个。比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 第3阶段： 不断重复前两个阶段， 继续寻找其他切入点。 同时进行竞品分析， 营销活动分析，用户流失分析等等 每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环， 评判数据分析师的标准： 产出专题分析的质量和数量。 质量就是数据分析落地的点和提神的kpi。 改版分析 新改版页面的效果怎么样？ 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。 分析方向： 改版后， 新功能是否受欢迎 改版后， 对产品的流程转化率是否有提升 改版后， 对产品的整体留存的影响 改版后， 用户究竟如何使用新功 功能活跃比新功能的用户数 / 同期客户端活跃用户数 漏斗转化提升 次日留存、周留存、月留存等指标是否朝着更好的方向发展。 用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。]]></content>
       <categories>
         <category>数据分析</category>
         <category>各项细分</category>
@@ -166,9 +140,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[业务分析——建立业务数据指标]]></title>
-    <url>%2F2018%2F12%2F22%2F%E5%BB%BA%E7%AB%8B%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87%2F</url>
-    <content type="text"><![CDATA[如何建立业务数据指标 数据君 指标体系不重要，重要的是指标之间的关系 假设进入一个企业， 要从0-1去搭建指标体系。 调研 一方面是业务的调研，比如我们现在有哪些业务？这些业务在行业有没有一些标准的指标？ 另一方面使需求调研，比如哪个部门处于我们业务流程的哪个阶段，他们关注什么指标？ 这两点很重要，因为我们后面做的分析都是要通过指标去看业务的发展，而每个业务发展的阶段都是某个或者某些部门一起来完成，这就会埋下一个很深的伏笔，问题出现了，谁来背锅。 找到适合自己企业的方法论比如互联网企业都在用AARRR，整体的拆分逻辑是【获取-活跃-留存-营收-传播】， 这个模型在各个公司都会被改良，因为太笼统不够细化，但它给了我们一种关键行为的思路。 比如有的分为好几个阶段： 认知、注册、行为、互动、交易、售后、客服等等，你需要对每一个类型进行进一步的拆分。 比如： 认知阶段，也就是你和用户第一次见面在哪里？可以分为线上广告，品牌类推广、SEM\SEO、CPS、CPC等等， 线下的灯箱广告、楼宇、公交广告、地铁等，这样去制定每个渠道的关键性考核指标，比如线下可能多是曝光，不懂可以去进行搜索，这种方法可以依次拆分注册、行为、互动等等。 技巧自己要画几个方框，在方法论走通的前提下，每一个业务动作都话一个方框，注明什么动作，再补充这个动作需要哪些指标，到最后一目了然，领导看后肯定喜悦，这就是指标体系与业务之间的商业画布。 落实在方法论和商业画布的基础上，要对应到部门，比如认知阶段，很多都是市场部、品牌部、渠道从部负责，那么这样指标有问题，你就知道找谁背锅了。 这里面需要注意的一点，现在很多部门的指标比较单一，比如渠道部只负责拉点击，不负责注册，那么你就要通过指标的表现和系统性，考虑跨部门背指标，这一点比较难，但还是要提出来，或者用权重的方式去解决，让领导去拍板，一般指标体系老板都要产于，因为他们想要找个方式来量化一切。 最后以上的部分只是让你从业务和企业的角度梳理出来适合自己的衣服，但是指标既然存在就要有量化之后的数据，最难的是数据之间的关系，所以这里面也要指出每个阶段，每个部门更关注的一些指标，也被称为第一关键指标或者北极星指标，这样会让自己更清晰，而不是简单的对指标进行归类，一个是自上而下，一个是自下而上，思路是不一样的。 核心最核心的一点， 指标体系的搭建其实很简单，主要是如何从你的报告体系中反应出来，比如日报应该反应什么，周报应该反应什么，月报应该反应什么？这就很烧脑了。]]></content>
+    <title><![CDATA[营销活动分析]]></title>
+    <url>%2F2018%2F12%2F22%2F%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>数据分析</category>
+        <category>各项细分</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>活动分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[业务分析——埋点方案]]></title>
+    <url>%2F2018%2F12%2F22%2F%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%2F</url>
+    <content type="text"><![CDATA[数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题： 需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚]]></content>
       <categories>
         <category>数据分析</category>
         <category>各项细分</category>
@@ -176,6 +163,19 @@
       <tags>
         <tag>数据分析</tag>
         <tag>分析流程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试问题]]></title>
+    <url>%2F2018%2F12%2F22%2F%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[面试问题 工作中， 提数数据时，有没有遇到过数据倾斜问题， 什么是数据倾斜， 如何避免数据倾斜问题?]]></content>
+      <categories>
+        <category>数据分析</category>
+        <category>各项细分</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>面试问题</tag>
       </tags>
   </entry>
   <entry>
@@ -250,18 +250,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[阅读系统]]></title>
-    <url>%2F2018%2F10%2F10%2F%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F%2F</url>
-    <content type="text"><![CDATA[困惑在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？ 借鉴在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点： 1. 一本好的书籍最少要读两遍2. 第二遍读书的时候一定要做笔记 反思自己的读书方法，就能够看到自己过去读书的很多问题: 自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。 在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。 方法当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化: 读好书一定要读两遍。第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。 在读第二遍的时候要找出文章的思想脉络。很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。 当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。 当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。 当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， 你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。 再引述一下作者的话： 好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。 总结总结文章的观点， 就是读两遍，理脉络，记笔记，写心得，融体系。能够做上述几点，相信你的读书效率一定会大大改善的。 最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答： 知识不会改变命运，除非它带来行动；行动也不会改变命运，除非它带来结果；是一个一个的结果，在改变你的命运； 参考资料：1.《万万没想到-用理工思维看世界》2.《超级个体》 读书三问： 为什么我坚持读书写作很久了，却没有进步 有认真消化吗，自己读了以后，能教别人吗 你所写的内容， 是简单的搬运，还是行动之后的反思总结 不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式 一年要读多少数 你更应该关心的是， 你能践行多少内容]]></content>
-      <categories>
-        <category>个人系统</category>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>阅读系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[写作系统]]></title>
     <url>%2F2018%2F10%2F10%2F%E5%86%99%E4%BD%9C%E7%B3%BB%E7%BB%9F%2F</url>
     <content type="text"><![CDATA[写作准备： 从生活中想到一个你想要写的主题。 在日常中思考素材， 注意素材的积累。 想清楚你想表达的思想是什么， 用一句话表达清楚 写作， 是自我对话， 认识自己的一种方式。 写作的本质， 情绪 与 传递 文章风格： 逻辑 + 生活 + 有趣 写： 生活 —— 素材库 —— 观点库（逻辑，情绪） —— 结构库 —— 草稿库 检查： 逻辑是否清晰， 是否有自己的观点， 是否有趣 排版， 标题， 错别字 写作模板： 这篇文章主要表达什么思想， 用两句话来说清楚。 自己准备的素材都有哪些 自己选择什么布局？ 从证据到结论 从结论到证据 将第二重要的内容放首位， 最重要的内容放最后 写文章引言 提出一个现象， 或者一个有争议的观点， 由此导出你的观点。 讲一则简洁的故事， 这个故事能够很好地阐述你将要表达的观点 撰写文章的结论 简明进行综合， 告诉读者为什么应该赞同你的观点 对引言的故事加以评论 记住哪些观点需要论证， 以及你将如何论证 提供高质量的伦军来支撑自己的观点， 检查每一个观点和证据， 用以下各类方式呈现出来 提供事实性的细节， 比如数据 描述人或事 提供一篇文章或一本书的总结 引用或转述某个学者的观点 对真实或假设性事件简明或扩展地叙述 追溯历史发展 呈现字面上或者深层次的含义 细化某一过程或程序 解释相似性和差异性的联系与区别 分析原因或产生的影响 评价某人的观点 阐述其优点和不足 根据以上步骤写出你的草稿 修改用批判的眼光阅读初稿， 大声朗读出来。问自己以下问题： 我可以做什么上中心思想表达更清楚 哪个段落需要做进一步全面解释，以便上读者了解深意 怎样增强文章连贯性 用哪种形式编排句子和段落， 让文中思想更容易理解 我需要在哪加上过度聚， 用来标志转入下一个观点 哪些想法需要重点强调， 哪些可以一笔带过 怎样更好地强调重点， 我是否没有找到更充足的证据来支持观点 编辑找出表改正那些在语法、错字， 标点、加粗等问题 努力达到的标准 让文字看起来很自然 力求简洁 用简单的语言来表达你的观点 让你的句子富于变化 尝试不同的句子， 试着变化结构， 学习长短句交叉使用 让文字生动起来 尽量把你的想法用有想象力和有个人色彩的语言表现出来 好的写作能力， 对个人发展的赋能实在太大了，写作这件事，你需要突破 下笔困难，写不出什么好东西来，最大的问题在于输入的质和量跟不上 练习很重要，你可以每天写几十个字，每隔一段时间写一篇长点的 起步阶段，把某个你特别喜欢的作者的书籍，都找过来，逐字读5遍，你会发现，自己的表达风格，会有他的烙印。 追求简洁流畅、表达精准、有说服力 参考书籍：《思考的艺术》《金字塔原理》 有效写作的四个特点： 统一协调 用一两句话来清晰地表达你的想法，这篇文章的中心思想，指导你后面的写作。 连贯一致 明白观点的先后顺序， 当你转入另一观点时， 一定要将前一观点表述清楚。同时用一些连接词进行连贯的过渡。 重点突出 对重要观点进行详细阐述 将观点按重要程度进行排序，最重要的观点放在最后，次重要的论点放在开头，另外两个论点放中间。 拓展升华 详细阐述重要的观点，强调的点要能够引发读者的共鸣，可以使用例证、描述、定义、释义等方法 写作的阶段渐进法计划 整合观点在产生和评价了自己的想法之后，你就需要整理下自己要用到的材料。想法、笔记、他人观点等 选择布局 从结论到证据 先呈现结论，再通过例证来支持结论。 从证据到结论 让读者逐步接受你的结论。适用于辩驳那种广为人知或根深蒂固的观点。 从原因到结果 先讨论产生某一现象的原因，然后说明这一现象的影响。从结论到原因 重要性顺序 将第二重要的内容放在首位，最重要的内容放在最后 撰写文章引言的方法 提出一些突出的问题，并讨论可能的答案 讲一则简洁的故事，这则故事能够很好地阐述你将要表达的观点 引用名人名言，从而导入你的中心思想 提出一个你不同意的观点，由此导入你的观点 撰写文章结论的方法 根据内容中提到的争议提出一个可行方案 回答引言提出的问题，或对引言和故事加以评论 利用新的引言来深化中心思想 描述一则新故事，确保这则故事能够强化你的中心思想，并且不会带入新的问题 阐述采纳你观点的益处和不采纳你观点的害处 简明扼要地进行统合， 告诉读者为什么应该赞同你的观点。 哪些观点需要进行论证以及你将如何进行论证 写作系统-辉哥 2015年之前，随便写写2015-2018年， 为终身事业而写18年——至今， 日更 什么是写作系统 为什么要建立写作系统 怎么建立写作系统 写作技能： 要专注哪个领域个人成长 为什么要选择这个领域我擅长， 大家需要 写作技能要怎样才能持续提升大量的阅读相关的书籍， 大量的实践， 通过阅读和实践， 总结出自己的个人成长系统，并通过足够多的案例， 让自己的成长系统本身去迭代。 读者社群： 选择哪类读者对未来抱有希望，但是在现实中遭遇困惑的人。 为什么要选择这类读者从他们看到身上看到自己的影子 怎样获得更多匹配的读者持续就这个领域写出更好的作品， 出版书籍， 获取更大的认可。 怎样才能更好的满足读者在这个领域更好的需求自己更好的成长，并对成长系统梳理的更加清晰。 商业： 如何从写作中获益让读者获益， 并让读者支付会员费。 怎样获得持续稳定的收益在会员体系中提供稳定的， 并持续增加的正向收益，并获得很好的口碑， 鼓励会员进行链接。 怎样不断提升收益更好的作品，更多的读者，更好的引导转化 梳理自己的写作系统 驱动写作的一页纸：使命：愿景：价值观： 写作系统的目标：关键结果： 与写作相关的微习惯：每日阅读：每日写作： 如何判断自己的文章好坏-建议： 多写 这篇文章对读者是否真的有用 写作是双向沟通而不是单向表达 你能理解多少人，就能拥有多少读者。 内容质量判断： 逻辑严谨 论证精彩 逻辑推理的三个层面： 形式逻辑-formal logic 非形式逻辑-informatl logic 认知偏差纠正-coginitive bias correction 《thinking fase and slow》 cognitive bias list of cognitive bias 精彩的例子是攒出来的，不是找出来的。 《successe quation》 文采的判断： 修辞——类比 韵律—— 格式化写作： 提出一个观点 说明这个观点的意义究竟有多大 证明这个观点 驳斥对这个观点的质疑 说清楚这个观点的超级意义 我要说的是什么概念 这个概念为什么重要 这个概念普遍被如何误解 这个概念实际有什么意义 正确理解这个概念有什么意义 如何正确理解这个概念 错误使用这个概念有什么可怕之处 这个概念与什么其他重要的概念有重要的联系 《the walking dead》 写作的本质， 为了产生影响。我的读者读过之后有什么样的变化？ 《ask right questions》]]></content>
@@ -271,6 +259,18 @@
       </categories>
       <tags>
         <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[阅读系统]]></title>
+    <url>%2F2018%2F10%2F10%2F%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[困惑在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？ 借鉴在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点： 1. 一本好的书籍最少要读两遍2. 第二遍读书的时候一定要做笔记 反思自己的读书方法，就能够看到自己过去读书的很多问题: 自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。 在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。 方法当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化: 读好书一定要读两遍。第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。 在读第二遍的时候要找出文章的思想脉络。很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。 当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。 当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。 当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， 你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。 再引述一下作者的话： 好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。 总结总结文章的观点， 就是读两遍，理脉络，记笔记，写心得，融体系。能够做上述几点，相信你的读书效率一定会大大改善的。 最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答： 知识不会改变命运，除非它带来行动；行动也不会改变命运，除非它带来结果；是一个一个的结果，在改变你的命运； 参考资料：1.《万万没想到-用理工思维看世界》2.《超级个体》 读书三问： 为什么我坚持读书写作很久了，却没有进步 有认真消化吗，自己读了以后，能教别人吗 你所写的内容， 是简单的搬运，还是行动之后的反思总结 不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式 一年要读多少数 你更应该关心的是， 你能践行多少内容]]></content>
+      <categories>
+        <category>个人系统</category>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>阅读系统</tag>
       </tags>
   </entry>
   <entry>
