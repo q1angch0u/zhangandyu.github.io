@@ -346,35 +346,6 @@
   </entry>
   
   <entry>
-    <title>业务分析——埋点方案</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/埋点方案/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-13T06:43:35.917Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>业务分析-数据分析师岗位介绍</title>
     <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E5%B2%97%E4%BD%8D%E4%BB%8B%E7%BB%8D/"/>
     <id>https://zhangandyu.github.io/2018/12/22/数据分析师岗位介绍/</id>
@@ -392,6 +363,65 @@
 &lt;/ol&gt;
 &lt;ul&gt;
 
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>营销活动分析</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/营销活动分析/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-21T15:15:11.932Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://plosti2dy.bkt.clouddn.com/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90.png" alt="营销活动分析"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://plosti2dy.bkt.clouddn.com/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90.png&quot; alt=&quot;营销活动分析&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="活动分析" scheme="https://zhangandyu.github.io/tags/%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>业务分析——埋点方案</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/埋点方案/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-13T06:43:35.917Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
       
     
     </summary>
@@ -437,36 +467,6 @@
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>营销活动分析</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/营销活动分析/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-21T15:15:11.932Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://plosti2dy.bkt.clouddn.com/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90.png" alt="营销活动分析"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://plosti2dy.bkt.clouddn.com/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90.png&quot; alt=&quot;营销活动分析&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="活动分析" scheme="https://zhangandyu.github.io/tags/%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -655,33 +655,6 @@
   </entry>
   
   <entry>
-    <title>阅读系统</title>
-    <link href="https://zhangandyu.github.io/2018/10/10/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zhangandyu.github.io/2018/10/10/阅读系统/</id>
-    <published>2018-10-09T16:00:00.000Z</published>
-    <updated>2019-01-13T16:32:03.534Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h1><p>在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？</p><hr><h1 id="借鉴"><a href="#借鉴" class="headerlink" title="借鉴"></a>借鉴</h1><p>在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点：</p><p><strong>1. 一本好的书籍最少要读两遍</strong><br><strong>2. 第二遍读书的时候一定要做笔记</strong></p><p>反思自己的读书方法，就能够看到自己过去读书的很多问题:</p><ol><li><p>自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。</p></li><li><p>在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。</p></li></ol><hr><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化:</p><ol><li><p><strong>读好书一定要读两遍。</strong><br>第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。</p></li><li><p><strong>在读第二遍的时候要找出文章的思想脉络。</strong><br>很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。</p></li><li><p><strong>当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。</strong><br>记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。</p></li><li><p><strong>当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。</strong><br>你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。</p></li><li><p>当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， <strong>你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。</strong></p></li></ol><p>再引述一下作者的话：</p><blockquote><p>好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。<br>记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。</p></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总结文章的观点， 就是<strong>读两遍，理脉络，记笔记，写心得，融体系</strong>。能够做上述几点，相信你的读书效率一定会大大改善的。</p><p>最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答：</p><blockquote><p>知识不会改变命运，除非它带来行动；<br>行动也不会改变命运，除非它带来结果；<br>是一个一个的结果，在改变你的命运； </p></blockquote><hr><p>参考资料：<br>1.<a href="https://book.douban.com/subject/25986341/" target="_blank" rel="noopener">《万万没想到-用理工思维看世界》</a><br>2.<a href="https://m.igetget.com/share/column/cid/21" target="_blank" rel="noopener">《超级个体》</a></p><hr><p>读书三问：</p><ol><li>为什么我坚持读书写作很久了，却没有进步</li></ol><ul><li>有认真消化吗，自己读了以后，能教别人吗</li><li>你所写的内容， 是简单的搬运，还是行动之后的反思总结</li><li>不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式</li></ul><ol start="2"><li>一年要读多少数</li></ol><ul><li>你更应该关心的是， 你能践行多少内容</li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;困惑&quot;&gt;&lt;a href=&quot;#困惑&quot; class=&quot;headerlink&quot; title=&quot;困惑&quot;&gt;&lt;/a&gt;困惑&lt;/h1&gt;&lt;p&gt;在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己
-      
-    
-    </summary>
-    
-      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="阅读系统" scheme="https://zhangandyu.github.io/tags/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>写作系统</title>
     <link href="https://zhangandyu.github.io/2018/10/10/%E5%86%99%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangandyu.github.io/2018/10/10/写作系统/</id>
@@ -712,6 +685,33 @@
     
     
       <category term="写作" scheme="https://zhangandyu.github.io/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阅读系统</title>
+    <link href="https://zhangandyu.github.io/2018/10/10/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://zhangandyu.github.io/2018/10/10/阅读系统/</id>
+    <published>2018-10-09T16:00:00.000Z</published>
+    <updated>2019-01-13T16:32:03.534Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h1><p>在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？</p><hr><h1 id="借鉴"><a href="#借鉴" class="headerlink" title="借鉴"></a>借鉴</h1><p>在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点：</p><p><strong>1. 一本好的书籍最少要读两遍</strong><br><strong>2. 第二遍读书的时候一定要做笔记</strong></p><p>反思自己的读书方法，就能够看到自己过去读书的很多问题:</p><ol><li><p>自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。</p></li><li><p>在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。</p></li></ol><hr><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化:</p><ol><li><p><strong>读好书一定要读两遍。</strong><br>第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。</p></li><li><p><strong>在读第二遍的时候要找出文章的思想脉络。</strong><br>很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。</p></li><li><p><strong>当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。</strong><br>记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。</p></li><li><p><strong>当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。</strong><br>你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。</p></li><li><p>当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， <strong>你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。</strong></p></li></ol><p>再引述一下作者的话：</p><blockquote><p>好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。<br>记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。</p></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总结文章的观点， 就是<strong>读两遍，理脉络，记笔记，写心得，融体系</strong>。能够做上述几点，相信你的读书效率一定会大大改善的。</p><p>最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答：</p><blockquote><p>知识不会改变命运，除非它带来行动；<br>行动也不会改变命运，除非它带来结果；<br>是一个一个的结果，在改变你的命运； </p></blockquote><hr><p>参考资料：<br>1.<a href="https://book.douban.com/subject/25986341/" target="_blank" rel="noopener">《万万没想到-用理工思维看世界》</a><br>2.<a href="https://m.igetget.com/share/column/cid/21" target="_blank" rel="noopener">《超级个体》</a></p><hr><p>读书三问：</p><ol><li>为什么我坚持读书写作很久了，却没有进步</li></ol><ul><li>有认真消化吗，自己读了以后，能教别人吗</li><li>你所写的内容， 是简单的搬运，还是行动之后的反思总结</li><li>不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式</li></ul><ol start="2"><li>一年要读多少数</li></ol><ul><li>你更应该关心的是， 你能践行多少内容</li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;困惑&quot;&gt;&lt;a href=&quot;#困惑&quot; class=&quot;headerlink&quot; title=&quot;困惑&quot;&gt;&lt;/a&gt;困惑&lt;/h1&gt;&lt;p&gt;在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己
+      
+    
+    </summary>
+    
+      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="阅读系统" scheme="https://zhangandyu.github.io/tags/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
