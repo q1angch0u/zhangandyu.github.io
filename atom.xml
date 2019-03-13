@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangandyu.github.io/"/>
-  <updated>2019-02-27T15:02:02.250Z</updated>
+  <updated>2019-02-27T15:04:17.875Z</updated>
   <id>https://zhangandyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhangandyu.github.io/2019/02/26/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/"/>
     <id>https://zhangandyu.github.io/2019/02/26/数据分析的基础方法/</id>
     <published>2019-02-25T16:00:00.000Z</published>
-    <updated>2019-02-27T15:02:02.250Z</updated>
+    <updated>2019-02-27T15:04:17.875Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数据分析的常见方法论"><a href="#数据分析的常见方法论" class="headerlink" title="数据分析的常见方法论"></a>数据分析的常见方法论</h1><p>方法论： 从宏观角度出发， 提出分析框架，指导具体分析方向。</p><h3 id="象限法"><a href="#象限法" class="headerlink" title="象限法"></a>象限法</h3><p>通过象限法， 找到问题的共同原因， 从而建立分组优化策略。 </p><ul><li><p>内外因素分解法<br><img src="https://i.loli.net/2019/02/25/5c7409d9dce08.png" alt="内外因素分解法"></p></li><li><p>用户分群</p></li></ul><p><img src="https://i.loli.net/2019/02/23/5c70f5814cc93.png" alt="用户分群"></p><ul><li>RFM 用户分群<br><img src="https://i.loli.net/2019/02/23/5c70f7f128f4c.png" alt="RFM用户分群"></li></ul><h3 id="5W2H-分析法"><a href="#5W2H-分析法" class="headerlink" title="5W2H 分析法"></a>5W2H 分析法</h3><p>在知乎上看到一个很好的回答：</p><p>什么原因 (why)  导致 什么事情 (what), 需要哪些人 (who) 在什么时间完成 (when),在什么地点 (where) 用什么方法 (how)完成, 预算是多少 (how much)?</p><p><img src="https://i.loli.net/2019/02/26/5c7418d10b4c8.png" alt="思维导图"></p><h3 id="二八法则-帕累托法则"><a href="#二八法则-帕累托法则" class="headerlink" title="二八法则 / 帕累托法则"></a>二八法则 / 帕累托法则</h3><ul><li>将对象分为重要和不重要两类， 20%的用户贡献了80%的销售额。 </li><li>数据中， 20% 的变量将直接产生 80% 的效果，数据分析应该围绕这20%的变量来进行。 </li><li>和业务和KPI紧密相关，花费很少的精力就能达到不错的效果。</li><li>在条件允许的状况下， 依旧不能放弃全局，否则会让思维变得狭隘。 </li></ul><p>升级版本： ABC 分析法<br>与之对应： 长尾理论</p><h3 id="AARRR-模型"><a href="#AARRR-模型" class="headerlink" title="AARRR 模型"></a>AARRR 模型</h3><p>移动应用的生命周期</p><p><img src="https://i.loli.net/2019/02/26/5c75582b87a7c.png" alt="AARRR 模型"></p><h3 id="SWOT方法"><a href="#SWOT方法" class="headerlink" title="SWOT方法"></a>SWOT方法</h3><p>指定发展战略前，对自身进行全面的分析及竞争优势定位。</p><ul><li><p>对自己进行解析<br><img src="https://i.loli.net/2019/02/26/5c754bb2536a0.jpg" alt="对自己进行解析"></p></li><li><p>指定相应的对策<br><img src="https://i.loli.net/2019/02/26/5c754bc095f85.jpg" alt="指定相应的对策"></p></li></ul><h3 id="4P-与-STP-理论"><a href="#4P-与-STP-理论" class="headerlink" title="4P 与 STP 理论"></a>4P 与 STP 理论</h3><p>市场营销与市场定位</p><ul><li>4P 理论</li></ul><p><img src="https://i.loli.net/2019/02/26/5c7557f086661.png" alt="4P 理论"></p><ul><li>STP 理论<br><img src="https://i.loli.net/2019/02/26/5c755817819c3.png" alt="STP 理论"></li></ul><h3 id="PEST分析方法"><a href="#PEST分析方法" class="headerlink" title="PEST分析方法"></a>PEST分析方法</h3><p>企业的战略外部环境分析</p><p><img src="https://i.loli.net/2019/02/26/5c75584a86f2c.png" alt="PEST分析方法"></p><h3 id="延伸：-个人IPO模型"><a href="#延伸：-个人IPO模型" class="headerlink" title="延伸： 个人IPO模型"></a>延伸： 个人IPO模型</h3><p><a href="https://zhuanlan.zhihu.com/p/24312554" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24312554</a></p><h1 id="数据分析的常见方法"><a href="#数据分析的常见方法" class="headerlink" title="数据分析的常见方法"></a>数据分析的常见方法</h1><p>在分析过程中使用的方法</p><h3 id="对比分析法"><a href="#对比分析法" class="headerlink" title="对比分析法"></a>对比分析法</h3><p>对比分析， 给单独的数据一个参考系， 否则孤立的数据毫无意义。 </p><p>问题： 超市 A 今天的营业额是 2000 块。 我们该如何评判这个超市的运营状况是好是坏呢？</p><ol><li>时间上的同比环比</li></ol><ul><li><p>环比<br>本次统计时间段 与 相连的上次时间段 之间的比较。 比如：本周和上周的对比。  </p></li><li><p>环比增长率<br>（本期数 - 上期数） / 上期数 <em> 100%  或  （本期数 / 上期数 -1） </em> 100%</p></li></ul><ul><li><p>同比：<br>某个统计时间段，今年和去年 之间的比较。 比如： 19年2月营销额和18年2月营销额之间的对比。 </p></li><li><p>同比增长率<br>（本期数 - 去年同期数） / 去年同期数 <em> 100%  或 （本期数 / 去年同期数 -1 ） </em> 100%</p></li></ul><ol start="2"><li>竞争对手对比</li><li>与其他维度结合，进行对比</li></ol><ul><li>活动促销前后的对比</li><li>细拆维度之间的对比</li><li>各渠道之间的对比等</li></ul><h3 id="漏斗分析法"><a href="#漏斗分析法" class="headerlink" title="漏斗分析法"></a>漏斗分析法</h3><p>漏斗分析法， 还原用户转化的路径， 分析每一步的转化率， 针对性的优化和改善</p><p><img src="https://i.loli.net/2019/02/25/5c74047cc3522.jpg" alt="漏斗模型"></p><h3 id="多维度拆解法"><a href="#多维度拆解法" class="headerlink" title="多维度拆解法"></a>多维度拆解法</h3><ul><li>维度划分<br><img src="https://i.loli.net/2019/02/26/5c756008dedc0.png" alt="维度划分"></li></ul><ul><li>注意事项<br>维度拆解不够， 容易导致<a href="https://wiki.mbalib.com/wiki/%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%82%96%E8%AE%BA" target="_blank" rel="noopener">辛普森悖论</a></li></ul><h3 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h3><p>将一切问题皆可量化，拆解成最小的维度，通过 +、-、*、/ 进行计算</p><p><img src="https://i.loli.net/2019/02/27/5c7698403238e.png" alt="公式法"></p><h3 id="假设法"><a href="#假设法" class="headerlink" title="假设法"></a>假设法</h3><p>假设-验证-判断。 当没有直观数据时， 以假设先行的方式进行推断。 </p><p>例如： 如果商品提价后， 公司收益会不会变化？</p><ul><li><p>假设流量不会发生变化， 那么商品价格会影响转化率，确定转化率的下降。 </p></li><li><p>计算日常的转化率， 针对不同的用户，如：忠诚用户、普通用户、羊毛用户， 预估各类别用户提价后的转化率变化。</p></li></ul><h3 id="指数法"><a href="#指数法" class="headerlink" title="指数法"></a>指数法</h3><p>指定一个标准， 解决衡量的问题</p><ul><li><p>线性加权：</p></li><li><p>反比例： 1-1/n， 范围为0-1</p></li><li><p>log指数法</p><blockquote><p>热度公式： log(uv+ 5*评论,2) +(time -初始时间) / 10</p></blockquote></li></ul><p>以上就是常用的数据分析方法与方法论</p>]]></content>
     
@@ -311,38 +311,6 @@
   </entry>
   
   <entry>
-    <title>业务分析——建立业务数据指标</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E5%BB%BA%E7%AB%8B%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/建立业务数据指标/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-13T06:43:34.639Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="如何建立业务数据指标"><a href="#如何建立业务数据指标" class="headerlink" title="如何建立业务数据指标"></a>如何建立业务数据指标</h3><blockquote><p>数据君</p></blockquote><p><strong>指标体系不重要，重要的是指标之间的关系</strong></p><p>假设进入一个企业， 要从0-1去搭建指标体系。</p><ol><li>调研</li></ol><ul><li>一方面是业务的调研，比如我们现在有哪些业务？这些业务在行业有没有一些标准的指标？</li><li>另一方面使需求调研，比如哪个部门处于我们业务流程的哪个阶段，他们关注什么指标？</li></ul><p>这两点很重要，因为我们后面做的分析都是要通过指标去看业务的发展，而每个业务发展的阶段都是某个或者某些部门一起来完成，这就会埋下一个很深的伏笔，问题出现了，谁来背锅。</p><ol start="2"><li>找到适合自己企业的方法论<br>比如互联网企业都在用AARRR，整体的拆分逻辑是【获取-活跃-留存-营收-传播】， 这个模型在各个公司都会被改良，因为太笼统不够细化，但它给了我们一种关键行为的思路。 </li></ol><p>比如有的分为好几个阶段： 认知、注册、行为、互动、交易、售后、客服等等，你需要对每一个类型进行进一步的拆分。</p><p>比如： 认知阶段，也就是你和用户第一次见面在哪里？可以分为线上广告，品牌类推广、SEM\SEO、CPS、CPC等等， 线下的灯箱广告、楼宇、公交广告、地铁等，这样去制定每个渠道的关键性考核指标，比如线下可能多是曝光，不懂可以去进行搜索，这种方法可以依次拆分注册、行为、互动等等。</p><ol start="3"><li><p>技巧<br>自己要画几个方框，在方法论走通的前提下，每一个业务动作都话一个方框，注明什么动作，再补充这个动作需要哪些指标，到最后一目了然，领导看后肯定喜悦，这就是指标体系与业务之间的商业画布。</p></li><li><p>落实<br>在方法论和商业画布的基础上，要对应到部门，比如认知阶段，很多都是市场部、品牌部、渠道从部负责，那么这样指标有问题，你就知道找谁背锅了。 这里面需要注意的一点，现在很多部门的指标比较单一，比如渠道部只负责拉点击，不负责注册，那么你就要通过指标的表现和系统性，考虑跨部门背指标，这一点比较难，但还是要提出来，或者用权重的方式去解决，让领导去拍板，一般指标体系老板都要产于，因为他们想要找个方式来量化一切。 </p></li><li><p>最后<br>以上的部分只是让你从业务和企业的角度梳理出来适合自己的衣服，但是指标既然存在就要有量化之后的数据，最难的是数据之间的关系，所以这里面也要指出每个阶段，每个部门更关注的一些指标，也被称为第一关键指标或者北极星指标，这样会让自己更清晰，而不是简单的对指标进行归类，一个是自上而下，一个是自下而上，思路是不一样的。</p></li><li><p>核心<br>最核心的一点， 指标体系的搭建其实很简单，主要是如何从你的报告体系中反应出来，比如日报应该反应什么，周报应该反应什么，月报应该反应什么？这就很烧脑了。 </p></li></ol><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;如何建立业务数据指标&quot;&gt;&lt;a href=&quot;#如何建立业务数据指标&quot; class=&quot;headerlink&quot; title=&quot;如何建立业务数据指标&quot;&gt;&lt;/a&gt;如何建立业务数据指标&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;数据君&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>业务分析-数据分析师岗位介绍</title>
     <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E5%B2%97%E4%BD%8D%E4%BB%8B%E7%BB%8D/"/>
     <id>https://zhangandyu.github.io/2018/12/22/数据分析师岗位介绍/</id>
@@ -372,6 +340,68 @@
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>专题分析</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/专题分析/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-14T16:11:16.075Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求沟通&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一定要将20
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>营销活动分析与思维技巧</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/营销活动分析/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-02-24T16:01:54.117Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="营销活动分析"><a href="#营销活动分析" class="headerlink" title="营销活动分析"></a>营销活动分析</h1><h3 id="营销活动分析介绍"><a href="#营销活动分析介绍" class="headerlink" title="营销活动分析介绍"></a>营销活动分析介绍</h3><p>互联网公司经常会做一些运营活动，比如比如当当网的限时优惠活动，春节期间支付宝的集五福活动等。这些活动花费了公司大量的人力与财力， 那么活动的效果该如何评估呢？<br>这就需要用数据来说话。 数据分析在营销活动中的任务，不仅是在活动后对数据进行分析， 更要在活动前、活动中、活动后三个方面来都进行跟踪。 </p><h3 id="活动前期："><a href="#活动前期：" class="headerlink" title="活动前期："></a>活动前期：</h3><ol><li>目的</li></ol><ul><li>和运营人员商定好本次活动的目标，这次活动主要是为了：拉新、促活还是品牌推广，没有目标的活动不是好的运营活动。 </li></ul><ol start="2"><li>埋点</li></ol><ul><li>和运营人员商定好这次活动都需要了解哪些数据，针对需要采集的页面位置，写好埋点方案：字段名、埋点位置、上报方式</li><li>和研发人员沟通埋点方案，数据埋点完成后，测试采集数据是否准确， 避免采集数据有误。 </li></ul><ol start="3"><li>搭建指标体系</li></ol><ul><li>写出这次活动自己都需要哪些指标，如何计算， 提前搭建好指标体系</li><li>提前订好这次活动自己需要输出哪些数据，用什么形式来进行展现， 定好数据的输出格式。 </li></ul><blockquote></blockquote><h3 id="活动中期"><a href="#活动中期" class="headerlink" title="活动中期"></a>活动中期</h3><ol><li>观察活动前3天的数据</li></ol><ul><li>观察活动第1天的数据， 详细查看各指标体系的报表数据是否有异常，对于发现的问题做到及时修改。</li><li>观察1-3天的数据趋势， 预估活动目标的完成度， 考虑活动目标是否需要调整。 </li></ul><ol start="2"><li>活动数据及时数据</li></ol><ul><li>定时输出活动战报，及时发现数据异常波动， 让运营人员和项目领导知道数据的实时动态。 </li><li>对于长期活动，第一周后需要进行一次复盘，将结论同步给管理层， 让更高视野的人给建议。 </li></ul><h3 id="活动后期"><a href="#活动后期" class="headerlink" title="活动后期"></a>活动后期</h3><ol><li>活动的效果</li></ol><ul><li>短期效果<blockquote><p>活动对大盘的影响</p><ul><li>参与活动uv</li><li>打开APP， 首次进入活动uv</li><li>大盘的日环比、周同比</li></ul><p>新增用户<br>拉动低活跃用户重新活跃数<br>目标完成度<br>品牌传播指数</p></blockquote></li></ul><ul><li>长期效果<blockquote><p> 新增用户留存率<br>低活用户留存率</p></blockquote></li></ul><ol start="2"><li>活动优化</li></ol><ul><li>活动主漏斗数据转化率</li><li>活动功能模块渗透率</li><li>用户反馈</li></ul><ol start="3"><li>活动报告</li></ol><ul><li>在活动结束1-2周内输出，要有时效性。</li><li>活动与活动之前的数据对比更能说明问题</li><li>思考每次活动的本质和意义。</li><li>敢于暴露问题， 把已知的事实告诉上级，邮件同步给运营负责人</li><li>涉及到钱的问题， 需要让业务方给， 邮件说明情况，钱问题比较敏感。</li></ul><h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>支付宝集五福活动</p><ul><li>带来新增用户，提升用户的活跃度，品牌传播量</li></ul><p>在活动开始之前应该确定一个重点提升的核心数据。 这样的数据包括新用户注册、用户活跃度、用户付费转化、产品交易额、品牌知名度（百度指数、新浪指数等）等等。 </p><p>非商品交易类的互动性活动，需要关注：</p><ul><li>产品核心数据（日活、新用户) 的提升效果。</li><li>专题页面的uv、pv,</li><li>活动产生的用户互动量和人均互动次数、分享次数</li><li>老用户和新用户的互动比例</li></ul><p>交易类产品的促销活动：</p><ul><li>互动为平台带来的总交易额、购买人数、人均客单价（关键指标）</li><li>活动页面商品的 uv、pv、进入活动页面的人数占比（活动吸引力）</li><li>浏览-加入购物车-下单的转化率，分析潜在用户流失原因。</li><li>优惠券核销量/ 优惠券发放量</li><li>不同渠道用户的付费比例，单价，留存</li></ul><p><img src="https://i.loli.net/2019/02/24/5c721dbaacd7d.png" alt="营销活动分析"></p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;营销活动分析&quot;&gt;&lt;a href=&quot;#营销活动分析&quot; class=&quot;headerlink&quot; title=&quot;营销活动分析&quot;&gt;&lt;/a&gt;营销活动分析&lt;/h1&gt;&lt;h3 id=&quot;营销活动分析介绍&quot;&gt;&lt;a href=&quot;#营销活动分析介绍&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="活动分析" scheme="https://zhangandyu.github.io/tags/%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -407,52 +437,22 @@
   </entry>
   
   <entry>
-    <title>营销活动分析与思维技巧</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/营销活动分析/</id>
+    <title>业务分析——建立业务数据指标</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E5%BB%BA%E7%AB%8B%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/建立业务数据指标/</id>
     <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-02-24T16:01:54.117Z</updated>
+    <updated>2019-01-13T06:43:34.639Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="营销活动分析"><a href="#营销活动分析" class="headerlink" title="营销活动分析"></a>营销活动分析</h1><h3 id="营销活动分析介绍"><a href="#营销活动分析介绍" class="headerlink" title="营销活动分析介绍"></a>营销活动分析介绍</h3><p>互联网公司经常会做一些运营活动，比如比如当当网的限时优惠活动，春节期间支付宝的集五福活动等。这些活动花费了公司大量的人力与财力， 那么活动的效果该如何评估呢？<br>这就需要用数据来说话。 数据分析在营销活动中的任务，不仅是在活动后对数据进行分析， 更要在活动前、活动中、活动后三个方面来都进行跟踪。 </p><h3 id="活动前期："><a href="#活动前期：" class="headerlink" title="活动前期："></a>活动前期：</h3><ol><li>目的</li></ol><ul><li>和运营人员商定好本次活动的目标，这次活动主要是为了：拉新、促活还是品牌推广，没有目标的活动不是好的运营活动。 </li></ul><ol start="2"><li>埋点</li></ol><ul><li>和运营人员商定好这次活动都需要了解哪些数据，针对需要采集的页面位置，写好埋点方案：字段名、埋点位置、上报方式</li><li>和研发人员沟通埋点方案，数据埋点完成后，测试采集数据是否准确， 避免采集数据有误。 </li></ul><ol start="3"><li>搭建指标体系</li></ol><ul><li>写出这次活动自己都需要哪些指标，如何计算， 提前搭建好指标体系</li><li>提前订好这次活动自己需要输出哪些数据，用什么形式来进行展现， 定好数据的输出格式。 </li></ul><blockquote></blockquote><h3 id="活动中期"><a href="#活动中期" class="headerlink" title="活动中期"></a>活动中期</h3><ol><li>观察活动前3天的数据</li></ol><ul><li>观察活动第1天的数据， 详细查看各指标体系的报表数据是否有异常，对于发现的问题做到及时修改。</li><li>观察1-3天的数据趋势， 预估活动目标的完成度， 考虑活动目标是否需要调整。 </li></ul><ol start="2"><li>活动数据及时数据</li></ol><ul><li>定时输出活动战报，及时发现数据异常波动， 让运营人员和项目领导知道数据的实时动态。 </li><li>对于长期活动，第一周后需要进行一次复盘，将结论同步给管理层， 让更高视野的人给建议。 </li></ul><h3 id="活动后期"><a href="#活动后期" class="headerlink" title="活动后期"></a>活动后期</h3><ol><li>活动的效果</li></ol><ul><li>短期效果<blockquote><p>活动对大盘的影响</p><ul><li>参与活动uv</li><li>打开APP， 首次进入活动uv</li><li>大盘的日环比、周同比</li></ul><p>新增用户<br>拉动低活跃用户重新活跃数<br>目标完成度<br>品牌传播指数</p></blockquote></li></ul><ul><li>长期效果<blockquote><p> 新增用户留存率<br>低活用户留存率</p></blockquote></li></ul><ol start="2"><li>活动优化</li></ol><ul><li>活动主漏斗数据转化率</li><li>活动功能模块渗透率</li><li>用户反馈</li></ul><ol start="3"><li>活动报告</li></ol><ul><li>在活动结束1-2周内输出，要有时效性。</li><li>活动与活动之前的数据对比更能说明问题</li><li>思考每次活动的本质和意义。</li><li>敢于暴露问题， 把已知的事实告诉上级，邮件同步给运营负责人</li><li>涉及到钱的问题， 需要让业务方给， 邮件说明情况，钱问题比较敏感。</li></ul><h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>支付宝集五福活动</p><ul><li>带来新增用户，提升用户的活跃度，品牌传播量</li></ul><p>在活动开始之前应该确定一个重点提升的核心数据。 这样的数据包括新用户注册、用户活跃度、用户付费转化、产品交易额、品牌知名度（百度指数、新浪指数等）等等。 </p><p>非商品交易类的互动性活动，需要关注：</p><ul><li>产品核心数据（日活、新用户) 的提升效果。</li><li>专题页面的uv、pv,</li><li>活动产生的用户互动量和人均互动次数、分享次数</li><li>老用户和新用户的互动比例</li></ul><p>交易类产品的促销活动：</p><ul><li>互动为平台带来的总交易额、购买人数、人均客单价（关键指标）</li><li>活动页面商品的 uv、pv、进入活动页面的人数占比（活动吸引力）</li><li>浏览-加入购物车-下单的转化率，分析潜在用户流失原因。</li><li>优惠券核销量/ 优惠券发放量</li><li>不同渠道用户的付费比例，单价，留存</li></ul><p><img src="https://i.loli.net/2019/02/24/5c721dbaacd7d.png" alt="营销活动分析"></p><hr>]]></content>
+    <content type="html"><![CDATA[<h3 id="如何建立业务数据指标"><a href="#如何建立业务数据指标" class="headerlink" title="如何建立业务数据指标"></a>如何建立业务数据指标</h3><blockquote><p>数据君</p></blockquote><p><strong>指标体系不重要，重要的是指标之间的关系</strong></p><p>假设进入一个企业， 要从0-1去搭建指标体系。</p><ol><li>调研</li></ol><ul><li>一方面是业务的调研，比如我们现在有哪些业务？这些业务在行业有没有一些标准的指标？</li><li>另一方面使需求调研，比如哪个部门处于我们业务流程的哪个阶段，他们关注什么指标？</li></ul><p>这两点很重要，因为我们后面做的分析都是要通过指标去看业务的发展，而每个业务发展的阶段都是某个或者某些部门一起来完成，这就会埋下一个很深的伏笔，问题出现了，谁来背锅。</p><ol start="2"><li>找到适合自己企业的方法论<br>比如互联网企业都在用AARRR，整体的拆分逻辑是【获取-活跃-留存-营收-传播】， 这个模型在各个公司都会被改良，因为太笼统不够细化，但它给了我们一种关键行为的思路。 </li></ol><p>比如有的分为好几个阶段： 认知、注册、行为、互动、交易、售后、客服等等，你需要对每一个类型进行进一步的拆分。</p><p>比如： 认知阶段，也就是你和用户第一次见面在哪里？可以分为线上广告，品牌类推广、SEM\SEO、CPS、CPC等等， 线下的灯箱广告、楼宇、公交广告、地铁等，这样去制定每个渠道的关键性考核指标，比如线下可能多是曝光，不懂可以去进行搜索，这种方法可以依次拆分注册、行为、互动等等。</p><ol start="3"><li><p>技巧<br>自己要画几个方框，在方法论走通的前提下，每一个业务动作都话一个方框，注明什么动作，再补充这个动作需要哪些指标，到最后一目了然，领导看后肯定喜悦，这就是指标体系与业务之间的商业画布。</p></li><li><p>落实<br>在方法论和商业画布的基础上，要对应到部门，比如认知阶段，很多都是市场部、品牌部、渠道从部负责，那么这样指标有问题，你就知道找谁背锅了。 这里面需要注意的一点，现在很多部门的指标比较单一，比如渠道部只负责拉点击，不负责注册，那么你就要通过指标的表现和系统性，考虑跨部门背指标，这一点比较难，但还是要提出来，或者用权重的方式去解决，让领导去拍板，一般指标体系老板都要产于，因为他们想要找个方式来量化一切。 </p></li><li><p>最后<br>以上的部分只是让你从业务和企业的角度梳理出来适合自己的衣服，但是指标既然存在就要有量化之后的数据，最难的是数据之间的关系，所以这里面也要指出每个阶段，每个部门更关注的一些指标，也被称为第一关键指标或者北极星指标，这样会让自己更清晰，而不是简单的对指标进行归类，一个是自上而下，一个是自下而上，思路是不一样的。</p></li><li><p>核心<br>最核心的一点， 指标体系的搭建其实很简单，主要是如何从你的报告体系中反应出来，比如日报应该反应什么，周报应该反应什么，月报应该反应什么？这就很烧脑了。 </p></li></ol><hr>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;营销活动分析&quot;&gt;&lt;a href=&quot;#营销活动分析&quot; class=&quot;headerlink&quot; title=&quot;营销活动分析&quot;&gt;&lt;/a&gt;营销活动分析&lt;/h1&gt;&lt;h3 id=&quot;营销活动分析介绍&quot;&gt;&lt;a href=&quot;#营销活动分析介绍&quot; class=&quot;headerlink&quot; 
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="活动分析" scheme="https://zhangandyu.github.io/tags/%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>专题分析</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/专题分析/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-14T16:11:16.075Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需求沟通&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;一定要将20
+        &lt;h3 id=&quot;如何建立业务数据指标&quot;&gt;&lt;a href=&quot;#如何建立业务数据指标&quot; class=&quot;headerlink&quot; title=&quot;如何建立业务数据指标&quot;&gt;&lt;/a&gt;如何建立业务数据指标&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;数据君&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
       
     
     </summary>
