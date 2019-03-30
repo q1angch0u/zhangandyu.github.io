@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="面试问题 工作中， 提数数据时，有没有遇到过数据倾斜问题， 什么是数据倾斜，  如何避免数据倾斜问题?  你觉得一个数据分析师应该具有哪些能力？你更侧重什么能力？  假如有一天我们的复购率下降了， 你如何分析和假设，并制定策略？  你做过的项目中， 在宏观、中观、微观层面实用的方法有哪些？他们之间的逻辑关系和分析的层级是什么样子的？  excel，sql,可视化，python 现场操作  你在工作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T07:38:09.356Z">
+<meta property="og:updated_time" content="2019-03-30T07:28:24.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试问题">
 <meta name="twitter:description" content="面试问题 工作中， 提数数据时，有没有遇到过数据倾斜问题， 什么是数据倾斜，  如何避免数据倾斜问题?  你觉得一个数据分析师应该具有哪些能力？你更侧重什么能力？  假如有一天我们的复购率下降了， 你如何分析和假设，并制定策略？  你做过的项目中， 在宏观、中观、微观层面实用的方法有哪些？他们之间的逻辑关系和分析的层级是什么样子的？  excel，sql,可视化，python 现场操作  你在工作">
@@ -468,7 +468,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  694 字
+                  1.2k 字
                 </span>
               
 
@@ -484,7 +484,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -518,6 +518,27 @@
 </li>
 <li><p>你在工作中具体做了哪些事， 给公司和客户带来了什么样的提升</p>
 </li>
+<li><p>某城市有两种颜色的出租车，蓝车和绿车的比率是15:85. 一辆出租车夜间肇事逃逸，但有一位目击证人，这位目击证人认定肇事的出租车是蓝色的。 但是，他的目击未必可信，公安人员经过在相同环境下对该目击者进行“蓝绿”测试得到：80%的情况下识别正确，20%的情况下不正确。那么， 实际为蓝车的可能性为多少。 </p>
+</li>
+<li><p>用 python 实现 1+2+3+……+100</p>
+</li>
+<li><p>如何理解过度拟合</p>
+</li>
+<li><p>为什们说朴素贝叶斯是“朴素”的</p>
+</li>
+<li><p>K-means 算法 和 knn 算法的区别是什么</p>
+</li>
+<li><p>找出 1-100 以内的所有质数</p>
+</li>
+<li><p>下面代码输出的结果会是什么</p>
+</li>
+</ol>
+<p>代码1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    else:               # 下一行的 print(n) 事实上属于语句块 for i in range(2, n): </span><br><span class="line">        print(n)        # 整个循环结束，都没有发生 break 的情况下，才执行一次 print(n)</span><br></pre></td></tr></table></figure></p>
+<p>代码2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    else:               </span><br><span class="line">        print(n)</span><br></pre></td></tr></table></figure></p>
+<p>代码3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    print(n)            # 事实上相当于针对 range(2, 100) 中每个 n 都执行了一次 print(n)</span><br><span class="line">                        # 这个 print(n) 属于语句块 for n in range(2, 100):</span><br></pre></td></tr></table></figure></p>
+<p>代码4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">        print(n)            # 事实上相当于针对 range(2, n) 中每个 n 都执行了一次 print(n)</span><br></pre></td></tr></table></figure></p>
+<ol start="14">
+<li>输出1000以内的斐波那契数列</li>
 </ol>
 <hr>
 <h3 id="问题2，答案："><a href="#问题2，答案：" class="headerlink" title="问题2，答案："></a>问题2，答案：</h3><blockquote>
@@ -535,6 +556,12 @@
 <blockquote>
 <p>定位问题，从数据的角度发现了管理的误区和营销的浪费<br>发现了好机会，对目前的业务发展和增长空间进行了诊断分析, 让业务又了新的方向<br>优化了商业模式，借助上下游产业分析，找出了利于公司在**方面迅速提升……<br>回答问题要有原则，务实，通俗易懂，直击企业场景</p>
 </blockquote>
+<h3 id="问题7，答案："><a href="#问题7，答案：" class="headerlink" title="问题7，答案："></a>问题7，答案：</h3><p>蓝车： 150    80% 蓝车  120 量          20%绿车  30量</p>
+<p>绿车： 850      80% 绿车  680  蓝车  170<br>120/ (120+170) = 41.37%</p>
+<h3 id="问题8，-答案："><a href="#问题8，-答案：" class="headerlink" title="问题8， 答案："></a>问题8， 答案：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum = 0</span><br><span class="line">for i in range(1,100)</span><br><span class="line">    sum = sum + i</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+<h3 id="问题12"><a href="#问题12" class="headerlink" title="问题12"></a>问题12</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for i in range(2, 100):</span><br><span class="line">    if i == 2:</span><br><span class="line">        print(i)</span><br><span class="line">        continue</span><br><span class="line">    for n in range(2, i):</span><br><span class="line">        if i % n ==0:</span><br><span class="line">            break</span><br><span class="line">    else:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+<h3 id="问题14"><a href="#问题14" class="headerlink" title="问题14"></a>问题14</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n =1000</span><br><span class="line">a = 0 b = 1</span><br><span class="line">while a &lt; 1000:</span><br></pre></td></tr></table></figure>
+<hr>
 
       
     </div>
@@ -609,8 +636,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/22/专题分析/" rel="next" title="专题分析">
-                <i class="fa fa-chevron-left"></i> 专题分析
+              <a href="/2018/11/28/电商数据分析/" rel="next" title="数据运营">
+                <i class="fa fa-chevron-left"></i> 数据运营
               </a>
             
           </div>
@@ -619,8 +646,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/22/数据分析师岗位介绍/" rel="prev" title="业务分析-数据分析师岗位介绍">
-                业务分析-数据分析师岗位介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/22/营销活动分析/" rel="prev" title="营销活动分析与思维技巧">
+                营销活动分析与思维技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -716,7 +743,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -727,7 +754,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -738,7 +765,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -818,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面试问题"><span class="nav-number">1.</span> <span class="nav-text">面试问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2，答案："><span class="nav-number">2.</span> <span class="nav-text">问题2，答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3，-答案："><span class="nav-number">3.</span> <span class="nav-text">问题3， 答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题4，参考答案："><span class="nav-number">4.</span> <span class="nav-text">问题4，参考答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题6，-答案："><span class="nav-number">5.</span> <span class="nav-text">问题6， 答案：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面试问题"><span class="nav-number">1.</span> <span class="nav-text">面试问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2，答案："><span class="nav-number">2.</span> <span class="nav-text">问题2，答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3，-答案："><span class="nav-number">3.</span> <span class="nav-text">问题3， 答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题4，参考答案："><span class="nav-number">4.</span> <span class="nav-text">问题4，参考答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题6，-答案："><span class="nav-number">5.</span> <span class="nav-text">问题6， 答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题7，答案："><span class="nav-number">6.</span> <span class="nav-text">问题7，答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题8，-答案："><span class="nav-number">7.</span> <span class="nav-text">问题8， 答案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题12"><span class="nav-number">8.</span> <span class="nav-text">问题12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题14"><span class="nav-number">9.</span> <span class="nav-text">问题14</span></a></li></ol></div>
             
 
           </div>
@@ -852,7 +879,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">70.2k</span>
+    <span title="Site words total count">72.7k</span>
   
 </div>
 
