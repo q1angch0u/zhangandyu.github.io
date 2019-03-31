@@ -142,10 +142,12 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T08:50:00.309Z">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
+<meta property="og:updated_time" content="2019-03-31T07:20:36.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
 
 
 
@@ -468,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k 字
+                  4.9k 字
                 </span>
               
 
@@ -484,7 +486,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5 分钟
+                  24 分钟
                 </span>
               
             </div>
@@ -631,10 +633,362 @@
 <hr>
 <h1 id="泰坦尼克号生存预测"><a href="#泰坦尼克号生存预测" class="headerlink" title="泰坦尼克号生存预测"></a>泰坦尼克号生存预测</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 ID3 决策树</span></span><br><span class="line">clf = DecisionTreeClassifier(criterion = <span class="string">'entropy'</span>)</span><br><span class="line"><span class="comment"># 数据处理</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">train_data = pd.read_csv(<span class="string">r'E:\Titanic_Data\train.csv'</span>)</span><br><span class="line">test_data = pd.read_csv(<span class="string">r'E:\Titanic_Data\test.csv'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># train_data.info</span></span><br><span class="line">train_data.describe()</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>PassengerId</th><br>      <th>Survived</th><br>      <th>Pclass</th><br>      <th>Age</th><br>      <th>SibSp</th><br>      <th>Parch</th><br>      <th>Fare</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>count</th><br>      <td>891.000000</td><br>      <td>891.000000</td><br>      <td>891.000000</td><br>      <td>714.000000</td><br>      <td>891.000000</td><br>      <td>891.000000</td><br>      <td>891.000000</td><br>    </tr><br>    <tr><br>      <th>mean</th><br>      <td>446.000000</td><br>      <td>0.383838</td><br>      <td>2.308642</td><br>      <td>29.699118</td><br>      <td>0.523008</td><br>      <td>0.381594</td><br>      <td>32.204208</td><br>    </tr><br>    <tr><br>      <th>std</th><br>      <td>257.353842</td><br>      <td>0.486592</td><br>      <td>0.836071</td><br>      <td>14.526497</td><br>      <td>1.102743</td><br>      <td>0.806057</td><br>      <td>49.693429</td><br>    </tr><br>    <tr><br>      <th>min</th><br>      <td>1.000000</td><br>      <td>0.000000</td><br>      <td>1.000000</td><br>      <td>0.420000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>    </tr><br>    <tr><br>      <th>25%</th><br>      <td>223.500000</td><br>      <td>0.000000</td><br>      <td>2.000000</td><br>      <td>20.125000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>7.910400</td><br>    </tr><br>    <tr><br>      <th>50%</th><br>      <td>446.000000</td><br>      <td>0.000000</td><br>      <td>3.000000</td><br>      <td>28.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>14.454200</td><br>    </tr><br>    <tr><br>      <th>75%</th><br>      <td>668.500000</td><br>      <td>1.000000</td><br>      <td>3.000000</td><br>      <td>38.000000</td><br>      <td>1.000000</td><br>      <td>0.000000</td><br>      <td>31.000000</td><br>    </tr><br>    <tr><br>      <th>max</th><br>      <td>891.000000</td><br>      <td>1.000000</td><br>      <td>3.000000</td><br>      <td>80.000000</td><br>      <td>8.000000</td><br>      <td>6.000000</td><br>      <td>512.329200</td><br>    </tr><br>  </tbody><br></table><br></div>
+<hr>
+<h1 id="在-Python-中建立一个决策树"><a href="#在-Python-中建立一个决策树" class="headerlink" title="在 Python 中建立一个决策树"></a>在 Python 中建立一个决策树</h1><p><a href="https://web.archive.org/web/20110807035706/http://onlamp.com/lpt/a/6464" target="_blank" rel="noopener">Building Decision Trees in Python</a></p>
+<p>你准备销售一款精妙的小玩具，你非常确定它在商业上能够大获成功，并且开始全心投入。几年之后，你非常成功。 然而，最近你注意到销售的下滑，并且你决定你需要把营销资金用更好的方法用于目标受众，你如何去做？</p>
+<p>这篇文章将介绍一个非常受欢迎并且很容易用的决策工具， 叫做决策树。 它能够解决你的决策难题。</p>
+<p>决策树是人工智能的主题。 更具体的话， 它属于机器学习的子领域。这是因为他们能够通过示例学习对数据集中的单个记录进行分类</p>
+<p>本文将让你更深入的了解决策树是什么，以及它们如何帮助你更有效地将营销活动定位到你的核心客户中去。 在这样做的过程中，我将讨论决策树的一些不同用途，我将讨论一种可以在学习过程中使用的流行启发式方法，以创建最有效的决策树。最后，我将使用 python 编程语言实现一个简单的决策是程序。 </p>
+<h3 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h3><p>决策树本质上是一系列 <code>if-then</code> 语句， 当应用于数据集中的记录时， 会导致该记录的分类。 因此， 一旦创建了决策树， 就可以通过程序运行数据集， 并对数据集中的每个单独记录进行分类。作为一名销售小玩具的制造商，对你来说意味着在本文创建的程序将能够预测每个用户在数据集中购买精心制作的产品的可能性。 </p>
+<p>虽然数据分类是创造决策树的驱动力，但并不是决策树特有的。 决策树的美妙之处在于他们的学习能力。当创建完成后，你将给你的程序一组测试数据， 它将学习如何从训练中对未来的数据集进行分类。 </p>
+<p>首先， 你需要了解整个决策树的外观， 它是具有良好视觉表现的最容易理解的数据结构之一</p>
+<p><img src="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg" alt></p>
+<h3 id="真实场景"><a href="#真实场景" class="headerlink" title="真实场景"></a>真实场景</h3><p>你作为世界上最好的玩具制造商， 正在寻找一种方法来聚焦你的营销工作，以便更加紧密地吸引你的目标人群。为此， 你需要一组测试数据来用于训练决策树程序。</p>
+<p>我认为， 你作为一个企业家，已经收集到了用户的统计信息。 以下是收集的信息样本：</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Education</th>
+<th>Income</th>
+<th>Marital Status</th>
+<th>Purchase?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>36-55</td>
+<td>master’s</td>
+<td>high</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>18-35</td>
+<td>high school</td>
+<td>low</td>
+<td>single</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>master’s</td>
+<td>low</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>18-35</td>
+<td>bachelor’s</td>
+<td>high</td>
+<td>single</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>&lt; 18</td>
+<td>high school</td>
+<td>low</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>18-35</td>
+<td>bachelor’s</td>
+<td>high</td>
+<td>married</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>bachelor’s</td>
+<td>low</td>
+<td>married</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>&gt; 55</td>
+<td>bachelor’s</td>
+<td>high</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>master’s</td>
+<td>low</td>
+<td>married</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>&gt; 55</td>
+<td>master’s</td>
+<td>low</td>
+<td>married</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>master’s</td>
+<td>high</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>&gt; 55</td>
+<td>master’s</td>
+<td>high</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>&lt; 18</td>
+<td>high school</td>
+<td>high</td>
+<td>single</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>master’s</td>
+<td>low</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>high school</td>
+<td>low</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>&lt; 18</td>
+<td>high school</td>
+<td>low</td>
+<td>married</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>18-35</td>
+<td>bachelor’s</td>
+<td>high</td>
+<td>married</td>
+<td>won’t buy</td>
+</tr>
+<tr>
+<td>&gt; 55</td>
+<td>high school</td>
+<td>high</td>
+<td>married</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>&gt; 55</td>
+<td>bachelor’s</td>
+<td>low</td>
+<td>single</td>
+<td>will buy</td>
+</tr>
+<tr>
+<td>36-55</td>
+<td>high school</td>
+<td>high</td>
+<td>married</td>
+<td>won’t buy</td>
+</tr>
+</tbody>
+</table>
+<p>结合图一的决策树， 与数据集， 应该可以很容易的看到决策树如何对数据集中的记录进行分类。  </p>
+<p>从 <code>根节点 （Age）</code>开始， 检查字段中与第一个节点匹配的第一个记录的值 <code>36-55</code>。 然后按照指向树中的下一个节点链接<code>Marital Status</code> 并重复该过程， 直到最终到达 <code>叶节点</code>。此<code>叶节点</code>可以回答顾客是否购买了你的产品问题。</p>
+<hr>
+<p>图中的决策树只是你可以创造的许多决策树结构之一，以解决营销问题。 找到最优决策树的任务是一个刺手的问题。随着训练决策树的测试数量的增加，训练决策树所需的时间会成指数级的增加。 </p>
+<p>虽然在相当长的额时间内找到最小（或最合适）的决策树几乎是不可能的， 但是可以通过特殊启发法找到“足够小”的决策树。</p>
+<p>本文选择的是 ID3（信息理论）， 通过计算 信息熵的减小来决定那个属性最适合用于将数据划分为子组。 </p>
+<h3 id="ID3-理论"><a href="#ID3-理论" class="headerlink" title="ID3 理论"></a>ID3 理论</h3><hr>
+<h1 id="GOOGLE-机器学习视频笔记"><a href="#GOOGLE-机器学习视频笔记" class="headerlink" title="GOOGLE 机器学习视频笔记"></a>GOOGLE 机器学习视频笔记</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/cKxRvEZd3Mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-
+<p><a href="https://www.youtube.com/watch?v=cKxRvEZd3Mw&amp;list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal" target="_blank" rel="noopener">GOOGLE</a></p>
+<h3 id="区分苹果和橙子"><a href="#区分苹果和橙子" class="headerlink" title="区分苹果和橙子"></a>区分苹果和橙子</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 决策树</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="comment"># 140 克， 0：表皮粗糙   1：表皮光滑</span></span><br><span class="line">features = [[<span class="number">140</span>,<span class="number">1</span>], [<span class="number">130</span>,<span class="number">1</span>], [<span class="number">150</span>,<span class="number">0</span>], [<span class="number">170</span>,<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 苹果 1 橙子</span></span><br><span class="line">labels = [<span class="number">0</span>,<span class="number">0</span>, <span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(features, labels)</span><br><span class="line"><span class="keyword">print</span> (clf.predict([[<span class="number">180</span>,<span class="number">0</span>]]))</span><br></pre></td></tr></table></figure>
+<pre><code>[1]
+</code></pre><p><a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank" rel="noopener">Iris flower data set</a></p>
+<h3 id="展现花的所有数据"><a href="#展现花的所有数据" class="headerlink" title="展现花的所有数据"></a>展现花的所有数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">iris = load_iris()</span><br><span class="line"><span class="keyword">print</span> (iris.feature_names)</span><br><span class="line">print(iris.target_names)</span><br><span class="line">print(iris.data[<span class="number">0</span>])</span><br><span class="line">print(iris.target[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;sepal length (cm)&apos;, &apos;sepal width (cm)&apos;, &apos;petal length (cm)&apos;, &apos;petal width (cm)&apos;]
+[&apos;setosa&apos; &apos;versicolor&apos; &apos;virginica&apos;]
+[5.1 3.5 1.4 0.2]
+0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出所有数据</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(iris.target)):</span><br><span class="line">    print(<span class="string">"Example %d : label %s, features %s"</span> % (i, iris.target[i], iris.data[i]))</span><br></pre></td></tr></table></figure>
+<pre><code>Example 0 : label 0, features [5.1 3.5 1.4 0.2]
+Example 1 : label 0, features [4.9 3.  1.4 0.2]
+Example 2 : label 0, features [4.7 3.2 1.3 0.2]
+Example 3 : label 0, features [4.6 3.1 1.5 0.2]
+Example 4 : label 0, features [5.  3.6 1.4 0.2]
+Example 5 : label 0, features [5.4 3.9 1.7 0.4]
+Example 6 : label 0, features [4.6 3.4 1.4 0.3]
+Example 7 : label 0, features [5.  3.4 1.5 0.2]
+Example 8 : label 0, features [4.4 2.9 1.4 0.2]
+Example 9 : label 0, features [4.9 3.1 1.5 0.1]
+Example 10 : label 0, features [5.4 3.7 1.5 0.2]
+Example 11 : label 0, features [4.8 3.4 1.6 0.2]
+Example 12 : label 0, features [4.8 3.  1.4 0.1]
+Example 13 : label 0, features [4.3 3.  1.1 0.1]
+Example 14 : label 0, features [5.8 4.  1.2 0.2]
+Example 15 : label 0, features [5.7 4.4 1.5 0.4]
+Example 16 : label 0, features [5.4 3.9 1.3 0.4]
+Example 17 : label 0, features [5.1 3.5 1.4 0.3]
+Example 18 : label 0, features [5.7 3.8 1.7 0.3]
+Example 19 : label 0, features [5.1 3.8 1.5 0.3]
+Example 20 : label 0, features [5.4 3.4 1.7 0.2]
+Example 21 : label 0, features [5.1 3.7 1.5 0.4]
+Example 22 : label 0, features [4.6 3.6 1.  0.2]
+Example 23 : label 0, features [5.1 3.3 1.7 0.5]
+Example 24 : label 0, features [4.8 3.4 1.9 0.2]
+Example 25 : label 0, features [5.  3.  1.6 0.2]
+Example 26 : label 0, features [5.  3.4 1.6 0.4]
+Example 27 : label 0, features [5.2 3.5 1.5 0.2]
+Example 28 : label 0, features [5.2 3.4 1.4 0.2]
+Example 29 : label 0, features [4.7 3.2 1.6 0.2]
+Example 30 : label 0, features [4.8 3.1 1.6 0.2]
+Example 31 : label 0, features [5.4 3.4 1.5 0.4]
+Example 32 : label 0, features [5.2 4.1 1.5 0.1]
+Example 33 : label 0, features [5.5 4.2 1.4 0.2]
+Example 34 : label 0, features [4.9 3.1 1.5 0.1]
+Example 35 : label 0, features [5.  3.2 1.2 0.2]
+Example 36 : label 0, features [5.5 3.5 1.3 0.2]
+Example 37 : label 0, features [4.9 3.1 1.5 0.1]
+Example 38 : label 0, features [4.4 3.  1.3 0.2]
+Example 39 : label 0, features [5.1 3.4 1.5 0.2]
+Example 40 : label 0, features [5.  3.5 1.3 0.3]
+Example 41 : label 0, features [4.5 2.3 1.3 0.3]
+Example 42 : label 0, features [4.4 3.2 1.3 0.2]
+Example 43 : label 0, features [5.  3.5 1.6 0.6]
+Example 44 : label 0, features [5.1 3.8 1.9 0.4]
+Example 45 : label 0, features [4.8 3.  1.4 0.3]
+Example 46 : label 0, features [5.1 3.8 1.6 0.2]
+Example 47 : label 0, features [4.6 3.2 1.4 0.2]
+Example 48 : label 0, features [5.3 3.7 1.5 0.2]
+Example 49 : label 0, features [5.  3.3 1.4 0.2]
+Example 50 : label 1, features [7.  3.2 4.7 1.4]
+Example 51 : label 1, features [6.4 3.2 4.5 1.5]
+Example 52 : label 1, features [6.9 3.1 4.9 1.5]
+Example 53 : label 1, features [5.5 2.3 4.  1.3]
+Example 54 : label 1, features [6.5 2.8 4.6 1.5]
+Example 55 : label 1, features [5.7 2.8 4.5 1.3]
+Example 56 : label 1, features [6.3 3.3 4.7 1.6]
+Example 57 : label 1, features [4.9 2.4 3.3 1. ]
+Example 58 : label 1, features [6.6 2.9 4.6 1.3]
+Example 59 : label 1, features [5.2 2.7 3.9 1.4]
+Example 60 : label 1, features [5.  2.  3.5 1. ]
+Example 61 : label 1, features [5.9 3.  4.2 1.5]
+Example 62 : label 1, features [6.  2.2 4.  1. ]
+Example 63 : label 1, features [6.1 2.9 4.7 1.4]
+Example 64 : label 1, features [5.6 2.9 3.6 1.3]
+Example 65 : label 1, features [6.7 3.1 4.4 1.4]
+Example 66 : label 1, features [5.6 3.  4.5 1.5]
+Example 67 : label 1, features [5.8 2.7 4.1 1. ]
+Example 68 : label 1, features [6.2 2.2 4.5 1.5]
+Example 69 : label 1, features [5.6 2.5 3.9 1.1]
+Example 70 : label 1, features [5.9 3.2 4.8 1.8]
+Example 71 : label 1, features [6.1 2.8 4.  1.3]
+Example 72 : label 1, features [6.3 2.5 4.9 1.5]
+Example 73 : label 1, features [6.1 2.8 4.7 1.2]
+Example 74 : label 1, features [6.4 2.9 4.3 1.3]
+Example 75 : label 1, features [6.6 3.  4.4 1.4]
+Example 76 : label 1, features [6.8 2.8 4.8 1.4]
+Example 77 : label 1, features [6.7 3.  5.  1.7]
+Example 78 : label 1, features [6.  2.9 4.5 1.5]
+Example 79 : label 1, features [5.7 2.6 3.5 1. ]
+Example 80 : label 1, features [5.5 2.4 3.8 1.1]
+Example 81 : label 1, features [5.5 2.4 3.7 1. ]
+Example 82 : label 1, features [5.8 2.7 3.9 1.2]
+Example 83 : label 1, features [6.  2.7 5.1 1.6]
+Example 84 : label 1, features [5.4 3.  4.5 1.5]
+Example 85 : label 1, features [6.  3.4 4.5 1.6]
+Example 86 : label 1, features [6.7 3.1 4.7 1.5]
+Example 87 : label 1, features [6.3 2.3 4.4 1.3]
+Example 88 : label 1, features [5.6 3.  4.1 1.3]
+Example 89 : label 1, features [5.5 2.5 4.  1.3]
+Example 90 : label 1, features [5.5 2.6 4.4 1.2]
+Example 91 : label 1, features [6.1 3.  4.6 1.4]
+Example 92 : label 1, features [5.8 2.6 4.  1.2]
+Example 93 : label 1, features [5.  2.3 3.3 1. ]
+Example 94 : label 1, features [5.6 2.7 4.2 1.3]
+Example 95 : label 1, features [5.7 3.  4.2 1.2]
+Example 96 : label 1, features [5.7 2.9 4.2 1.3]
+Example 97 : label 1, features [6.2 2.9 4.3 1.3]
+Example 98 : label 1, features [5.1 2.5 3.  1.1]
+Example 99 : label 1, features [5.7 2.8 4.1 1.3]
+Example 100 : label 2, features [6.3 3.3 6.  2.5]
+Example 101 : label 2, features [5.8 2.7 5.1 1.9]
+Example 102 : label 2, features [7.1 3.  5.9 2.1]
+Example 103 : label 2, features [6.3 2.9 5.6 1.8]
+Example 104 : label 2, features [6.5 3.  5.8 2.2]
+Example 105 : label 2, features [7.6 3.  6.6 2.1]
+Example 106 : label 2, features [4.9 2.5 4.5 1.7]
+Example 107 : label 2, features [7.3 2.9 6.3 1.8]
+Example 108 : label 2, features [6.7 2.5 5.8 1.8]
+Example 109 : label 2, features [7.2 3.6 6.1 2.5]
+Example 110 : label 2, features [6.5 3.2 5.1 2. ]
+Example 111 : label 2, features [6.4 2.7 5.3 1.9]
+Example 112 : label 2, features [6.8 3.  5.5 2.1]
+Example 113 : label 2, features [5.7 2.5 5.  2. ]
+Example 114 : label 2, features [5.8 2.8 5.1 2.4]
+Example 115 : label 2, features [6.4 3.2 5.3 2.3]
+Example 116 : label 2, features [6.5 3.  5.5 1.8]
+Example 117 : label 2, features [7.7 3.8 6.7 2.2]
+Example 118 : label 2, features [7.7 2.6 6.9 2.3]
+Example 119 : label 2, features [6.  2.2 5.  1.5]
+Example 120 : label 2, features [6.9 3.2 5.7 2.3]
+Example 121 : label 2, features [5.6 2.8 4.9 2. ]
+Example 122 : label 2, features [7.7 2.8 6.7 2. ]
+Example 123 : label 2, features [6.3 2.7 4.9 1.8]
+Example 124 : label 2, features [6.7 3.3 5.7 2.1]
+Example 125 : label 2, features [7.2 3.2 6.  1.8]
+Example 126 : label 2, features [6.2 2.8 4.8 1.8]
+Example 127 : label 2, features [6.1 3.  4.9 1.8]
+Example 128 : label 2, features [6.4 2.8 5.6 2.1]
+Example 129 : label 2, features [7.2 3.  5.8 1.6]
+Example 130 : label 2, features [7.4 2.8 6.1 1.9]
+Example 131 : label 2, features [7.9 3.8 6.4 2. ]
+Example 132 : label 2, features [6.4 2.8 5.6 2.2]
+Example 133 : label 2, features [6.3 2.8 5.1 1.5]
+Example 134 : label 2, features [6.1 2.6 5.6 1.4]
+Example 135 : label 2, features [7.7 3.  6.1 2.3]
+Example 136 : label 2, features [6.3 3.4 5.6 2.4]
+Example 137 : label 2, features [6.4 3.1 5.5 1.8]
+Example 138 : label 2, features [6.  3.  4.8 1.8]
+Example 139 : label 2, features [6.9 3.1 5.4 2.1]
+Example 140 : label 2, features [6.7 3.1 5.6 2.4]
+Example 141 : label 2, features [6.9 3.1 5.1 2.3]
+Example 142 : label 2, features [5.8 2.7 5.1 1.9]
+Example 143 : label 2, features [6.8 3.2 5.9 2.3]
+Example 144 : label 2, features [6.7 3.3 5.7 2.5]
+Example 145 : label 2, features [6.7 3.  5.2 2.3]
+Example 146 : label 2, features [6.3 2.5 5.  1.9]
+Example 147 : label 2, features [6.5 3.  5.2 2. ]
+Example 148 : label 2, features [6.2 3.4 5.4 2.3]
+Example 149 : label 2, features [5.9 3.  5.1 1.8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分出测试数据与训练数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">iris = load_iris()</span><br><span class="line">test_idx = [<span class="number">0</span>, <span class="number">50</span>, <span class="number">130</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># training data</span></span><br><span class="line">train_target = np.delete(iris.target, test_idx)</span><br><span class="line">train_data = np.delete(iris.data, test_idx, axis = <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># testing data</span></span><br><span class="line">test_target = iris.target[test_idx]</span><br><span class="line">test_data = iris.data[test_idx]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行训练</span></span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf.fit(train_data, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用测试集进行测试</span></span><br><span class="line">print(test_target)</span><br><span class="line">print(clf.predict(test_data))</span><br></pre></td></tr></table></figure>
+<pre><code>[0 1 2]
+[0 1 2]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line">dot_data = StringIO()</span><br><span class="line">tree.export_graphviz(clf, out_file = dot_data, feature_names = iris.feature_names,class_names = iris.target_names, filled = <span class="keyword">True</span>, rounded = <span class="keyword">True</span>, special_characters = <span class="keyword">True</span>)</span><br><span class="line">graph = graphviz.Source(dot_data)</span><br><span class="line"><span class="comment"># graph.render("iris")</span></span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data.getvalue())</span><br><span class="line">graph.write_pdf(<span class="string">"iris.pdf"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(test_data[<span class="number">1</span>], test_target[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[7.  3.2 4.7 1.4] 1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(iris.feature_names, iris.target_names)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;sepal length (cm)&apos;, &apos;sepal width (cm)&apos;, &apos;petal length (cm)&apos;, &apos;petal width (cm)&apos;] [&apos;setosa&apos; &apos;versicolor&apos; &apos;virginica&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sepal length <span class="number">7.4</span></span><br><span class="line">sepal width   <span class="number">3.2</span></span><br><span class="line">petal length  <span class="number">4.7</span></span><br><span class="line">petal width  <span class="number">1.4</span></span><br></pre></td></tr></table></figure>
+<p>决策树提出的问题必须针对某个特征， 当你选择的特征越可靠， 决策树的准确性越高。 </p>
+<h1 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">iris = datasets.load_iris()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特征x 与 标签y</span></span><br><span class="line">x = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练集的特征与标签  测试集的特征与标签</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span>  train_test_split</span><br><span class="line"><span class="comment"># 一半用来训练，一半用来测试</span></span><br><span class="line"></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = <span class="number">.5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 决策树分类器</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line">my_classifier = tree.DecisionTreeClassifier()</span><br><span class="line"><span class="comment"># 进行训练</span></span><br><span class="line">my_classifier.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试准确性</span></span><br><span class="line">predictions = my_classifier.predict(x_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">print(accuracy_score(y_test, predictions))</span><br></pre></td></tr></table></figure>
+<pre><code>0.96
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用KNN分类器</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">my_classifier = KNeighborsClassifier()</span><br><span class="line">my_classifier.fit(x_train, y_train)</span><br><span class="line">predictions = my_classifier.predict(x_test)</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">print((accuracy_score(y_test, predictions)))</span><br></pre></td></tr></table></figure>
+<pre><code>0.9733333333333334
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随机分类器</span></span><br><span class="line"><span class="keyword">from</span> scipy.spatial <span class="keyword">import</span> distance</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">euc</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> distance.euclidean(a,b)</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrappyKNN</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, x_train, y_train)</span>:</span></span><br><span class="line">        self.x_train = x_train</span><br><span class="line">        self.y_train = y_train</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, x_test)</span>:</span></span><br><span class="line">        predictions = []</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> x_test:</span><br><span class="line">            labe1 = self.closest(row)</span><br><span class="line">            predictions.append(labe1)</span><br><span class="line">        <span class="keyword">return</span> predictions</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">closest</span><span class="params">(self, row)</span>:</span></span><br><span class="line">        best_dist = euc(row, self.x_train[<span class="number">0</span>])</span><br><span class="line">        best_index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(self.x_train)):</span><br><span class="line">            dist = euc(row, self.x_train[i])</span><br><span class="line">            <span class="keyword">if</span> dist &lt; best_dist:</span><br><span class="line">                best_dist = dist</span><br><span class="line">                best_index = i</span><br><span class="line">        <span class="keyword">return</span> self.y_train[best_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line"><span class="comment"># 特征x 与 标签y</span></span><br><span class="line">x = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span>  train_test_split</span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = <span class="number">.5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_classifier = ScrappyKNN()</span><br><span class="line">my_classifier.fit(x_train, y_train)</span><br><span class="line">predictions = my_classifier.predict(x_test)</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">print((accuracy_score(y_test, predictions)))</span><br></pre></td></tr></table></figure>
+<pre><code>0.96
+</code></pre>
       
     </div>
     
@@ -706,8 +1060,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
-                <i class="fa fa-chevron-left"></i> Excel函数
+              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -716,8 +1070,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -915,7 +1269,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">1.1.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断哪些节点作为根节点"><span class="nav-number">1.1.1.</span> <span class="nav-text">如何判断哪些节点作为根节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪枝"><span class="nav-number">1.2.</span> <span class="nav-text">剪枝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰坦尼克号生存预测"><span class="nav-number">2.</span> <span class="nav-text">泰坦尼克号生存预测</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">1.1.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断哪些节点作为根节点"><span class="nav-number">1.1.1.</span> <span class="nav-text">如何判断哪些节点作为根节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪枝"><span class="nav-number">1.2.</span> <span class="nav-text">剪枝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰坦尼克号生存预测"><span class="nav-number">2.</span> <span class="nav-text">泰坦尼克号生存预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Python-中建立一个决策树"><span class="nav-number">3.</span> <span class="nav-text">在 Python 中建立一个决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是决策树"><span class="nav-number">3.0.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实场景"><span class="nav-number">3.0.2.</span> <span class="nav-text">真实场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-理论"><span class="nav-number">3.0.3.</span> <span class="nav-text">ID3 理论</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#GOOGLE-机器学习视频笔记"><span class="nav-number">4.</span> <span class="nav-text">GOOGLE 机器学习视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分苹果和橙子"><span class="nav-number">4.0.1.</span> <span class="nav-text">区分苹果和橙子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展现花的所有数据"><span class="nav-number">4.0.2.</span> <span class="nav-text">展现花的所有数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监督学习"><span class="nav-number">5.</span> <span class="nav-text">监督学习</span></a></li></div>
             
 
           </div>
@@ -949,7 +1303,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.7k</span>
+    <span title="Site words total count">76.7k</span>
   
 </div>
 
