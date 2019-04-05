@@ -143,7 +143,7 @@
 <meta property="og:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
-<meta property="og:updated_time" content="2019-03-31T07:53:53.973Z">
+<meta property="og:updated_time" content="2019-04-01T01:19:03.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k 字
+                  3.3k 字
                 </span>
               
 
@@ -844,7 +844,9 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 <pre><code>0.9733333333333334
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随机分类器</span></span><br><span class="line"><span class="keyword">from</span> scipy.spatial <span class="keyword">import</span> distance</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">euc</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> distance.euclidean(a,b)</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrappyKNN</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, x_train, y_train)</span>:</span></span><br><span class="line">        self.x_train = x_train</span><br><span class="line">        self.y_train = y_train</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, x_test)</span>:</span></span><br><span class="line">        predictions = []</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> x_test:</span><br><span class="line">            labe1 = self.closest(row)</span><br><span class="line">            predictions.append(labe1)</span><br><span class="line">        <span class="keyword">return</span> predictions</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">closest</span><span class="params">(self, row)</span>:</span></span><br><span class="line">        best_dist = euc(row, self.x_train[<span class="number">0</span>])</span><br><span class="line">        best_index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(self.x_train)):</span><br><span class="line">            dist = euc(row, self.x_train[i])</span><br><span class="line">            <span class="keyword">if</span> dist &lt; best_dist:</span><br><span class="line">                best_dist = dist</span><br><span class="line">                best_index = i</span><br><span class="line">        <span class="keyword">return</span> self.y_train[best_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line"><span class="comment"># 特征x 与 标签y</span></span><br><span class="line">x = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span>  train_test_split</span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = <span class="number">.5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_classifier = ScrappyKNN()</span><br><span class="line">my_classifier.fit(x_train, y_train)</span><br><span class="line">predictions = my_classifier.predict(x_test)</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">print((accuracy_score(y_test, predictions)))</span><br></pre></td></tr></table></figure>
 <pre><code>0.96
-</code></pre>
+</code></pre><hr>
+<p>信息理论使用基数为<code>2</code> 的 <code>log</code> 函数，来确定表示一条信息所需的位数。 如 2^{x} = 8  , 我们很容易计算出<code>x = 3</code>。 但是如果 2^{x}=8388608 , 可以计算出 <code>x = 23</code>。 因此， 你需要 <code>23</code>位信息才能正确表示 <code>8388608</code>个不同的数字。 这就是<code>ID3</code>算法中熵测量背后的基本思想。 换句话说， 你正在尝试查找最能减少分类数据所需信息量的属性。 </p>
+
       
     </div>
     
@@ -1159,7 +1161,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.9k</span>
+    <span title="Site words total count">75k</span>
   
 </div>
 
