@@ -134,20 +134,21 @@
 
 
 
-<meta name="description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
+<meta name="description" content="算法-决策树什么是决策树决策树是用于分类和回归的一种机器学习方法， 目标是运用训练数据创建一个模型， 通过学习从数据特征中推断的简单决策来预测目标变量的值。  想像一下， 你的父母给你介绍个相亲对象， 你可能会问一下相亲对象的基本情况，然后决定是否去见面。 其实在你问的时候， 你就已经在生成一个决策树了。   决策树有什么用决策树实现过程步骤是什么决策树底层的算法原理是什么决策树如何用python">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-决策树">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/算法-决策树/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
+<meta property="og:description" content="算法-决策树什么是决策树决策树是用于分类和回归的一种机器学习方法， 目标是运用训练数据创建一个模型， 通过学习从数据特征中推断的简单决策来预测目标变量的值。  想像一下， 你的父母给你介绍个相亲对象， 你可能会问一下相亲对象的基本情况，然后决定是否去见面。 其实在你问的时候， 你就已经在生成一个决策树了。   决策树有什么用决策树实现过程步骤是什么决策树底层的算法原理是什么决策树如何用python">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/04/05/5ca72b0b3b23d.png">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
-<meta property="og:updated_time" content="2019-04-01T01:19:03.228Z">
+<meta property="og:updated_time" content="2019-04-05T10:19:07.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
-<meta name="twitter:description" content="决策树构造选择什么属性作为节点  存在三种节点  根节点 树最开始的节点   内部节点 树中间的那些节点   叶节点 最底部节点-决策结果     节点之间存在父子关系，在构造过程中，需要解决三个重要问题：   选择哪些属性作为根节点 选择哪些属性作为子节点 什么时候停止并得到叶节点    如何判断哪些节点作为根节点 1.纯度与信息熵  纯度  让目标的分析最小    信息熵   表示信息的不确定">
-<meta name="twitter:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
+<meta name="twitter:description" content="算法-决策树什么是决策树决策树是用于分类和回归的一种机器学习方法， 目标是运用训练数据创建一个模型， 通过学习从数据特征中推断的简单决策来预测目标变量的值。  想像一下， 你的父母给你介绍个相亲对象， 你可能会问一下相亲对象的基本情况，然后决定是否去见面。 其实在你问的时候， 你就已经在生成一个决策树了。   决策树有什么用决策树实现过程步骤是什么决策树底层的算法原理是什么决策树如何用python">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/05/5ca72b0b3b23d.png">
 
 
 
@@ -470,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k 字
+                  3.4k 字
                 </span>
               
 
@@ -486,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13 分钟
+                  14 分钟
                 </span>
               
             </div>
@@ -507,7 +508,49 @@
       
 
       
-        <h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p><strong>选择什么属性作为节点</strong></p>
+        <h1 id="算法-决策树"><a href="#算法-决策树" class="headerlink" title="算法-决策树"></a>算法-决策树</h1><h2 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h2><p>决策树是用于分类和回归的一种机器学习方法， 目标是运用训练数据创建一个模型， 通过学习从数据特征中推断的简单决策来预测目标变量的值。 </p>
+<p>想像一下， 你的父母给你介绍个相亲对象， 你可能会问一下相亲对象的基本情况，然后决定是否去见面。 其实在你问的时候， 你就已经在生成一个决策树了。 </p>
+<p><img src="https://i.loli.net/2019/04/05/5ca72b0b3b23d.png" alt="决策树"></p>
+<h2 id="决策树有什么用"><a href="#决策树有什么用" class="headerlink" title="决策树有什么用"></a>决策树有什么用</h2><h2 id="决策树实现过程步骤是什么"><a href="#决策树实现过程步骤是什么" class="headerlink" title="决策树实现过程步骤是什么"></a>决策树实现过程步骤是什么</h2><h2 id="决策树底层的算法原理是什么"><a href="#决策树底层的算法原理是什么" class="headerlink" title="决策树底层的算法原理是什么"></a>决策树底层的算法原理是什么</h2><h2 id="决策树如何用python实现"><a href="#决策树如何用python实现" class="headerlink" title="决策树如何用python实现"></a>决策树如何用python实现</h2><h2 id="决策树的优点与缺点"><a href="#决策树的优点与缺点" class="headerlink" title="决策树的优点与缺点"></a>决策树的优点与缺点</h2><h2 id="决策数的案例应用"><a href="#决策数的案例应用" class="headerlink" title="决策数的案例应用"></a>决策数的案例应用</h2><!-- 1.简述决策树的原理
+
+2.简述决策树的构建过程
+
+3.信息增益率有什么优缺点？
+
+4.如何对决策树进行剪枝？
+
+5.为什么决策树需要进行剪枝?
+
+6.C4.5对ID3做了哪些改进？
+
+7.C4.5决策树算法如何处理连续数值型属性？
+
+8.C4.5与CART的区别
+
+9.简述一下分类树和回归树
+
+10.CART如何生成回归树？
+
+11.CART树对离散特征取值数目>=3的特征如何处理？
+
+12.决策树对缺失值如何处理？
+
+13.如果决策树属性用完了仍未对决策树完成划分应该怎么办？
+
+14.如何避免决策树的过拟合？
+
+15.决策树需要进行归一化处理吗？
+
+16.常用的决策树一定是二叉树吗？二叉决策树与多分支决策树相比各有什么特点？
+
+17.你认为在一棵决策树构建过程中较为耗时的步骤是什么？
+
+18.你正在一个时间序列数据集上工作，开始用决策树算法，因为你知道它在所有类型数据上的表现都不错。后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度。这种情况会发生吗？为什么？ 
+
+19.决策树在选择特征进行分类时一个特征被选择过后，之后还会选择到这个特征吗？
+
+20.和其他模型比，决策树有哪些优点和缺点？ -->
+<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p><strong>选择什么属性作为节点</strong></p>
 <blockquote>
 <p>存在三种节点</p>
 <ul>
@@ -639,7 +682,7 @@
 <p>这篇文章将介绍一个非常受欢迎并且很容易用的决策工具， 叫做决策树。 它能够解决你的决策难题。</p>
 <p>决策树是人工智能的主题。 更具体的话， 它属于机器学习的子领域。这是因为他们能够通过示例学习对数据集中的单个记录进行分类</p>
 <p>本文将让你更深入的了解决策树是什么，以及它们如何帮助你更有效地将营销活动定位到你的核心客户中去。 在这样做的过程中，我将讨论决策树的一些不同用途，我将讨论一种可以在学习过程中使用的流行启发式方法，以创建最有效的决策树。最后，我将使用 python 编程语言实现一个简单的决策是程序。 </p>
-<h3 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h3><p>决策树本质上是一系列 <code>if-then</code> 语句， 当应用于数据集中的记录时， 会导致该记录的分类。 因此， 一旦创建了决策树， 就可以通过程序运行数据集， 并对数据集中的每个单独记录进行分类。作为一名销售小玩具的制造商，对你来说意味着在本文创建的程序将能够预测每个用户在数据集中购买精心制作的产品的可能性。 </p>
+<h3 id="什么是决策树-1"><a href="#什么是决策树-1" class="headerlink" title="什么是决策树"></a>什么是决策树</h3><p>决策树本质上是一系列 <code>if-then</code> 语句， 当应用于数据集中的记录时， 会导致该记录的分类。 因此， 一旦创建了决策树， 就可以通过程序运行数据集， 并对数据集中的每个单独记录进行分类。作为一名销售小玩具的制造商，对你来说意味着在本文创建的程序将能够预测每个用户在数据集中购买精心制作的产品的可能性。 </p>
 <p>虽然数据分类是创造决策树的驱动力，但并不是决策树特有的。 决策树的美妙之处在于他们的学习能力。当创建完成后，你将给你的程序一组测试数据， 它将学习如何从训练中对未来的数据集进行分类。 </p>
 <p>首先， 你需要了解整个决策树的外观， 它是具有良好视觉表现的最容易理解的数据结构之一</p>
 <p><img src="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg" alt></p>
@@ -1127,7 +1170,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">1.1.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断哪些节点作为根节点"><span class="nav-number">1.1.1.</span> <span class="nav-text">如何判断哪些节点作为根节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪枝"><span class="nav-number">1.2.</span> <span class="nav-text">剪枝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰坦尼克号生存预测"><span class="nav-number">2.</span> <span class="nav-text">泰坦尼克号生存预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Python-中建立一个决策树"><span class="nav-number">3.</span> <span class="nav-text">在 Python 中建立一个决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是决策树"><span class="nav-number">3.0.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实场景"><span class="nav-number">3.0.2.</span> <span class="nav-text">真实场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-理论"><span class="nav-number">3.0.3.</span> <span class="nav-text">ID3 理论</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#GOOGLE-机器学习视频笔记"><span class="nav-number">4.</span> <span class="nav-text">GOOGLE 机器学习视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分苹果和橙子"><span class="nav-number">4.0.1.</span> <span class="nav-text">区分苹果和橙子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展现花的所有数据"><span class="nav-number">4.0.2.</span> <span class="nav-text">展现花的所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">4.0.3.</span> <span class="nav-text">监督学习</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法-决策树"><span class="nav-number">1.</span> <span class="nav-text">算法-决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树有什么用"><span class="nav-number">1.2.</span> <span class="nav-text">决策树有什么用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树实现过程步骤是什么"><span class="nav-number">1.3.</span> <span class="nav-text">决策树实现过程步骤是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树底层的算法原理是什么"><span class="nav-number">1.4.</span> <span class="nav-text">决策树底层的算法原理是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树如何用python实现"><span class="nav-number">1.5.</span> <span class="nav-text">决策树如何用python实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的优点与缺点"><span class="nav-number">1.6.</span> <span class="nav-text">决策树的优点与缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策数的案例应用"><span class="nav-number">1.7.</span> <span class="nav-text">决策数的案例应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">2.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.1.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断哪些节点作为根节点"><span class="nav-number">2.1.1.</span> <span class="nav-text">如何判断哪些节点作为根节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪枝"><span class="nav-number">2.2.</span> <span class="nav-text">剪枝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰坦尼克号生存预测"><span class="nav-number">3.</span> <span class="nav-text">泰坦尼克号生存预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Python-中建立一个决策树"><span class="nav-number">4.</span> <span class="nav-text">在 Python 中建立一个决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是决策树-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实场景"><span class="nav-number">4.0.2.</span> <span class="nav-text">真实场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-理论"><span class="nav-number">4.0.3.</span> <span class="nav-text">ID3 理论</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#GOOGLE-机器学习视频笔记"><span class="nav-number">5.</span> <span class="nav-text">GOOGLE 机器学习视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分苹果和橙子"><span class="nav-number">5.0.1.</span> <span class="nav-text">区分苹果和橙子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展现花的所有数据"><span class="nav-number">5.0.2.</span> <span class="nav-text">展现花的所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">5.0.3.</span> <span class="nav-text">监督学习</span></a></li></ol></li></div>
             
 
           </div>
@@ -1161,7 +1204,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75k</span>
+    <span title="Site words total count">75.2k</span>
   
 </div>
 
