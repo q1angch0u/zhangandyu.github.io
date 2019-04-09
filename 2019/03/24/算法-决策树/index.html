@@ -143,8 +143,7 @@
 <meta property="og:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/04/07/5ca9ba18cafa4.png">
-<meta property="og:image" content="https://i.loli.net/2019/04/09/5cac9db9afb02.png">
-<meta property="og:updated_time" content="2019-04-09T13:48:41.817Z">
+<meta property="og:updated_time" content="2019-04-09T14:05:52.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -471,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k 字
+                  1.4k 字
                 </span>
               
 
@@ -487,7 +486,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -541,8 +540,147 @@
 <p>ID3的计算公式为： 父节点的信息熵减去所有子节点的信息熵。 <strong>利用信息增益大小来判断当前节点应该用什么特征来构建决策树， 用计算出的信息增益最大的特征来建立决策树的当前节点</strong>。</p>
 <hr>
 <h2 id="ID3算法的计算过程"><a href="#ID3算法的计算过程" class="headerlink" title="ID3算法的计算过程"></a>ID3算法的计算过程</h2><p>我们用 ID3 算法来决定天气是否适合我们打篮球。 过去两周中，收集了14天的天气数据， 如下图所示：</p>
-<p><img src="https://i.loli.net/2019/04/09/5cac9db9afb02.png" alt></p>
-<p>天气用四个属性来进行描述， **户外， 温度，湿度和风速。 它们的属性分别为：</p>
+<table>
+<thead>
+<tr>
+<th>序列</th>
+<th>天气</th>
+<th>户外</th>
+<th>温度</th>
+<th>风速</th>
+<th>活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>晴天</td>
+<td>炎热</td>
+<td></td>
+<td>高</td>
+<td>弱</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>2</td>
+<td>晴天</td>
+<td>炎热</td>
+<td></td>
+<td>高</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>3</td>
+<td>阴天</td>
+<td>炎热</td>
+<td></td>
+<td>高</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>4</td>
+<td>雨天</td>
+<td>温柔</td>
+<td></td>
+<td>高</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>5</td>
+<td>雨天</td>
+<td>凉爽</td>
+<td></td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>6</td>
+<td>雨天</td>
+<td>凉爽</td>
+<td></td>
+<td>正常</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>7</td>
+<td>阴天</td>
+<td>凉爽</td>
+<td></td>
+<td>正常</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>8</td>
+<td>晴天</td>
+<td>温柔</td>
+<td></td>
+<td>高</td>
+<td>弱</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>9</td>
+<td>晴天</td>
+<td>凉爽</td>
+<td></td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>10</td>
+<td>雨天</td>
+<td>温柔</td>
+<td></td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>11</td>
+<td>晴天</td>
+<td>温柔</td>
+<td></td>
+<td>正常</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>12</td>
+<td>阴天</td>
+<td>温柔</td>
+<td></td>
+<td>高</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>13</td>
+<td>阴天</td>
+<td>炎热</td>
+<td></td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>14</td>
+<td>雨天</td>
+<td>温柔</td>
+<td></td>
+<td>高</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+</tbody>
+</table>
+<p>天气用四个属性来进行描述， <strong>户外， 温度，湿度和风速</strong>。 它们的属性分别为：</p>
 <blockquote>
 <p>户外 = {晴天， 阴天， 雨天}</p>
 <p>温度 = {炎热，温柔， 凉爽}</p>
@@ -550,7 +688,11 @@
 <p>风速 = {弱， 强}</p>
 </blockquote>
 <p>接下来，我们来选择根节点：</p>
-<h4 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h4><p>H(活动) = </p>
+<h4 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h4><p>决策属性活动有14个记录， 其中9个活动可以进行， 5个记录不适合活动，则<br>计算熵为：</p>
+<p>H(活动) =  $H(X)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
+<h4 id="计算条件属性的熵"><a href="#计算条件属性的熵" class="headerlink" title="计算条件属性的熵"></a>计算条件属性的熵</h4><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
+<h5 id="风速的熵"><a href="#风速的熵" class="headerlink" title="风速的熵"></a>风速的熵</h5><p>风速分为风速强和风速弱， 我们分别计算这两个属性的熵：</p>
+<p>H（弱） = </p>
 <hr>
 <!-- ## 决策树有什么用
 
@@ -995,8 +1137,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
-                <i class="fa fa-chevron-left"></i> Excel函数
+              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -1005,8 +1147,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1204,7 +1346,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.0.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.0.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算条件属性的熵"><span class="nav-number">4.0.2.</span> <span class="nav-text">计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">风速的熵</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1238,7 +1380,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.9k</span>
+    <span title="Site words total count">73.2k</span>
   
 </div>
 
