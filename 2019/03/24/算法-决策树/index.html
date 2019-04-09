@@ -148,7 +148,8 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacad8ee845a.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacb1e5882a0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png">
-<meta property="og:updated_time" content="2019-04-09T15:06:36.028Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cacc107087a2.png">
+<meta property="og:updated_time" content="2019-04-09T15:59:24.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -475,7 +476,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k 字
+                  1.9k 字
                 </span>
               
 
@@ -673,21 +674,20 @@
 </tr>
 </tbody>
 </table>
-<p>天气用四个属性来进行描述， <strong>户外， 温度，湿度和风速</strong>。 它们的属性分别为：</p>
+<p>天气用四个属性来进行描述， <strong>户外， 天气，温度和湿度</strong>。 它们的属性分别为：</p>
 <blockquote>
-<p>户外 = {晴天， 阴天， 雨天}</p>
-<p>温度 = {炎热，温柔， 凉爽}</p>
-<p>湿度 = {高，正常}</p>
+<p>天气 = {晴天， 阴天， 雨天}</p>
+<p>户外 = {炎热，温柔， 凉爽}</p>
+<p>温度 = {高，正常}</p>
 <p>风速 = {弱， 强}</p>
 </blockquote>
-<p>接下来，我们来选择根节点：</p>
-<hr>
+<h3 id="选择根节点："><a href="#选择根节点：" class="headerlink" title="选择根节点："></a>选择根节点：</h3><hr>
 <h4 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h4><p>决策属性活动有14个记录， 其中9个活动可以进行， 5个记录不适合活动，则</p>
 <p><img src="https://i.loli.net/2019/04/09/5cacacd92ae03.png" alt></p>
 <p>计算熵为：</p>
-<p>$H(活动)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
+<p>$H(决策)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
 <hr>
-<h4 id="计算条件属性的熵"><a href="#计算条件属性的熵" class="headerlink" title="计算条件属性的熵"></a>计算条件属性的熵</h4><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
+<h4 id="步骤2：计算条件属性的熵"><a href="#步骤2：计算条件属性的熵" class="headerlink" title="步骤2：计算条件属性的熵"></a>步骤2：计算条件属性的熵</h4><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
 <hr>
 <h5 id="风速的熵"><a href="#风速的熵" class="headerlink" title="风速的熵"></a>风速的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacac9ee0f81.png" alt></p>
 <p>计算分为2个过程，先计算属性值的熵， 再计算属性的熵</p>
@@ -699,7 +699,7 @@
 <ol start="2">
 <li>属性的熵（在风速分别为强和弱的前提下，风速的熵）</li>
 </ol>
-<p>$H(风速，强度)  = -(\frac{8}{14}H(弱) + \frac{6}{14}H(强) )  = 0.892$</p>
+<p>$H(决策，风速)  = -(\frac{8}{14}H(弱) + \frac{6}{14}H(强) )  = 0.892$</p>
 <hr>
 <h5 id="户外的熵"><a href="#户外的熵" class="headerlink" title="户外的熵"></a>户外的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacad8ee845a.png" alt></p>
 <ol>
@@ -711,7 +711,7 @@
 <ol start="2">
 <li>属性的熵</li>
 </ol>
-<p>$H(户外，程度)  = -(\frac{4}{14}H(凉爽) + \frac{6}{14}H(温柔)+ \frac{4}{14}H(炎热) )  = 0.911 $</p>
+<p>$H(决策，户外)  = -(\frac{4}{14}H(凉爽) + \frac{6}{14}H(温柔)+ \frac{4}{14}H(炎热) )  = 0.911 $</p>
 <hr>
 <h5 id="天气的熵"><a href="#天气的熵" class="headerlink" title="天气的熵"></a>天气的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb1e5882a0.png" alt></p>
 <ol>
@@ -721,7 +721,7 @@
 <p>$H(阴天)  = -(\frac{4}{4}log\frac{4}{4} = 0$ <strong>熵为0表示信息完全确定，没必要再分</strong></p>
 <p>$H(雨天)  = -(\frac{2}{5}log\frac{2}{5} + \frac{3}{5}log\frac{3}{5})  = 0.971$</p>
 <ol start="2">
-<li>属性的熵<br>$H(天气，变化)  = -(\frac{5}{14}H(晴天) + \frac{5}{14}H(雨天) + \frac{4}{14}H(阴天) )  = 0.693 $</li>
+<li>属性的熵<br>$H(决策，天气)  = -(\frac{5}{14}H(晴天) + \frac{5}{14}H(雨天) + \frac{4}{14}H(阴天) )  = 0.693 $</li>
 </ol>
 <hr>
 <h5 id="温度的熵"><a href="#温度的熵" class="headerlink" title="温度的熵"></a>温度的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png" alt></p>
@@ -732,11 +732,19 @@
 <p>$H(正常)  = -(\frac{1}{7}log\frac{1}{7} + \frac{6}{7}log\frac{6}{7})  =0.591 $</p>
 <ol start="2">
 <li><p>属性的熵</p>
-<p>$H(维度，变化)  = -(\frac{7}{14}H(高) + \frac{7}{14}H(正常)  )  = 0.789 $</p>
+<p>$H(决策，温度)  = -(\frac{7}{14}H(高) + \frac{7}{14}H(正常)  )  = 0.789 $</p>
 </li>
 </ol>
 <hr>
-<hr>
+<h4 id="步骤3：-计算各属性的信息增益"><a href="#步骤3：-计算各属性的信息增益" class="headerlink" title="步骤3： 计算各属性的信息增益"></a>步骤3： 计算各属性的信息增益</h4><ol>
+<li>风速的信息增益 =   H(决策) - H(决策，风速) = 0.940 -  0.892 = 0.048</li>
+<li>户外的信息增益 =  H(决策) - H(户外，风速) = 0.940 -  0.911  = 0.029 </li>
+<li>天气的信息增益 =  H(决策) - H(天气，风速) = 0.940 - 0.693 = <strong>0.246</strong></li>
+<li>温度的信息增益 =  H(决策) - H(温度，风速) = 0.940 - 0.789 = 0.151</li>
+</ol>
+<p>条件属性<strong>天气</strong>有最大的信息增益， 所以<strong>天气</strong>作为根节点。 </p>
+<p><img src="https://i.loli.net/2019/04/09/5cacc107087a2.png" alt></p>
+<h3 id="选择子节点"><a href="#选择子节点" class="headerlink" title="选择子节点"></a>选择子节点</h3><hr>
 <!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
@@ -1180,8 +1188,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
-                <i class="fa fa-chevron-left"></i> git
+              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
+                <i class="fa fa-chevron-left"></i> Excel函数
               </a>
             
           </div>
@@ -1190,8 +1198,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
-                类比汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
+                git <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1389,7 +1397,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.0.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算条件属性的熵"><span class="nav-number">4.0.2.</span> <span class="nav-text">计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">风速的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#户外的熵"><span class="nav-number">4.0.2.2.</span> <span class="nav-text">户外的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#天气的熵"><span class="nav-number">4.0.2.3.</span> <span class="nav-text">天气的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#温度的熵"><span class="nav-number">4.0.2.4.</span> <span class="nav-text">温度的熵</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择根节点："><span class="nav-number">4.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">4.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">风速的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#户外的熵"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">户外的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#天气的熵"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">天气的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#温度的熵"><span class="nav-number">4.1.2.4.</span> <span class="nav-text">温度的熵</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">4.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择子节点"><span class="nav-number">4.2.</span> <span class="nav-text">选择子节点</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1423,7 +1431,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.6k</span>
+    <span title="Site words total count">73.7k</span>
   
 </div>
 
