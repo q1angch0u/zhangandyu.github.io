@@ -143,8 +143,7 @@
 <meta property="og:description" content="算法-决策树https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会面临很多的选择问题，不论是我们选择买衣服， 还是选择某份工作。  当我们把我们背后的思考逻辑整理起来，你会发现，你其">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/04/07/5ca9ba18cafa4.png">
-<meta property="og:image" content="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg">
-<meta property="og:updated_time" content="2019-04-08T14:26:00.716Z">
+<meta property="og:updated_time" content="2019-04-09T12:45:58.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="算法-决策树https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会面临很多的选择问题，不论是我们选择买衣服， 还是选择某份工作。  当我们把我们背后的思考逻辑整理起来，你会发现，你其">
@@ -471,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.2k 字
+                  969 字
                 </span>
               
 
@@ -487,7 +486,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -533,11 +532,13 @@
 <p>同样， 女孩在6次相亲中， 有5次见面， 1次不见面， 则信息熵为：$H(X)  = -(\frac{5}{6}log\frac{5}{6} + \frac{1}{6}log\frac{1}{6}) =  0.65$</p>
 </blockquote>
 <p>从上可知，<strong>当事物越不确定时， 信息熵越大，<code>H(X)</code>度量了X的不确定性</strong></p>
-<p>现在有两个变量，X， Y， 我们想知道X 在知道Y 之后剩下的不缺性是多少， 则表达式可以写为：</p>
+<p>现在有两个变量，X， Y， 我们想知道X 在知道Y的条件下，剩下的不缺性是多少， 则表达式可以写为：</p>
 <p>$$H(X|Y) = -\sum_{i=1}^{n}p(x_{i}, y_{i})logp(x_{i}| y_{i}) =  \sum_{j=1}^{n}p( y_{j})H(X|y_{j})$$</p>
 <p>我们刚才提到了<code>H(x)</code>度量了 X 的不确定性， 条件熵<code>H(X|Y)</code> 度量了我们在知道 Y 以后 X d的不确定性， 那么 <code>H(x)-H(X|Y)</code>呢？ </p>
 <p>它则度量了 X 在知道Y以后不确定性减少的程度， 记为<code>I(X,Y)</code>. 在决策树 ID3 算法中叫做<code>信息增益</code>。ID3 算法就是用信息增益来判断当前节点应该用什么特征来构建决策树。 信息增益越大，则越适合用来分类。</p>
-<h2 id="ID3的计算公式为：-父节点的信息熵减去所有子节点的信息熵。-利用信息增益大小来判断当前节点应该用什么特征来构建决策树，-用计算出的信息增益最大的特征来建立决策树的当前节点。"><a href="#ID3的计算公式为：-父节点的信息熵减去所有子节点的信息熵。-利用信息增益大小来判断当前节点应该用什么特征来构建决策树，-用计算出的信息增益最大的特征来建立决策树的当前节点。" class="headerlink" title="ID3的计算公式为： 父节点的信息熵减去所有子节点的信息熵。 利用信息增益大小来判断当前节点应该用什么特征来构建决策树， 用计算出的信息增益最大的特征来建立决策树的当前节点。"></a>ID3的计算公式为： 父节点的信息熵减去所有子节点的信息熵。 <strong>利用信息增益大小来判断当前节点应该用什么特征来构建决策树， 用计算出的信息增益最大的特征来建立决策树的当前节点</strong>。</h2><!-- ## 决策树有什么用
+<p>ID3的计算公式为： 父节点的信息熵减去所有子节点的信息熵。 <strong>利用信息增益大小来判断当前节点应该用什么特征来构建决策树， 用计算出的信息增益最大的特征来建立决策树的当前节点</strong>。</p>
+<hr>
+<!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
 
@@ -587,94 +588,75 @@
 19.决策树在选择特征进行分类时一个特征被选择过后，之后还会选择到这个特征吗？
 
 20.和其他模型比，决策树有哪些优点和缺点？ -->
-<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p><strong>选择什么属性作为节点</strong></p>
-<blockquote>
-<p>存在三种节点</p>
-<ul>
-<li>根节点<blockquote>
-<p>树最开始的节点</p>
-</blockquote>
-</li>
-<li>内部节点<blockquote>
-<p>树中间的那些节点</p>
-</blockquote>
-</li>
-<li>叶节点<blockquote>
-<p>最底部节点-决策结果</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<p>节点之间存在父子关系，在构造过程中，需要解决三个重要问题：</p>
-<blockquote>
-<ul>
-<li>选择哪些属性作为根节点</li>
-<li>选择哪些属性作为子节点</li>
-<li>什么时候停止并得到叶节点</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="如何判断哪些节点作为根节点"><a href="#如何判断哪些节点作为根节点" class="headerlink" title="如何判断哪些节点作为根节点"></a>如何判断哪些节点作为根节点</h3><p><strong> 1.纯度与信息熵</strong></p>
-<ul>
-<li><p><strong>纯度</strong></p>
-<blockquote>
-<p>让目标的分析最小</p>
-</blockquote>
-</li>
-<li><p><strong> 信息熵</strong></p>
-<blockquote>
-<p> 表示信息的不确定度。</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>2. 基于纯度，三种构建决策树的方法</strong></p>
-<ul>
-<li><strong> ID3算法-信息增益 </strong><blockquote>
-<p>作用：划分带来纯度的提高，信息熵的下降</p>
-<p>优点： 方法简单</p>
-<p>缺点：</p>
-<ul>
-<li>对噪声敏感，有些属性可能对分类任务没有多大的作用，但仍会被选为最优属性。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p><strong> C4.5算法-信息增益率 </strong></p>
-<blockquote>
-<p>原理： 信息增益率 = 信息增益 / 属性熵</p>
-<p>目前使用最广的算法</p>
-<p>优点：</p>
-<ul>
-<li>ID3 构造决策树，容易产生过拟合情况。但 C4.5中，会在决策树构造之后采用悲观剪枝，提升了决策树的泛化能力。</li>
-<li>可以处理连续属性情况，对连续的属性进行离散化处理。</li>
-<li>针对数据集不完整的情况，也可以进行处理。</li>
-</ul>
-<p>缺点：需对数据集进行多次扫描，算法效率相对较低。</p>
-</blockquote>
-</li>
-<li><p><strong> Cart算法-基尼指数 </strong></p>
-</li>
-</ul>
-<blockquote>
-<p>既可以做<code>分类树</code>，也可以做<code>回归树</code></p>
-<ul>
-<li>分类树-根据基尼指数作为评判标准<blockquote>
-<p>处理离散数据-数据种类有限，输出样本的类别。</p>
-</blockquote>
-</li>
-<li>回归树-根据样本的离散程度来进行评判<blockquote>
-<p>对连续性数值进行预测-数据在某个区间内都有取值的可能，输出一个数值。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>原理： 基尼系数反应样本的不确定度。 Cart算法属性采用基尼系数。</p>
-</blockquote>
-<blockquote>
-<p>剪枝： CCP方法，后剪枝</p>
-</blockquote>
+<!-- 
+
+# 决策树
+
+## 构造
+
+**选择什么属性作为节点**
+> 存在三种节点
+> * 根节点
+> >树最开始的节点
+> * 内部节点
+> > 树中间的那些节点
+> * 叶节点
+> > 最底部节点-决策结果
+
+节点之间存在父子关系，在构造过程中，需要解决三个重要问题：
+> * 选择哪些属性作为根节点
+> * 选择哪些属性作为子节点
+> * 什么时候停止并得到叶节点
+
+----
+
+### 如何判断哪些节点作为根节点
+
+** 1.纯度与信息熵**
+
+* **纯度**
+> 让目标的分析最小
+
+* ** 信息熵**
+>  表示信息的不确定度。
+
+**2. 基于纯度，三种构建决策树的方法**
+
+* ** ID3算法-信息增益 **
+> 作用：划分带来纯度的提高，信息熵的下降
+> 
+> 优点： 方法简单
+>
+> 缺点：
+> * 对噪声敏感，有些属性可能对分类任务没有多大的作用，但仍会被选为最优属性。
+
+
+* ** C4.5算法-信息增益率 **
+> 原理： 信息增益率 = 信息增益 / 属性熵
+>
+> 目前使用最广的算法
+> 
+>优点：
+> * ID3 构造决策树，容易产生过拟合情况。但 C4.5中，会在决策树构造之后采用悲观剪枝，提升了决策树的泛化能力。
+> * 可以处理连续属性情况，对连续的属性进行离散化处理。
+> * 针对数据集不完整的情况，也可以进行处理。
+>
+> 缺点：需对数据集进行多次扫描，算法效率相对较低。
+
+* ** Cart算法-基尼指数 **
+
+>既可以做`分类树`，也可以做`回归树`
+> * 分类树-根据基尼指数作为评判标准
+>> 处理离散数据-数据种类有限，输出样本的类别。
+> * 回归树-根据样本的离散程度来进行评判
+>> 对连续性数值进行预测-数据在某个区间内都有取值的可能，输出一个数值。
+
+> 原理： 基尼系数反应样本的不确定度。 Cart算法属性采用基尼系数。
+
+> 剪枝： CCP方法，后剪枝
+
+
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用 Cart算法 来创建分类树</span></span><br><span class="line"><span class="comment"># encoding = utf-8</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备数据集</span></span><br><span class="line">iris = load_iris()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取特征集合分类标识</span></span><br><span class="line">features = iris.data</span><br><span class="line">labels = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机抽取33%的数据作为测试集，其余为训练集</span></span><br><span class="line">train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size = <span class="number">0.33</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建CART分类树</span></span><br><span class="line">clf = DecisionTreeClassifier(criterion = <span class="string">'gini'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合构造 CART 分类树</span></span><br><span class="line">clf = clf.fit(train_features, train_labels)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 CART 分类树做预测</span></span><br><span class="line">test_predict = clf.predict(test_features)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测结果与测试集结果作比对</span></span><br><span class="line">score = accuracy_score(test_labels, test_predict)</span><br><span class="line">print(<span class="string">"Cart 分类树准确率 %.4lf"</span> % score)</span><br></pre></td></tr></table></figure>
 <pre><code>Cart 分类树准确率 0.9800
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用CART 算法， 来创建回归数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score, mean_absolute_error, mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备数据集</span></span><br><span class="line">boston = load_boston()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 探索数据</span></span><br><span class="line"><span class="comment"># print(boston.feature_names)</span></span><br><span class="line"><span class="comment"># 获取特征集合房价</span></span><br><span class="line">features = boston.data</span><br><span class="line">prices = boston.target</span><br><span class="line"><span class="comment"># 随机抽取33%的数据作为测试集，其余为训练集</span></span><br><span class="line">train_features, test_features, train_price, test_price = train_test_split(features, prices, test_size = <span class="number">0.33</span>)</span><br><span class="line"><span class="comment"># 创建 CART 回归数</span></span><br><span class="line">dtr = DecisionTreeRegressor()</span><br><span class="line"><span class="comment"># 拟合构造 CART 回归数</span></span><br><span class="line">dtr.fit(train_features, train_price)</span><br><span class="line"><span class="comment"># 预测测试集中的房价</span></span><br><span class="line">predict_price = dtr.predict(test_features)</span><br><span class="line"><span class="comment"># 测试集的结果评价</span></span><br><span class="line">print(<span class="string">'回归树二乘偏差均值:'</span>, mean_squared_error(test_price, predict_price))</span><br><span class="line">print(<span class="string">'回归树绝对值偏差均值:'</span>, mean_absolute_error(test_price, predict_price))</span><br></pre></td></tr></table></figure>
@@ -714,7 +696,7 @@
 <h1 id="泰坦尼克号生存预测"><a href="#泰坦尼克号生存预测" class="headerlink" title="泰坦尼克号生存预测"></a>泰坦尼克号生存预测</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 ID3 决策树</span></span><br><span class="line">clf = DecisionTreeClassifier(criterion = <span class="string">'entropy'</span>)</span><br><span class="line"><span class="comment"># 数据处理</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">train_data = pd.read_csv(<span class="string">r'E:\Titanic_Data\train.csv'</span>)</span><br><span class="line">test_data = pd.read_csv(<span class="string">r'E:\Titanic_Data\test.csv'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># train_data.info</span></span><br><span class="line">train_data.describe()</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="在-Python-中建立一个决策树"><a href="#在-Python-中建立一个决策树" class="headerlink" title="在 Python 中建立一个决策树"></a>在 Python 中建立一个决策树</h1><p><a href="https://web.archive.org/web/20110807035706/http://onlamp.com/lpt/a/6464" target="_blank" rel="noopener">Building Decision Trees in Python</a></p>
+<h1 id="在-Python-中建立一个决策树"><a href="#在-Python-中建立一个决策树" class="headerlink" title="在 Python 中建立一个决策树"></a>在 Python 中建立一个决策树</h1><p><a href="https://web.archive.org/web/20110807035706/http://onlamp.com/lpt/a/6464">Building Decision Trees in Python</a></p>
 <p>你准备销售一款精妙的小玩具，你非常确定它在商业上能够大获成功，并且开始全心投入。几年之后，你非常成功。 然而，最近你注意到销售的下滑，并且你决定你需要把营销资金用更好的方法用于目标受众，你如何去做？</p>
 <p>这篇文章将介绍一个非常受欢迎并且很容易用的决策工具， 叫做决策树。 它能够解决你的决策难题。</p>
 <p>决策树是人工智能的主题。 更具体的话， 它属于机器学习的子领域。这是因为他们能够通过示例学习对数据集中的单个记录进行分类</p>
@@ -722,7 +704,7 @@
 <h3 id="什么是决策树-1"><a href="#什么是决策树-1" class="headerlink" title="什么是决策树"></a>什么是决策树</h3><p>决策树本质上是一系列 <code>if-then</code> 语句， 当应用于数据集中的记录时， 会导致该记录的分类。 因此， 一旦创建了决策树， 就可以通过程序运行数据集， 并对数据集中的每个单独记录进行分类。作为一名销售小玩具的制造商，对你来说意味着在本文创建的程序将能够预测每个用户在数据集中购买精心制作的产品的可能性。 </p>
 <p>虽然数据分类是创造决策树的驱动力，但并不是决策树特有的。 决策树的美妙之处在于他们的学习能力。当创建完成后，你将给你的程序一组测试数据， 它将学习如何从训练中对未来的数据集进行分类。 </p>
 <p>首先， 你需要了解整个决策树的外观， 它是具有良好视觉表现的最容易理解的数据结构之一</p>
-<p><img src="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg" alt></p>
+<p><img src="https://pic2.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg" alt=""></p>
 <h3 id="真实场景"><a href="#真实场景" class="headerlink" title="真实场景"></a>真实场景</h3><p>你作为世界上最好的玩具制造商， 正在寻找一种方法来聚焦你的营销工作，以便更加紧密地吸引你的目标人群。为此， 你需要一组测试数据来用于训练决策树程序。</p>
 <p>我认为， 你作为一个企业家，已经收集到了用户的统计信息。 以下是收集的信息样本：</p>
 <table>
@@ -888,10 +870,10 @@
 <h1 id="GOOGLE-机器学习视频笔记"><a href="#GOOGLE-机器学习视频笔记" class="headerlink" title="GOOGLE 机器学习视频笔记"></a>GOOGLE 机器学习视频笔记</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/cKxRvEZd3Mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<p><a href="https://www.youtube.com/watch?v=cKxRvEZd3Mw&amp;list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal" target="_blank" rel="noopener">GOOGLE</a></p>
+<p><a href="https://www.youtube.com/watch?v=cKxRvEZd3Mw&amp;list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">GOOGLE</a></p>
 <h3 id="区分苹果和橙子"><a href="#区分苹果和橙子" class="headerlink" title="区分苹果和橙子"></a>区分苹果和橙子</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 决策树</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="comment"># 140 克， 0：表皮粗糙   1：表皮光滑</span></span><br><span class="line">features = [[<span class="number">140</span>,<span class="number">1</span>], [<span class="number">130</span>,<span class="number">1</span>], [<span class="number">150</span>,<span class="number">0</span>], [<span class="number">170</span>,<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 苹果 1 橙子</span></span><br><span class="line">labels = [<span class="number">0</span>,<span class="number">0</span>, <span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(features, labels)</span><br><span class="line"><span class="keyword">print</span> (clf.predict([[<span class="number">180</span>,<span class="number">0</span>]]))</span><br></pre></td></tr></table></figure>
 <pre><code>[1]
-</code></pre><p><a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank" rel="noopener">Iris flower data set</a></p>
+</code></pre><p><a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">Iris flower data set</a></p>
 <h3 id="展现花的所有数据"><a href="#展现花的所有数据" class="headerlink" title="展现花的所有数据"></a>展现花的所有数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">iris = load_iris()</span><br><span class="line"><span class="keyword">print</span> (iris.feature_names)</span><br><span class="line">print(iris.target_names)</span><br><span class="line">print(iris.data[<span class="number">0</span>])</span><br><span class="line">print(iris.target[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
 <pre><code>[&apos;sepal length (cm)&apos;, &apos;sepal width (cm)&apos;, &apos;petal length (cm)&apos;, &apos;petal width (cm)&apos;]
 [&apos;setosa&apos; &apos;versicolor&apos; &apos;virginica&apos;]
@@ -926,7 +908,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 <pre><code>0.96
 </code></pre><hr>
 <p>信息理论使用基数为<code>2</code> 的 <code>log</code> 函数，来确定表示一条信息所需的位数。 如 2^{x} = 8  , 我们很容易计算出<code>x = 3</code>。 但是如果 2^{x}=8388608 , 可以计算出 <code>x = 23</code>。 因此， 你需要 <code>23</code>位信息才能正确表示 <code>8388608</code>个不同的数字。 这就是<code>ID3</code>算法中熵测量背后的基本思想。 换句话说， 你正在尝试查找最能减少分类数据所需信息量的属性。 </p>
-
+<p> –&gt;</p>
+-->
       
     </div>
     
@@ -998,8 +981,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
-                <i class="fa fa-chevron-left"></i> git
+              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
+                <i class="fa fa-chevron-left"></i> Excel函数
               </a>
             
           </div>
@@ -1008,8 +991,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
-                类比汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
+                git <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1207,7 +1190,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法-决策树"><span class="nav-number">1.</span> <span class="nav-text">算法-决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">1.2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">1.3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3的计算公式为：-父节点的信息熵减去所有子节点的信息熵。-利用信息增益大小来判断当前节点应该用什么特征来构建决策树，-用计算出的信息增益最大的特征来建立决策树的当前节点。"><span class="nav-number">1.4.</span> <span class="nav-text">ID3的计算公式为： 父节点的信息熵减去所有子节点的信息熵。 利用信息增益大小来判断当前节点应该用什么特征来构建决策树， 用计算出的信息增益最大的特征来建立决策树的当前节点。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">2.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.1.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断哪些节点作为根节点"><span class="nav-number">2.1.1.</span> <span class="nav-text">如何判断哪些节点作为根节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪枝"><span class="nav-number">2.2.</span> <span class="nav-text">剪枝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰坦尼克号生存预测"><span class="nav-number">3.</span> <span class="nav-text">泰坦尼克号生存预测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Python-中建立一个决策树"><span class="nav-number">4.</span> <span class="nav-text">在 Python 中建立一个决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是决策树-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真实场景"><span class="nav-number">4.0.2.</span> <span class="nav-text">真实场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-理论"><span class="nav-number">4.0.3.</span> <span class="nav-text">ID3 理论</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#GOOGLE-机器学习视频笔记"><span class="nav-number">5.</span> <span class="nav-text">GOOGLE 机器学习视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分苹果和橙子"><span class="nav-number">5.0.1.</span> <span class="nav-text">区分苹果和橙子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展现花的所有数据"><span class="nav-number">5.0.2.</span> <span class="nav-text">展现花的所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">5.0.3.</span> <span class="nav-text">监督学习</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法-决策树"><span class="nav-number">1.</span> <span class="nav-text">算法-决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">1.2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">1.3.</span> <span class="nav-text">C3.0算法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1241,7 +1224,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76k</span>
+    <span title="Site words total count">72.8k</span>
   
 </div>
 
