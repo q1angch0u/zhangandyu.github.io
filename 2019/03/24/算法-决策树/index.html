@@ -143,7 +143,7 @@
 <meta property="og:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/04/07/5ca9ba18cafa4.png">
-<meta property="og:updated_time" content="2019-04-09T14:14:56.903Z">
+<meta property="og:updated_time" content="2019-04-09T14:22:50.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k 字
+                  1.8k 字
                 </span>
               
 
@@ -675,13 +675,21 @@
 </blockquote>
 <p>接下来，我们来选择根节点：</p>
 <h4 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h4><p>决策属性活动有14个记录， 其中9个活动可以进行， 5个记录不适合活动，则</p>
-<p>序列|    天气|    户外|    温度|    风速|    活动|<br>|–|–|–|–|–|–|<br>10|    雨天|    温柔|    正常|    弱|     进行|<br>11|    晴天|    温柔|    正常|    强|     进行|<br>3|    阴天|    炎热|    高|    弱|    进行|<br>4|    雨天|    温柔|    高|    弱|    进行|<br>5|    雨天|    凉爽|    正常|    弱|    进行|<br>7|    阴天|    凉爽|    正常|     强|    进行|<br>9|    晴天|    凉爽|    正常|    弱|    进行|<br>12|    阴天|    温柔|    高|    强|    进行|<br>13|    阴天|    炎热|    正常|    弱|    进行|<br>1|    晴天|    炎热|    高|    弱|    取消|<br>2|    晴天|    炎热|    高|    强|    取消|<br>6|    雨天|    凉爽|    正常|     强|    取消|<br>8|    晴天|    温柔|    高|    弱|    取消|<br>14|    雨天|    温柔|    高|    强|    取消|</p>
+<p>序列|    天气|    户外|    温度|    风速|    活动|<br>|–|–|–|–|–|–|<br>|10|    雨天|    温柔|    正常|    弱|     进行|<br>|11|    晴天|    温柔|    正常|    强|     进行|<br>|3|    阴天|    炎热|    高|    弱|    进行|<br>|4|    雨天|    温柔|    高|    弱|    进行|<br>|5|    雨天|    凉爽|    正常|    弱|    进行|<br>|7|    阴天|    凉爽|    正常|     强|    进行|<br>|9|    晴天|    凉爽|    正常|    弱|    进行|<br>|12|    阴天|    温柔|    高|    强|    进行|<br>|13|    阴天|    炎热|    正常|    弱|    进行|<br>|1|    晴天|    炎热|    高|    弱|    取消|<br>|2|    晴天|    炎热|    高|    强|    取消|<br>|6|    雨天|    凉爽|    正常|     强|    取消|<br>|8|    晴天|    温柔|    高|    弱|    取消|<br>|14|    雨天|    温柔|    高|    强|    取消|</p>
 <p>计算熵为：</p>
-<p>H(活动) =  $H(X)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
+<p>$H(活动)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
 <h4 id="计算条件属性的熵"><a href="#计算条件属性的熵" class="headerlink" title="计算条件属性的熵"></a>计算条件属性的熵</h4><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
-<h5 id="风速的熵"><a href="#风速的熵" class="headerlink" title="风速的熵"></a>风速的熵</h5><p>序列|    天气|    户外|    温度|    风速|    活动|<br>|–|–|–|–|–|–|<br>7|    阴天|    凉爽|    正常|     强|    进行|<br>11|    晴天|    温柔|    正常|    强|     进行|<br>12|    阴天|    温柔|    高|    强|    进行|<br>6|    雨天|    凉爽|    正常|     强|    取消|<br>2|    晴天|    炎热|    高|    强|    取消|<br>14|    雨天|    温柔|    高|    强|    取消|<br>10|    雨天|    温柔|    正常|    弱|     进行|<br>3|    阴天|    炎热|    高|    弱|    进行|<br>4|    雨天|    温柔|    高|    弱|    进行|<br>5|    雨天|    凉爽|    正常|    弱|    进行|<br>9|    晴天|    凉爽|    正常|    弱|    进行|<br>13|    阴天|    炎热|    正常|    弱|    进行|<br>1|    晴天|    炎热|    高|    弱|    取消|<br>8|    晴天|    温柔|    高|    弱|    取消|</p>
-<p>风速分为风速强和风速弱， 我们分别计算这两个属性的熵：</p>
-<p>H（弱） = </p>
+<h5 id="风速的熵"><a href="#风速的熵" class="headerlink" title="风速的熵"></a>风速的熵</h5><p>序列|    天气|    户外|    温度|    风速|    活动|<br>|–|–|–|–|–|–|<br>|7|    阴天|    凉爽|    正常|     强|    进行|<br>|11|    晴天|    温柔|    正常|    强|     进行|<br>|12|    阴天|    温柔|    高|    强|    进行|<br>|6|    雨天|    凉爽|    正常|     强|    取消|<br>|2|    晴天|    炎热|    高|    强|    取消|<br>|14|    雨天|    温柔|    高|    强|    取消|<br>|10|    雨天|    温柔|    正常|    弱|     进行|<br>|3|    阴天|    炎热|    高|    弱|    进行|<br>|4|    雨天|    温柔|    高|    弱|    进行|<br>|5|    雨天|    凉爽|    正常|    弱|    进行|<br>|9|    晴天|    凉爽|    正常|    弱|    进行|<br>|13|    阴天|    炎热|    正常|    弱|    进行|<br>|1|    晴天|    炎热|    高|    弱|    取消|<br>|8|    晴天|    温柔|    高|    弱|    取消|</p>
+<p>计算分为2个过程，先计算属性值的熵， 再计算属性的熵</p>
+<ol>
+<li>风速分为风速强和风速弱， 我们分别计算这两个属性值的熵：</li>
+</ol>
+<p>$H(弱)  = -(\frac{6}{8}log\frac{6}{8} + \frac{2}{8}log\frac{2}{8})  = 0.811$</p>
+<p>$H(强)  = -(\frac{3}{6}log\frac{3}{6} + \frac{3}{6}log\frac{3}{6})  = 1$</p>
+<ol start="2">
+<li>属性的熵（在风速分别为强和弱的前提下，风速的熵）</li>
+</ol>
+<p>$H(风速，强度)  = -(\frac{6}{8}log\frac{6}{8} + \frac{2}{8}log\frac{2}{8})  = 0.811$</p>
 <hr>
 <!-- ## 决策树有什么用
 
