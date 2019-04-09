@@ -146,8 +146,9 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacacd92ae03.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacac9ee0f81.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacad8ee845a.png">
-<meta property="og:image" content="https://i.loli.net/2019/04/09/5cacb06f93042.png">
-<meta property="og:updated_time" content="2019-04-09T14:48:55.881Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cacb1e5882a0.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png">
+<meta property="og:updated_time" content="2019-04-09T15:06:36.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -474,7 +475,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k 字
+                  1.8k 字
                 </span>
               
 
@@ -490,7 +491,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -712,8 +713,30 @@
 </ol>
 <p>$H(户外，程度)  = -(\frac{4}{14}H(凉爽) + \frac{6}{14}H(温柔)+ \frac{4}{14}H(炎热) )  = 0.911 $</p>
 <hr>
-<h5 id="天气的熵"><a href="#天气的熵" class="headerlink" title="天气的熵"></a>天气的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb06f93042.png" alt></p>
-<h5 id="温度的熵"><a href="#温度的熵" class="headerlink" title="温度的熵"></a>温度的熵</h5><h5 id="风速的熵-1"><a href="#风速的熵-1" class="headerlink" title="风速的熵"></a>风速的熵</h5><hr>
+<h5 id="天气的熵"><a href="#天气的熵" class="headerlink" title="天气的熵"></a>天气的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb1e5882a0.png" alt></p>
+<ol>
+<li>天气分为晴天、阴天和雨天， 我们分别计算这三个属性值的熵：</li>
+</ol>
+<p>$H(晴天)  = -(\frac{2}{5}log\frac{2}{5} + \frac{3}{5}log\frac{3}{5})  = 0.971$</p>
+<p>$H(阴天)  = -(\frac{4}{4}log\frac{4}{4} = 0$ <strong>熵为0表示信息完全确定，没必要再分</strong></p>
+<p>$H(雨天)  = -(\frac{2}{5}log\frac{2}{5} + \frac{3}{5}log\frac{3}{5})  = 0.971$</p>
+<ol start="2">
+<li>属性的熵<br>$H(天气，变化)  = -(\frac{5}{14}H(晴天) + \frac{5}{14}H(雨天) + \frac{4}{14}H(阴天) )  = 0.693 $</li>
+</ol>
+<hr>
+<h5 id="温度的熵"><a href="#温度的熵" class="headerlink" title="温度的熵"></a>温度的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png" alt></p>
+<ol>
+<li>温度分为高、低， 我们分别计算这两个属性值的熵：</li>
+</ol>
+<p>$H(高)  = -(\frac{4}{7}log\frac{4}{7} + \frac{3}{7}log\frac{3}{7})  = 0.985$</p>
+<p>$H(正常)  = -(\frac{1}{7}log\frac{1}{7} + \frac{6}{7}log\frac{6}{7})  =0.591 $</p>
+<ol start="2">
+<li><p>属性的熵</p>
+<p>$H(维度，变化)  = -(\frac{7}{14}H(高) + \frac{7}{14}H(正常)  )  = 0.789 $</p>
+</li>
+</ol>
+<hr>
+<hr>
 <!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
@@ -1366,7 +1389,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.0.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算条件属性的熵"><span class="nav-number">4.0.2.</span> <span class="nav-text">计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">风速的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#户外的熵"><span class="nav-number">4.0.2.2.</span> <span class="nav-text">户外的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#天气的熵"><span class="nav-number">4.0.2.3.</span> <span class="nav-text">天气的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#温度的熵"><span class="nav-number">4.0.2.4.</span> <span class="nav-text">温度的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵-1"><span class="nav-number">4.0.2.5.</span> <span class="nav-text">风速的熵</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是构造"><span class="nav-number">2.1.</span> <span class="nav-text">什么是构造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C3-0算法"><span class="nav-number">3.</span> <span class="nav-text">C3.0算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">4.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">4.0.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算条件属性的熵"><span class="nav-number">4.0.2.</span> <span class="nav-text">计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">风速的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#户外的熵"><span class="nav-number">4.0.2.2.</span> <span class="nav-text">户外的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#天气的熵"><span class="nav-number">4.0.2.3.</span> <span class="nav-text">天气的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#温度的熵"><span class="nav-number">4.0.2.4.</span> <span class="nav-text">温度的熵</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1400,7 +1423,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.4k</span>
+    <span title="Site words total count">73.6k</span>
   
 </div>
 
