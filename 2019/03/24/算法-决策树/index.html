@@ -156,7 +156,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5cacc9cf14b36.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5cacccce3a72d.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
-<meta property="og:updated_time" content="2019-04-11T13:12:38.933Z">
+<meta property="og:updated_time" content="2019-04-11T13:18:01.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -693,61 +693,71 @@
 <p>风速 = {弱， 强}</p>
 </blockquote>
 <h4 id="选择根节点："><a href="#选择根节点：" class="headerlink" title="选择根节点："></a>选择根节点：</h4><hr>
-<h4 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h4><p>决策属性活动有14个记录， 其中9个活动可以进行， 5个记录不适合活动，则</p>
+<h5 id="步骤1：计算决策属性的熵"><a href="#步骤1：计算决策属性的熵" class="headerlink" title="步骤1：计算决策属性的熵"></a>步骤1：计算决策属性的熵</h5><p>决策属性活动有14个记录， 其中9个活动可以进行， 5个记录不适合活动，则</p>
 <p><img src="https://i.loli.net/2019/04/09/5cacacd92ae03.png" alt></p>
 <p>计算熵为：</p>
 <p>$H(决策)  = -(\frac{9}{14}log\frac{5}{14} + \frac{5}{14}log\frac{5}{14})  = 0.940$</p>
 <hr>
-<h4 id="步骤2：计算条件属性的熵"><a href="#步骤2：计算条件属性的熵" class="headerlink" title="步骤2：计算条件属性的熵"></a>步骤2：计算条件属性的熵</h4><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
+<h5 id="步骤2：计算条件属性的熵"><a href="#步骤2：计算条件属性的熵" class="headerlink" title="步骤2：计算条件属性的熵"></a>步骤2：计算条件属性的熵</h5><p>样本共有四个条件属性， <strong>户外， 温度，湿度和风速</strong></p>
 <hr>
-<h5 id="风速的熵"><a href="#风速的熵" class="headerlink" title="风速的熵"></a>风速的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacac9ee0f81.png" alt></p>
-<p>计算分为2个过程，先计算属性值的熵， 再计算属性的熵</p>
 <ol>
-<li>风速分为风速强和风速弱， 我们分别计算这两个属性值的熵：</li>
+<li>风速的熵</li>
 </ol>
+<p><img src="https://i.loli.net/2019/04/09/5cacac9ee0f81.png" alt></p>
+<p>计算分为2个过程，先计算属性值的熵， 再计算属性的熵</p>
+<ul>
+<li>风速分为风速强和风速弱， 我们分别计算这两个属性值的熵：</li>
+</ul>
 <p>$H(弱)  = -(\frac{6}{8}log\frac{6}{8} + \frac{2}{8}log\frac{2}{8})  = 0.811$</p>
 <p>$H(强)  = -(\frac{3}{6}log\frac{3}{6} + \frac{3}{6}log\frac{3}{6})  = 1$</p>
-<ol start="2">
+<ul>
 <li>属性的熵（在风速分别为强和弱的前提下，风速的熵）</li>
-</ol>
+</ul>
 <p>$H(决策，风速)  = \frac{8}{14}H(弱) + \frac{6}{14}H(强)   = 0.892$</p>
 <hr>
-<h5 id="户外的熵"><a href="#户外的熵" class="headerlink" title="户外的熵"></a>户外的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacad8ee845a.png" alt></p>
-<ol>
-<li>户外分为凉爽、温柔和炎热， 我们分别计算这三个属性值的熵：</li>
+<ol start="2">
+<li>户外的熵</li>
 </ol>
+<p><img src="https://i.loli.net/2019/04/09/5cacad8ee845a.png" alt></p>
+<ul>
+<li>户外分为凉爽、温柔和炎热， 我们分别计算这三个属性值的熵：</li>
+</ul>
 <p>$H(凉爽)  = -(\frac{3}{4}log\frac{3}{4} + \frac{1}{4}log\frac{1}{4})  = 0.811$</p>
 <p>$H(温柔)  = -(\frac{4}{6}log\frac{4}{6} + \frac{2}{6}log\frac{2}{6})  = 0.918$</p>
 <p>$H(炎热)  = -(\frac{2}{4}log\frac{2}{4} + \frac{2}{4}log\frac{2}{4})  = $</p>
-<ol start="2">
+<ul>
 <li>属性的熵</li>
-</ol>
+</ul>
 <p>$H(决策，户外)  = \frac{4}{14}H(凉爽) + \frac{6}{14}H(温柔)+ \frac{4}{14}H(炎热)  = 0.911 $</p>
 <hr>
-<h5 id="天气的熵"><a href="#天气的熵" class="headerlink" title="天气的熵"></a>天气的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb1e5882a0.png" alt></p>
-<ol>
-<li>天气分为晴天、阴天和雨天， 我们分别计算这三个属性值的熵：</li>
+<ol start="3">
+<li>天气的熵<br><img src="https://i.loli.net/2019/04/09/5cacb1e5882a0.png" alt></li>
 </ol>
+<ul>
+<li>天气分为晴天、阴天和雨天， 我们分别计算这三个属性值的熵：</li>
+</ul>
 <p>$H(晴天)  = -(\frac{2}{5}log\frac{2}{5} + \frac{3}{5}log\frac{3}{5})  = 0.971$</p>
 <p>$H(阴天)  = -(\frac{4}{4}log\frac{4}{4} = 0$ <strong>熵为0表示信息完全确定，没必要再分</strong></p>
 <p>$H(雨天)  = -(\frac{2}{5}log\frac{2}{5} + \frac{3}{5}log\frac{3}{5})  = 0.971$</p>
-<ol start="2">
+<ul>
 <li>属性的熵<br>$H(决策，天气)  = \frac{5}{14}H(晴天) + \frac{5}{14}H(雨天) + \frac{4}{14}H(阴天)   = 0.693 $</li>
-</ol>
+</ul>
 <hr>
-<h5 id="温度的熵"><a href="#温度的熵" class="headerlink" title="温度的熵"></a>温度的熵</h5><p><img src="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png" alt></p>
-<ol>
-<li>温度分为高、低， 我们分别计算这两个属性值的熵：</li>
+<ol start="3">
+<li>温度的熵<br><img src="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png" alt></li>
 </ol>
+<ul>
+<li>温度分为高、低， 我们分别计算这两个属性值的熵：</li>
+</ul>
 <p>$H(高)  = -(\frac{4}{7}log\frac{4}{7} + \frac{3}{7}log\frac{3}{7})  = 0.985$</p>
 <p>$H(正常)  = -(\frac{1}{7}log\frac{1}{7} + \frac{6}{7}log\frac{6}{7})  =0.591 $</p>
-<ol start="2">
+<ul>
 <li><p>属性的熵</p>
 <p>$H(决策，温度)  = \frac{7}{14}H(高) + \frac{7}{14}H(正常)   = 0.789 $</p>
 </li>
-</ol>
+</ul>
 <hr>
-<h4 id="步骤3：-计算各属性的信息增益"><a href="#步骤3：-计算各属性的信息增益" class="headerlink" title="步骤3： 计算各属性的信息增益"></a>步骤3： 计算各属性的信息增益</h4><ol>
+<h5 id="步骤3：-计算各属性的信息增益"><a href="#步骤3：-计算各属性的信息增益" class="headerlink" title="步骤3： 计算各属性的信息增益"></a>步骤3： 计算各属性的信息增益</h5><ol>
 <li>风速的信息增益 =   H(决策) - H(决策，风速) = 0.940 -  0.892 = 0.048</li>
 <li>户外的信息增益 =  H(决策) - H(户外，风速) = 0.940 -  0.911  = 0.029 </li>
 <li>天气的信息增益 =  H(决策) - H(天气，风速) = 0.940 - 0.693 = <strong>0.246</strong></li>
@@ -755,7 +765,7 @@
 </ol>
 <p>条件属性<strong>天气</strong>有最大的信息增益， 所以<strong>天气</strong>作为根节点。 </p>
 <p><img src="https://i.loli.net/2019/04/10/5cacc357869be.png" alt></p>
-<h4 id="选择子节点"><a href="#选择子节点" class="headerlink" title="选择子节点"></a>选择子节点</h4><h4 id="晴天节点下，-检验哪个属性？"><a href="#晴天节点下，-检验哪个属性？" class="headerlink" title="晴天节点下， 检验哪个属性？"></a>晴天节点下， 检验哪个属性？</h4><p>因为已经使用了天气作为根节点，所以只剩三个变量： 户外、温度和风速</p>
+<h4 id="选择子节点"><a href="#选择子节点" class="headerlink" title="选择子节点"></a>选择子节点</h4><p><strong>晴天节点下， 检验哪个属性？</strong><br>因为已经使用了天气作为根节点，所以只剩三个变量： 户外、温度和风速</p>
 <p><img src="https://i.loli.net/2019/04/10/5cacc6b0de0fa.png" alt></p>
 <h5 id="第一步：计算天气为晴天的熵"><a href="#第一步：计算天气为晴天的熵" class="headerlink" title="第一步：计算天气为晴天的熵"></a>第一步：计算天气为晴天的熵</h5><p> 从前面可知， H（晴天） = 0.970</p>
 <h5 id="第二步：计算天气为晴天下，各属性的熵"><a href="#第二步：计算天气为晴天下，各属性的熵" class="headerlink" title="第二步：计算天气为晴天下，各属性的熵"></a>第二步：计算天气为晴天下，各属性的熵</h5><ol>
@@ -789,16 +799,19 @@
 <li><p>风速的熵<br>$H（晴天|风速） = \frac{2}{5}H（强） + \frac{3}{5}H（弱） = 0.9508$</p>
 </li>
 </ul>
-<h5 id="计算在晴天下，各属性的信息增益"><a href="#计算在晴天下，各属性的信息增益" class="headerlink" title="计算在晴天下，各属性的信息增益"></a>计算在晴天下，各属性的信息增益</h5><ol>
+<h5 id="第三步：计算在晴天下，各属性的信息增益"><a href="#第三步：计算在晴天下，各属性的信息增益" class="headerlink" title="第三步：计算在晴天下，各属性的信息增益"></a>第三步：计算在晴天下，各属性的信息增益</h5><ol>
 <li>温度的信息增益 = H（晴天） - H（晴天|温度） = 0.970</li>
 <li>户外的信息增益 = H（晴天） - H（晴天|户外） = 0.570</li>
 <li>风速的信息增益 = H（晴天） - H（晴天|风速） = 0.019</li>
 </ol>
 <p>条件属性<strong>温度</strong>有最大的信息增益， 所以<strong>温度</strong>作为根节点。</p>
 <p><img src="https://i.loli.net/2019/04/10/5cacccce3a72d.png" alt></p>
-<h4 id="雨天节点下，检验哪个属性"><a href="#雨天节点下，检验哪个属性" class="headerlink" title="雨天节点下，检验哪个属性"></a>雨天节点下，检验哪个属性</h4><p>雨天与晴天计算同理， 故不再计算。 </p>
-<h4 id="最后根据计算，得出的决策树分类如图所示："><a href="#最后根据计算，得出的决策树分类如图所示：" class="headerlink" title="最后根据计算，得出的决策树分类如图所示："></a>最后根据计算，得出的决策树分类如图所示：</h4><p><img src="https://i.loli.net/2019/04/10/5caccdc86d4b0.png" alt></p>
-<p>以上就是ID3分类算法计算原理的全过程</p>
+<h5 id="雨天节点下，检验哪个属性"><a href="#雨天节点下，检验哪个属性" class="headerlink" title="雨天节点下，检验哪个属性"></a>雨天节点下，检验哪个属性</h5><p>雨天与晴天计算同理， 故不再计算。 </p>
+<h3 id="决策树计算结果"><a href="#决策树计算结果" class="headerlink" title="决策树计算结果"></a>决策树计算结果</h3><ul>
+<li>最后根据计算，得出的决策树分类如图所示：</li>
+</ul>
+<p><img src="https://i.loli.net/2019/04/10/5caccdc86d4b0.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以上就是ID3分类算法计算原理的全过程</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="决策树的构造过程"><a href="#决策树的构造过程" class="headerlink" title="决策树的构造过程"></a>决策树的构造过程</h2><ol>
 <li><p>训练阶段<br>从给定的训练集构造出来一棵树</p>
@@ -1460,7 +1473,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.2.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.3.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#风速的熵"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">风速的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#户外的熵"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">户外的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#天气的熵"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">天气的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#温度的熵"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">温度的熵</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.4.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.5.</span> <span class="nav-text">选择子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#晴天节点下，-检验哪个属性？"><span class="nav-number">3.2.6.</span> <span class="nav-text">晴天节点下， 检验哪个属性？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.6.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.6.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.6.3.</span> <span class="nav-text">计算在晴天下，各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.7.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后根据计算，得出的决策树分类如图所示："><span class="nav-number">3.2.8.</span> <span class="nav-text">最后根据计算，得出的决策树分类如图所示：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">4.</span> <span class="nav-text">决策树的构造过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择子节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步：计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">第三步：计算在晴天下，各属性的信息增益</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树计算结果"><span class="nav-number">3.3.</span> <span class="nav-text">决策树计算结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造过程"><span class="nav-number">4.</span> <span class="nav-text">决策树的构造过程</span></a></li></ol></div>
             
 
           </div>
