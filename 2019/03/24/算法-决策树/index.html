@@ -155,7 +155,8 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5cacccce3a72d.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
-<meta property="og:updated_time" content="2019-04-12T09:36:08.990Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
+<meta property="og:updated_time" content="2019-04-12T09:40:31.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="https://blog.csdn.net/xxxxxwwwwww/article/details/82466571 https://blog.csdn.net/lemon_tree12138/article/details/51837983http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%B">
@@ -482,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.7k 字
+                  3k 字
                 </span>
               
 
@@ -498,7 +499,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11 分钟
+                  13 分钟
                 </span>
               
             </div>
@@ -953,6 +954,41 @@
 <li>打开pdf</li>
 </ul>
 <p><img src="https://i.loli.net/2019/04/12/5cb046a840a5e.png" alt></p>
+<ul>
+<li>查看决策树-方法2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotData = tree.export_graphviz(decision_tree, out_file=<span class="keyword">None</span>)</span><br><span class="line">print(dotData)</span><br></pre></td></tr></table></figure>
+<pre><code>digraph Tree {
+node [shape=box] ;
+0 [label=&quot;X[2] &lt;= 0.5\nentropy = 0.94\nsamples = 14\nvalue = [5, 9]&quot;] ;
+1 [label=&quot;X[0] &lt;= 0.5\nentropy = 0.592\nsamples = 7\nvalue = [1, 6]&quot;] ;
+0 -&gt; 1 [labeldistance=2.5, labelangle=45, headlabel=&quot;True&quot;] ;
+2 [label=&quot;X[3] &lt;= 0.5\nentropy = 0.918\nsamples = 3\nvalue = [1, 2]&quot;] ;
+1 -&gt; 2 ;
+3 [label=&quot;entropy = 0.0\nsamples = 2\nvalue = [0, 2]&quot;] ;
+2 -&gt; 3 ;
+4 [label=&quot;entropy = 0.0\nsamples = 1\nvalue = [1, 0]&quot;] ;
+2 -&gt; 4 ;
+5 [label=&quot;entropy = 0.0\nsamples = 4\nvalue = [0, 4]&quot;] ;
+1 -&gt; 5 ;
+6 [label=&quot;X[0] &lt;= 1.5\nentropy = 0.985\nsamples = 7\nvalue = [4, 3]&quot;] ;
+0 -&gt; 6 [labeldistance=2.5, labelangle=-45, headlabel=&quot;False&quot;] ;
+7 [label=&quot;X[0] &lt;= 0.5\nentropy = 0.811\nsamples = 4\nvalue = [1, 3]&quot;] ;
+6 -&gt; 7 ;
+8 [label=&quot;X[3] &lt;= 0.5\nentropy = 1.0\nsamples = 2\nvalue = [1, 1]&quot;] ;
+7 -&gt; 8 ;
+9 [label=&quot;entropy = 0.0\nsamples = 1\nvalue = [0, 1]&quot;] ;
+8 -&gt; 9 ;
+10 [label=&quot;entropy = 0.0\nsamples = 1\nvalue = [1, 0]&quot;] ;
+8 -&gt; 10 ;
+11 [label=&quot;entropy = 0.0\nsamples = 2\nvalue = [0, 2]&quot;] ;
+7 -&gt; 11 ;
+12 [label=&quot;entropy = 0.0\nsamples = 3\nvalue = [3, 0]&quot;] ;
+6 -&gt; 12 ;
+}
+</code></pre><p>访问 <a href="http://www.webgraphviz.com/" target="_blank" rel="noopener">WebGraphviz</a> 并粘贴输出，点击 Generate Graph</p>
+<p><img src="https://i.loli.net/2019/04/12/5cb0479b69824.png" alt></p>
+<p>可以看到它先基于<code>温度</code>进行分割，再基于<code>风速</code>进行分割。</p>
 <!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
@@ -1639,7 +1675,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.7k</span>
+    <span title="Site words total count">75k</span>
   
 </div>
 
