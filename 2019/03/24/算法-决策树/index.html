@@ -156,7 +156,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
-<meta property="og:updated_time" content="2019-04-13T06:25:54.135Z">
+<meta property="og:updated_time" content="2019-04-13T06:38:35.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句，">
@@ -746,7 +746,7 @@
 <li>属性的熵<br>$H(决策，天气)  = \frac{5}{14}H(晴天) + \frac{5}{14}H(雨天) + \frac{4}{14}H(阴天)   = 0.693 $</li>
 </ul>
 <hr>
-<ol start="3">
+<ol start="4">
 <li>温度的熵<br><img src="https://i.loli.net/2019/04/09/5cacb3b0b25cf.png" alt></li>
 </ol>
 <ul>
@@ -769,17 +769,16 @@
 <p>条件属性<strong>天气</strong>有最大的信息增益， 所以<strong>天气</strong>作为根节点。 </p>
 <p><img src="https://i.loli.net/2019/04/10/5cacc357869be.png" alt></p>
 <h4 id="选择子节点"><a href="#选择子节点" class="headerlink" title="选择子节点"></a>选择子节点</h4><p><strong>晴天节点下， 检验哪个属性？</strong><br>因为已经使用了天气作为根节点，所以只剩三个变量： 户外、温度和风速</p>
-<p><img src="https://i.loli.net/2019/04/10/5cacc6b0de0fa.png" alt></p>
 <h5 id="第一步：计算天气为晴天的熵"><a href="#第一步：计算天气为晴天的熵" class="headerlink" title="第一步：计算天气为晴天的熵"></a>第一步：计算天气为晴天的熵</h5><p> 从前面可知， H（晴天） = 0.970</p>
 <h5 id="第二步：计算天气为晴天下，各属性的熵"><a href="#第二步：计算天气为晴天下，各属性的熵" class="headerlink" title="第二步：计算天气为晴天下，各属性的熵"></a>第二步：计算天气为晴天下，各属性的熵</h5><ol>
-<li>户外的熵</li>
+<li>户外的熵<br><img src="https://i.loli.net/2019/04/10/5cacc6b0de0fa.png" alt></li>
 </ol>
 <ul>
 <li>户外各属性值的熵：<blockquote>
 <p>H（凉爽） = 0 （信息确定）<br>H（温柔） = 1<br>H（炎热） = 0 （信息确定）</p>
 </blockquote>
 </li>
-<li>户外的熵<br>H（晴天|户外） = \frac{1}{5}H（凉爽）+  \frac{2}{5}H（温柔）+ \frac{2}{5}H（炎热） = 0.4</li>
+<li>户外的熵<br>$$H（晴天|户外） = \frac{1}{5}H（凉爽）+  \frac{2}{5}H（温柔）+ \frac{2}{5}H（炎热） = 0.4$$</li>
 </ul>
 <ol start="2">
 <li>温度的熵<br><img src="https://i.loli.net/2019/04/10/5cacc8dada342.png" alt></li>
