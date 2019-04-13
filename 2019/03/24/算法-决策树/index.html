@@ -156,7 +156,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
-<meta property="og:updated_time" content="2019-04-13T02:19:25.507Z">
+<meta property="og:updated_time" content="2019-04-13T06:22:21.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句，">
@@ -483,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3k 字
+                  3.1k 字
                 </span>
               
 
@@ -499,7 +499,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12 分钟
+                  13 分钟
                 </span>
               
             </div>
@@ -548,20 +548,24 @@
 <p>B：在 6 次相亲中， 女生有 5 次选择见面，  1 次选择不见。则这则消息的信息熵为<br>$$H(X)  = -(\frac{5}{6}log\frac{5}{6} + \frac{1}{6}log\frac{1}{6}) =  0.65$$</p>
 <p><strong>我们可以看到， 消息A的不确定性大于消息B， 所以信息熵也比较大。</strong></p>
 <hr>
-<p>上面我们讨论了在一个变量下，消息的信息熵大小的计算。现在有两个变量，X 与Y,当Y变量确定的前提下， X变量的不确定性还剩多少呢？</p>
+<ul>
+<li>条件熵</li>
+</ul>
+<p>上面我们讨论了在一个变量下，消息的信息熵大小的计算。现在有两个变量，X 与Y,在已知随机变量Y 的条件下，随便变量X的不确定性还剩多少呢？</p>
 <blockquote>
 <p>已知<code>Y</code>的前提下，随机变量<code>X</code>的熵为<br>$$H(X|Y) = -\sum_{i=1}^{n}p(x_{i}, y_{i})logp(x_{i}| y_{i}) =  \sum_{j=1}^{n}p( y_{j})H(X|y_{j})$$</p>
 </blockquote>
 <p>我们刚才提到了<code>H(x)</code>度量了 <code>X</code> 的不确定性， 条件熵<code>H(X|Y)</code> 度量了在知道 <code>Y</code> 以后 <code>X</code> 的不确定性， 那么 <code>H(x)-H(X|Y)</code>呢？ </p>
-<p><code>H(x)-H(X|Y)</code>则度量了 <code>X</code> 在知道<code>Y</code>以后不确定性减少的程度， 记为<code>I(X,Y)</code>. 在决策树 <code>ID3</code> 算法中叫做<code>信息增益</code>。通过信息增益，来衡量通过哪个属性之后，信息不确定减小的程度最多。 </p>
+<p><code>H(x)-H(X|Y)</code>度量了 <code>X</code> 在知道<code>Y</code>以后不确定性减少的程度， 记为<code>I(X,Y)</code>. 在决策树 <code>ID3</code> 算法中叫做<code>信息增益</code>。通过信息增益，来衡量通过哪个属性之后，信息不确定减小的程度最多。 </p>
 <p><code>ID3</code>算法就是用信息增益大小来判断，当前节点应该用什么特征来构建决策树。 通过计算，信息增益最大的属性，最适合来建立决策树的当前节点。</p>
 <p>以上就是ID3 算法的原理</p>
 <hr>
-<h3 id="ID3算法的计算过程"><a href="#ID3算法的计算过程" class="headerlink" title="ID3算法的计算过程"></a>ID3算法的计算过程</h3><p>我们用 ID3 算法来决定天气是否适合我们打篮球。 过去两周中，收集了14天的天气数据， 如下图所示：</p>
+<h3 id="ID3算法的计算过程"><a href="#ID3算法的计算过程" class="headerlink" title="ID3算法的计算过程"></a>ID3算法的计算过程</h3><p>在<a href="https://mp.weixin.qq.com/s/igRt9I-OqWSFId25PUJk-A" target="_blank" rel="noopener">决策树（一）</a>中，我们讨论了ID3算法的原理， 在这篇文章中，我们来一步步展现ID3算法的计算过程。 </p>
+<p>我们用 ID3 算法来决定天气是否适合我们打篮球。 过去两周中，收集了14天的天气数据， 如下图所示：</p>
 <table>
 <thead>
 <tr>
-<th>序列</th>
+<th>编号</th>
 <th>天气</th>
 <th>户外</th>
 <th>温度</th>
@@ -710,7 +714,7 @@
 <p>$H(弱)  = -(\frac{6}{8}log\frac{6}{8} + \frac{2}{8}log\frac{2}{8})  = 0.811$</p>
 <p>$H(强)  = -(\frac{3}{6}log\frac{3}{6} + \frac{3}{6}log\frac{3}{6})  = 1$</p>
 <ul>
-<li>属性的熵（在风速分别为强和弱的前提下，风速的熵）</li>
+<li>属性的熵（在风速分别为强和弱的前提下，决策的熵）</li>
 </ul>
 <p>$H(决策，风速)  = \frac{8}{14}H(弱) + \frac{6}{14}H(强)   = 0.892$</p>
 <hr>
@@ -723,7 +727,7 @@
 </ul>
 <p>$H(凉爽)  = -(\frac{3}{4}log\frac{3}{4} + \frac{1}{4}log\frac{1}{4})  = 0.811$</p>
 <p>$H(温柔)  = -(\frac{4}{6}log\frac{4}{6} + \frac{2}{6}log\frac{2}{6})  = 0.918$</p>
-<p>$H(炎热)  = -(\frac{2}{4}log\frac{2}{4} + \frac{2}{4}log\frac{2}{4})  = $</p>
+<p>$H(炎热)  = -(\frac{2}{4}log\frac{2}{4} + \frac{2}{4}log\frac{2}{4})  = 1 $</p>
 <ul>
 <li>属性的熵</li>
 </ul>
@@ -1431,8 +1435,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
-                <i class="fa fa-chevron-left"></i> Excel函数
+              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -1441,8 +1445,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1674,7 +1678,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75k</span>
+    <span title="Site words total count">75.1k</span>
   
 </div>
 
