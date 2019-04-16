@@ -134,13 +134,13 @@
 
 
 
-<meta name="description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句，">
+<meta name="description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-决策树">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/算法-决策树/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句，">
+<meta property="og:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacacd92ae03.png">
@@ -156,10 +156,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
-<meta property="og:updated_time" content="2019-04-13T07:00:16.388Z">
+<meta property="og:updated_time" content="2019-04-16T13:59:37.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
-<meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句，">
+<meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
 <meta name="twitter:image" content="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png">
 
 
@@ -523,6 +523,7 @@
         <p><a href="http://read.pudn.com/downloads166/ebook/762719/ID3%20%CB%E3%B7%A8%BF%C9%CA%D3%BB%AF%BD%E2%B6%C1.pdf" target="_blank" rel="noopener">ID3算法过程</a></p>
 <p><a href="https://www.jiqizhixin.com/articles/introduction-to-decision-tree-learning" target="_blank" rel="noopener">机器学习第一课：决策树学习概述与实现</a></p>
 <p><a href="https://www.kaggle.com/learn/machine-learning" target="_blank" rel="noopener">kaggle learning</a></p>
+<p><a href="https://marian5211.github.io/2018/03/19/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91CART%E7%AE%97%E6%B3%95%E3%80%81%E5%86%B3%E7%AD%96%E6%A0%91%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">CART算法、决策树总结</a></p>
 <h2 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h2><p>想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。<br> <img src="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png" alt="决策树"></p>
 <p>在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树</p>
 <p>决策树本质上就是一系列  <code>if-then</code> 语句， 但关键是如何确定哪个属性先判断，哪个属性后判断。 我们在做决策树的时候，会经历两个阶段：<strong>构造和剪枝。</strong></p>
@@ -815,7 +816,7 @@
 <p><img src="https://i.loli.net/2019/04/10/5caccdc86d4b0.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以上就是ID3分类算法计算原理的全过程</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="用-python3-实现-ID3算法"><a href="#用-python3-实现-ID3算法" class="headerlink" title="用 python3 实现 ID3算法"></a>用 python3 实现 ID3算法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sklearn  <span class="keyword">as</span> tree</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br></pre></td></tr></table></figure>
+<h3 id="用-python3-实现-ID3算法"><a href="#用-python3-实现-ID3算法" class="headerlink" title="用 python3 实现 ID3算法"></a>用 python3 实现 ID3算法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sklearn  <span class="keyword">as</span> tree</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br></pre></td></tr></table></figure>
 <ul>
 <li>读取原始数据</li>
 </ul>
@@ -1434,8 +1435,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
-                <i class="fa fa-chevron-left"></i> git
+              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
+                <i class="fa fa-chevron-left"></i> Excel函数
               </a>
             
           </div>
@@ -1444,8 +1445,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
-                类比汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
+                git <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1677,7 +1678,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.1k</span>
+    <span title="Site words total count">75.2k</span>
   
 </div>
 
