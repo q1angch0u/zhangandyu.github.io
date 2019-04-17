@@ -156,7 +156,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
-<meta property="og:updated_time" content="2019-04-16T13:59:37.867Z">
+<meta property="og:updated_time" content="2019-04-17T13:38:03.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
@@ -483,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k 字
+                  3.6k 字
                 </span>
               
 
@@ -499,7 +499,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13 分钟
+                  14 分钟
                 </span>
               
             </div>
@@ -816,12 +816,12 @@
 <p><img src="https://i.loli.net/2019/04/10/5caccdc86d4b0.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以上就是ID3分类算法计算原理的全过程</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="用-python3-实现-ID3算法"><a href="#用-python3-实现-ID3算法" class="headerlink" title="用 python3 实现 ID3算法"></a>用 python3 实现 ID3算法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sklearn  <span class="keyword">as</span> tree</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br></pre></td></tr></table></figure>
-<ul>
-<li>读取原始数据</li>
-</ul>
+<h3 id="用-python3-实现-ID3算法"><a href="#用-python3-实现-ID3算法" class="headerlink" title="用 python3 实现 ID3算法"></a>用 python3 实现 ID3算法</h3><h4 id="1-导入数据库、常用模块、函数"><a href="#1-导入数据库、常用模块、函数" class="headerlink" title="1. 导入数据库、常用模块、函数"></a>1. 导入数据库、常用模块、函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sklearn  <span class="keyword">as</span> tree</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br></pre></td></tr></table></figure>
+<h4 id="2-读取原始数据"><a href="#2-读取原始数据" class="headerlink" title="2. 读取原始数据"></a>2. 读取原始数据</h4><blockquote>
+<p>我们用决策树（二）中的打篮球数据来进行决策树的建立</p>
+</blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_excel(<span class="string">r'C:\Users\Administrator\Desktop\tree\打篮球数据.xlsx'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据前5行</span></span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -876,10 +876,10 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>对数据进行预处理， scikit_learn默认不支持文本标签，使用 pandas库将文本标签转化成数字：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'活动'</span>] = data[<span class="string">'活动'</span>].map(&#123;<span class="string">'取消'</span>:<span class="number">0</span>, <span class="string">'进行'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">data[<span class="string">'风速'</span>] = data[<span class="string">'风速'</span>].map(&#123;<span class="string">'弱'</span>:<span class="number">0</span>, <span class="string">'强'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">data[<span class="string">'温度'</span>] = data[<span class="string">'温度'</span>].map(&#123;<span class="string">'正常'</span>:<span class="number">0</span>, <span class="string">'高'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">data[<span class="string">'户外'</span>] = data[<span class="string">'户外'</span>].map(&#123;<span class="string">'凉爽'</span>:<span class="number">0</span>, <span class="string">'温柔'</span>:<span class="number">1</span>, <span class="string">'炎热'</span>:<span class="number">2</span>&#125;)</span><br><span class="line">data[<span class="string">'天气'</span>] = data[<span class="string">'天气'</span>].map(&#123;<span class="string">'雨天'</span>:<span class="number">0</span>, <span class="string">'阴天'</span>:<span class="number">1</span>, <span class="string">'晴天'</span>:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="3-对数据进行预处理"><a href="#3-对数据进行预处理" class="headerlink" title="3. 对数据进行预处理"></a>3. 对数据进行预处理</h4><blockquote>
+<p>scikit_learn默认不支持文本标签，使用 pandas库将文本标签转化成数字</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datas[<span class="string">'活动'</span>] = datas[<span class="string">'活动'</span>].map(&#123;<span class="string">'取消'</span>:<span class="number">0</span>, <span class="string">'进行'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">datas[<span class="string">'风速'</span>] = datas[<span class="string">'风速'</span>].map(&#123;<span class="string">'弱'</span>:<span class="number">0</span>, <span class="string">'强'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">datas[<span class="string">'温度'</span>] = datas[<span class="string">'温度'</span>].map(&#123;<span class="string">'正常'</span>:<span class="number">0</span>, <span class="string">'高'</span>:<span class="number">1</span>&#125;)</span><br><span class="line">datas[<span class="string">'户外'</span>] = datas[<span class="string">'户外'</span>].map(&#123;<span class="string">'凉爽'</span>:<span class="number">0</span>, <span class="string">'温柔'</span>:<span class="number">1</span>, <span class="string">'炎热'</span>:<span class="number">2</span>&#125;)</span><br><span class="line">datas[<span class="string">'天气'</span>] = datas[<span class="string">'天气'</span>].map(&#123;<span class="string">'雨天'</span>:<span class="number">0</span>, <span class="string">'阴天'</span>:<span class="number">1</span>, <span class="string">'晴天'</span>:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.head()</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -934,32 +934,31 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>用 X 表示训练属性， Y 代表输出类别</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">features = [<span class="string">'天气'</span>,<span class="string">'户外'</span>,<span class="string">'温度'</span>,<span class="string">'风速'</span>]</span><br><span class="line">train_features = data[features]</span><br><span class="line">train_labels = data[<span class="string">'活动'</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特殊处理</span></span><br><span class="line"></span><br><span class="line">dvec = DictVectorizer(sparse = <span class="keyword">False</span>)</span><br><span class="line">train_feature = dvec.fit_transform(train_features.to_dict(orient=<span class="string">'record'</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dvec.feature_names_)</span><br></pre></td></tr></table></figure>
+<h4 id="4-给定节点与结果"><a href="#4-给定节点与结果" class="headerlink" title="4. 给定节点与结果"></a>4. 给定节点与结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="string">'天气'</span>,<span class="string">'户外'</span>,<span class="string">'温度'</span>,<span class="string">'风速'</span>]</span><br><span class="line">train_data = datas[data]</span><br><span class="line">train_labels = datas[<span class="string">'活动'</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将数据转化成机器学习中可用的数值型特征</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line">dvec = DictVectorizer(sparse = <span class="keyword">False</span>)</span><br><span class="line">train_data = dvec.fit_transform(train_data.to_dict(orient=<span class="string">'record'</span>))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看转换后的数据</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(train_data)</span><br></pre></td></tr></table></figure>
 <pre><code>[&apos;天气&apos;, &apos;户外&apos;, &apos;温度&apos;, &apos;风速&apos;]
-</code></pre><ul>
-<li>进行决策树</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decision_tree = DecisionTreeClassifier(criterion =<span class="string">'entropy'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decision_tree.fit(train_features, train_labels)</span><br></pre></td></tr></table></figure>
+</code></pre><h4 id="5-进行决策树"><a href="#5-进行决策树" class="headerlink" title="5. 进行决策树"></a>5. 进行决策树</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">decision_tree = DecisionTreeClassifier(criterion =<span class="string">'entropy'</span>)</span><br><span class="line">decision_tree.fit(train_data, train_labels)</span><br></pre></td></tr></table></figure>
 <pre><code>DecisionTreeClassifier(class_weight=None, criterion=&apos;entropy&apos;, max_depth=None,
             max_features=None, max_leaf_nodes=None,
             min_impurity_decrease=0.0, min_impurity_split=None,
             min_samples_leaf=1, min_samples_split=2,
             min_weight_fraction_leaf=0.0, presort=False, random_state=None,
             splitter=&apos;best&apos;)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成pdf文件</span></span><br><span class="line">dot_data = tree.export_graphviz(decision_tree, out_file=<span class="keyword">None</span>,feature_names=decision_tree.feature_importances_,</span><br><span class="line">                                  filled=<span class="keyword">True</span>, rounded=<span class="keyword">True</span>, special_characters=<span class="keyword">True</span>)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data)</span><br><span class="line"><span class="comment"># 保存pdf文件</span></span><br><span class="line">graph.write_pdf(<span class="string">"treetwo.pdf"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>打开pdf</li>
-</ul>
+</code></pre><h4 id="6-查看决策"><a href="#6-查看决策" class="headerlink" title="6. 查看决策"></a>6. 查看决策</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成pdf文件</span></span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"></span><br><span class="line">dot_data = tree.export_graphviz(decision_tree, out_file=<span class="keyword">None</span>,feature_names=decision_tree.feature_importances_,</span><br><span class="line">                                  filled=<span class="keyword">True</span>, rounded=<span class="keyword">True</span>, special_characters=<span class="keyword">True</span>)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data)</span><br><span class="line"><span class="comment"># 保存pdf文件</span></span><br><span class="line">graph.write_pdf(<span class="string">"treetwo.pdf"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 打开pdf文件，可以看到生成的决策树</p>
+</blockquote>
 <p><img src="https://i.loli.net/2019/04/12/5cb046a840a5e.png" alt></p>
-<ul>
-<li>查看决策树-方法2</li>
-</ul>
+<blockquote>
+<p> 查看决策树-方法2</p>
+</blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotData = tree.export_graphviz(decision_tree, out_file=<span class="keyword">None</span>)</span><br><span class="line">print(dotData)</span><br></pre></td></tr></table></figure>
 <pre><code>digraph Tree {
 node [shape=box] ;
@@ -992,6 +991,26 @@ node [shape=box] ;
 </code></pre><p>访问 <a href="http://www.webgraphviz.com/" target="_blank" rel="noopener">WebGraphviz</a> 并粘贴输出，点击 Generate Graph</p>
 <p><img src="https://i.loli.net/2019/04/12/5cb0479b69824.png" alt></p>
 <p>可以看到它先基于<code>温度</code>进行分割，再基于<code>风速</code>进行分割。</p>
+<h4 id="7-测试决策树​"><a href="#7-测试决策树​" class="headerlink" title="7. 测试决策树​"></a>7. 测试决策树​</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(decision_tree.predict([[2,0,0,0]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[1,2,0,0]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[2,2,1,1]]))</span><br></pre></td></tr></table></figure>
+<p>[1]  [1]  [0]</p>
+<blockquote>
+<p>输出1， 证明活动可以进行；输出0，证明活动取消。</p>
+</blockquote>
+<h3 id="ID3-的缺陷"><a href="#ID3-的缺陷" class="headerlink" title="ID3 的缺陷"></a>ID3 的缺陷</h3><p>ID3算法相对简单，并且可解释性强。但同样也存在缺陷。在上面的计算中，我们有意忽略了<code>编号</code>这一列。</p>
+<p>如果把<code>编号</code>也作为一个候选划分属性，则它的信息增益远大于其他候选划分属性。因为<code>编号</code>将产生<code>14</code>个分支，每个分支只包含一个样本，这些分支节点的纯度已经达到最大。然而，这样的决策数不会有泛化能力，无法对新样本进行有效预测。</p>
+<h2 id="C4-5算法"><a href="#C4-5算法" class="headerlink" title="C4.5算法"></a>C4.5算法</h2><p>ID3算法利用的信息增益，对取值数目较多的属性有所偏好，为减少这种偏好可能带来的不利影响， C4.5算法在其基础上进行升级，利用信息增益率来选择划分最优属性。</p>
+<ul>
+<li>信息增益率 = 信息增益 / 属性熵 = I（x，y） /  H(x)</li>
+</ul>
+<p>C4.5是ID3算法的改进版本，针对四个主要的不足进行改进：</p>
+<blockquote>
+<p>不能处理连续特征<br>用信息增益作为标准容易偏向于取值较多的特征<br>不能处理缺失值<br>容易发生过拟合问题</p>
+</blockquote>
+<h4 id="C4-5-算法的缺点："><a href="#C4-5-算法的缺点：" class="headerlink" title="C4.5 算法的缺点："></a>C4.5 算法的缺点：</h4><ul>
+<li>在构造树的过程中，需要对数据集进行多次的顺序扫描和排序，因而导致算法的低效。</li>
+<li>另外，C4.5只适合于能够驻留于内存的数据集，当训练集大得无法在内存容纳时程序无法运行。</li>
+</ul>
+<hr>
 <!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
@@ -1644,7 +1663,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择子节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步：计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">第三步：计算在晴天下，各属性的信息增益</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树计算结果"><span class="nav-number">3.2.3.</span> <span class="nav-text">决策树计算结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-python3-实现-ID3算法"><span class="nav-number">3.3.</span> <span class="nav-text">用 python3 实现 ID3算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择子节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步：计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">第三步：计算在晴天下，各属性的信息增益</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树计算结果"><span class="nav-number">3.2.3.</span> <span class="nav-text">决策树计算结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-python3-实现-ID3算法"><span class="nav-number">3.3.</span> <span class="nav-text">用 python3 实现 ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-导入数据库、常用模块、函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 导入数据库、常用模块、函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-读取原始数据"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 读取原始数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对数据进行预处理"><span class="nav-number">3.3.3.</span> <span class="nav-text">3. 对数据进行预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-给定节点与结果"><span class="nav-number">3.3.4.</span> <span class="nav-text">4. 给定节点与结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-进行决策树"><span class="nav-number">3.3.5.</span> <span class="nav-text">5. 进行决策树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-查看决策"><span class="nav-number">3.3.6.</span> <span class="nav-text">6. 查看决策</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-测试决策树​"><span class="nav-number">3.3.7.</span> <span class="nav-text">7. 测试决策树​</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-的缺陷"><span class="nav-number">3.4.</span> <span class="nav-text">ID3 的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C4-5算法"><span class="nav-number">4.</span> <span class="nav-text">C4.5算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-5-算法的缺点："><span class="nav-number">4.0.1.</span> <span class="nav-text">C4.5 算法的缺点：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1678,7 +1697,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.2k</span>
+    <span title="Site words total count">75.7k</span>
   
 </div>
 
