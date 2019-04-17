@@ -156,7 +156,12 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5caccdc86d4b0.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb046a840a5e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/12/5cb0479b69824.png">
-<meta property="og:updated_time" content="2019-04-17T13:38:03.848Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1614e8b296.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a1216092e.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a345ac88e.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12165255.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12163b87.png">
+<meta property="og:updated_time" content="2019-04-17T13:50:45.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
@@ -483,7 +488,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.6k 字
+                  4.7k 字
                 </span>
               
 
@@ -499,7 +504,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14 分钟
+                  19 分钟
                 </span>
               
             </div>
@@ -1011,6 +1016,194 @@ node [shape=box] ;
 <li>另外，C4.5只适合于能够驻留于内存的数据集，当训练集大得无法在内存容纳时程序无法运行。</li>
 </ul>
 <hr>
+<h1 id="对决策树进行剪枝"><a href="#对决策树进行剪枝" class="headerlink" title="对决策树进行剪枝"></a>对决策树进行剪枝</h1><p>ID3 算法对数据递归的产生决策树，直到不能继续进行下去，这样产生的决策树往往对训练数据的分类很准确，但对未知的测试数据的分类却并没有那么准确，即会出现过拟合现象。</p>
+<p>过拟合现象的原因是在生成决策树时，过多地考虑如何提高对训练数据的正确分类，从而构建出过于复杂的决策树。解决办法是对已生成的决策树进行剪枝。</p>
+<h1 id="CART算法-分类回归树"><a href="#CART算法-分类回归树" class="headerlink" title="CART算法 - 分类回归树"></a>CART算法 - 分类回归树</h1><p><a href="https://blog.csdn.net/acdreamers/article/details/44664481" target="_blank" rel="noopener">决策树之CART算法</a></p>
+<p>ID3 和 C4.5 算法可以生成二叉树或多叉树，而CART 算法只支持二叉树。 同时CART算法既可以作为<code>分类树</code>， 也可以作为<code>回归数</code>。</p>
+<blockquote>
+<p>分类和回归的区别在于输出变量的类型。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>定量输出称为回归，或者说是连续变量预测；</li>
+<li>定性输出称为分类，或者说是离散变量预测。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>举个例子：</p>
+<ul>
+<li>预测明天的气温是多少度，这是一个回归任务；</li>
+<li>预测明天是阴、晴还是雨，就是一个分类任务。</li>
+</ul>
+</blockquote>
+<h2 id="CART算法的计算原理"><a href="#CART算法的计算原理" class="headerlink" title="CART算法的计算原理"></a>CART算法的计算原理</h2><p>CART算法生成的决策树是结构简洁的二叉树,它在每一步决策时只能是<code>是</code>或者<code>否</code>。<br>CART算法在构建决策树时，主要分为两步：</p>
+<blockquote>
+<ul>
+<li>生成决策树</li>
+<li>对决策树进行剪枝</li>
+</ul>
+</blockquote>
+<p>我们知道， ID3 选择节点属性是基于信息增益来做判断， 而 CART和ID3类似，只不过选择时是使用 基尼系数来做判断。 </p>
+<p>决策树分类的过程本身是一个不确定性降低的过程。 基尼系数本身反应了样本的不确定度。 当基尼系数越小时，说明样本之间的差异性小，不确定程度低。 所以CART 算法在构建分类树是，会选择基尼系数较小的属性作为节点的划分。 </p>
+<p>t为节点， 则该节点的基尼系数计算公式： </p>
+<blockquote>
+<p>$GINI（t） = 1 - \sum_{k}^{}[ p(C_{k}|t )]^{2}$</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>$ p(C_{k}|t $ 表示 t节点属于类别$C_{k}$的概率</li>
+<li>节点t的基尼系数等于 1减去各类别 $C_{k}$概率平方和</li>
+</ul>
+</blockquote>
+<p>例如：</p>
+<ol>
+<li>6个人都去打篮球</li>
+<li><p>3个人打篮球，3个人不打篮球</p>
+<p>条件1中， 所有人都去打篮球， 所以 $C_{k}|t = 1$ , $[ p(C_{k}|t )]^{2} = 1$, 因此$GINI（t）= 1-1=0$</p>
+</li>
+</ol>
+<p>条件2中，一半人打篮球，一半人不打篮球。所以：$ p(C_{1}|t ) = 0.5$， $ p(C_{2}|t ) = 0.5$。 因此$GINI（t）= 1-（0.5^{2}+0.5^{2}）=0.5$</p>
+<p>通过2个基尼系数，可以看到， 条件1的基尼系数最小，样本最稳定。而条件2的样本不稳定行更大。 </p>
+<p><img src="https://i.loli.net/2019/04/13/5cb1614e8b296.jpg" alt></p>
+<p>节点D的基尼系数等于节点D1和D2的归一化基尼系数之和， 用公式表示为：</p>
+<p>$$GINI（D,A） = \frac{D_{1}}{D}GINI（D_{1}）+\frac{D_{2}}{D}GINI（D_{2}）$$</p>
+<p>所以 节点D 的基尼系数为：$GINI（D,A） = \frac{6}{12}GINI（D_{1}）+\frac{6}{12}GINI（D_{2}）$ = 0.25</p>
+<p>节点D被属性A划分后的基尼系数越大，样本集合的不确定性越大。 </p>
+<h1 id="CART算法计算过程"><a href="#CART算法计算过程" class="headerlink" title="CART算法计算过程"></a>CART算法计算过程</h1><p>数据：</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>天气</th>
+<th>户外</th>
+<th>温度</th>
+<th>风速</th>
+<th>活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>晴天</td>
+<td>炎热</td>
+<td>高</td>
+<td>弱</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>2</td>
+<td>晴天</td>
+<td>炎热</td>
+<td>高</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>3</td>
+<td>阴天</td>
+<td>炎热</td>
+<td>高</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>4</td>
+<td>雨天</td>
+<td>温柔</td>
+<td>高</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>5</td>
+<td>雨天</td>
+<td>凉爽</td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>6</td>
+<td>雨天</td>
+<td>凉爽</td>
+<td>正常</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>7</td>
+<td>阴天</td>
+<td>凉爽</td>
+<td>正常</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>8</td>
+<td>晴天</td>
+<td>温柔</td>
+<td>高</td>
+<td>弱</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>9</td>
+<td>晴天</td>
+<td>凉爽</td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>10</td>
+<td>雨天</td>
+<td>温柔</td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>11</td>
+<td>晴天</td>
+<td>温柔</td>
+<td>正常</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>12</td>
+<td>阴天</td>
+<td>温柔</td>
+<td>高</td>
+<td>强</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>13</td>
+<td>阴天</td>
+<td>炎热</td>
+<td>正常</td>
+<td>弱</td>
+<td>进行</td>
+</tr>
+<tr>
+<td>14</td>
+<td>雨天</td>
+<td>温柔</td>
+<td>高</td>
+<td>强</td>
+<td>取消</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.loli.net/2019/04/13/5cb1a1216092e.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">3</span>/<span class="number">5</span>)<span class="number">2</span>-(<span class="number">2</span>/<span class="number">5</span>)<span class="number">2</span> = <span class="number">0.48</span></span><br><span class="line">gini(t2)  = <span class="number">1</span> -(<span class="number">0</span>/<span class="number">4</span>)<span class="number">2</span>-(<span class="number">4</span>/<span class="number">4</span>)<span class="number">2</span> = <span class="number">0</span></span><br><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">3</span>/<span class="number">5</span>)<span class="number">2</span>-(<span class="number">2</span>/<span class="number">5</span>)<span class="number">2</span> = <span class="number">0.48</span></span><br><span class="line">gini(t) = <span class="number">5</span>/<span class="number">14</span> * <span class="number">0.48</span> * <span class="number">2</span> = <span class="number">0.343</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/13/5cb1a345ac88e.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">4</span>/<span class="number">7</span>)<span class="number">2</span>-(<span class="number">3</span>/<span class="number">7</span>)<span class="number">2</span> = </span><br><span class="line">gini(t2)  = <span class="number">1</span> -(<span class="number">1</span>/<span class="number">7</span>)<span class="number">2</span>-(<span class="number">6</span>/<span class="number">7</span>)<span class="number">2</span> = </span><br><span class="line">gini(t) =</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/13/5cb1a12165255.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">3</span>/<span class="number">6</span>)<span class="number">2</span>-(<span class="number">3</span>/<span class="number">6</span>)<span class="number">2</span> = </span><br><span class="line">gini(t2)  = <span class="number">1</span> -(<span class="number">2</span>/<span class="number">8</span>)<span class="number">2</span>-(<span class="number">6</span>/<span class="number">8</span>)<span class="number">2</span> = </span><br><span class="line">gini(t) =</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/13/5cb1a12163b87.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">1</span>/<span class="number">4</span>)<span class="number">2</span>-(<span class="number">3</span>/<span class="number">4</span>)<span class="number">2</span> = </span><br><span class="line">gini(t2)  = <span class="number">1</span> -(<span class="number">2</span>/<span class="number">6</span>)<span class="number">2</span>-(<span class="number">4</span>/<span class="number">6</span>)<span class="number">2</span> = </span><br><span class="line">gini(t1)  = <span class="number">1</span> -(<span class="number">2</span>/<span class="number">4</span>)<span class="number">2</span>-(<span class="number">2</span>/<span class="number">4</span>)<span class="number">2</span> = </span><br><span class="line">gini(t) =</span><br></pre></td></tr></table></figure>
 <!-- ## 决策树有什么用
 
 ## 决策树实现过程步骤是什么
@@ -1454,8 +1647,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Excel函数/" rel="next" title="Excel函数">
-                <i class="fa fa-chevron-left"></i> Excel函数
+              <a href="/2019/03/24/git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -1464,8 +1657,8 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/类比/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1663,7 +1856,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择子节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步：计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">第三步：计算在晴天下，各属性的信息增益</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树计算结果"><span class="nav-number">3.2.3.</span> <span class="nav-text">决策树计算结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-python3-实现-ID3算法"><span class="nav-number">3.3.</span> <span class="nav-text">用 python3 实现 ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-导入数据库、常用模块、函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 导入数据库、常用模块、函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-读取原始数据"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 读取原始数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对数据进行预处理"><span class="nav-number">3.3.3.</span> <span class="nav-text">3. 对数据进行预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-给定节点与结果"><span class="nav-number">3.3.4.</span> <span class="nav-text">4. 给定节点与结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-进行决策树"><span class="nav-number">3.3.5.</span> <span class="nav-text">5. 进行决策树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-查看决策"><span class="nav-number">3.3.6.</span> <span class="nav-text">6. 查看决策</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-测试决策树​"><span class="nav-number">3.3.7.</span> <span class="nav-text">7. 测试决策树​</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-的缺陷"><span class="nav-number">3.4.</span> <span class="nav-text">ID3 的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C4-5算法"><span class="nav-number">4.</span> <span class="nav-text">C4.5算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-5-算法的缺点："><span class="nav-number">4.0.1.</span> <span class="nav-text">C4.5 算法的缺点：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID3算法"><span class="nav-number">3.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-算法原理"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法的计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">ID3算法的计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择根节点："><span class="nav-number">3.2.1.</span> <span class="nav-text">选择根节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤1：计算决策属性的熵"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">步骤1：计算决策属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤2：计算条件属性的熵"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">步骤2：计算条件属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤3：-计算各属性的信息增益"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">步骤3： 计算各属性的信息增益</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择子节点"><span class="nav-number">3.2.2.</span> <span class="nav-text">选择子节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：计算天气为晴天的熵"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">第一步：计算天气为晴天的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步：计算天气为晴天下，各属性的熵"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">第二步：计算天气为晴天下，各属性的熵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步：计算在晴天下，各属性的信息增益"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">第三步：计算在晴天下，各属性的信息增益</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#雨天节点下，检验哪个属性"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">雨天节点下，检验哪个属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树计算结果"><span class="nav-number">3.2.3.</span> <span class="nav-text">决策树计算结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-python3-实现-ID3算法"><span class="nav-number">3.3.</span> <span class="nav-text">用 python3 实现 ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-导入数据库、常用模块、函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 导入数据库、常用模块、函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-读取原始数据"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 读取原始数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对数据进行预处理"><span class="nav-number">3.3.3.</span> <span class="nav-text">3. 对数据进行预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-给定节点与结果"><span class="nav-number">3.3.4.</span> <span class="nav-text">4. 给定节点与结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-进行决策树"><span class="nav-number">3.3.5.</span> <span class="nav-text">5. 进行决策树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-查看决策"><span class="nav-number">3.3.6.</span> <span class="nav-text">6. 查看决策</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-测试决策树​"><span class="nav-number">3.3.7.</span> <span class="nav-text">7. 测试决策树​</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3-的缺陷"><span class="nav-number">3.4.</span> <span class="nav-text">ID3 的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C4-5算法"><span class="nav-number">4.</span> <span class="nav-text">C4.5算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-5-算法的缺点："><span class="nav-number">4.0.1.</span> <span class="nav-text">C4.5 算法的缺点：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#对决策树进行剪枝"><span class="nav-number"></span> <span class="nav-text">对决策树进行剪枝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CART算法-分类回归树"><span class="nav-number"></span> <span class="nav-text">CART算法 - 分类回归树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CART算法的计算原理"><span class="nav-number">1.</span> <span class="nav-text">CART算法的计算原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CART算法计算过程"><span class="nav-number"></span> <span class="nav-text">CART算法计算过程</span></a></li></div>
             
 
           </div>
@@ -1697,7 +1890,7 @@ Example 4 : label 0, features [5.  3.6 1.4 0.2]
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.7k</span>
+    <span title="Site words total count">76.8k</span>
   
 </div>
 
