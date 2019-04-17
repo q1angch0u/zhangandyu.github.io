@@ -161,7 +161,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a345ac88e.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12165255.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12163b87.png">
-<meta property="og:updated_time" content="2019-04-17T13:50:45.056Z">
+<meta property="og:updated_time" content="2019-04-17T13:55:54.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
 <meta name="twitter:description" content="ID3算法过程 机器学习第一课：决策树学习概述与实现 kaggle learning CART算法、决策树总结 什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列">
@@ -996,8 +996,10 @@ node [shape=box] ;
 </code></pre><p>访问 <a href="http://www.webgraphviz.com/" target="_blank" rel="noopener">WebGraphviz</a> 并粘贴输出，点击 Generate Graph</p>
 <p><img src="https://i.loli.net/2019/04/12/5cb0479b69824.png" alt></p>
 <p>可以看到它先基于<code>温度</code>进行分割，再基于<code>风速</code>进行分割。</p>
-<h4 id="7-测试决策树​"><a href="#7-测试决策树​" class="headerlink" title="7. 测试决策树​"></a>7. 测试决策树​</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(decision_tree.predict([[2,0,0,0]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[1,2,0,0]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[2,2,1,1]]))</span><br></pre></td></tr></table></figure>
+<h4 id="7-测试决策树​"><a href="#7-测试决策树​" class="headerlink" title="7. 测试决策树​"></a>7. 测试决策树​</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(decision_tree.predict([[<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>]]))</span><br><span class="line"></span><br><span class="line">print(decision_tree.predict([[<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>]]))</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>[1]  [1]  [0]</p>
+</blockquote>
 <blockquote>
 <p>输出1， 证明活动可以进行；输出0，证明活动取消。</p>
 </blockquote>
@@ -1009,7 +1011,12 @@ node [shape=box] ;
 </ul>
 <p>C4.5是ID3算法的改进版本，针对四个主要的不足进行改进：</p>
 <blockquote>
-<p>不能处理连续特征<br>用信息增益作为标准容易偏向于取值较多的特征<br>不能处理缺失值<br>容易发生过拟合问题</p>
+<ul>
+<li>不能处理连续特征</li>
+<li>用信息增益作为标准容易偏向于取值较多的特征</li>
+<li>不能处理缺失值</li>
+<li>容易发生过拟合问题</li>
+</ul>
 </blockquote>
 <h4 id="C4-5-算法的缺点："><a href="#C4-5-算法的缺点：" class="headerlink" title="C4.5 算法的缺点："></a>C4.5 算法的缺点：</h4><ul>
 <li>在构造树的过程中，需要对数据集进行多次的顺序扫描和排序，因而导致算法的低效。</li>
