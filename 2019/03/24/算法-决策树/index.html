@@ -134,13 +134,13 @@
 
 
 
-<meta name="description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句， 但关键是如何确定哪个属性先判断，哪个属性后判断。 我们在做决策树的时候，会经历两个阶段">
+<meta name="description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-决策树">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/算法-决策树/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句， 但关键是如何确定哪个属性先判断，哪个属性后判断。 我们在做决策树的时候，会经历两个阶段">
+<meta property="og:description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/09/5cacacd92ae03.png">
@@ -162,10 +162,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12165255.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/13/5cb1a12163b87.png">
 <meta property="og:image" content="https://i.loli.net/2019/04/20/5cbb1da9e56da.jpg">
-<meta property="og:updated_time" content="2019-04-20T14:08:44.348Z">
+<meta property="og:updated_time" content="2019-04-20T14:50:37.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-决策树">
-<meta name="twitter:description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。  在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树 决策树本质上就是一系列  if-then 语句， 但关键是如何确定哪个属性先判断，哪个属性后判断。 我们在做决策树的时候，会经历两个阶段">
+<meta name="twitter:description" content="什么是决策树想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。">
 <meta name="twitter:image" content="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png">
 
 
@@ -491,9 +491,9 @@
 
       
         <h2 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h2><p>想像一下，一个女孩的妈妈给女孩介绍相亲对象的场景，当女孩在询问男孩的基本情况时， 她就已经在生成一个决策树了。<br> <img src="https://i.loli.net/2019/04/10/5cade5ac7e6ee.png" alt="决策树"></p>
+<a id="more"></a>
 <p>在日常的生活当中，我们经常会基于以往的经验来做判断。  当我们把判断背后的思考逻辑整理起来，你会发现，它其实是一个树状结构，也就是决策树</p>
 <p>决策树本质上就是一系列  <code>if-then</code> 语句， 但关键是如何确定哪个属性先判断，哪个属性后判断。 我们在做决策树的时候，会经历两个阶段：<strong>构造和剪枝。</strong></p>
-<a id="more"></a>
 <hr>
 <h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p><strong>构造就是选择什么属性来作为判断节点的过程。 通过构造，从而生成一棵完整的决策树</strong></p>
 <p>在了解决策树是如何构造之前， 我们先来了解三个概念：</p>
