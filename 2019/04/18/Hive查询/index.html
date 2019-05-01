@@ -143,7 +143,7 @@
 <meta property="og:description" content="什么是 HiveHive 是一种建立在Hadoop文件系统上的数据仓库架构, 并对存储的数据进行分析和管理，可以将 SQL 语句转换为 MapReduce 任务进行运行，这样就使得数据开发和分析人员很方便的使用 SQL 来完成海量数据的统计和分析。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://plosti2dy.bkt.clouddn.com/%E7%A1%AE%E8%AE%A4%E6%94%AF%E4%BB%98%E4%B8%8A%E4%B8%80%E6%AD%A5.png">
-<meta property="og:updated_time" content="2019-04-20T02:04:44.525Z">
+<meta property="og:updated_time" content="2019-04-28T09:15:45.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 查询">
 <meta name="twitter:description" content="什么是 HiveHive 是一种建立在Hadoop文件系统上的数据仓库架构, 并对存储的数据进行分析和管理，可以将 SQL 语句转换为 MapReduce 任务进行运行，这样就使得数据开发和分析人员很方便的使用 SQL 来完成海量数据的统计和分析。">
@@ -772,7 +772,8 @@
 <p>举例3：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--打断</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">substring_index(page_url, <span class="string">'?'</span>, <span class="number">1</span>),</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> user_tracking_id) <span class="keyword">as</span> uv,</span><br><span class="line"><span class="keyword">count</span>(page_url) <span class="keyword">as</span> pv </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.jt_wap_log_view</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-04-09'</span> <span class="keyword">and</span> <span class="string">'2019-04-09'</span> </span><br><span class="line"><span class="keyword">and</span> </span><br><span class="line">campaign <span class="keyword">like</span> <span class="string">"%scjh-scep-tcnr-9yuanka%"</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">substring_index(page_url, <span class="string">'?'</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    uv <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
 <h3 id="刷新数据表"><a href="#刷新数据表" class="headerlink" title="刷新数据表"></a>刷新数据表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">refresh table computer_log.client_ios_log</span><br></pre></td></tr></table></figure>
-<h1 id="留存率"><a href="#留存率" class="headerlink" title="留存率"></a>留存率</h1><blockquote>
+<h1 id="留存率"><a href="#留存率" class="headerlink" title="留存率"></a>留存率</h1><p><a href="http://zhouchen.tech/2018/01/18/%E5%88%A9%E7%94%A8SQL%E8%AE%A1%E7%AE%97%E7%94%A8%E6%88%B7%E7%95%99%E5%AD%98%E6%95%B0%E6%8D%AE/" target="_blank" rel="noopener">不同写法</a></p>
+<blockquote>
 <p>求11月10-15号每天的1、3、7日留存率</p>
 </blockquote>
 <p>方法：</p>
