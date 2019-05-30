@@ -514,6 +514,35 @@
   </entry>
   
   <entry>
+    <title>业务分析——埋点方案</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/埋点方案/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-13T06:43:35.917Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面试问题</title>
     <link href="https://zhangandyu.github.io/2018/12/22/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/"/>
     <id>https://zhangandyu.github.io/2018/12/22/面试问题/</id>
@@ -541,35 +570,6 @@
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="面试问题" scheme="https://zhangandyu.github.io/tags/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>业务分析——埋点方案</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/埋点方案/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-13T06:43:35.917Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
     
   </entry>
   
