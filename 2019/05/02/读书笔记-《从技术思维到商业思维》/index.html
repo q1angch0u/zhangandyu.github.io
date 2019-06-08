@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="怪兽宇的小站" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言优秀的人，将理想建立在自己的奋斗上，比如说，我要做一个什么事业，我要完成一个什么目标；而平庸的人，将理想建立在其他人身上，比如，我要中个大奖，我要换份好工作，遇到好老板。   初学者的建议几点建议：  平时学到的东西，多思考一下，应用场景在哪里。 平时上网站下APP的时候，多思考，人家用了什么技术，怎么实现的，自己学到的东西在里面能做什么。 如果学了算法或其他知识，想想能否用在这些工具上，能否">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《你凭什么做好互联网：从技术思维到商业逻辑》 读书笔记">
+<meta property="og:url" content="https://zhangandyu.github.io/2019/05/02/读书笔记-《从技术思维到商业思维》/index.html">
+<meta property="og:site_name" content="怪兽宇的小站">
+<meta property="og:description" content="前言优秀的人，将理想建立在自己的奋斗上，比如说，我要做一个什么事业，我要完成一个什么目标；而平庸的人，将理想建立在其他人身上，比如，我要中个大奖，我要换份好工作，遇到好老板。   初学者的建议几点建议：  平时学到的东西，多思考一下，应用场景在哪里。 平时上网站下APP的时候，多思考，人家用了什么技术，怎么实现的，自己学到的东西在里面能做什么。 如果学了算法或其他知识，想想能否用在这些工具上，能否">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T07:12:37.251Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《你凭什么做好互联网：从技术思维到商业逻辑》 读书笔记">
+<meta name="twitter:description" content="前言优秀的人，将理想建立在自己的奋斗上，比如说，我要做一个什么事业，我要完成一个什么目标；而平庸的人，将理想建立在其他人身上，比如，我要中个大奖，我要换份好工作，遇到好老板。   初学者的建议几点建议：  平时学到的东西，多思考一下，应用场景在哪里。 平时上网站下APP的时候，多思考，人家用了什么技术，怎么实现的，自己学到的东西在里面能做什么。 如果学了算法或其他知识，想想能否用在这些工具上，能否">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangandyu.github.io/2019/05/02/读书笔记-《从技术思维到商业思维》/">
+
+
+
+
+
+  <title>《你凭什么做好互联网：从技术思维到商业逻辑》 读书笔记 | 怪兽宇的小站</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-127783955-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://zhangandyu.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">怪兽宇的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">脚踏实地，仰望星空!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2019/05/02/读书笔记-《从技术思维到商业思维》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="怪兽宇">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://i.loli.net/2019/04/17/5cb735e5570e8.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="怪兽宇的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《你凭什么做好互联网：从技术思维到商业逻辑》 读书笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-02T00:00:00+08:00">
+                2019-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/思维/" itemprop="url" rel="index">
+                    <span itemprop="name">思维</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/02/读书笔记-《从技术思维到商业思维》/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/02/读书笔记-《从技术思维到商业思维》/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>优秀的人，将理想建立在自己的奋斗上，比如说，我要做一个什么事业，我要完成一个什么目标；而平庸的人，将理想建立在其他人身上，比如，我要中个大奖，我要换份好工作，遇到好老板。 </p>
+<hr>
+<h1 id="初学者的建议"><a href="#初学者的建议" class="headerlink" title="初学者的建议"></a>初学者的建议</h1><p>几点建议：</p>
+<ol>
+<li>平时学到的东西，多思考一下，应用场景在哪里。</li>
+<li>平时上网站下APP的时候，多思考，人家用了什么技术，怎么实现的，自己学到的东西在里面能做什么。 如果学了算法或其他知识，想想能否用在这些工具上，能否提出优化和改进的方案。 如果是对产品和运营感兴趣，多想想人家成功产品是怎么运营，怎么推广，怎么发展用户的。 这里最为重要的一点是，多学人家做得好的地方，特别是细节，比如文案、标题抓的用户心理诉求是什么。</li>
+<li>如果从事互联网技术，试着做一个APP或网站。 多学习人家的开发思路和设计理念，有机会把自己的一些代码发布到GitHub,并在一些技术社区多解答问题，多分享自己的东西，可能对未来工作帮助很大。 </li>
+<li>如果你想从事互联网运营和产品， 试着运营一个微博或者微信公众号，或者你能在知乎上成为一个有表现力的活跃账户。这些对求职都会有帮助。</li>
+<li>关于考证，要清楚什么证有用，什么证没用。技术达人应该多做一些竞赛挑战。</li>
+<li>简历，你做过什么，你有什么能力，你以前表现出怎样的水平。</li>
+<li>年轻人不要怕表现，要敢于出来表现，但要有正确的度，你的表现是分析问题和解决问题的能力， 而不是表现自己读过什么数，懂什么算法。一个有正常价值观的公司，最终还是会用你的实际效果说话。</li>
+<li>尽信书不如无书，我支持各位多看书，多读书，有些技术原理、基本理论确实没有过时，但是，关于商业、关于市场、关于行业的发展方向，我们必须更努力地往前看，而不能迷信与书本，至于媒体报道，你可以作为参考，但是你要知道 ，这些还多东西都是包装出来、拼凑出来的，真相需要你认真挖掘。最后，切记玻璃心，特别能抗骂抗造的，一般发展都不错。 </li>
+</ol>
+<hr>
+<h1 id="走出心理舒适区"><a href="#走出心理舒适区" class="headerlink" title="走出心理舒适区"></a>走出心理舒适区</h1><p>心理舒适区 往往来自一种习惯，来自你所熟悉的场景。 很多打工的人觉得自己很辛苦，很努力，但是其实很多时候他们的辛苦，努力也是在掩盖自己拒绝改变的一种懦弱。 </p>
+<p>辛辛苦苦去很早上班，做很多事情，但是拒绝去学一种新技能，拒绝尝试一种新的领域和机会，这都是躲在心理舒适区的表现。</p>
+<p>为什么学霸们的心理舒适区有问题呢？因为他们习惯的场景太窄了，把自己未来的路设计的太窄了。</p>
+<p>你一定要想办法拓展和扩大自己的心理舒适区，不要让自己总是躲在一个很小的舒适区里出不来，要敢做一些改变的常识，挑战一下自己之前胆怯的领域，这样对职场，对工作才能更好的适应。</p>
+<p>如何扩大自己的舒适区？</p>
+<ol>
+<li>多参与分享，多上台演讲，能够克服演讲恐惧，对未来的工作和个人发展绝对大有帮助。</li>
+<li>多接触不同的人群，多了解不同领域的信息，尝试和各种人沟通。视图理解更多以前无法理解的东西</li>
+<li>力所能及地尝试做一些不同的事情，并尽量做好。比如，组着一个主题社团，接一些有挑战性的工作。</li>
+<li>适当学一点无聊没意义的东西，扩大接触面和知识面，很多看上去没用的东西，很有可能潜移默化地帮到你。比如绘画，书法等</li>
+<li>进入和浏览不同类型的社区，观察和参与一些职场人士的讨论，不要盲目用想象来猜测职场。</li>
+</ol>
+<p>在职场，我们要不断摸索，寻找新的心理舒适区，心理舒适区不代表你不累，不辛苦，当你觉得工作很有趣很开心，说明你找到了自己的心理舒适区。这个过程需要你正确的认识自己。</p>
+<hr>
+<h1 id="关于职业选择"><a href="#关于职业选择" class="headerlink" title="关于职业选择"></a>关于职业选择</h1><p>哪些茫然无知冲进新行业的年轻人，他们的平均回报率远远超过那些在自己擅长领域因循守旧的家伙。</p>
+<p>如何评判自己适合什么工作？<br>适合的工作，就是工作虽然累，但是很开心，很有成就感。</p>
+<p>遇到合适的时机，勇敢地清空自己，从零开始，任何时候都可能有巨大的机会在等着你。</p>
+<p>建议：</p>
+<ol>
+<li><p>不断反思自己，适合什么，不适合什么，喜欢什么，不喜欢什么，要认清自己的内心。</p>
+</li>
+<li><p>看未来，看方向，要知道未来在哪里，而不是只看现在是什么。 你看未来市场增量是多少，而当前市场盘子是多大，如果有十倍、百倍空间，你进入这个领域，机遇就比去饱和行业要大。</p>
+</li>
+</ol>
+<p>很多时候，我们基于已有问题和困境，而不敢相信未来，这是发展的一大障碍。</p>
+<ol start="3">
+<li><p>选择offer时，不要被描述所迷惑。去巨头公司，接触核心部门，接触核心数据，可能对自己的行业认识帮助更大。</p>
+</li>
+<li><p>很多时候，你认为自己想做的，不过是因为很多人都觉得好。</p>
+</li>
+<li><p>所有已有经验都是有价值的，但不代表你不可以换别的试试，在一些新兴或跨界的领域，往往学习能力和适应能力比经验更重要。</p>
+</li>
+<li><p>任何时候，都必须保持学习、保持饥渴，保持对新领域的好奇和敏感。</p>
+</li>
+</ol>
+<hr>
+<h1 id="信用问题"><a href="#信用问题" class="headerlink" title="信用问题"></a>信用问题</h1><ol>
+<li><p>牺牲信用和节操就是牺牲未来不可多得的机遇。</p>
+</li>
+<li><p>守时是一个人基本的信用体现。</p>
+<blockquote>
+<p>首先，对约定的目的地、路程时间又预判，做出一定的提前量，而不是一切按照最佳的可能去思考。</p>
+<p>其次，当我们比约定时间早很多到达目标地点，不要急于联系对方，先找个地方休息一下，等差不多还有10分钟的时候，发个消息告诉对方已经到了。如果没有反馈，在基本接近约定的时间再打电话联系。</p>
+<p>再者，当我们遇到一些交通状况或意外导致我们无法准时，提前一点时间给对方法消息，告诉对方可能延误多久。有一个提前的提示与不做提示，给对方的印象是相差极大的。<strong>信用的本质就是别人对你的印象。</strong></p>
+</blockquote>
+</li>
+<li><p>不要轻易承诺无法兑现的事情，有担当不等于不负责任的揽事。做不到的事情直接回绝。没有把握的事情，要明确可能性。</p>
+</li>
+<li><p>要有担当，敢揽事，但是你担当之后要拼尽全力去兑现的。如果无把握，你可以去拼，但是请记住，你可以承诺的只有你的努力和付出，而不是结果。</p>
+</li>
+<li><p>错了要敢认，不推诿。</p>
+</li>
+<li><p>替人或产品背书要先做好背景调查，就是是朋友，也要把握原则。</p>
+</li>
+</ol>
+<hr>
+<h1 id="学习一项技能的方法"><a href="#学习一项技能的方法" class="headerlink" title="学习一项技能的方法"></a>学习一项技能的方法</h1><p><strong>理脉络，认场景，扣细节。</strong></p>
+<ol>
+<li>理脉络</li>
+</ol>
+<ul>
+<li>首先，你要有一个对自己未来的目标，你希望十年之后成为怎样的一个职业人才。</li>
+<li>有了目标之后，你要搜索或咨询专家，了解针对这个目标，你需要储备怎样的知识体系，你需要点亮的技能树有哪些。</li>
+<li>给自己一个学习计划，然后去学习课程。</li>
+</ul>
+<ol start="2">
+<li>认场景</li>
+</ol>
+<ul>
+<li>学一门技术、一门课程，要结合应用场景，工作场景。一门课程，一项技术是在哪些工作场景中需要用到的，是如何体现其价值的。</li>
+<li>多了解工作场景，了解知识在职场中的具体表现。</li>
+</ul>
+<ol start="3">
+<li>抠细节</li>
+</ol>
+<ul>
+<li>这个知识在真实的产品中是不是可以完美实现这个功能逻辑。在实际中，如果要做到更好，在这个算法之外，还应考虑什么？</li>
+<li>除了这个基本策略之外，你还需要从哪些角度入手，对系统做优化，你需要羊场这样的思考习惯。 </li>
+<li>抠细节，需要对场景中每个环节的认知和敏感性，以及对自我知识体系不断评估不断优化的一种习惯。</li>
+<li>能认真分析市场领先产品好在哪里，体验顺畅在哪里也是一种抠细节的表现。</li>
+</ul>
+<hr>
+<h1 id="商业分析思维建立"><a href="#商业分析思维建立" class="headerlink" title="商业分析思维建立"></a>商业分析思维建立</h1><ol>
+<li>看数据<blockquote>
+<p>将商业逻辑拆解，分解出先行指标，逐一优化，仍需关注与业务可持续相关的隐性指标。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>拆解商业逻辑，是一种思考习惯，先训练这样的思考习惯，再训练用这样的思考习惯看产品的视角，对商业分析的能力提升就会很大。</p>
+</li>
+<li><p>搜索引擎收入</p>
+<blockquote>
+<p>搜索收入 = 用户搜索量 <em> 广告展现率 </em> 广告点击率 * 平均广告点击价格<br>隐形指标： 客户续费率</p>
+</blockquote>
+</li>
+<li><p>电子商务</p>
+<blockquote>
+<p>销售收入 = 产品曝光度 <em> 用户点击率 </em> 用户下单率 <em> 付费成功率 </em> （平均客单价 - 平均客成本）</p>
+<p>平均客成本:   基本采购成本, 仓储成本，退货率和退货成本，以及市场营销和运营成本</p>
+<p>曝光度：采购流量， 自然搜索流量，用户分享的流量。<br> 隐形指标：客户重复购买率</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>琢磨人性</li>
+</ol>
+<ul>
+<li>竞价排名。跳动入局者的竞争，从中获得最大利润。</li>
+</ul>
+<hr>
+<p>个别的</p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+	  
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+    </div>
+	
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="https://i.loli.net/2019/02/23/5c70bb99b3deb.jpg" alt="怪兽宇 wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号。</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://i.loli.net/2019/04/17/5cb734151672c.jpg" alt="怪兽宇 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"><i class="fa fa-tag"></i> 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/23/个人系统-音乐/" rel="next" title="音乐">
+                <i class="fa fa-chevron-left"></i> 音乐
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/07/数据分析-Hive进阶查询/" rel="prev" title="Hive 进阶查询">
+                Hive 进阶查询 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c70be3686f5c90f" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://i.loli.net/2019/04/17/5cb735e5570e8.jpg" alt="怪兽宇">
+            
+              <p class="site-author-name" itemprop="name">怪兽宇</p>
+              <p class="site-description motion-element" itemprop="description">个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangandyu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="zhangyu756897669@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005052177096132?sudaref=zhangandyu.github.io&display=0&retcode=6102&sudaref=passport.weibo.com" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://alvabill.ml/" title="Alvabill" target="_blank">Alvabill</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初学者的建议"><span class="nav-number">2.</span> <span class="nav-text">初学者的建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#走出心理舒适区"><span class="nav-number">3.</span> <span class="nav-text">走出心理舒适区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于职业选择"><span class="nav-number">4.</span> <span class="nav-text">关于职业选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信用问题"><span class="nav-number">5.</span> <span class="nav-text">信用问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习一项技能的方法"><span class="nav-number">6.</span> <span class="nav-text">学习一项技能的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#商业分析思维建立"><span class="nav-number">7.</span> <span class="nav-text">商业分析思维建立</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">怪兽宇</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">94.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      您是本站第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位访客，欢迎您。
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zhangyu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zhangandyu.github.io/2019/05/02/读书笔记-《从技术思维到商业思维》/';
+          this.page.identifier = '2019/05/02/读书笔记-《从技术思维到商业思维》/';
+          this.page.title = '《你凭什么做好互联网：从技术思维到商业逻辑》 读书笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zhangyu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
