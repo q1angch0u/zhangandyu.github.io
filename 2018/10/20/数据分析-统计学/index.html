@@ -145,7 +145,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/02/5bdc6bb0a6545.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/02/5bdc6be2e46fa.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/02/5bdc6bfeba767.png">
-<meta property="og:updated_time" content="2019-06-11T15:58:51.276Z">
+<meta property="og:updated_time" content="2019-06-23T11:51:46.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学">
 <meta name="twitter:description" content="前言：为什么应该学点统计学统计学是人类发明用来研究我们自身的科学，它与我们的生活息息相关。 小到支付宝根据用户个人消费数据判断其消费水平，从而有针对性进行限额借贷。大到国家通过国民生产总值这样的统计数据分析，来研究国家经济发展趋势等， 都需要用到统计学知识。 我们可以从统计大师 Hans Rolling 的演讲中， 来看下 1960 年到 2003 年的世界各国出生率与经济发展是如何变化的。 Ha">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.2k 字
+                  3.8k 字
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12 分钟
+                  14 分钟
                 </span>
               
             </div>
@@ -748,17 +748,15 @@
 <ol start="2">
 <li><p>分类数据描述统计<br>频数统计<br>频数百分比</p>
 </li>
-<li><p>平均数，中位数，众数</p>
-</li>
-<li><p>分位数</p>
-</li>
-<li><p>方差、标准差： 描述数据的离散程度</p>
+<li><p>平均数，中位数，众数、 分位数、方差、标准差： 描述数据的离散程度</p>
 </li>
 <li><p>数据标准化： Z-Score</p>
 </li>
 </ol>
+<blockquote>
 <p>公式： z = (x - u) / 方差 。  可以用数据标准化进行预估计算</p>
-<ol start="7">
+</blockquote>
+<ol start="5">
 <li>切比雪夫定理-异常值检测</li>
 </ol>
 <ul>
@@ -766,27 +764,49 @@
 <li>至少有89%的数据在三个标准差之内</li>
 <li>至少有95%的数据在5个标准差之内</li>
 </ul>
-<ol start="8">
-<li><p>箱线图</p>
-</li>
-<li><p>直方图， 偏度，标准型分布，</p>
-</li>
-<li><p>概率</p>
-</li>
-<li><p>贝叶斯： 通过结果来反推原因</p>
-<blockquote>
+<ol start="6">
+<li>概率</li>
+</ol>
+<ol start="7">
+<li>贝叶斯： 通过结果来反推原因<blockquote>
 <p>参加活动的人群中，女性只占30%， 是否说明女性不喜欢参加此类活动？</p>
 </blockquote>
 </li>
-<li><p>二项分布</p>
+</ol>
+<blockquote>
+<p>某种疾病的发病率为千分之一。现在有一种试纸，它在患者得病的情况下，有99%的准确率判断患者得病，在患者没有得病的情况下，有5%的可能误判患者得病。现在试纸说一个患者得了病，那么患者真的患病的概率是多少？</p>
+</blockquote>
+<blockquote>
+<p>某城市有两种颜色的出租车，蓝车和绿车市场比率为15:85。 一辆出租车肇事逃逸，当时有一位目击者证人，这位证人认定肇事的出租车是蓝色的。但是他的目击未必可信，公安人员经过在相同环境下对该目击者进行“蓝绿”测试得到：80%的情况下识别正确，20%的情况下不正确。那么实际为蓝车的可能性是多少？</p>
+</blockquote>
+<blockquote>
+<p>我们经常会受到垃圾短信，假设1000条正常短信中，包含【澳门赌场】的短信有2条，而在垃圾短信中，包含澳门短信的短信有400条。<br>现在我们接受到了一条新短信，在不浏览内容的情况下，假定它的正常几率是50%。现在对短信内容进行解析，发现澳门赌场这个词，那么它是垃圾短信的概率有多高。</p>
+</blockquote>
+<ol start="12">
+<li>二项分布</li>
+</ol>
+<blockquote>
+<p>在各类促销活动中， 抽奖是一种常见的促销方式。现在希望运营方设计一个抽奖模式。用户能够抽10次，中奖概率是10%。如果用户抽中了3次及以上， 则公司会亏本。那么公司亏本的概率是多少？</p>
+</blockquote>
+<p>excel 函数： BINOM.DIST</p>
+<ol start="13">
+<li>泊松分布<blockquote>
+<p>某医院急救中心一天收到呼叫次数服从泊松分布，平均数为20， 那么该急救中心一天收到15次呼叫的概率是多少？ 收到小于15次呼叫的概率是多少？</p>
+</blockquote>
 </li>
 </ol>
-<ol start="13">
-<li>泊松分布</li>
-</ol>
+<p>excel 函数： POISSON.DIST</p>
 <ol start="12">
-<li></li>
+<li>正态分布</li>
 </ol>
+<blockquote>
+<p>现在有一个 u = 10 和方差=2的正态随机变量，求x介于10到14之间的概率<br>excel 函数： norm.DIST</p>
+</blockquote>
+<ol start="13">
+<li>假设检验</li>
+</ol>
+<p>某个APP， 用户购买的平均转化率出25%， 在进行全新的产品设计之后，转化率变成了30%， 这个转化是波动？还是产品改进有效？</p>
+<p>A/B 测试： Z检验</p>
 
       
     </div>
@@ -966,7 +986,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1102,7 +1122,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">101.5k</span>
+    <span title="Site words total count">100.1k</span>
   
 </div>
 
