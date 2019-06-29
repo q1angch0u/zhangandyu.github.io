@@ -145,7 +145,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe6c219ca3f57084.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe78ba58dfb91072.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe79320dfb423235.png">
-<meta property="og:updated_time" content="2019-06-24T03:34:20.040Z">
+<meta property="og:updated_time" content="2019-06-29T16:53:25.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 进阶查询">
 <meta name="twitter:description" content="窗口函数 CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apos;1&amp;apos;">
@@ -807,6 +807,212 @@
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Creat function 函数名（参数）</span><br><span class="line">Return 返回值数据类型</span><br><span class="line">[<span class="keyword">with</span> &#123;Encryption | Schemabinding 「将函数绑定到它引用的对象上」&#125;]</span><br><span class="line">[<span class="keyword">as</span>]</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">Return</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
 <p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">Creat FUNCTION</span><br><span class="line">     getNthHighestSalary(N INT)</span><br><span class="line">Returns INT</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">RETURN</span></span><br><span class="line">    (<span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">IFNULL</span>(</span><br><span class="line">          (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> </span><br><span class="line">    Salary </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">2</span> <span class="keyword">offset</span> <span class="number">1</span>), </span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">    ) <span class="keyword">AS</span> getNthHighestSalary(N)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> # 一次性求次1日，次3日， 次7日留存</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span><span class="keyword">sql</span></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    hit_date,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-04-25'</span> <span class="keyword">and</span> <span class="string">'2019-05-13'</span></span><br><span class="line">    <span class="keyword">and</span> </span><br><span class="line">    btn_information <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    hit_date,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-04-25'</span> <span class="keyword">and</span> <span class="string">'2019-05-13'</span></span><br><span class="line">    <span class="keyword">and</span> </span><br><span class="line">    btn_information <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">a1.hit_date,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) uv,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">1</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) next_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">3</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) three_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">7</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) seven_day</span><br><span class="line"><span class="keyword">from</span> a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> a1.hit_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a1.hit_date</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="常用的-SQL-函数"><a href="#常用的-SQL-函数" class="headerlink" title="常用的 SQL 函数"></a>常用的 SQL 函数</h1><h3 id="算术函数"><a href="#算术函数" class="headerlink" title="算术函数"></a>算术函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs()</td>
+<td>取绝对值</td>
+</tr>
+<tr>
+<td>mod()</td>
+<td>取余</td>
+</tr>
+<tr>
+<td>round()</td>
+<td>四舍五入为指定的小数位数，两个参数，分别为字段名称、小数位数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concat()</td>
+<td>将多个字段拼接起来</td>
+</tr>
+<tr>
+<td>length()</td>
+<td>计算字段的长度， 一个汉字算三个字符，一个数字或字母算一个字符</td>
+</tr>
+<tr>
+<td>char_length()</td>
+<td>计算字段的长度， 汉字、数字</td>
+<td>字母都算一个字符</td>
+</tr>
+<tr>
+<td>lower()</td>
+<td>将字符串的字符转化为小写</td>
+</tr>
+<tr>
+<td>upper()</td>
+<td>将字符串的字符转化为大写</td>
+</tr>
+<tr>
+<td>replace()</td>
+<td>替换函数，有3个参数，分别为： 要替换的表达式或字段名、想要查找的被替换的字符串、替换成哪个字符串</td>
+</tr>
+<tr>
+<td>substring()</td>
+<td>截取字符串，有3个参数， 待截取的表达式或字段名， 开始截取的位置，想要截取的字符串长度</td>
+</tr>
+<tr>
+<td>substring_index()</td>
+<td>截取字符串长度</td>
+</tr>
+</tbody>
+</table>
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current_date()</td>
+<td>系统当前日期</td>
+</tr>
+<tr>
+<td>current_time()</td>
+<td>系统当前时间，没有具体日期</td>
+</tr>
+<tr>
+<td>current_timestamp()</td>
+<td>系统当前时间， 日期+时间</td>
+</tr>
+<tr>
+<td>extract()</td>
+<td>抽取具体的年、月、日</td>
+</tr>
+<tr>
+<td>date()</td>
+<td>返回时间的日期部分</td>
+</tr>
+<tr>
+<td>year()</td>
+<td>返回时间的年份部分</td>
+</tr>
+<tr>
+<td>month()</td>
+<td>返回时间的月份部分</td>
+</tr>
+<tr>
+<td>day()</td>
+<td>返回时间的天数部分</td>
+</tr>
+<tr>
+<td>hour()</td>
+<td>返回时间的小时部分</td>
+</tr>
+<tr>
+<td>minute()</td>
+<td>返回时间的分钟部分</td>
+</tr>
+<tr>
+<td>second()</td>
+<td>返回时间的秒部分</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cast()</td>
+<td>数据类型转换，参数是一个表达式， 表达式通过AS关键词分割了2个参数，分别是原始数据和目标数据类型</td>
+</tr>
+<tr>
+<td>coalesce()</td>
+<td>返回第一个非空数值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count()</td>
+<td>总行数</td>
+</tr>
+<tr>
+<td>max()</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>min()</td>
+<td>最小值</td>
+</tr>
+<tr>
+<td>sum()</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>avg()</td>
+<td>平均值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用语句函数"><a href="#常用语句函数" class="headerlink" title="常用语句函数"></a>常用语句函数</h3><table>
+<thead>
+<tr>
+<th>语句</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>where…</td>
+<td>进行数据量的过滤, 作用于结果返回之前，不能用聚合函数</td>
+</tr>
+<tr>
+<td>group by…</td>
+<td>进行分组</td>
+</tr>
+<tr>
+<td>having…</td>
+<td>进行分组过滤， 作用域结果返回之后， 可以使用聚合函数</td>
+</tr>
+<tr>
+<td>order by …</td>
+<td>进行排序</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>多个 like”%%” 语句， 运行比较慢， 有什么优化方法吗？</li>
+</ol>
+<p>答案：</p>
+<ol>
+<li>建立索引</li>
+<li>使用函数来替代 like<blockquote>
+<p>mysql： 考虑 locate, position, instr, find_in_set<br>sql server: charindex, patindex<br><a href="https://blog.csdn.net/lly983909814/article/details/71642814">https://blog.csdn.net/lly983909814/article/details/71642814</a></p>
+</blockquote>
+</li>
+</ol>
 -->
       
     </div>
@@ -1122,7 +1328,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">101k</span>
+    <span title="Site words total count">101.1k</span>
   
 </div>
 
