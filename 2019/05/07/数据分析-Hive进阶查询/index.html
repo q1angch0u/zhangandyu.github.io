@@ -145,7 +145,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe6c219ca3f57084.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe78ba58dfb91072.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe79320dfb423235.png">
-<meta property="og:updated_time" content="2019-06-29T16:53:25.952Z">
+<meta property="og:updated_time" content="2019-07-03T03:31:00.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 进阶查询">
 <meta name="twitter:description" content="窗口函数 CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apos;1&amp;apos;">
@@ -1013,6 +1013,29 @@
 </blockquote>
 </li>
 </ol>
+<hr>
+<h1 id="Hive查询优化"><a href="#Hive查询优化" class="headerlink" title="Hive查询优化"></a>Hive查询优化</h1><p>Hive的查询注意事项以及优化总结：</p>
+<ol>
+<li><p>尽量尽早过滤数据，减少每个阶段的数据量。对于分区表要加分区，同时只选择需要使用到的字段</p>
+</li>
+<li><p>对历史库的计算经验</p>
+</li>
+<li><p>尽量原子化操作，尽量避免一个SQL包含复杂逻辑<br>可以使用中间表来完成复杂的逻辑</p>
+</li>
+</ol>
+<p>4.join操作 小表要注意放在join的左边，否则会引起磁盘和内存的大量消耗</p>
+<p>5.如果union all的部分个数大于2，或者每个union部分数据量大，应该拆成多个insert into语句，实际测试过程中，执行时间能提升50%</p>
+<hr>
+<p><strong>让服务器尽量少做事情，走最优的路径，以资源消耗最少为目标</strong></p>
+<hr>
+<p><a href="https://blog.csdn.net/yu0_zhang0/article/details/81776459">https://blog.csdn.net/yu0_zhang0/article/details/81776459</a></p>
+<p><strong>Hive优化</strong><br>1.我们知道大数据场景下不害怕数据量大，害怕的是数据倾斜，怎样避免数据倾斜，找到可能产生数据倾斜的函数尤为关键，数据量较大的情况下，慎用count(distinct), count(distinct)容易产生倾斜问题。<br>2.设置合理的map  reduce的task数量</p>
+<p><a href="https://blog.csdn.net/young_0609/article/details/84593316">https://blog.csdn.net/young_0609/article/details/84593316</a></p>
+<p><a href="https://wing324.github.io/2017/10/20/Hive%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/">https://wing324.github.io/2017/10/20/Hive%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/</a></p>
+<p><a href="https://blog.csdn.net/qq_29232943/article/details/79644614">https://blog.csdn.net/qq_29232943/article/details/79644614</a></p>
+<p><a href="http://lxw1234.com/archives/2015/06/317.htm">http://lxw1234.com/archives/2015/06/317.htm</a></p>
+<p><a href="https://zenoh.iteye.com/blog/1748592">https://zenoh.iteye.com/blog/1748592</a></p>
+<p><a href="http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89">http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89</a></p>
 -->
       
     </div>
@@ -1328,7 +1351,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">101k</span>
+    <span title="Site words total count">99.6k</span>
   
 </div>
 
