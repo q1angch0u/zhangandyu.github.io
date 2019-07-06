@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
+<meta name="description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL面试题">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/数据分析-SQL面试题/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
+<meta property="og:description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-06T05:52:54.271Z">
+<meta property="og:updated_time" content="2019-07-06T05:57:09.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
-<meta name="twitter:description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
+<meta name="twitter:description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
 
 
 
@@ -470,7 +470,7 @@
 
       
         <h1 id="结合两个表"><a href="#结合两个表" class="headerlink" title="结合两个表"></a>结合两个表</h1><blockquote>
-<p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185</p>
+<p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185<br>196</p>
 </blockquote>
 <ol>
 <li><strong>问题描述：</strong></li>
@@ -532,7 +532,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    Person.FirstName,</span><br><span class="line">    Person.LastName,</span><br><span class="line">    Address.City,</span><br><span class="line">    Address.State</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person <span class="keyword">LEFT</span> <span class="keyword">join</span> Address </span><br><span class="line">    <span class="keyword">on</span> Person.PersonId = Address.PersonId;</span><br></pre></td></tr></table></figure>
 <p>考查点： 使用 <code>join</code> 对两表进行连接查询。</p>
 <hr>
-<h1 id="2-取出排名第-2-高的数据"><a href="#2-取出排名第-2-高的数据" class="headerlink" title="2. 取出排名第 2 高的数据"></a>2. 取出排名第 2 高的数据</h1><blockquote>
+<h1 id="取出排名第-2-高的数据"><a href="#取出排名第-2-高的数据" class="headerlink" title="取出排名第 2 高的数据"></a>取出排名第 2 高的数据</h1><blockquote>
 <p>176</p>
 </blockquote>
 <ol>
@@ -598,7 +598,7 @@
 <p>找出排名第三的薪水</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">IFNULL</span>(</span><br><span class="line">          (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> </span><br><span class="line">    Salary </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">2</span> <span class="keyword">offset</span> <span class="number">1</span>), </span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">    ) <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="3-对数据进行排序"><a href="#3-对数据进行排序" class="headerlink" title="3. 对数据进行排序"></a>3. 对数据进行排序</h1><blockquote>
+<h1 id="对数据进行排序"><a href="#对数据进行排序" class="headerlink" title="对数据进行排序"></a>对数据进行排序</h1><blockquote>
 <p>178</p>
 </blockquote>
 <ol>
@@ -1951,8 +1951,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/数据分析-基础方法/" rel="next" title="数据分析——常见的数据分析方法与方法论">
-                <i class="fa fa-chevron-left"></i> 数据分析——常见的数据分析方法与方法论
+              <a href="/2019/03/24/数据分析-git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -1961,8 +1961,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/数据分析-git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/数据分析-算法-决策树/" rel="prev" title="算法-决策树">
+                算法-决策树 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -2160,7 +2160,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">2. 取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">3. 对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol></div>
             
 
           </div>
