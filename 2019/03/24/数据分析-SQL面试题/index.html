@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
+<meta name="description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL面试题">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/数据分析-SQL面试题/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
+<meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-06T05:57:09.930Z">
+<meta property="og:updated_time" content="2019-07-06T06:05:12.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
-<meta name="twitter:description" content="结合两个表 175176177178180181182183184185196   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId i">
+<meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 
 
 
@@ -469,10 +469,7 @@
       
 
       
-        <h1 id="结合两个表"><a href="#结合两个表" class="headerlink" title="结合两个表"></a>结合两个表</h1><blockquote>
-<p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185<br>196</p>
-</blockquote>
-<ol>
+        <h1 id="结合两个表"><a href="#结合两个表" class="headerlink" title="结合两个表"></a>结合两个表</h1><ol>
 <li><strong>问题描述：</strong></li>
 </ol>
 <p>表1：Preson</p>
@@ -532,10 +529,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    Person.FirstName,</span><br><span class="line">    Person.LastName,</span><br><span class="line">    Address.City,</span><br><span class="line">    Address.State</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person <span class="keyword">LEFT</span> <span class="keyword">join</span> Address </span><br><span class="line">    <span class="keyword">on</span> Person.PersonId = Address.PersonId;</span><br></pre></td></tr></table></figure>
 <p>考查点： 使用 <code>join</code> 对两表进行连接查询。</p>
 <hr>
-<h1 id="取出排名第-2-高的数据"><a href="#取出排名第-2-高的数据" class="headerlink" title="取出排名第 2 高的数据"></a>取出排名第 2 高的数据</h1><blockquote>
-<p>176</p>
-</blockquote>
-<ol>
+<h1 id="取出排名第-2-高的数据"><a href="#取出排名第-2-高的数据" class="headerlink" title="取出排名第 2 高的数据"></a>取出排名第 2 高的数据</h1><ol>
 <li><strong>问题描述</strong></li>
 </ol>
 <p>表： Employee</p>
@@ -598,15 +592,80 @@
 <p>找出排名第三的薪水</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">IFNULL</span>(</span><br><span class="line">          (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> </span><br><span class="line">    Salary </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">2</span> <span class="keyword">offset</span> <span class="number">1</span>), </span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">    ) <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="对数据进行排序"><a href="#对数据进行排序" class="headerlink" title="对数据进行排序"></a>对数据进行排序</h1><blockquote>
-<p>178</p>
-</blockquote>
-<ol>
+<h1 id="对数据进行排序"><a href="#对数据进行排序" class="headerlink" title="对数据进行排序"></a>对数据进行排序</h1><ol>
 <li><strong>问题：</strong></li>
 </ol>
-<p>表： Scores<br>| Id | Score |<br>|—-|——-|<br>| 1  | 3.50  |<br>| 2  | 3.65  |<br>| 3  | 4.00  |<br>| 4  | 3.85  |<br>| 5  | 4.00  |<br>| 6  | 3.65  |</p>
+<p>表： Scores</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3.50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3.65</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3.85</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4.00</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3.65</td>
+</tr>
+</tbody>
+</table>
 <p>要求： 对以下 Scores 表中的分数进行排名，如果两数相同，则有相同的排名， 排名相等的不会留下空位。</p>
-<p>输出结果为：<br>| Score | Rank |<br>|——-|——|<br>| 4.00  | 1    |<br>| 4.00  | 1    |<br>| 3.85  | 2    |<br>| 3.65  | 3    |<br>| 3.65  | 3    |<br>| 3.50  | 4    |</p>
+<p>输出结果为： </p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4.00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3.85</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3.65</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3.65</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3.50</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 <ol start="2">
 <li>答案 </li>
 </ol>
@@ -653,9 +712,9 @@
 <li>答案</li>
 </ol>
 <ul>
-<li>答案1：</li>
+<li>答案1：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    dt,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    dt,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span>)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">a1.dt,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) uv,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">1</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) next_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">3</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) three_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">7</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) seven_day</span><br><span class="line"><span class="keyword">from</span> a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> a1.dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a1.dt</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    dt,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    dt,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span>)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">a1.dt,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) uv,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">1</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) next_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">3</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) three_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.dt, a1.dt) = <span class="number">7</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) seven_day</span><br><span class="line"><span class="keyword">from</span> a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> a1.dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a1.dt</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
 <p>输出结果为： </p>
 <table>
 <thead>
@@ -741,13 +800,11 @@
 </tbody>
 </table>
 <ul>
-<li>答案2：</li>
+<li>答案2：<br>步骤1：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    dt,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">BY</span> </span><br><span class="line">    dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span> </span><br><span class="line">    dt</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>步骤1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    dt,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    computer</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">BY</span> </span><br><span class="line">    dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span> </span><br><span class="line">    dt</span><br></pre></td></tr></table></figure></p>
-<p>步骤2：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7</span></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        dt</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line">),</span><br><span class="line">a2 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        dt</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer_view.client_android_log_view</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a1.dt,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    a2.dt =  <span class="keyword">date_add</span>(a1.dt, <span class="number">1</span>) </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    a1.dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span></span><br><span class="line">    a1.dt</span><br></pre></td></tr></table></figure>
-<p>步骤3： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">留存率 = 用步骤2结果/ 步骤1 结果</span><br></pre></td></tr></table></figure>
+<p>步骤2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7</span></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        dt</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line">),</span><br><span class="line">a2 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        dt</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer_view.client_android_log_view</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        dt <span class="keyword">between</span> <span class="string">'2019-06-01'</span> <span class="keyword">and</span> <span class="string">'2019-06-17'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a1.dt,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    a2.dt =  <span class="keyword">date_add</span>(a1.dt, <span class="number">1</span>) </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    a1.dt</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span></span><br><span class="line">    a1.dt</span><br></pre></td></tr></table></figure></p>
+<p>步骤3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">留存率 = 用步骤2结果/ 步骤1 结果</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h1 id="连续出现三次的数字"><a href="#连续出现三次的数字" class="headerlink" title="连续出现三次的数字"></a>连续出现三次的数字</h1><ol>
 <li>问题： </li>
@@ -840,7 +897,42 @@
 <blockquote>
 <p>包含员工和经理的Id 与薪水</p>
 </blockquote>
-<p>|—-|——-|——–|———–|<br>| Id | Name  | Salary | ManagerId |<br>|—-|——-|——–|———–|<br>| 1  | Joe   | 70000  | 3         |<br>| 2  | Henry | 80000  | 4         |<br>| 3  | Sam   | 60000  | NULL      |<br>| 4  | Max   | 90000  | NULL      |</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Salary</th>
+<th>ManagerId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Joe</td>
+<td>70000</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Henry</td>
+<td>80000</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sam</td>
+<td>60000</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Max</td>
+<td>90000</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
 <p>要求： 查找收入高于经理的员工，得到如下结果：</p>
 <table>
 <thead>
@@ -908,9 +1000,11 @@
 <p>此步骤输出结果为：</p>
 <p>结果将获得这两个标的笛卡尔积，输出结果将使 4*4 = 16条记录， 我们对输出结果进行过滤。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    a.Name <span class="keyword">AS</span> <span class="string">'Employee'</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee <span class="keyword">AS</span> a,</span><br><span class="line">    Employee <span class="keyword">AS</span> b</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    a.ManagerId = b.Id</span><br><span class="line">        <span class="keyword">AND</span> a.Salary &gt; b.Salary</span><br></pre></td></tr></table></figure>
+<hr>
 <h1 id="找出重复邮件"><a href="#找出重复邮件" class="headerlink" title="找出重复邮件"></a>找出重复邮件</h1><ol>
-<li>问题<br>表： </li>
+<li>问题</li>
 </ol>
+<p>表： Person</p>
 <table>
 <thead>
 <tr>
@@ -950,13 +1044,13 @@
 <li>答案</li>
 </ol>
 <ul>
-<li>答案1：</li>
-</ul>
+<li><p>答案1：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    a1.Email</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    Email,</span><br><span class="line">    <span class="keyword">count</span>(Email) <span class="keyword">as</span> <span class="keyword">num</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    Email) <span class="keyword">as</span> a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    a1.num !=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>答案2：</li>
-</ul>
+</li>
+<li><p>答案2：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">    Email</span><br><span class="line">from</span><br><span class="line">    Person</span><br><span class="line">group by </span><br><span class="line">    Email</span><br><span class="line">having </span><br><span class="line">    count(Email) !=1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
 <h1 id="5月中连续7天登陆的用户数"><a href="#5月中连续7天登陆的用户数" class="headerlink" title="5月中连续7天登陆的用户数"></a>5月中连续7天登陆的用户数</h1><ol>
 <li>问题:<br>根据用户登录表 data，取出连续登录了K天的用户uid</li>
@@ -1549,7 +1643,29 @@
 </tr>
 </tbody>
 </table>
-<p>表： course<br>|id|name|<br>|—|—|<br>|1|match|<br>|2|python|<br>|3|java|</p>
+<p>表： course</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>match</td>
+</tr>
+<tr>
+<td>2</td>
+<td>python</td>
+</tr>
+<tr>
+<td>3</td>
+<td>java</td>
+</tr>
+</tbody>
+</table>
 <p>表: student_course</p>
 <table>
 <thead>
@@ -1865,6 +1981,10 @@
 </tr>
 </tbody>
 </table>
+<p><a href="https://leetcode-cn.com/problemset/database/" target="_blank" rel="noopener">力扣-leetcode</a></p>
+<blockquote>
+<p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185<br>196</p>
+</blockquote>
 <!-- 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,max(days) FROM (SELECT</span><br><span class="line">  id,</span><br><span class="line">  @cont_day :=</span><br><span class="line">  (CASE</span><br><span class="line">   WHEN (@id = id AND DATEDIFF(start, @start) = 1)</span><br><span class="line">     THEN</span><br><span class="line">       (@cont_day + 1)</span><br><span class="line">   WHEN (@id = id AND DATEDIFF(start, @start) &lt; 1)</span><br><span class="line">     THEN</span><br><span class="line">       (@cont_day + 0)</span><br><span class="line">   ELSE</span><br><span class="line">     1</span><br><span class="line">   END) AS days,</span><br><span class="line">  @id := id,</span><br><span class="line">  @start := start login_day</span><br><span class="line">FROM (SELECT</span><br><span class="line">        id,</span><br><span class="line">        DATE(start) start</span><br><span class="line">      FROM dmp.person_view</span><br><span class="line">      WHERE id != 0</span><br><span class="line">      ORDER BY id, start) AS t,</span><br><span class="line">  (SELECT</span><br><span class="line">     @id := &apos;&apos;,</span><br><span class="line">     @start := &apos;&apos;,</span><br><span class="line">     @cont_day := 0) AS t1) t2 GROUP BY id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;!-- </span><br><span class="line"></span><br><span class="line"># sql 刷题网站</span><br><span class="line"></span><br><span class="line">[刷题网站](https://leetcode.com/problems/rank-scores/submissions/)</span><br><span class="line"></span><br><span class="line">1. 统计不同月份的下单人数</span><br><span class="line"></span><br><span class="line">```sql</span><br><span class="line">select</span><br><span class="line">    month(hit_date),</span><br><span class="line">    count(distinct  user_account) as uv </span><br><span class="line">from </span><br><span class="line">    a1</span><br><span class="line">where </span><br><span class="line">    hit_date between &apos;2019-01-01&apos; and &apos;2019-05-31&apos;</span><br><span class="line">    and </span><br><span class="line">    sales = &apos;1&apos;</span><br><span class="line">group by </span><br><span class="line">    month(hit_date)</span><br></pre></td></tr></table></figure>
 <ol start="2">
@@ -1951,8 +2071,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/数据分析-git学习笔记/" rel="next" title="git">
-                <i class="fa fa-chevron-left"></i> git
+              <a href="/2019/02/26/数据分析-基础方法/" rel="next" title="数据分析——常见的数据分析方法与方法论">
+                <i class="fa fa-chevron-left"></i> 数据分析——常见的数据分析方法与方法论
               </a>
             
           </div>
