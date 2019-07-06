@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="结合两个表 175   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varc">
+<meta name="description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL面试题">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/03/24/数据分析-SQL面试题/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="结合两个表 175   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varc">
+<meta property="og:description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-06T05:46:19.234Z">
+<meta property="og:updated_time" content="2019-07-06T05:52:54.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
-<meta name="twitter:description" content="结合两个表 175   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varc">
+<meta name="twitter:description" content="结合两个表 175176177178180181182183184185   问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int">
 
 
 
@@ -470,7 +470,7 @@
 
       
         <h1 id="结合两个表"><a href="#结合两个表" class="headerlink" title="结合两个表"></a>结合两个表</h1><blockquote>
-<p>175</p>
+<p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185</p>
 </blockquote>
 <ol>
 <li><strong>问题描述：</strong></li>
@@ -749,7 +749,7 @@
 <p>步骤3： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">留存率 = 用步骤2结果/ 步骤1 结果</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="5-连续出现三次的数字"><a href="#5-连续出现三次的数字" class="headerlink" title="5. 连续出现三次的数字"></a>5. 连续出现三次的数字</h1><ol>
+<h1 id="连续出现三次的数字"><a href="#连续出现三次的数字" class="headerlink" title="连续出现三次的数字"></a>连续出现三次的数字</h1><ol>
 <li>问题： </li>
 </ol>
 <p>查找出连续出现至少三次的所有数字</p>
@@ -958,7 +958,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">    Email</span><br><span class="line">from</span><br><span class="line">    Person</span><br><span class="line">group by </span><br><span class="line">    Email</span><br><span class="line">having </span><br><span class="line">    count(Email) !=1</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="9-5月中连续7天登陆的用户数"><a href="#9-5月中连续7天登陆的用户数" class="headerlink" title="9. 5月中连续7天登陆的用户数"></a>9. 5月中连续7天登陆的用户数</h1><ol>
+<h1 id="5月中连续7天登陆的用户数"><a href="#5月中连续7天登陆的用户数" class="headerlink" title="5月中连续7天登陆的用户数"></a>5月中连续7天登陆的用户数</h1><ol>
 <li>问题:<br>根据用户登录表 data，取出连续登录了K天的用户uid</li>
 </ol>
 <table>
@@ -1155,7 +1155,7 @@
 </tbody>
 </table>
 <hr>
-<h1 id="10-找出未订购任何内容的用户"><a href="#10-找出未订购任何内容的用户" class="headerlink" title="10. 找出未订购任何内容的用户"></a>10. 找出未订购任何内容的用户</h1><ol>
+<h1 id="找出未订购任何内容的用户"><a href="#找出未订购任何内容的用户" class="headerlink" title="找出未订购任何内容的用户"></a>找出未订购任何内容的用户</h1><ol>
 <li>问题：</li>
 </ol>
 <p>表： Customers</p>
@@ -1227,7 +1227,10 @@
 <li>答案1：</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">Name</span> <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">     Customers <span class="keyword">left</span> <span class="keyword">JOIN</span> Orders <span class="keyword">on</span> Customers.Id = Orders.CustomerId</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    Orders.CustomerId <span class="keyword">is</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
-<h3 id="答案2："><a href="#答案2：" class="headerlink" title="答案2："></a>答案2：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    customers.name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    customers</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    customers.Id <span class="keyword">not</span> <span class="keyword">in</span> </span><br><span class="line">    (<span class="keyword">select</span></span><br><span class="line">        CustomerId</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        Orders)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>答案2：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    customers.name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    customers</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    customers.Id <span class="keyword">not</span> <span class="keyword">in</span> </span><br><span class="line">    (<span class="keyword">select</span></span><br><span class="line">        CustomerId</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        Orders)</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="找出各部门薪水最高的员工"><a href="#找出各部门薪水最高的员工" class="headerlink" title="找出各部门薪水最高的员工"></a>找出各部门薪水最高的员工</h1><ol>
 <li>问题：</li>
@@ -2157,7 +2160,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">2. 取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">3. 对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">5. 连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">9. 5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">10. 找出未订购任何内容的用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#答案2："><span class="nav-number">10.0.1.</span> <span class="nav-text">答案2：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">2. 取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">3. 对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol></div>
             
 
           </div>
