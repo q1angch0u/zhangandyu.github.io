@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-09T13:48:53.131Z">
+<meta property="og:updated_time" content="2019-07-09T14:40:35.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
 <meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4k 字
+                  4.1k 字
                 </span>
               
 
@@ -2166,7 +2166,8 @@
 </tbody>
 </table>
 <p>答案：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a1.player_id <span class="keyword">as</span> player_id ,</span><br><span class="line">    a1.event_date <span class="keyword">as</span> first_login</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activity a1 </span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    (</span><br><span class="line">        <span class="keyword">select</span> </span><br><span class="line">            player_id, </span><br><span class="line">            <span class="keyword">min</span>(event_date) <span class="keyword">as</span> t</span><br><span class="line">        <span class="keyword">from</span> </span><br><span class="line">             Activity</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">            player_id</span><br><span class="line">    ) <span class="keyword">as</span> a2</span><br><span class="line"><span class="keyword">on</span> a2.t = a1.event_date</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> a1.player_id, a1.event_date <span class="keyword">as</span> first_login</span><br><span class="line"><span class="keyword">FROM</span> activity a1 <span class="keyword">left</span> <span class="keyword">join</span> activity a2 <span class="keyword">on</span> a1.player_id=a2.player_id <span class="keyword">and</span> a1.event_date&gt;a2.event_date</span><br><span class="line"><span class="keyword">WHERE</span> a2.event_date <span class="keyword">is</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	player_id,</span><br><span class="line">	to_char(event_date, <span class="string">'yyyy-mm-dd'</span>) <span class="keyword">as</span> first_login</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	(<span class="keyword">select</span></span><br><span class="line">		player_id,</span><br><span class="line">		event_date,</span><br><span class="line">		row_number() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> player_id <span class="keyword">order</span> <span class="keyword">by</span> event_date <span class="keyword">asc</span>) rn</span><br><span class="line">	<span class="keyword">from</span> Activity)</span><br><span class="line"><span class="keyword">where</span> rn = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://codeday.me/bug/20190309/737795.html" target="_blank" rel="noopener">https://codeday.me/bug/20190309/737795.html</a></p>
 <hr>
 <h1 id="游戏玩家分析2"><a href="#游戏玩家分析2" class="headerlink" title="游戏玩家分析2"></a>游戏玩家分析2</h1><p>表： Activity</p>
@@ -2236,6 +2237,10 @@
 </tr>
 </tbody>
 </table>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    a1.player_id, </span><br><span class="line">    a1.device_id</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    activity a1 </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> activity a2 <span class="keyword">on</span> a1.player_id=a2.player_id <span class="keyword">and</span> a1.event_date&gt;a2.event_date</span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">    a2.event_date <span class="keyword">is</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a></p>
+<p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <h2 id="http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><a href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description" class="headerlink" title="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description"></a><a href="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description" target="_blank" rel="noopener">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</a></h2><h1 id="题源"><a href="#题源" class="headerlink" title="题源"></a>题源</h1><ul>
 <li><a href="https://leetcode-cn.com/problemset/database/" target="_blank" rel="noopener">力扣-leetcode</a><blockquote>
 <p>175<br>176<br>177<br>178<br>180<br>181<br>182<br>183<br>184<br>185<br>196<br>197<br>511<br>512</p>
@@ -2328,8 +2333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/数据分析技能-算法-决策树/" rel="next" title="算法-决策树">
-                <i class="fa fa-chevron-left"></i> 算法-决策树
+              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -2338,8 +2343,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/个人系统-类比系统/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -2571,7 +2576,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">104.4k</span>
+    <span title="Site words total count">104.5k</span>
   
 </div>
 
