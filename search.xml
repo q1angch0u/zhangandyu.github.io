@@ -130,8 +130,21 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[竞品分析]]></title>
-    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%2F</url>
+    <title><![CDATA[流量分析]]></title>
+    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>数据分析</category>
+        <category>各项细分</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>分析流程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[用户增长分析]]></title>
+    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E5%88%86%E6%9E%90%2F</url>
     <content type="text"></content>
       <categories>
         <category>数据分析</category>
@@ -156,35 +169,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[用户增长分析]]></title>
-    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>数据分析</category>
-        <category>各项细分</category>
-      </categories>
-      <tags>
-        <tag>数据分析</tag>
-        <tag>分析流程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[流量分析]]></title>
-    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>数据分析</category>
-        <category>各项细分</category>
-      </categories>
-      <tags>
-        <tag>数据分析</tag>
-        <tag>分析流程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[改版分析]]></title>
     <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[改版分析 新改版页面的效果怎么样？ 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。 分析方向： 改版后， 新功能是否受欢迎 改版后， 对产品的流程转化率是否有提升 改版后， 对产品的整体留存的影响 改版后， 用户究竟如何使用新功 功能活跃比新功能的用户数 / 同期客户端活跃用户数 漏斗转化提升 次日留存、周留存、月留存等指标是否朝着更好的方向发展。 用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。]]></content>
+      <categories>
+        <category>数据分析</category>
+        <category>各项细分</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>分析流程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[竞品分析]]></title>
+    <url>%2F2019%2F04%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"></content>
       <categories>
         <category>数据分析</category>
         <category>各项细分</category>
@@ -226,18 +226,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git]]></title>
-    <url>%2F2019%2F03%2F24%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[博客登陆 12345git config --global.name&apos;zhang&apos;git config --global.email &apos;zhang@qq.com&apos;cd E:/zy_bloghexo ghexo d 下载仓库到本地 1git clone]]></content>
-      <categories>
-        <category>数据分析</category>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[SQL面试题]]></title>
     <url>%2F2019%2F03%2F24%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-SQL%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
     <content type="text"><![CDATA[结合两个表 问题描述： 表1：Preson Column Name Type PersonId int FirstName varchar LastName varchar 表2： Address Column Name Type AddressId int PersonId int City varchar State varchar 要求： 为Person表中的每个人提供以下信息，无论每个人都有一个地址：1FirstName, LastName, City, State 答案： 12345678SELECT Person.FirstName, Person.LastName, Address.City, Address.StateFROM Person LEFT join Address on Person.PersonId = Address.PersonId; 考查点： 使用 join 对两表进行连接查询。 取出排名第 2 高的数据 问题描述 表： Employee Id Salary 1 100 2 200 3 300 要求： 根据上面的 Employee 表，查询返回 薪水工资第二高的数据：200, 如果没有第二高的薪水， 返回Null。 SecondHighestSalary 200 答案 答案1 解法： 在除过第一名薪水中，找出最高的薪水，也就是第二名。 123456SELECT MAX(Salary) as SecondHighestSalaryFROM EmployeeWHERE Salary &lt; (SELECT MAX(Salary) FROM Employee); 答案2 解法： 跳过排名第一的数据， 并取出1条数据，即读取第2条数据。 123456789SELECT DISTINCT Salary as SecondHighestSalaryFROM Employeeorder by Salary DESC limit 1 offset 1-- 可缩写为limit 1,1 但上式写法错误， 因为如果表中没有第二薪水的话，那sql运行报错，而不是返回Null。 我们将其作为临时表可解决此问题： 12345678SELECT (SELECT DISTINCT Salary FROM Employeeorder by Salary DESClimit 1 offset 1) AS SecondHighestSalary 或者使用 IFNULL 1234567891011SELECT IFNULL( (SELECT DISTINCT Salary FROM Employeeorder by Salary DESClimit 1,1), NULL ) AS SecondHighestSalary 延伸 找出排名第三的薪水 1234567891011SELECT IFNULL( (SELECT DISTINCT Salary FROM Employeeorder by Salary DESClimit 2 offset 1), NULL ) AS SecondHighestSalary 对数据进行排序 问题： 表： Scores Id Score 1 3.50 2 3.65 3 4.00 4 3.85 5 4.00 6 3.65 要求： 对以下 Scores 表中的分数进行排名，如果两数相同，则有相同的排名， 排名相等的不会留下空位。 输出结果为： Score Rank 4.00 1 4.00 1 3.85 2 3.65 3 3.65 3 3.50 4 答案 答案1： 步骤1： 返回不同的成绩 1Select Distinct Score from Scores 步骤2： 统计并计算排名 1Select Count(1) + 1 From (Select Distinct Score from Scores) as uniqeScores where Score &gt; sc.Score 步骤3： 汇总 12345678910Select sc.Score, (Select Count(1) + 1 From ( Select Distinct Score from Scores) as uniqeScores where Score &gt; sc.Score) as rank From Scores sc Order by sc.Score Desc; 答案2： 123456select s1.Score, COUNT(DISTINCT s2.Score) Rankfrom Scores s1 inner join Scores s2 on s1.Score &lt;= s2.Scoregroup by s1.Idorder by s1.Score desc 答案3： 12345select Score, dense_rank() over(order by Score) as Rankfrom Scores 延伸 rank、dense_rank、 row_number 的区别 rank函数， 返回数据项在分组中的排名， 排名相等的会留下空位。 如1、2、2、4 dense_rank函数， 返回数据项在分组中的排名， 排名相等的不会留下空位。 如1、2、2、3 row_number函数， 返回数据项在分组中的排名， 排名不管数据是否相等。 如1、2、3、4 留存率 问题： 写出6月5-10号每日客户端活跃用户的次1日、次3日、次7日留存 答案 答案1：123456789101112131415161718192021222324with a1 as (select dt, user_accountfrom computerwhere dt between '2019-06-01' and '2019-06-17'),a2 as (select dt, user_accountfrom computerwhere dt between '2019-06-01' and '2019-06-17')select a1.dt,count(distinct a1.user_account) uv,count(distinct case when datediff(a2.dt, a1.dt) = 1 then a1.user_account else null end ) next_day,count(distinct case when datediff(a2.dt, a1.dt) = 3 then a1.user_account else null end ) three_day,count(distinct case when datediff(a2.dt, a1.dt) = 7 then a1.user_account else null end ) seven_dayfrom a1 join a2 on a1.user_account = a2.user_accountgroup by a1.dtorder by a1.dtlimit 100 输出结果为： 日期 uv 次1日 次3日 次7日 2019/6/1 50231 6578 6642 5154 2019/6/2 42000 6293 5027 4304 2019/6/3 44312 6760 8331 5042 2019/6/4 37852 5298 7133 0 2019/6/5 30678 6082 4648 0 2019/6/6 39405 8173 4972 0 2019/6/7 31267 5352 4920 0 2019/6/8 25614 4451 0 0 2019/6/9 24113 4568 0 0 2019/6/10 26242 0 0 0 答案2：步骤1：1234567891011SELECT dt, count(distinct user_account) as uvFROM computerWHERE dt between '2019-06-01' and '2019-06-17'group BY dtorder BY dt 步骤2：123456789101112131415161718192021222324252627282930-- 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7with a1 as ( select user_account, dt from computer where dt between '2019-06-01' and '2019-06-17'),a2 as ( select user_account, dt from computer_view.client_android_log_view where dt between '2019-06-01' and '2019-06-17')select a1.dt, count(distinct a1.user_account) as uvfrom a1 join a2 on a1.user_account = a2.user_accountWHERE a2.dt = date_add(a1.dt, 1) group by a1.dtorder BY a1.dt 步骤3：1留存率 = 用步骤2结果/ 步骤1 结果 连续出现三次的数字 问题： 查找出连续出现至少三次的所有数字 表 Logs 如下： Id Num 1 1 2 1 3 1 4 2 5 1 6 2 7 2 得到如下结果： ConsecutiveNums 1 答案 答案1： 12345678910select distinct a1.Num as ConsecutiveNumsfrom Logs as a1left join Logs as a2 on a1.Id = a2.Id-1left join Logs as a3 on a1.Id = a3.Id -2where a1.Num = a2.Num and a2.Num = a3.Num 答案2： 1234567891011121314select distinct a1.Num as ConsecutiveNumsfrom Logs a1, Logs a2, Logs a3where a1.Id = a2.Id -1 and a2.Id = a3.Id -1 and a1.Num = a2.Num and a2.Num = a3.Num 答案3：1234567891011121314---连续 N 次出现， 则将 3 改为 N 即可。SELECT distinct num as ConsecutiveNumsFROM(SELECT id, num, @pre := @cur, @cur := num, @rep_ct := IF(@pre = @cur, @rep_ct + 1, 1) as rep_ctFROM `Logs` l, (SELECT @pre := null, @cur := 0, @rep_ct := 1) init) temp WHERE rep_ct &gt;= 3 连续 4 个月活跃的用户明细 问题：求出 1-4 月每月连续登陆客户端的用户数 思路 将用户登录的月份按从小到大排序， 找出排序等于 4 的用户 答案 1234567891011121314151617181920212223242526with a1 as(select id, month(dt) as monthfrom datawhere dt between '2019-01-01' and '2019-04-30'group by id, month(dt) ),a2 as ( select id, a1.month, row_number() over(partition by id order by a1.month) as numfrom a1) select count(distinct id) as uvfrom a2where a2.num= 4 查询比经理薪资高的员工姓名 问题 表：Employee 包含员工和经理的Id 与薪水 Id Name Salary ManagerId 1 Joe 70000 3 2 Henry 80000 4 3 Sam 60000 NULL 4 Max 90000 NULL 要求： 查找收入高于经理的员工，得到如下结果： Employee Joe 前3列 来自a1, 后两列来自a2 答案 答案1： 利用 join 对表进行合并前3列 来自a1, 后两列来自a2 Name Salary ManagerId Id Salary Joe 70000 3 3 60000 Henry 80000 4 4 90000 1234567select a1.name as Employeefrom Employee as a1 join employee as a2 on a1.ManagerId = a2.Idwhere a1.Salary &gt; a2.Salary 答案2： 123456789101112131415161718with a1 as ( select name,salary, ManagerId from Employee),a2 as ( select managerid, Id from Employee)select a1.namefrom a1 join a2 on a1.ManagerId = a2.Idwhere a1.Salary &gt; a2.Salary 答案3： 步骤1： 12SELECT *FROM Employee AS a1, Employee AS a2 此步骤输出结果为： 结果将获得这两个标的笛卡尔积，输出结果将使 4*4 = 16条记录， 我们对输出结果进行过滤。 12345678SELECT a.Name AS 'Employee'FROM Employee AS a, Employee AS bWHERE a.ManagerId = b.Id AND a.Salary &gt; b.Salary 找出重复邮件 问题 表： Person Id Email 1 a@b.com 2 c@d.com 3 a@b.com 要求： 找出Person 表中所有重复电子邮件，得到如下结果： Email a@b.com 答案 答案1： 123456789101112select a1.Emailfrom(select Email, count(Email) as numfrom Persongroup by Email) as a1where a1.num !=1 答案2： 12345678select Emailfrom Persongroup by Emailhaving count(Email) !=1 5月中连续7天登陆的用户数 问题:根据用户登录表 data，取出连续登录了K天的用户uid id dt A 2019-06-01 B 2019-06-03 B 2019-06-04 B 2019-06-05 B 2019-06-06 C 2019-06-05 C 2019-06-06 C 2019-06-07 答案： 将用户按照电话号进行排序 id dt num A 2019-05-01 1 B 2019-05-03 1 B 2019-05-04 2 B 2019-05-05 3 B 2019-05-06 4 C 2019-05-05 1 C 2019-05-06 2 C 2019-05-07 3 1234567891011select id, dt, row_number() over(partition by id order by dt) as numfrom Datawhere dt between '2019-05-01' and '2019-05-07'group by id, dt 将日期与排序进行相减 id dt num diff A 2019-05-01 1 2019-04-30 B 2019-05-03 1 2019-05-02 B 2019-05-04 2 2019-05-02 B 2019-05-05 3 2019-05-02 B 2019-05-06 4 2019-05-02 C 2019-05-05 1 2019-05-04 C 2019-05-06 2 2019-05-04 C 2019-05-07 3 2019-05-04 12345678910111213141516171819202122232425with a1 as ( select id, dt, row_number() over(partition by id order by dt) as num from computer_view.client_android_log_view where dt between '2019-06-01' and '2019-06-03' group by id, dt)select id, dt, num, (DATE_SUB(dt, num )) as diff from a1group by id, dt, numlimit 100 统计差值相同的数字个数，并大于等于3 1234567891011121314151617181920212223242526272829303132333435with a1 as ( select user_account, hit_date, row_number() over(partition by user_account order by hit_date) as num from computer_view.client_android_log_view where hit_date between '2019-06-01' and '2019-06-05' group by user_account, hit_date),a2 as (select user_account, hit_date, num, (DATE_SUB(hit_date, num )) as diff from a1group by user_account, hit_date, num)select diff, max(num), count(distinct user_account)from a2group by diffhaving max(num) &gt;= 1limit 100 找出连续登录4天以上的用户数 123456789101112131415161718192021222324252627282930313233343536with a1 as ( select id, dt, row_number() over(partition by id order by dt) as num from computer_view.client_android_log_view where dt between '2019-06-01' and '2019-06-05' group by id, dt),a2 as (select id, dt, num, (DATE_SUB(dt, num )) as diff from a1group by id, dt, num)select id, diff, count(diff) from a2group by id, diff having count(diff) &gt;= 4limit 100 id diff count(diff) B 2019-05-02 4 C 2019-05-04 3 找出未订购任何内容的用户 问题： 表： Customers Id Name 1 Joe 2 Henry 3 Sam 4 Max 表： Orders Id CustomerId 1 3 2 1 要求： 根据上面两个表，找出从未订购任何内容的所有客户。输出结果如下： Customers Henry Max 答案 答案1： 123456SELECT Name as CustomersFROM Customers left JOIN Orders on Customers.Id = Orders.CustomerIdwhere Orders.CustomerId is NULL 答案2： 12345678910select customers.name as Customersfrom customerswhere customers.Id not in (select CustomerId from Orders) 找出各部门薪水最高的员工 问题： 表： Employee Id Name Salary DepartmentId 1 Joe 70000 1 2 Jim 90000 1 3 Henry 80000 2 4 Sam 60000 2 5 Max 90000 1 表： Department Id Name 1 IT 2 Sales 要求：找出各部门薪水最高的员工 Department Employee Salary IT Max 90000 IT Jim 90000 Sales Henry 80000 答案 步骤1： 查出各部门最高薪水 1234567SELECT DepartmentId, MAX(Salary)from Employeegroup by DepartmentId 步骤2： 12345678910111213141516171819selectEmployee.Name as Department,Department.Name as Employee,Salary from Employee join Department on Employee.DepartmentId= Department.Idwhere ((Employee.DepartmentId, Salary) in (SELECT DepartmentId, MAX(Salary)from Employeegroup by DepartmentId))group by Department,Employee,Salary 获取每个部门中薪水前三名的员工 问题： 表：Employee Id Name Salary DepartmentId 1 Joe 85000 1 2 Henry 80000 2 3 Sam 60000 2 4 Max 90000 1 5 Janet 69000 1 6 Randy 85000 1 7 Will 70000 1 表： Department Id Name 1 IT 2 Sales 要求： 找出各部门薪水前三的员工， 输出结果如下： Department Employee Salary IT Max 90000 IT Randy 85000 IT Joe 85000 IT Will 70000 Sales Henry 80000 Sales Sam 60000 答案 步骤1：对各部门薪水进行排序 合并12345678910select Employee.Name AS Employee, Employee.Salary AS Salary, Department.Name AS Department from Employee join Department on Employee.DepartmentId = Department.Id group by Employee, Salary, Department Employee Salary Department Joe 85000 IT Henry 80000 Sales Sam 60000 Sales Max 90000 IT Janet 69000 IT Randy 85000 IT Will 70000 IT 步骤2 ： 找出排名前三的 思路： 再添加一张Employee 表，与步骤1中的 A 表进行对比， 令 B 表中的 salary 大于 A 表中的 salary 条件限制：B表中 salary 大于 A 表中salary 的个数小于3 123456789101112131415select A.Name AS Employee, A.Salary AS Salary, Department.Name AS Department from Employee as A join Department on A.DepartmentId = Department.Id WHERE (select count(distinct B.Salary) from Employee as B WHERE B.Salary &gt; A.Salary and B.DepartmentId = A.DepartmentId) &lt;3 sql题 学生-课程-成绩案例 内容：表： student id name 1 zy 2 hz 3 zy 4 lx 5 lx 表： course id name 1 match 2 python 3 java 表: student_course sid cid score 1 1 60 1 2 50 2 2 80 4 3 90 2 2 80 3 3 50 问题 问题1： 查询 student表中重名的学生， 结果包含id 和name, 按 name 升序 12345678910select name, idfrom studentwhere name in (select name from student group by name having count(name) &gt; 1)order by name 问题2： 查询 student_course 表中的平均份不及格的学生， 列出学生的 id 和平均分 123456789select sid, avg(score) as avg_scorefrom student_coursegroup by sidhaving avg_score &lt; 60 问题3： 查询每门课成绩都不低于80的学生id 123456789101112select distinct sidfrom student_coursewhere sid not in (select score from student_course where score &lt;80) 问题4： 查询每个学生的总成绩，列出学生名称和总成绩 12345select student.name, sum(student_course.score)from student left join student_course on student.id = student_course.sid 问题5：查出总成绩最高的学生 123456789select sid, sum(score)from student_coursegroup by sidorder by sum(score) desclimit 1; 问题6： 查询课程1,成绩第二高的学生 方法1：123456789101112---在除过第一高的成绩中，找出最高的成绩select cid, max(score)from stuent_scorewhere cid =1 and score &lt; (select max(score) from student_score) 方法2： 12345678910111213---跳过排名第一的数据， 取1条数据select max(score)from stuent_scorewhere cid = 1 group by score order by score desc limit 1 offset 1 --limit 1,1 问题7： 查看各科成绩最高的学生id与课程id 1234567891011121314select cid, sid, scorefrom student_course as a1where score &gt;= (select max(score) from stuent_score as a2 where a1.id = ax.id) 错误写法： 12345678select sid, cid, max(score)from student_scoregroup by cid 问题8： 在student_course 表中查询每门课的前2名，结果按照课程id 升序， 同一课程按照成绩降序。 123456789101112131415select *from student_course xwhere 2 &gt;( select count(*) from student_course y where y.cid = x.cid and y.score &gt; x.score)order by cid, score DESC 对每季度数据进行汇总 问题： 表： sales 年 季度 销售 1991 1 11 1991 2 12 1991 3 13 1991 4 14 1992 1 21 1992 2 22 1992 3 23 1992 4 24 要求： 通过 SQL 语句显示以下结果： 年 一季度 二季度 三季度 四季度 1991 11 12 13 14 1992 21 22 23 24 答案： 123456select 年, sum(case when 季度=1 then 销售量 else 0 end) as 一季度, sum(case when 季度=2 then 销售量 else 0 end) as 二季度, sum(case when 季度=3 then 销售量 else 0 end) as 三季度, sum(case when 季度=4 then 销售量 else 0 end) as 四季度 from sales group by 年 解释 lateral view 函数描述 描述： lateral view 用于和 split、explode、collect_set 函数 等一起使用， 能够将一行数据拆成多行数据，在此基础上对拆分后的数据进行聚合。 问题1： 问题 将 表 table 中的 adid_list 转换为单独的行。 表： table pageid adid_list front_page [1,2,3] contact_page [3,4] 答案： 12345SELECT pageid, adidFROM tablelateral view explode(adid_list) adTable as adid 输出结果为：|pageid |adid_list||—|—||front_page|1||front_page|2||front_page|3||contact_page|3||contact_page|4| 问题2： 问题：要求： 计算特定广告的展现次数 答案： 1234567SELECT adid, count(1)FROM tablelateral view explode(adid_list) adTable as adidGROUP BY adid 输出结果为： adid count(1) 1 1 2 1 3 2 4 1 问题3： 问题： 多个 lateral view 查询 表： table2 array col2 [1,2] [“a”，”b”] [3,4] [“c”, “d”] 答案： 123456SELECT myCol1, myCol2FROM baseTableLATERAL VIEW explode(col1) myTable1 AS myCol1LATERAL VIEW explode(col2) myTable2 AS myCol2 输出结果为： myCol1 myCol2 1 “a” 1 “b” 2 “a” 2 “b” 3 “c” 3 “d” 4 “c” 4 “d” 删除重复的电子邮箱 问题 表：Person Id Email 1 zhang@qq.com 2 yu@gmailc.om 3 zhang@qq.com 要求: 删除 Person 表中所有重复的电子邮箱，只保留 Id 最小的那个。 Id Email 1 zhang@qq.com 2 yu@gmailc.om 答案： 答案1： 步骤1：找出 Id 大的重复邮箱 1234567select a1.*from Person a1 join Person a2 on a1.Email = a2. Emailwhere a1. Id &gt; a2.Id 步骤2： 删除 Id 较大的重复邮箱。 123456DELETE a1FROM Person a1 join Person a2 on a1.Email = a2. Emailwhere a1. Id &gt; a2.Id 答案2： 123456DELETE a1FROM Person a1, Person a2 where a1.Email = a2. Email and a1. Id &gt; a2.Id 上升的温度 问题 表： Weather Id(INT) RecordDate(DATE) Temperature(INT) 1 2015-01-01 10 2 2015-01-02 25 3 2015-01-03 20 4 2015-01-04 30 要求：查找与昨天日期相比温度更高的所有日期的 Id, 返回结果如下： Id 2 4 答案： 答案1： datediff 函数 123456SELECT a1.Idfrom Weather a1 join Weather a2 on datediff(a1.RecordDate, a2.RecordDate) = 1 and a1.Temperature &gt; a2.Temperature 答案2： ADDDATE 函数 123456SELECT a1.Idfrom Weather a1 join Weather a2 on a1.RecordDate= date_add(a2.RecordDate,1) and a1.Temperature &gt; a2.Temperature 游戏玩家分析1此表显示某些游戏玩家的活动。每一行都是某天用某些设备登陆并玩多个游戏的玩家记录。 表： Activity player_id device_id event_date games_played 1 2 2016-03-01 5 1 2 2016-05-02 6 2 3 2017-06-25 1 3 1 2016-03-02 0 3 4 2018-07-03 5 要求： 显示每个玩家的第一次登陆日期， 输出如下结果 player_id first_login 1 2016-03-01 2 2017-06-25 3 2016-03-02 答案： 123SELECT a1.player_id, a1.event_date as first_loginFROM activity a1 left join activity a2 on a1.player_id=a2.player_id and a1.event_date&gt;a2.event_dateWHERE a2.event_date is NULL 12345678910select player_id, to_char(event_date, 'yyyy-mm-dd') as first_loginfrom (select player_id, event_date, row_number() over (partition by player_id order by event_date asc) rn from Activity)where rn = 1 https://codeday.me/bug/20190309/737795.html 游戏玩家分析2表： Activity player_id device_id event_date games_played 1 2 2016-03-01 5 1 2 2016-05-02 6 2 3 2017-06-25 1 3 1 2016-03-02 0 3 4 2018-07-03 5 要求： 写取出每个玩家第一次玩游戏的设备号 输出结果如下： player_id device_id 1 2 2 3 3 1 答案： 123456789SELECT a1.player_id, a1.device_idFROM activity a1 left join activity a2 on a1.player_id=a2.player_id and a1.event_date&gt;a2.event_dateWHERE a2.event_date is NULL 12345678select player_id, device_id from ( select * from Activity where (player_id,event_date) in (select player_id, min(event_date) from Activity group by player_id) ) as t 123456789select player_id, device_idfrom (select player_id, device_id, row_number() over(partition by player_id order by event_date asc) rn from Activity)where rn = 1 https://github.com/MisterBooo/LeetCodeAnimation https://github.com/azl397985856/leetcode http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description题源 力扣-leetcode 175176177178180181182183184185196197511512]]></content>
@@ -247,6 +235,18 @@
       </categories>
       <tags>
         <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git]]></title>
+    <url>%2F2019%2F03%2F24%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[博客登陆 12345git config --global.name&apos;zhang&apos;git config --global.email &apos;zhang@qq.com&apos;cd E:/zy_bloghexo ghexo d 下载仓库到本地 1git clone]]></content>
+      <categories>
+        <category>数据分析</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -336,12 +336,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[个人三观]]></title>
-    <url>%2F2019%2F01%2F06%2F%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82%2F</url>
-    <content type="text"><![CDATA[价值观 挣钱你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。 技术学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。 职业首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 客户我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 写作 第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。 第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。 第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。 第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。 人生 第一阶段： 20-30岁， 打基础阶段。在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。 第二阶段：30-40岁，人生发张阶段。因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 建议 客观的审视自己找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。 确定自己想要什么如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。 注重长期的可能性，而不是短期的功利。20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 尽量关注自己会得到的东西，而不是自己会失去的东西。因为无论你怎么选，你都会有得有失。 不要喝大众的思维方式一样。因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因” 我的三观 人生观-你想成为什么样的人 价值观-你觉得什么对你来说更重要 世界观-你是怎么来看这个世界的 世界观 要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说 你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 人生观什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。]]></content>
+    <title><![CDATA[微信公众号留言记录]]></title>
+    <url>%2F2019%2F01%2F06%2F%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[naivepinocchio ：很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！]]></content>
       <categories>
         <category>个人系统</category>
-        <category>阅读</category>
       </categories>
       <tags>
         <tag>认知</tag>
@@ -360,27 +359,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[微信公众号留言记录]]></title>
-    <url>%2F2019%2F01%2F06%2F%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86%2F</url>
-    <content type="text"><![CDATA[naivepinocchio ：很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！]]></content>
+    <title><![CDATA[个人三观]]></title>
+    <url>%2F2019%2F01%2F06%2F%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82%2F</url>
+    <content type="text"><![CDATA[价值观 挣钱你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。 技术学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。 职业首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 客户我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 写作 第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。 第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。 第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。 第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。 人生 第一阶段： 20-30岁， 打基础阶段。在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。 第二阶段：30-40岁，人生发张阶段。因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 建议 客观的审视自己找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。 确定自己想要什么如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。 注重长期的可能性，而不是短期的功利。20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 尽量关注自己会得到的东西，而不是自己会失去的东西。因为无论你怎么选，你都会有得有失。 不要喝大众的思维方式一样。因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因” 我的三观 人生观-你想成为什么样的人 价值观-你觉得什么对你来说更重要 世界观-你是怎么来看这个世界的 世界观 要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说 你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 人生观什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。]]></content>
       <categories>
         <category>个人系统</category>
+        <category>阅读</category>
       </categories>
       <tags>
         <tag>认知</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[专题分析]]></title>
-    <url>%2F2018%2F12%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[专题分析数据分析师的一个重要考核， 就是专题分析的效果 需求沟通 一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告 例如上线活动效果的专题分析流程： 业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。 活动效果的数据情况 目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些 活动的拉新、促活，用户粘性情况， 活动效果的优劣 通过逻辑树进行整理 建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。 通过SQL进行取数验证 分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘 撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。 项目专题分析的特征 有目标——围绕项目KPI来进行。 有节奏——2-3周输出一份完整的报告。 有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。 3.专题分析实战 项目背景：电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 第1阶段：新用户留存整体分析目的： 摸清数据现状， 同时找到若干个切入点。关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 第2阶段： 寻找优化切入点， 一般是1-2个。比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 第3阶段： 不断重复前两个阶段， 继续寻找其他切入点。 同时进行竞品分析， 营销活动分析，用户流失分析等等 每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环， 评判数据分析师的标准： 产出专题分析的质量和数量。 质量就是数据分析落地的点和提神的kpi。 改版分析 新改版页面的效果怎么样？ 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。 分析方向： 改版后， 新功能是否受欢迎 改版后， 对产品的流程转化率是否有提升 改版后， 对产品的整体留存的影响 改版后， 用户究竟如何使用新功 功能活跃比新功能的用户数 / 同期客户端活跃用户数 漏斗转化提升 次日留存、周留存、月留存等指标是否朝着更好的方向发展。 用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。]]></content>
-      <categories>
-        <category>数据分析</category>
-        <category>各项细分</category>
-      </categories>
-      <tags>
-        <tag>数据分析</tag>
-        <tag>分析流程</tag>
       </tags>
   </entry>
   <entry>
@@ -397,9 +384,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[业务分析——埋点方案]]></title>
-    <url>%2F2018%2F12%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%2F</url>
-    <content type="text"><![CDATA[数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题： 需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚]]></content>
+    <title><![CDATA[专题分析]]></title>
+    <url>%2F2018%2F12%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[专题分析数据分析师的一个重要考核， 就是专题分析的效果 需求沟通 一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告 例如上线活动效果的专题分析流程： 业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。 活动效果的数据情况 目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些 活动的拉新、促活，用户粘性情况， 活动效果的优劣 通过逻辑树进行整理 建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。 通过SQL进行取数验证 分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘 撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。 项目专题分析的特征 有目标——围绕项目KPI来进行。 有节奏——2-3周输出一份完整的报告。 有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。 3.专题分析实战 项目背景：电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 第1阶段：新用户留存整体分析目的： 摸清数据现状， 同时找到若干个切入点。关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 第2阶段： 寻找优化切入点， 一般是1-2个。比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 第3阶段： 不断重复前两个阶段， 继续寻找其他切入点。 同时进行竞品分析， 营销活动分析，用户流失分析等等 每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环， 评判数据分析师的标准： 产出专题分析的质量和数量。 质量就是数据分析落地的点和提神的kpi。 改版分析 新改版页面的效果怎么样？ 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。 分析方向： 改版后， 新功能是否受欢迎 改版后， 对产品的流程转化率是否有提升 改版后， 对产品的整体留存的影响 改版后， 用户究竟如何使用新功 功能活跃比新功能的用户数 / 同期客户端活跃用户数 漏斗转化提升 次日留存、周留存、月留存等指标是否朝着更好的方向发展。 用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。]]></content>
       <categories>
         <category>数据分析</category>
         <category>各项细分</category>
@@ -420,6 +407,19 @@
       <tags>
         <tag>数据分析</tag>
         <tag>活动分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[业务分析——埋点方案]]></title>
+    <url>%2F2018%2F12%2F22%2F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%2F</url>
+    <content type="text"><![CDATA[数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题： 需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚]]></content>
+      <categories>
+        <category>数据分析</category>
+        <category>各项细分</category>
+      </categories>
+      <tags>
+        <tag>数据分析</tag>
+        <tag>分析流程</tag>
       </tags>
   </entry>
   <entry>
