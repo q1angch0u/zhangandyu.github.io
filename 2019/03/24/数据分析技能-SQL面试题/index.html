@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-09T15:54:45.346Z">
+<meta property="og:updated_time" content="2019-07-10T15:25:13.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
 <meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.1k 字
+                  4.3k 字
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  21 分钟
+                  22 分钟
                 </span>
               
             </div>
@@ -2242,6 +2242,93 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> player_id, device_id</span><br><span class="line"> <span class="keyword">from</span> </span><br><span class="line"> (</span><br><span class="line">     <span class="keyword">select</span> * <span class="keyword">from</span> Activity <span class="keyword">where</span> (player_id,event_date) </span><br><span class="line"> <span class="keyword">in</span> </span><br><span class="line"> (<span class="keyword">select</span> player_id, <span class="keyword">min</span>(event_date) </span><br><span class="line"> <span class="keyword">from</span> Activity <span class="keyword">group</span> <span class="keyword">by</span> player_id) </span><br><span class="line"> ) <span class="keyword">as</span> t</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	player_id, device_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	(<span class="keyword">select</span></span><br><span class="line">		player_id,</span><br><span class="line">		device_id,</span><br><span class="line">		row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> player_id <span class="keyword">order</span> <span class="keyword">by</span> event_date <span class="keyword">asc</span>) rn</span><br><span class="line">	<span class="keyword">from</span> Activity)</span><br><span class="line"><span class="keyword">where</span> rn = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <hr>
+<h1 id="游戏分析3"><a href="#游戏分析3" class="headerlink" title="游戏分析3"></a>游戏分析3</h1><p>表：Activity</p>
+<table>
+<thead>
+<tr>
+<th>player_id</th>
+<th>device_id</th>
+<th>event_date</th>
+<th>games_played</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>2016-03-01</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>2016-05-02</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>2017-06-25</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>2016-03-02</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>2018-07-03</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 取出每个玩家在不同日期下的累积玩游戏次数。</p>
+<blockquote>
+<p>例如： 玩家 id 为 1 的玩家， 在 2016-05-02 时，玩游戏的总次数为 5+6=11， 在2017-06-25 时，玩游戏的总次数为 5+6+1=12。</p>
+</blockquote>
+<p>输出结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>player_id</th>
+<th>event_date</th>
+<th>games_played_so_far</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2016-03-01</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2016-05-02</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2017-06-25</td>
+<td>12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2016-03-02</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2018-07-03</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>答案： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    player_id,</span><br><span class="line">    to_char(event_date, <span class="string">'yyyy-mm-dd'</span>) <span class="keyword">as</span> event_date,</span><br><span class="line">    <span class="keyword">sum</span>(games_played) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> player_id <span class="keyword">order</span> <span class="keyword">by</span> event_date) games_played_so_far</span><br><span class="line"><span class="keyword">from</span> activity</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.player_id ,a.event_date,(<span class="keyword">case</span> <span class="keyword">when</span> @player_id=a.player_id <span class="keyword">then</span> @<span class="keyword">value</span>:=@<span class="keyword">value</span>+a.games_played <span class="keyword">when</span> @player_id:=a.player_id <span class="keyword">then</span> @<span class="keyword">value</span>:=a.games_played <span class="keyword">end</span> ) <span class="keyword">as</span> games_played_so_far <span class="keyword">from</span> (<span class="keyword">select</span> * <span class="keyword">from</span> Activity <span class="keyword">order</span> <span class="keyword">by</span> player_id,event_date) a, (<span class="keyword">select</span> @player_id:=<span class="literal">Null</span>,@<span class="keyword">value</span>:=<span class="number">0</span>)s</span><br></pre></td></tr></table></figure>
 <p><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a></p>
 <p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <h2 id="http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><a href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description" class="headerlink" title="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description"></a><a href="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description" target="_blank" rel="noopener">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</a></h2><h1 id="题源"><a href="#题源" class="headerlink" title="题源"></a>题源</h1><ul>
@@ -2336,8 +2423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/数据分析方法-分析思维/" rel="next" title="数据分析——常见的数据分析方法与方法论">
-                <i class="fa fa-chevron-left"></i> 数据分析——常见的数据分析方法与方法论
+              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -2346,8 +2433,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="prev" title="git">
-                git <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/个人系统-类比系统/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -2545,7 +2632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">19.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">20.</span> <span class="nav-text">题源</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏分析3"><span class="nav-number">20.</span> <span class="nav-text">游戏分析3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">20.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">21.</span> <span class="nav-text">题源</span></a></li></div>
             
 
           </div>
@@ -2579,7 +2666,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">105.8k</span>
+    <span title="Site words total count">106k</span>
   
 </div>
 
