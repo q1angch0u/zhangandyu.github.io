@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T15:03:50.979Z">
+<meta property="og:updated_time" content="2019-07-11T15:56:29.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
 <meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.4k 字
+                  4.5k 字
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  22 分钟
+                  23 分钟
                 </span>
               
             </div>
@@ -2373,8 +2373,10 @@
 </tr>
 </tbody>
 </table>
-<p>要求： 查询在首次登陆后第二天再次登陆的玩家比例， 四舍五入到小数点后两位。 换句话说： 你需要计算从首次登陆日期开始至少连续两天登陆的玩家数量， 然后将该数量除以玩家总数。 </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br></pre></td></tr></table></figure>
+<p>要求： 查询在首次登陆后第二天再次登陆的玩家比例， 四舍五入到小数点后两位。 换句话说： 你需要计算从首次登陆日期开始至少连续两天登陆的玩家数量， 然后将该数量除以玩家总数。</p>
+<p>输出结果如下：<br>| fraction  |<br>|———–|<br>| 0.33      |</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--- 错误</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">  <span class="keyword">CAST</span>( <span class="keyword">count</span>(b.player_id) / <span class="keyword">count</span>(<span class="keyword">distinct</span> a.player_id)  <span class="keyword">as</span> <span class="built_in">decimal</span>(<span class="number">38</span>, <span class="number">2</span>))  <span class="keyword">as</span> fraction</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Activity <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    Activity <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> a.player_id = b.player_id <span class="keyword">and</span> a.event_date = b.event_date+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    <span class="keyword">round</span>(<span class="keyword">count</span>(<span class="keyword">if</span>(<span class="keyword">datediff</span>(a2.event_date ,a1.event_date )=<span class="number">1</span>,<span class="number">1</span>,<span class="literal">null</span>))/<span class="keyword">count</span>(<span class="keyword">distinct</span> a1.player_id ),<span class="number">2</span>)  <span class="keyword">as</span> fraction</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activity a1, Activity a2</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    a1.player_id =a2.player_id </span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    (a1.player_id,a1.event_date) <span class="keyword">in</span> (</span><br><span class="line">            <span class="keyword">select</span> </span><br><span class="line">                player_id ,</span><br><span class="line">                <span class="keyword">min</span>(event_date) event_date </span><br><span class="line">            <span class="keyword">from</span> </span><br><span class="line">                Activity a3</span><br><span class="line">            <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">                player_id )</span><br></pre></td></tr></table></figure>
 <p><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a></p>
 <p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <h2 id="http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><a href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description" class="headerlink" title="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description"></a><a href="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description" target="_blank" rel="noopener">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</a></h2><h1 id="题源"><a href="#题源" class="headerlink" title="题源"></a>题源</h1><ul>
@@ -2469,8 +2471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/数据分析技能-算法-决策树/" rel="next" title="算法-决策树">
-                <i class="fa fa-chevron-left"></i> 算法-决策树
+              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -2712,7 +2714,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">107.1k</span>
+    <span title="Site words total count">107.2k</span>
   
 </div>
 
