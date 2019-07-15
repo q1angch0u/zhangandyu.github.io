@@ -142,6 +142,33 @@
   </entry>
   
   <entry>
+    <title>Excel模板</title>
+    <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Excel%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-Excel知识总结/</id>
+    <published>2019-05-17T16:00:00.000Z</published>
+    <updated>2019-07-13T14:43:13.961Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="必会的54个函数"><a href="#必会的54个函数" class="headerlink" title="必会的54个函数"></a>必会的54个函数</h1><h3 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h3><ol><li>day</li><li>month</li><li>year</li><li>date</li><li>today</li><li>weekday</li><li>weeknum 一年中的第几周</li></ol><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ol><li>product</li><li>rand</li><li>randbetween </li><li>round</li><li>sum</li><li>sumif</li><li>sumifs</li><li>sumproduct累加相乘</li></ol><h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><ol><li>large</li><li>small</li><li>max</li><li>min </li><li>median</li><li>rank 排名</li><li>count</li><li>countif</li><li>countifs</li><li>average</li><li>averageif</li><li>averageifs</li></ol><h3 id="查找和引用函数"><a href="#查找和引用函数" class="headerlink" title="查找和引用函数"></a>查找和引用函数</h3><ol><li>choose</li><li>match</li><li>index</li><li>indirect</li><li>column</li><li>row</li><li>vlookup</li><li>hlookup</li><li>lookup</li><li>offset</li><li>getpivotdata</li></ol><h3 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h3><ol><li>find</li><li>left</li><li>right</li><li>concatenate</li><li>replace</li><li>search</li><li>text</li><li>trim 函数—— 删除字符串中多余的空格</li><li>len</li><li>mid</li><li>value</li></ol><h3 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h3><ol><li>and </li><li>or</li><li>false</li><li>true</li><li>if</li><li>iferror</li></ol><hr><h1 id="指定Excel模板"><a href="#指定Excel模板" class="headerlink" title="指定Excel模板"></a>指定Excel模板</h1><ol><li>自定义区域</li><li>数据源区域</li><li>分析辅助区域</li><li>业务预警区域</li><li>业务分析区域</li><li>报告展示区域</li></ol><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><h2 id="常见图表"><a href="#常见图表" class="headerlink" title="常见图表"></a>常见图表</h2><ol><li><p>散点图</p></li><li><p>气泡图</p></li><li><p>单轴散点图</p></li><li><p>折线图</p></li><li><p>面积图</p></li><li><p>柱形图</p></li><li><p>瀑布图</p></li><li><p>漏斗图</p></li><li><p>雷达图</p></li></ol><h2 id="高级图表"><a href="#高级图表" class="headerlink" title="高级图表"></a>高级图表</h2><ol><li><p>树形图</p></li><li><p>桑基图</p></li><li><p>热力图</p></li><li><p>关系图</p></li><li><p>箱线图</p></li><li><p>标靶图</p></li><li><p>词云图</p></li><li><p>地理图</p></li><li><p>股价图</p><blockquote><p>数据形式： 日期， 开盘价，最高价， 最低价， 收盘价</p></blockquote></li></ol><h2 id="图表配色"><a href="#图表配色" class="headerlink" title="图表配色"></a>图表配色</h2><p>网址： color.adobe.com</p><h2 id="图标矢量图"><a href="#图标矢量图" class="headerlink" title="图标矢量图"></a>图标矢量图</h2><h2 id="csv文件有20位的数字怎么办"><a href="#csv文件有20位的数字怎么办" class="headerlink" title="csv文件有20位的数字怎么办"></a>csv文件有20位的数字怎么办</h2><p>新建excel,选择数据， 选择来自文本， 导入csv 文件， 选择逗号进行分列， 并同时对数字选择文本格式， 点击确定， 导成 xlsx格式。 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;必会的54个函数&quot;&gt;&lt;a href=&quot;#必会的54个函数&quot; class=&quot;headerlink&quot; title=&quot;必会的54个函数&quot;&gt;&lt;/a&gt;必会的54个函数&lt;/h1&gt;&lt;h3 id=&quot;日期函数：&quot;&gt;&lt;a href=&quot;#日期函数：&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="运营" scheme="https://zhangandyu.github.io/tags/%E8%BF%90%E8%90%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据分析师的通关升级</title>
     <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E9%80%9A%E5%85%B3%E5%8D%87%E7%BA%A7/"/>
     <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-通关升级/</id>
@@ -168,33 +195,6 @@
     
     
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Excel模板</title>
-    <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Excel%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-Excel知识总结/</id>
-    <published>2019-05-17T16:00:00.000Z</published>
-    <updated>2019-07-13T14:43:13.961Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="必会的54个函数"><a href="#必会的54个函数" class="headerlink" title="必会的54个函数"></a>必会的54个函数</h1><h3 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h3><ol><li>day</li><li>month</li><li>year</li><li>date</li><li>today</li><li>weekday</li><li>weeknum 一年中的第几周</li></ol><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ol><li>product</li><li>rand</li><li>randbetween </li><li>round</li><li>sum</li><li>sumif</li><li>sumifs</li><li>sumproduct累加相乘</li></ol><h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><ol><li>large</li><li>small</li><li>max</li><li>min </li><li>median</li><li>rank 排名</li><li>count</li><li>countif</li><li>countifs</li><li>average</li><li>averageif</li><li>averageifs</li></ol><h3 id="查找和引用函数"><a href="#查找和引用函数" class="headerlink" title="查找和引用函数"></a>查找和引用函数</h3><ol><li>choose</li><li>match</li><li>index</li><li>indirect</li><li>column</li><li>row</li><li>vlookup</li><li>hlookup</li><li>lookup</li><li>offset</li><li>getpivotdata</li></ol><h3 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h3><ol><li>find</li><li>left</li><li>right</li><li>concatenate</li><li>replace</li><li>search</li><li>text</li><li>trim 函数—— 删除字符串中多余的空格</li><li>len</li><li>mid</li><li>value</li></ol><h3 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h3><ol><li>and </li><li>or</li><li>false</li><li>true</li><li>if</li><li>iferror</li></ol><hr><h1 id="指定Excel模板"><a href="#指定Excel模板" class="headerlink" title="指定Excel模板"></a>指定Excel模板</h1><ol><li>自定义区域</li><li>数据源区域</li><li>分析辅助区域</li><li>业务预警区域</li><li>业务分析区域</li><li>报告展示区域</li></ol><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><h2 id="常见图表"><a href="#常见图表" class="headerlink" title="常见图表"></a>常见图表</h2><ol><li><p>散点图</p></li><li><p>气泡图</p></li><li><p>单轴散点图</p></li><li><p>折线图</p></li><li><p>面积图</p></li><li><p>柱形图</p></li><li><p>瀑布图</p></li><li><p>漏斗图</p></li><li><p>雷达图</p></li></ol><h2 id="高级图表"><a href="#高级图表" class="headerlink" title="高级图表"></a>高级图表</h2><ol><li><p>树形图</p></li><li><p>桑基图</p></li><li><p>热力图</p></li><li><p>关系图</p></li><li><p>箱线图</p></li><li><p>标靶图</p></li><li><p>词云图</p></li><li><p>地理图</p></li><li><p>股价图</p><blockquote><p>数据形式： 日期， 开盘价，最高价， 最低价， 收盘价</p></blockquote></li></ol><h2 id="图表配色"><a href="#图表配色" class="headerlink" title="图表配色"></a>图表配色</h2><p>网址： color.adobe.com</p><h2 id="图标矢量图"><a href="#图标矢量图" class="headerlink" title="图标矢量图"></a>图标矢量图</h2><h2 id="csv文件有20位的数字怎么办"><a href="#csv文件有20位的数字怎么办" class="headerlink" title="csv文件有20位的数字怎么办"></a>csv文件有20位的数字怎么办</h2><p>新建excel,选择数据， 选择来自文本， 导入csv 文件， 选择逗号进行分列， 并同时对数字选择文本格式， 点击确定， 导成 xlsx格式。 </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;必会的54个函数&quot;&gt;&lt;a href=&quot;#必会的54个函数&quot; class=&quot;headerlink&quot; title=&quot;必会的54个函数&quot;&gt;&lt;/a&gt;必会的54个函数&lt;/h1&gt;&lt;h3 id=&quot;日期函数：&quot;&gt;&lt;a href=&quot;#日期函数：&quot; class=&quot;headerlink
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="运营" scheme="https://zhangandyu.github.io/tags/%E8%BF%90%E8%90%A5/"/>
     
   </entry>
   
@@ -330,6 +330,28 @@
   </entry>
   
   <entry>
+    <title>用户增长分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-用户增长分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-07-07T07:19:46.358Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>流量分析</title>
     <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
     <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-流量分析/</id>
@@ -352,63 +374,11 @@
   </entry>
   
   <entry>
-    <title>改版分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-07-07T07:08:14.710Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
-&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>竞品分析</title>
     <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/"/>
     <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-竞品分析/</id>
     <published>2019-04-21T16:00:00.000Z</published>
     <updated>2019-07-07T07:20:19.820Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用户增长分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-用户增长分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-07-07T07:19:46.358Z</updated>
     
     <summary type="html">
     
@@ -457,6 +427,36 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
+    <title>改版分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-07-07T07:08:14.710Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
+&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hive 基础查询</title>
     <link href="https://zhangandyu.github.io/2019/04/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Hive%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/"/>
     <id>https://zhangandyu.github.io/2019/04/18/数据分析技能-Hive基础查询/</id>
@@ -481,28 +481,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>类比汇总</title>
-    <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E7%B1%BB%E6%AF%94%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zhangandyu.github.io/2019/03/30/个人系统-类比系统/</id>
-    <published>2019-03-29T16:00:00.000Z</published>
-    <updated>2019-07-11T05:02:26.174Z</updated>
-    
-    <content type="html"><![CDATA[<p>学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……</p><a id="more"></a><hr><p>在我们使用函数的过程中，我们常常有意忽略它的内部如何完成从输入到输出之间的处理过程 —— 这就好像我们平日里用灯泡一样，大多数情况下，我们只要知道开关的使用方法就够了 —— 至于为什么按到这个方向上灯会亮，为什么按到另外一个方向上灯会灭，并不是我们作为用户必须关心的事情……</p><p>当然，如果你是设计开关的人就不一样了，你必须知道其中的运作原理；但是，最终，你还是希望你的用户用最简单方便的操作界面，而不是必须搞懂所有原理才能够使用你所设计的产品……</p><hr><p>在任何一本编程书籍之中，关于字符串的内容总是很长 —— 就好像每本英语语法书中，关于动词的内容总是占全部内容的至少三分之二。</p><hr><p>教育就像一副眼镜。<br>戴上眼镜之前和之后，我们看到的其实是同样的世界；但是戴上眼镜之后，我们就看得更清楚。</p><hr><p>我们是这样一台计算机，厂商（我们的父母）并没有为我们提供详尽的说明书，也不负责定期升级我们的操作系统——即使他们并非故意。</p><hr><p>人与人之间很不一样，就好像计算机和计算机之间也很不一样，有些中央处理器（头脑）更强大一些，有些人的内存容量（记忆力）更大一些，有些人的硬盘空间（笔记与藏书）更大一些，有些人显示器（外表）更漂亮一些。</p><hr><p>很多人的处理器是落伍的，输入和输出设备常常残缺不全，内存小到没法用的底部，硬盘甚至根本就没有……至于连网设备么，真的很差，甚至真的还不如没有，因为即使连着网也因为缺乏通讯协议而完全无法使用…</p><hr><p>科学是由信息构成的，正如房子是用砖头盖的一样，可问题在于，正如仅仅一堆砖头放在那里的时候，我们不能称其为房子一样，一堆信息放在一块就叫科学，有点不像话……</p><hr><p>学习电脑编程的函数时，我把函数想象成铅笔刀，钝铅笔进去，锐利的铅笔出来，这个模型不依赖于图像，但是过程类似。</p><hr><p>两个自我： 大象和骑象人</p><blockquote><p>人的感性面就是一头大象，而理智面就是一个骑象人。<br>骑象人骑在大象背上，手里握着缰绳，好像是他在指挥大象，但实际上，他的力量微不足道。一旦和大象发生冲突，他想往左，而大象想往右。那他通常是拗不过大象的。 </p></blockquote><hr><p>就像人有一套生理免疫系统来排斥不属于身体的微生物一样，人的心理也有一套免疫系统，它会排斥我们采取新的行为方式，以此来维持心理结构的平衡和稳定。 </p><hr><p>我们要验证这些假设对不对，什么时候成立，什么时候不成立。</p><p>这就像学习游泳，我们既不能只在岸上熟读《怎么学游泳》的书，也不能一下子要求自己跳到深水区，这样就被淹死了。 </p><hr><p>同一辆车， 在公路上开， 和在泥地上开， 要达到相同的速度， 付出的努力是不同的。 同理， 不同的工作环境和内丝， 带来不同的难度， 对采用的技术和努力程度也有不同的要求。 所以只衡量结果却不考虑过程， 有失公平。 考虑过程， 就包括了对工作暖色、环境因素带来的工作复杂度的度量， 也体现了对个人技能、态度的衡量。 </p><hr><p>中国人是椰子文化，擅长熟人社会的交往规则，不擅长与陌生人打交道。</p><p>西方人是桃子文化， 擅长与陌生人打交道。 </p><hr><p>闭环原则是工作中最常用也是最有效的原则，但很少有人能够一直做到。这就像“运动和良好的饮食可以帮助我们保持健康和身材”一样，几乎所有人都知道， 但很少有人能够做到。</p><hr>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="素材" scheme="https://zhangandyu.github.io/categories/%E7%B4%A0%E6%9D%90/"/>
-    
-    
-      <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
-    
-  </entry>
-  
-  <entry>
     <title>搜索系统</title>
     <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E6%90%9C%E7%B4%A2%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangandyu.github.io/2019/03/30/个人系统-搜索系统/</id>
@@ -523,6 +501,28 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       
     
     </summary>
+    
+    
+      <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类比汇总</title>
+    <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E7%B1%BB%E6%AF%94%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://zhangandyu.github.io/2019/03/30/个人系统-类比系统/</id>
+    <published>2019-03-29T16:00:00.000Z</published>
+    <updated>2019-07-11T05:02:26.174Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……</p><a id="more"></a><hr><p>在我们使用函数的过程中，我们常常有意忽略它的内部如何完成从输入到输出之间的处理过程 —— 这就好像我们平日里用灯泡一样，大多数情况下，我们只要知道开关的使用方法就够了 —— 至于为什么按到这个方向上灯会亮，为什么按到另外一个方向上灯会灭，并不是我们作为用户必须关心的事情……</p><p>当然，如果你是设计开关的人就不一样了，你必须知道其中的运作原理；但是，最终，你还是希望你的用户用最简单方便的操作界面，而不是必须搞懂所有原理才能够使用你所设计的产品……</p><hr><p>在任何一本编程书籍之中，关于字符串的内容总是很长 —— 就好像每本英语语法书中，关于动词的内容总是占全部内容的至少三分之二。</p><hr><p>教育就像一副眼镜。<br>戴上眼镜之前和之后，我们看到的其实是同样的世界；但是戴上眼镜之后，我们就看得更清楚。</p><hr><p>我们是这样一台计算机，厂商（我们的父母）并没有为我们提供详尽的说明书，也不负责定期升级我们的操作系统——即使他们并非故意。</p><hr><p>人与人之间很不一样，就好像计算机和计算机之间也很不一样，有些中央处理器（头脑）更强大一些，有些人的内存容量（记忆力）更大一些，有些人的硬盘空间（笔记与藏书）更大一些，有些人显示器（外表）更漂亮一些。</p><hr><p>很多人的处理器是落伍的，输入和输出设备常常残缺不全，内存小到没法用的底部，硬盘甚至根本就没有……至于连网设备么，真的很差，甚至真的还不如没有，因为即使连着网也因为缺乏通讯协议而完全无法使用…</p><hr><p>科学是由信息构成的，正如房子是用砖头盖的一样，可问题在于，正如仅仅一堆砖头放在那里的时候，我们不能称其为房子一样，一堆信息放在一块就叫科学，有点不像话……</p><hr><p>学习电脑编程的函数时，我把函数想象成铅笔刀，钝铅笔进去，锐利的铅笔出来，这个模型不依赖于图像，但是过程类似。</p><hr><p>两个自我： 大象和骑象人</p><blockquote><p>人的感性面就是一头大象，而理智面就是一个骑象人。<br>骑象人骑在大象背上，手里握着缰绳，好像是他在指挥大象，但实际上，他的力量微不足道。一旦和大象发生冲突，他想往左，而大象想往右。那他通常是拗不过大象的。 </p></blockquote><hr><p>就像人有一套生理免疫系统来排斥不属于身体的微生物一样，人的心理也有一套免疫系统，它会排斥我们采取新的行为方式，以此来维持心理结构的平衡和稳定。 </p><hr><p>我们要验证这些假设对不对，什么时候成立，什么时候不成立。</p><p>这就像学习游泳，我们既不能只在岸上熟读《怎么学游泳》的书，也不能一下子要求自己跳到深水区，这样就被淹死了。 </p><hr><p>同一辆车， 在公路上开， 和在泥地上开， 要达到相同的速度， 付出的努力是不同的。 同理， 不同的工作环境和内丝， 带来不同的难度， 对采用的技术和努力程度也有不同的要求。 所以只衡量结果却不考虑过程， 有失公平。 考虑过程， 就包括了对工作暖色、环境因素带来的工作复杂度的度量， 也体现了对个人技能、态度的衡量。 </p><hr><p>中国人是椰子文化，擅长熟人社会的交往规则，不擅长与陌生人打交道。</p><p>西方人是桃子文化， 擅长与陌生人打交道。 </p><hr><p>闭环原则是工作中最常用也是最有效的原则，但很少有人能够一直做到。这就像“运动和良好的饮食可以帮助我们保持健康和身材”一样，几乎所有人都知道， 但很少有人能够做到。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="素材" scheme="https://zhangandyu.github.io/categories/%E7%B4%A0%E6%9D%90/"/>
     
     
       <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
@@ -792,31 +792,25 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>个人三观</title>
-    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82/"/>
-    <id>https://zhangandyu.github.io/2019/01/06/个人系统-个人三观/</id>
+    <title>微信公众号留言记录</title>
+    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
+    <id>https://zhangandyu.github.io/2019/01/06/个人系统-微信公众号留言管理/</id>
     <published>2019-01-05T16:00:00.000Z</published>
-    <updated>2019-07-14T01:35:01.365Z</updated>
+    <updated>2019-07-07T08:50:13.816Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="我的价值观"><a href="#我的价值观" class="headerlink" title="我的价值观"></a>我的价值观</h1><ul><li>勤奋</li><li>诚实</li><li>认真</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>我自身是不是一个有价值、值得被爱的人。能没有能给别人幸福和安全感的强大内心，有没有给予女孩一个理想的、美好的未来的能力。 </p><h3 id="价值观"><a href="#价值观" class="headerlink" title="价值观"></a>价值观</h3><ol><li><p>挣钱<br>你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。</p></li><li><p>技术<br>学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 </p></li></ol><p>并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。</p><ol start="3"><li><p>职业<br>首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。<br>某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 </p></li><li><p>客户<br>我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 </p></li><li><p>写作</p></li></ol><ul><li>第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。</li><li>第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。</li><li>第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。</li><li>第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。</li></ul><ol start="6"><li>人生</li></ol><ul><li>第一阶段： 20-30岁， 打基础阶段。<br>在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。</li><li>第二阶段：30-40岁，人生发张阶段。<br>因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。<br>在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 </li></ul><ol start="7"><li>建议</li></ol><ul><li><p>客观的审视自己<br>找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。<br>在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。</p></li><li><p>确定自己想要什么<br>如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。<br>注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。</p></li><li><p>注重长期的可能性，而不是短期的功利。<br>20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 </p></li><li><p>尽量关注自己会得到的东西，而不是自己会失去的东西。<br>因为无论你怎么选，你都会有得有失。</p></li><li><p>不要喝大众的思维方式一样。<br>因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 </p></li><li><p>很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因”</p></li></ul><hr><h1 id="我的三观"><a href="#我的三观" class="headerlink" title="我的三观"></a>我的三观</h1><ul><li>人生观-你想成为什么样的人</li><li>价值观-你觉得什么对你来说更重要</li><li>世界观-你是怎么来看这个世界的</li></ul><h3 id="世界观"><a href="#世界观" class="headerlink" title="世界观"></a>世界观</h3><blockquote><p>要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说</p></blockquote><p>你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 </p><p>多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 </p><h3 id="人生观"><a href="#人生观" class="headerlink" title="人生观"></a>人生观</h3><p>什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 </p><p>选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 </p><p>因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 </p><p>你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。 </p><h1 id="必须做的5件事"><a href="#必须做的5件事" class="headerlink" title="必须做的5件事"></a>必须做的5件事</h1><ol><li><p>想尽办法，跟牛人在一起</p><blockquote><p>在跟牛人的交流中， 能迅速打开视野，增长见识， 还能交到朋友。<br>经常交流的人， 对你有很大的反向塑造里，想成为牛人，就一定要常见牛人，付费约见是一种很好的方式。 </p></blockquote></li><li><p>读以致用， 好书至少读十篇</p></li></ol><ul><li>一定要每天坚持读书， 哪怕每天只读5页</li><li>输出， 读完之后， 需要总结，写出文章来，没有输出的输入，质量是不行的。</li><li>好书读十遍，遇到好书， 一定要反复读</li><li>读以致用， 成长的关键在于干事情，并且做出成绩来，读完就要用</li></ul><ol start="3"><li><p>做人大方，持续真诚地利他<br>如果你是个持续大方的人，别人就会知道，跟你合作、和你交往，不会吃亏，朋友、机会才会越来越多</p></li><li><p>视时如命，有极强的抗扰力<br>主动见想见的人，去做该做的事情，但不要被别人打乱你的节奏。</p></li><li><p>持续分享，传播有用的内容<br>想要打造个人品牌，持续对外输出有用的内容，是至关重要的事情。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;我的价值观&quot;&gt;&lt;a href=&quot;#我的价值观&quot; class=&quot;headerlink&quot; title=&quot;我的价值观&quot;&gt;&lt;/a&gt;我的价值观&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;勤奋&lt;/li&gt;
-&lt;li&gt;诚实&lt;/li&gt;
-&lt;li&gt;认真&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;问题&quot;&gt;&lt;a
+        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
+
       
     
     </summary>
     
       <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
     
     
       <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
@@ -860,32 +854,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>微信公众号留言记录</title>
-    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
-    <id>https://zhangandyu.github.io/2019/01/06/个人系统-微信公众号留言管理/</id>
-    <published>2019-01-05T16:00:00.000Z</published>
-    <updated>2019-07-07T08:50:13.816Z</updated>
-    
-    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
-    
-  </entry>
-  
-  <entry>
     <title>职场学习</title>
     <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E8%81%8C%E5%9C%BA/"/>
     <id>https://zhangandyu.github.io/2019/01/06/个人系统-职场/</id>
@@ -917,35 +885,34 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>专题分析</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-14T16:11:16.075Z</updated>
+    <title>个人三观</title>
+    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82/"/>
+    <id>https://zhangandyu.github.io/2019/01/06/个人系统-个人三观/</id>
+    <published>2019-01-05T16:00:00.000Z</published>
+    <updated>2019-07-14T01:35:01.365Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="我的价值观"><a href="#我的价值观" class="headerlink" title="我的价值观"></a>我的价值观</h1><ul><li>勤奋</li><li>诚实</li><li>认真</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>我自身是不是一个有价值、值得被爱的人。能没有能给别人幸福和安全感的强大内心，有没有给予女孩一个理想的、美好的未来的能力。 </p><h3 id="价值观"><a href="#价值观" class="headerlink" title="价值观"></a>价值观</h3><ol><li><p>挣钱<br>你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。</p></li><li><p>技术<br>学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 </p></li></ol><p>并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。</p><ol start="3"><li><p>职业<br>首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。<br>某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 </p></li><li><p>客户<br>我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 </p></li><li><p>写作</p></li></ol><ul><li>第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。</li><li>第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。</li><li>第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。</li><li>第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。</li></ul><ol start="6"><li>人生</li></ol><ul><li>第一阶段： 20-30岁， 打基础阶段。<br>在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。</li><li>第二阶段：30-40岁，人生发张阶段。<br>因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。<br>在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 </li></ul><ol start="7"><li>建议</li></ol><ul><li><p>客观的审视自己<br>找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。<br>在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。</p></li><li><p>确定自己想要什么<br>如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。<br>注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。</p></li><li><p>注重长期的可能性，而不是短期的功利。<br>20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 </p></li><li><p>尽量关注自己会得到的东西，而不是自己会失去的东西。<br>因为无论你怎么选，你都会有得有失。</p></li><li><p>不要喝大众的思维方式一样。<br>因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 </p></li><li><p>很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因”</p></li></ul><hr><h1 id="我的三观"><a href="#我的三观" class="headerlink" title="我的三观"></a>我的三观</h1><ul><li>人生观-你想成为什么样的人</li><li>价值观-你觉得什么对你来说更重要</li><li>世界观-你是怎么来看这个世界的</li></ul><h3 id="世界观"><a href="#世界观" class="headerlink" title="世界观"></a>世界观</h3><blockquote><p>要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说</p></blockquote><p>你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 </p><p>多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 </p><h3 id="人生观"><a href="#人生观" class="headerlink" title="人生观"></a>人生观</h3><p>什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 </p><p>选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 </p><p>因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 </p><p>你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。 </p><h1 id="必须做的5件事"><a href="#必须做的5件事" class="headerlink" title="必须做的5件事"></a>必须做的5件事</h1><ol><li><p>想尽办法，跟牛人在一起</p><blockquote><p>在跟牛人的交流中， 能迅速打开视野，增长见识， 还能交到朋友。<br>经常交流的人， 对你有很大的反向塑造里，想成为牛人，就一定要常见牛人，付费约见是一种很好的方式。 </p></blockquote></li><li><p>读以致用， 好书至少读十篇</p></li></ol><ul><li>一定要每天坚持读书， 哪怕每天只读5页</li><li>输出， 读完之后， 需要总结，写出文章来，没有输出的输入，质量是不行的。</li><li>好书读十遍，遇到好书， 一定要反复读</li><li>读以致用， 成长的关键在于干事情，并且做出成绩来，读完就要用</li></ul><ol start="3"><li><p>做人大方，持续真诚地利他<br>如果你是个持续大方的人，别人就会知道，跟你合作、和你交往，不会吃亏，朋友、机会才会越来越多</p></li><li><p>视时如命，有极强的抗扰力<br>主动见想见的人，去做该做的事情，但不要被别人打乱你的节奏。</p></li><li><p>持续分享，传播有用的内容<br>想要打造个人品牌，持续对外输出有用的内容，是至关重要的事情。</p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需求沟通&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;一定要将20
+        &lt;h1 id=&quot;我的价值观&quot;&gt;&lt;a href=&quot;#我的价值观&quot; class=&quot;headerlink&quot; title=&quot;我的价值观&quot;&gt;&lt;/a&gt;我的价值观&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;勤奋&lt;/li&gt;
+&lt;li&gt;诚实&lt;/li&gt;
+&lt;li&gt;认真&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;问题&quot;&gt;&lt;a
       
     
     </summary>
     
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+      <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
     
   </entry>
   
@@ -983,19 +950,23 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>业务分析——埋点方案</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/数据分析技能-埋点方案/</id>
+    <title>专题分析</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
     <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-13T06:43:35.917Z</updated>
+    <updated>2019-01-14T16:11:16.075Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
+    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
+        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求沟通&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一定要将20
       
     
     </summary>
@@ -1037,6 +1008,35 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="活动分析" scheme="https://zhangandyu.github.io/tags/%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>业务分析——埋点方案</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/数据分析技能-埋点方案/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-13T06:43:35.917Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><p><a href="https://www.sensorsdata.cn/blog/20181114-2/" target="_blank" rel="noopener">https://www.sensorsdata.cn/blog/20181114-2/</a></p><p>问题：</p><ol><li>需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用</li><li>数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标</li><li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li></ol><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
     
   </entry>
   
@@ -1170,28 +1170,15 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
     <link href="https://zhangandyu.github.io/2018/10/12/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangandyu.github.io/2018/10/12/个人系统-学习系统/</id>
     <published>2018-10-11T16:00:00.000Z</published>
-    <updated>2019-07-15T17:45:35.699Z</updated>
+    <updated>2019-07-15T18:31:37.206Z</updated>
     
-    <content type="html"><![CDATA[<hr><!-- # 如何以教带学---重复三次左右会面临一个临界点， 度过这后就很容易继续了。刻意练习是痛苦的过程。 如何保证高效利用好时间？学习仪式感：基于这种仪式感， 给自己带来一种强烈的自我暗示——利用这种暗示， 把自己的专注力、反应能力、运动能力迅速提升。 物质准备： 水， 巧克力， 电脑精神准备： 第二天高效学习， 第一天晚早早睡去。时间准备： 9点正式学习， 9点之前提前赶到图书馆预热：翻看即将到来的两个小时之内需要学习的内容， 心里有个大概。 静心：在9点之前的一分钟， 会盖上书本， 静等一分钟的流逝， 八点一到， 就带着喜悦的心情静静地翻看书本。 ---------# 付费学习* 门槛低的群，加了不要在里面混，要不然就是浪费生命* 收费高的地方，听课是其次，观模式、交朋友、盘资源会被大家放在更重要的位置* 选择老师的时候，一定要看他是否在相关领域做出不错的成绩* 一定要跨领域，不要只是在某个领域的各种学习群里学，这会导致你的视野受限* 要学会重点展示你的独特价值， 在自我介绍环节，你要想想你有哪些独特的价值，优势，是大家所不具备的，然后持续重点展现，这样做，会让你更容易脱颖而出。* 最好是大家能够嘻嘻哈哈的玩在一起，这样才能有利于关系的发展，如果都端着，只能证明信任还不够，感觉还没到位。* 要不卑不亢，跟大家平等沟通，哪怕你比他要穷的多。傲和怂，都是很损个人品牌的。 * 将利他作为一种习惯，利他，才是最好的利己* 不管你的学历如何，要多读书，多听优秀的人分享，提高自己的写和说的能力# 知识转换为付费* 通过坚持做一件非常有用的事情，提升自己，并影响他们和帮助他人，是打造个人品牌的“捷径”* 有了良好的个人品牌，增加收入只是顺带的事情# 当学不进去的时候， 用【普瑞马法则】在学习和生活中，我们有时会想要做某件事情，但过了好久发现还是没有做， 或者觉得力气使不出来，生活好像配一种惰性缠绕，知道那不好，却又不知道从何入手来改变。我们可以利用**普瑞马法则**， 把一件困难的事情放在容易完成的事情前面去做， 把工作中不想完成的事情放在前面完成，这样做不仅强化了工作能力， 增强效率， 同事也让人们意识到， 困难的任务其实也没有那么的困难。这是一种强化作用的方式——先处理困难的事情， 再处理不那么困难的事情，那是一种对于前面行动的强化，然后继续， 强化的效果会越来越大，一直大到觉得有力量来完成任何事情。 例如，先可以用一天到两天时间给自己做一个行为记录， 把每天要做的事情记下来，大概十几件，然后把这些事情按照兴趣排列，把最不喜欢的事情放在第一位， 把最喜欢的事情放在最后一位。这样在以后的一周，每天一早起来，从最不喜欢的事情开始做起，并且坚持做完第一件事情，再做第二件事情....一直做到最后一件喜欢的事情。通过结束懒惰的行为，从而结束懒惰的心理。 <!-- # 普瑞马法则今日要做的事情：1. 思考用户生命周期2. 考虑设计应用：用户访问触点，依据用户行为轨迹建模，第二天短信推送或者apppush做相应出点或者活动等推荐，结合目前的活动和业务，看能做哪些场景3. 锻炼， 跑步4. 写作5. 英语阅读6. 写反思日记7. 吃饭8. 玩游戏9. 看《别闹了，费曼先生》10. 打电话排序：1. 思考用户生命周期2. 考虑设计应用：用户访问触点，依据用户行为轨迹建模，第二天短信推送或者apppush做相应出点或者活动等推荐，结合目前的活动和业务，看能做哪些场景3. 英语阅读4. 写作5. 锻炼， 跑步6. 写反思日记7. 吃饭8. 看《别闹了，费曼先生》9. 打电话10. 玩游戏 --><hr><!-- 《好好学习》第二遍笔记：1. 什么是知识？有能够改变你行动的信息才是知识。2. 如何判断你掌握了知识？是否根据学习到的知识改变了你的思考和行动3. 个人知识学习的三个维度： 知识数量， 知识获取速度，**知识深度**4. 知识管理的核心通过管理知识来提升我们的认知深度，进而改变我们的行为模式5. 什么是认知深度？* 分析问题时，能够找出具体现象背后的抽象规律* 寻找答案时，结论依托于实验验证或数据支持6. 什么是技术效率和认知效率？* 学习在不断掌握应对具体工作场景和问题的方法，就是在提升技术效率* 学习了解问题本质，了解解决方案的底层规律，能够让我们认清问题表象背后的实质，就是在提升认证效率7. 学习那些知识能够提升认知效率* 执行能力： 时间管理，精力管理，沟通技巧* 专业能力：解决系统问题的能力* 结构能力：认知事物底层规律8. 读书，如何跳出低水平的勤奋？* 将学到的新知识和已有知识进行联系，构成知识网络。* 描述读书后受启发的内容，这些启发和过去的哪些经验相关* 当要解决某个问题的时候，主动寻找相关的文章和书籍。> 观察作者是用什么样的思路来解决问题？> 在这个解决方案背后，是否有我熟悉的知识？> 我还能把这个解决方案的原理， 应用在什么领域？9. 学习知识应该具备的两个心态* 绿灯思维：积极地考虑新观点里有价值的地方,而不是一味的抵触。* 以慢为快：结硬寨，打呆仗。打通知识的阻塞，实现融会贯通。10. 提升学习能力的三个底层方法* 反思： 观察结果——研究原先假设——反思校正假设， 反思日记* 以教为学： 把教别人的过程作为帮助自己学习的过程* 刻意练习：> 对基本核心知识划小圈——对基本概念，知识堵塞等关键地方反复探究和思考> 将基本知识组合成更大的知识能力单元——和其他相关知识组合成一个新的知识能力单元> 在各知识能力单元之间构建认知框架——依靠模型组成的框选来安排你的经验11. 提升学习能力的三个技巧：* 记录——如实地记录整个事情的发展过程* 定期回顾：> 周/月回顾：微观审视解决问题的假设和效果>年度回顾：检视基本思考方式> 5年以上回顾：探寻基本规律如何影响生活* 付费购买：> 买书是为了更快速地寻找问题可能的解决方案> 买时间12. 如何发现自己的临界知识* 从自己感兴趣的领域入手，学习这个学习的重要知识。* 找到最重要的知识和原理的原始出处* 尝试用更加基本的原理来解释这个知识* 没有解释的时候，想办法寻找或者自己创造个假设，并验证13 如何应用临界知识* 刻意练习>在不同的场景中，重复应用同一个临界知识> 在不同的时间里，重复应用同一个临界知识---- --><p> –&gt;</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="如何高效学习"><a href="#如何高效学习" class="headerlink" title="如何高效学习"></a>如何高效学习</h1><h3 id="合适的学习方法"><a href="#合适的学习方法" class="headerlink" title="合适的学习方法"></a>合适的学习方法</h3><ol><li>学习方法一： 模仿<blockquote><p>英语、书法、乐器等</p></blockquote></li></ol><p>学习可以碎片化，积少成多，以量取胜，平时注意量的积累。</p><ol start="2"><li>学习方法二： 创造</li></ol><p>注重结构，体系化的学习，学完之后，目的是为了创造，需要产生质变。</p><ol start="3"><li>注意点</li></ol><ul><li><strong>把你的目标要拆碎，针对那些细节进行反复的练习，不要一开始就顾全大局。</strong></li><li>带着困惑和问题进行学习，多使用搜索功能。最终要将这些碎片链接起来。</li></ul><!-- # 如何以教带学---重复三次左右会面临一个临界点， 度过这后就很容易继续了。刻意练习是痛苦的过程。 如何保证高效利用好时间？学习仪式感：基于这种仪式感， 给自己带来一种强烈的自我暗示——利用这种暗示， 把自己的专注力、反应能力、运动能力迅速提升。 物质准备： 水， 巧克力， 电脑精神准备： 第二天高效学习， 第一天晚早早睡去。时间准备： 9点正式学习， 9点之前提前赶到图书馆预热：翻看即将到来的两个小时之内需要学习的内容， 心里有个大概。 静心：在9点之前的一分钟， 会盖上书本， 静等一分钟的流逝， 八点一到， 就带着喜悦的心情静静地翻看书本。 ---------# 付费学习* 门槛低的群，加了不要在里面混，要不然就是浪费生命* 收费高的地方，听课是其次，观模式、交朋友、盘资源会被大家放在更重要的位置* 选择老师的时候，一定要看他是否在相关领域做出不错的成绩* 一定要跨领域，不要只是在某个领域的各种学习群里学，这会导致你的视野受限* 要学会重点展示你的独特价值， 在自我介绍环节，你要想想你有哪些独特的价值，优势，是大家所不具备的，然后持续重点展现，这样做，会让你更容易脱颖而出。* 最好是大家能够嘻嘻哈哈的玩在一起，这样才能有利于关系的发展，如果都端着，只能证明信任还不够，感觉还没到位。* 要不卑不亢，跟大家平等沟通，哪怕你比他要穷的多。傲和怂，都是很损个人品牌的。 * 将利他作为一种习惯，利他，才是最好的利己* 不管你的学历如何，要多读书，多听优秀的人分享，提高自己的写和说的能力# 知识转换为付费* 通过坚持做一件非常有用的事情，提升自己，并影响他们和帮助他人，是打造个人品牌的“捷径”* 有了良好的个人品牌，增加收入只是顺带的事情# 当学不进去的时候， 用【普瑞马法则】在学习和生活中，我们有时会想要做某件事情，但过了好久发现还是没有做， 或者觉得力气使不出来，生活好像配一种惰性缠绕，知道那不好，却又不知道从何入手来改变。我们可以利用**普瑞马法则**， 把一件困难的事情放在容易完成的事情前面去做， 把工作中不想完成的事情放在前面完成，这样做不仅强化了工作能力， 增强效率， 同事也让人们意识到， 困难的任务其实也没有那么的困难。这是一种强化作用的方式——先处理困难的事情， 再处理不那么困难的事情，那是一种对于前面行动的强化，然后继续， 强化的效果会越来越大，一直大到觉得有力量来完成任何事情。 例如，先可以用一天到两天时间给自己做一个行为记录， 把每天要做的事情记下来，大概十几件，然后把这些事情按照兴趣排列，把最不喜欢的事情放在第一位， 把最喜欢的事情放在最后一位。这样在以后的一周，每天一早起来，从最不喜欢的事情开始做起，并且坚持做完第一件事情，再做第二件事情....一直做到最后一件喜欢的事情。通过结束懒惰的行为，从而结束懒惰的心理。 <!-- # 普瑞马法则今日要做的事情：1. 思考用户生命周期2. 考虑设计应用：用户访问触点，依据用户行为轨迹建模，第二天短信推送或者apppush做相应出点或者活动等推荐，结合目前的活动和业务，看能做哪些场景3. 锻炼， 跑步4. 写作5. 英语阅读6. 写反思日记7. 吃饭8. 玩游戏9. 看《别闹了，费曼先生》10. 打电话排序：1. 思考用户生命周期2. 考虑设计应用：用户访问触点，依据用户行为轨迹建模，第二天短信推送或者apppush做相应出点或者活动等推荐，结合目前的活动和业务，看能做哪些场景3. 英语阅读4. 写作5. 锻炼， 跑步6. 写反思日记7. 吃饭8. 看《别闹了，费曼先生》9. 打电话10. 玩游戏 --><hr><!-- 《好好学习》第二遍笔记：1. 什么是知识？有能够改变你行动的信息才是知识。2. 如何判断你掌握了知识？是否根据学习到的知识改变了你的思考和行动3. 个人知识学习的三个维度： 知识数量， 知识获取速度，**知识深度**4. 知识管理的核心通过管理知识来提升我们的认知深度，进而改变我们的行为模式5. 什么是认知深度？* 分析问题时，能够找出具体现象背后的抽象规律* 寻找答案时，结论依托于实验验证或数据支持6. 什么是技术效率和认知效率？* 学习在不断掌握应对具体工作场景和问题的方法，就是在提升技术效率* 学习了解问题本质，了解解决方案的底层规律，能够让我们认清问题表象背后的实质，就是在提升认证效率7. 学习那些知识能够提升认知效率* 执行能力： 时间管理，精力管理，沟通技巧* 专业能力：解决系统问题的能力* 结构能力：认知事物底层规律8. 读书，如何跳出低水平的勤奋？* 将学到的新知识和已有知识进行联系，构成知识网络。* 描述读书后受启发的内容，这些启发和过去的哪些经验相关* 当要解决某个问题的时候，主动寻找相关的文章和书籍。> 观察作者是用什么样的思路来解决问题？> 在这个解决方案背后，是否有我熟悉的知识？> 我还能把这个解决方案的原理， 应用在什么领域？9. 学习知识应该具备的两个心态* 绿灯思维：积极地考虑新观点里有价值的地方,而不是一味的抵触。* 以慢为快：结硬寨，打呆仗。打通知识的阻塞，实现融会贯通。10. 提升学习能力的三个底层方法* 反思： 观察结果——研究原先假设——反思校正假设， 反思日记* 以教为学： 把教别人的过程作为帮助自己学习的过程* 刻意练习：> 对基本核心知识划小圈——对基本概念，知识堵塞等关键地方反复探究和思考> 将基本知识组合成更大的知识能力单元——和其他相关知识组合成一个新的知识能力单元> 在各知识能力单元之间构建认知框架——依靠模型组成的框选来安排你的经验11. 提升学习能力的三个技巧：* 记录——如实地记录整个事情的发展过程* 定期回顾：> 周/月回顾：微观审视解决问题的假设和效果>年度回顾：检视基本思考方式> 5年以上回顾：探寻基本规律如何影响生活* 付费购买：> 买书是为了更快速地寻找问题可能的解决方案> 买时间12. 如何发现自己的临界知识* 从自己感兴趣的领域入手，学习这个学习的重要知识。* 找到最重要的知识和原理的原始出处* 尝试用更加基本的原理来解释这个知识* 没有解释的时候，想办法寻找或者自己创造个假设，并验证13 如何应用临界知识* 刻意练习>在不同的场景中，重复应用同一个临界知识> 在不同的时间里，重复应用同一个临界知识---- --><p> –&gt;</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;!-- 
-
-# 如何以教带学
-
-
----
-重复三次左右会面临一个临界点， 度过这后就很容易继续了。
-
-刻意练习是痛苦的过程。 
-
-如何保证高效利用好时间？
-学习仪式感：
-基于这种仪式感， 给自己带来一种强烈的自我暗示——利用这种暗示， 把自己的专注力、反应能力、运动能
+        &lt;h1 id=&quot;如何高效学习&quot;&gt;&lt;a href=&quot;#如何高效学习&quot; class=&quot;headerlink&quot; title=&quot;如何高效学习&quot;&gt;&lt;/a&gt;如何高效学习&lt;/h1&gt;&lt;h3 id=&quot;合适的学习方法&quot;&gt;&lt;a href=&quot;#合适的学习方法&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>
@@ -1202,6 +1189,33 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
     
     
       <category term="学习系统" scheme="https://zhangandyu.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阅读系统</title>
+    <link href="https://zhangandyu.github.io/2018/10/10/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://zhangandyu.github.io/2018/10/10/个人系统-阅读系统/</id>
+    <published>2018-10-09T16:00:00.000Z</published>
+    <updated>2019-01-13T16:32:03.534Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h1><p>在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？</p><hr><h1 id="借鉴"><a href="#借鉴" class="headerlink" title="借鉴"></a>借鉴</h1><p>在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点：</p><p><strong>1. 一本好的书籍最少要读两遍</strong><br><strong>2. 第二遍读书的时候一定要做笔记</strong></p><p>反思自己的读书方法，就能够看到自己过去读书的很多问题:</p><ol><li><p>自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。</p></li><li><p>在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。</p></li></ol><hr><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化:</p><ol><li><p><strong>读好书一定要读两遍。</strong><br>第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。</p></li><li><p><strong>在读第二遍的时候要找出文章的思想脉络。</strong><br>很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。</p></li><li><p><strong>当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。</strong><br>记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。</p></li><li><p><strong>当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。</strong><br>你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。</p></li><li><p>当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， <strong>你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。</strong></p></li></ol><p>再引述一下作者的话：</p><blockquote><p>好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。<br>记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。</p></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总结文章的观点， 就是<strong>读两遍，理脉络，记笔记，写心得，融体系</strong>。能够做上述几点，相信你的读书效率一定会大大改善的。</p><p>最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答：</p><blockquote><p>知识不会改变命运，除非它带来行动；<br>行动也不会改变命运，除非它带来结果；<br>是一个一个的结果，在改变你的命运； </p></blockquote><hr><p>参考资料：<br>1.<a href="https://book.douban.com/subject/25986341/" target="_blank" rel="noopener">《万万没想到-用理工思维看世界》</a><br>2.<a href="https://m.igetget.com/share/column/cid/21" target="_blank" rel="noopener">《超级个体》</a></p><hr><p>读书三问：</p><ol><li>为什么我坚持读书写作很久了，却没有进步</li></ol><ul><li>有认真消化吗，自己读了以后，能教别人吗</li><li>你所写的内容， 是简单的搬运，还是行动之后的反思总结</li><li>不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式</li></ul><ol start="2"><li>一年要读多少数</li></ol><ul><li>你更应该关心的是， 你能践行多少内容</li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;困惑&quot;&gt;&lt;a href=&quot;#困惑&quot; class=&quot;headerlink&quot; title=&quot;困惑&quot;&gt;&lt;/a&gt;困惑&lt;/h1&gt;&lt;p&gt;在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己
+      
+    
+    </summary>
+    
+      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="阅读系统" scheme="https://zhangandyu.github.io/tags/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
@@ -1236,33 +1250,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
     
     
       <category term="写作" scheme="https://zhangandyu.github.io/tags/%E5%86%99%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阅读系统</title>
-    <link href="https://zhangandyu.github.io/2018/10/10/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zhangandyu.github.io/2018/10/10/个人系统-阅读系统/</id>
-    <published>2018-10-09T16:00:00.000Z</published>
-    <updated>2019-01-13T16:32:03.534Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="困惑"><a href="#困惑" class="headerlink" title="困惑"></a>困惑</h1><p>在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己陷入看了那么多书，却依然过不好这一生的困境中吗？</p><hr><h1 id="借鉴"><a href="#借鉴" class="headerlink" title="借鉴"></a>借鉴</h1><p>在最近翻阅的一本书《万万没想到-用理工科思维理解世界》中， 万维钢老师写的一篇【用强力研读书】中提出的读书观点，自己很受启发。在这篇文章中， 作者主要强调了读书要做到两点：</p><p><strong>1. 一本好的书籍最少要读两遍</strong><br><strong>2. 第二遍读书的时候一定要做笔记</strong></p><p>反思自己的读书方法，就能够看到自己过去读书的很多问题:</p><ol><li><p>自己看书为了追求看完， 总是囫囵吞枣的看， 看完一遍就将书扔到一边。</p></li><li><p>在看书过程中即使自己会有一些思考， 自己也不会马上记笔记将自己的思考写下来， 没有将书中的观点和知识内化到自己的系统中， 在以后遇到类似的知识也不会进行升级， 因为自己已经将这个知识忘光了。</p></li></ol><hr><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>当然，记笔记并不是将书中的总结性内容抄到笔记本上就完事了，在这篇文章中， 万维钢老师还详细的介绍了如何做才能让自己的读书效率最大化:</p><ol><li><p><strong>读好书一定要读两遍。</strong><br>第一遍是陷进去，按作者的思路去读。 第二遍跳出来， 抓住文章的精髓仔细读， 做笔记。</p></li><li><p><strong>在读第二遍的时候要找出文章的思想脉络。</strong><br>很多时候你没有真正理解书中的内容， 就是因为看不到书中的脉络。因为你作为读者，看书是将用线性的视角来一行一行看的，而作者写一篇文章是将网状的思考， 把树状的结构， 用线性的语言表达出来。 书中每一个小章节的逻辑结构可能就只有几句话。 在你读书过程中要做的就是找出这样的逻辑结构。</p></li><li><p><strong>当我们看到文章好的亮点时， 我们要把它记下来据为己有，也许是一句话， 也许是一个故事。</strong><br>记笔记， 是当你看到了一个想法之后很激动，必须把这个想法记下来据为己有的行为。 读书，在某种程度上就是寻找能够刺激自己思维的那些亮点， 我们在分析书本脉络的时候要忽略故事，分析完脉络再好的把故事带走。</p></li><li><p><strong>当我们看书的时候，我们要写下自己对书中内容的评论， 就好像和作者对话一样。</strong><br>你可以对书中的观点表达支持， 质疑， 或者写下这个观点给了你启发— 让你想到了自己最近发生的一件事， 听过的一个故事， 你都可以写下来。</p></li><li><p>当你看完一本书的时候， 你也许会发现自己在另一本书上又发现相似的论点， 或者你在网上看到了另一个人对这个观点的表达， 这个时候， <strong>你就要将不同地方看到的蕾西知识整理到自己的笔记上， 不断的完善它， 形成自己的观点， 并写文章发表出来。</strong></p></li></ol><p>再引述一下作者的话：</p><blockquote><p>好书之所以要读两遍， 最重要的目的就是为了读书后的心得、灵感和联系。<br>记笔记是对一本书最大的敬意，记笔记是个人知识的延伸。</p></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总结文章的观点， 就是<strong>读两遍，理脉络，记笔记，写心得，融体系</strong>。能够做上述几点，相信你的读书效率一定会大大改善的。</p><p>最后，结合自己的经验，我认为如果为了提高自己的认知能力而读书， 就一定要记读书笔记， 要不读书的效率会差很多。要想改变读了那么多书却依然过不好这一生的困境，我觉得可以用自己很喜欢的一句话来进行回答：</p><blockquote><p>知识不会改变命运，除非它带来行动；<br>行动也不会改变命运，除非它带来结果；<br>是一个一个的结果，在改变你的命运； </p></blockquote><hr><p>参考资料：<br>1.<a href="https://book.douban.com/subject/25986341/" target="_blank" rel="noopener">《万万没想到-用理工思维看世界》</a><br>2.<a href="https://m.igetget.com/share/column/cid/21" target="_blank" rel="noopener">《超级个体》</a></p><hr><p>读书三问：</p><ol><li>为什么我坚持读书写作很久了，却没有进步</li></ol><ul><li>有认真消化吗，自己读了以后，能教别人吗</li><li>你所写的内容， 是简单的搬运，还是行动之后的反思总结</li><li>不要只是读读写写，你得去做事，事上磨练，才是最好的学习方式</li></ul><ol start="2"><li>一年要读多少数</li></ol><ul><li>你更应该关心的是， 你能践行多少内容</li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;困惑&quot;&gt;&lt;a href=&quot;#困惑&quot; class=&quot;headerlink&quot; title=&quot;困惑&quot;&gt;&lt;/a&gt;困惑&lt;/h1&gt;&lt;p&gt;在日常的读书学习中，自己总是会出现这样的困惑， 就是发现自己看了很多书， 但是看完就忘。看完一本书也很难用其中的论点指导自己的生活，难道自己
-      
-    
-    </summary>
-    
-      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="阅读系统" scheme="https://zhangandyu.github.io/tags/%E9%98%85%E8%AF%BB%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
