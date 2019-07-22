@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-17T15:11:24.033Z">
+<meta property="og:updated_time" content="2019-07-22T15:58:52.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
 <meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.3k 字
+                  5.9k 字
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  27 分钟
+                  30 分钟
                 </span>
               
             </div>
@@ -2911,6 +2911,272 @@
 <p>答案：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    a1.name,</span><br><span class="line">    a2.bonus</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Employee <span class="keyword">as</span> a1</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> Bonus <span class="keyword">as</span> a2</span><br><span class="line">    <span class="keyword">on</span> a1.empid = a2.empid </span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    <span class="keyword">ifnull</span> (bonus, <span class="number">0</span>) &lt; <span class="number">1000</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a1.name,</span><br><span class="line">    a2.bonus</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Employee <span class="keyword">as</span> a1</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> Bonus <span class="keyword">as</span> a2</span><br><span class="line">    <span class="keyword">on</span> a1.empid = a2.empid </span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    nvl (bonus, <span class="number">0</span>) &lt; <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+<h1 id="谁有最多的好友"><a href="#谁有最多的好友" class="headerlink" title="谁有最多的好友"></a>谁有最多的好友</h1><p>表： request_accepted </p>
+<blockquote>
+<p>表中存储了所有好友申请通过的数据记录，其中，requester_id 和 accepter_id 都是用户的编号。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>requester_id</th>
+<th>accepter_id</th>
+<th>accept_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>2016_06-03</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>2016-06-08</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>2016-06-08</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>2016-06-09</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 求出谁拥有最多的好友和他拥有的好友数目。输出结果如下</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">as</span> <span class="keyword">id</span>, ucnt <span class="keyword">as</span> <span class="keyword">num</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">as</span> ucnt</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">    (</span><br><span class="line">        <span class="keyword">select</span> requester_id <span class="keyword">as</span> <span class="keyword">id</span> <span class="keyword">from</span> request_accepted</span><br><span class="line">        <span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">        <span class="keyword">select</span> accepter_id <span class="keyword">as</span> <span class="keyword">id</span> <span class="keyword">from</span> request_accepted</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">id</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> ucnt <span class="keyword">desc</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">rownum</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="找出人流量的高峰期"><a href="#找出人流量的高峰期" class="headerlink" title="找出人流量的高峰期"></a>找出人流量的高峰期</h1><p>表：stadium</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>visit_date</th>
+<th>people</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2017-01-01</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2017-01-02</td>
+<td>109</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2017-01-03</td>
+<td>150</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2017-01-04</td>
+<td>99</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2017-01-05</td>
+<td>145</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017-01-06</td>
+<td>1455</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2017-01-07</td>
+<td>199</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2017-01-08</td>
+<td>188</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 找出人流量的高峰期。高峰期时， 至少连续三行记录中的人流量不少于100。得出结果如下</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>visit_date</th>
+<th>people</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>2017-01-05</td>
+<td>145</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017-01-06</td>
+<td>1455</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2017-01-07</td>
+<td>199</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2017-01-08</td>
+<td>188</td>
+</tr>
+</tbody>
+</table>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">distinct</span> a.*</span><br><span class="line"><span class="keyword">FROM</span> stadium <span class="keyword">as</span> a,stadium <span class="keyword">as</span> b,stadium <span class="keyword">as</span> c</span><br><span class="line"><span class="keyword">where</span> ((a.id = b.id<span class="number">-1</span> <span class="keyword">and</span> b.id+<span class="number">1</span> = c.id) <span class="keyword">or</span></span><br><span class="line">       (a.id<span class="number">-1</span> = b.id <span class="keyword">and</span> a.id+<span class="number">1</span> = c.id) <span class="keyword">or</span></span><br><span class="line">       (a.id<span class="number">-1</span> = c.id <span class="keyword">and</span> c.id<span class="number">-1</span> = b.id))</span><br><span class="line">  <span class="keyword">and</span> (a.people&gt;=<span class="number">100</span> <span class="keyword">and</span> b.people&gt;=<span class="number">100</span> <span class="keyword">and</span> c.people&gt;=<span class="number">100</span>)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a.id;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	<span class="keyword">id</span>, to_char(visit_date, <span class="string">'yyyy-mm-dd'</span>) <span class="keyword">as</span> visit_date, people</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	(<span class="keyword">select</span></span><br><span class="line">		<span class="keyword">id</span>, visit_date, people,</span><br><span class="line">		<span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">offset</span>) cnt</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		(<span class="keyword">select</span></span><br><span class="line">			<span class="keyword">id</span>, visit_date, people,</span><br><span class="line">			(row_number() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span>) - <span class="keyword">id</span>) <span class="keyword">offset</span></span><br><span class="line">		<span class="keyword">from</span> stadium</span><br><span class="line">		<span class="keyword">where</span> people &gt;= <span class="number">100</span></span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line"><span class="keyword">where</span> cnt &gt;= <span class="number">3</span>   <span class="comment">-- 连续 3 天（及以上）</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="预约连续空余座位"><a href="#预约连续空余座位" class="headerlink" title="预约连续空余座位"></a>预约连续空余座位</h1><p>表：cinema</p>
+<table>
+<thead>
+<tr>
+<th>seat_id</th>
+<th>free</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>要求：获取所有空余座位，并将它们按照 seat_id 排序。输出结果如下</p>
+<blockquote>
+<p>连续空余座位的定义是大于等于 2 个连续空余的座位。1 表示空余，0 表示已被占据。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>seat_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    seat_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">(</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    seat_id,</span><br><span class="line">    <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">num</span>) <span class="keyword">as</span> cum</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">( </span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    seat_id,</span><br><span class="line">    (row_number() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> seat_id) - seat_id) <span class="keyword">as</span> <span class="keyword">num</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    cinema</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    free = <span class="number">1</span>))</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    cum &gt;= <span class="number">2</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    seat_id</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="找出符合条件的电影"><a href="#找出符合条件的电影" class="headerlink" title="找出符合条件的电影"></a>找出符合条件的电影</h1><p>表：cinema</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>movie</th>
+<th>description</th>
+<th>rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>War</td>
+<td>great 3D</td>
+<td>8.9</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Science</td>
+<td>fiction</td>
+<td>8.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>irish</td>
+<td>boring</td>
+<td>6.2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ice song</td>
+<td>Fantacy</td>
+<td>8.6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>House card</td>
+<td>Interesting</td>
+<td>9.1</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 找出所有影片描述为非 boring (不无聊) 的并且 id 为奇数 的影片，结果请按等级 rating 排列。输出结果如下</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>movie</th>
+<th>description</th>
+<th>rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>House card</td>
+<td>Interesting</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>War</td>
+<td>great 3D</td>
+<td>8.9</td>
+</tr>
+</tbody>
+</table>
+<p>答案1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">     *</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    cinema</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">     <span class="keyword">mod</span>(<span class="keyword">id</span>, <span class="number">2</span>) = <span class="number">1</span> </span><br><span class="line">     <span class="keyword">and</span> </span><br><span class="line">     description != <span class="string">'boring'</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    rating <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
+<p>答案2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    *</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    cinema</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">   description != <span class="string">'boring'</span></span><br><span class="line">   <span class="keyword">and</span></span><br><span class="line">   <span class="keyword">id</span> % <span class="number">2</span> !=<span class="number">0</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    rating <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
 <p><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a></p>
 <p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <h2 id="http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><a href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description" class="headerlink" title="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description"></a><a href="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description" target="_blank" rel="noopener">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</a></h2><h1 id="题源"><a href="#题源" class="headerlink" title="题源"></a>题源</h1><ul>
@@ -3005,8 +3271,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/数据分析方法-分析思维/" rel="next" title="数据分析——常见的数据分析方法与方法论">
-                <i class="fa fa-chevron-left"></i> 数据分析——常见的数据分析方法与方法论
+              <a href="/2019/03/24/数据分析技能-git学习笔记/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
               </a>
             
           </div>
@@ -3214,7 +3480,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏分析3"><span class="nav-number">20.</span> <span class="nav-text">游戏分析3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏分析4"><span class="nav-number">20.0.1.</span> <span class="nav-text">游戏分析4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求中位数"><span class="nav-number">21.</span> <span class="nav-text">求中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找至少有5名直接下属的经理"><span class="nav-number">22.</span> <span class="nav-text">查找至少有5名直接下属的经理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给定数字的频率查中位数"><span class="nav-number">23.</span> <span class="nav-text">给定数字的频率查中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出当选最多的人名称"><span class="nav-number">24.</span> <span class="nav-text">找出当选最多的人名称</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选出所有-bonus-lt-1000的员工的-name-以及-bonus"><span class="nav-number">25.</span> <span class="nav-text">选出所有 bonus &lt; 1000的员工的 name 以及 bonus</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">25.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">26.</span> <span class="nav-text">题源</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏分析3"><span class="nav-number">20.</span> <span class="nav-text">游戏分析3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏分析4"><span class="nav-number">20.0.1.</span> <span class="nav-text">游戏分析4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求中位数"><span class="nav-number">21.</span> <span class="nav-text">求中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找至少有5名直接下属的经理"><span class="nav-number">22.</span> <span class="nav-text">查找至少有5名直接下属的经理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给定数字的频率查中位数"><span class="nav-number">23.</span> <span class="nav-text">给定数字的频率查中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出当选最多的人名称"><span class="nav-number">24.</span> <span class="nav-text">找出当选最多的人名称</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选出所有-bonus-lt-1000的员工的-name-以及-bonus"><span class="nav-number">25.</span> <span class="nav-text">选出所有 bonus &lt; 1000的员工的 name 以及 bonus</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谁有最多的好友"><span class="nav-number">26.</span> <span class="nav-text">谁有最多的好友</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出人流量的高峰期"><span class="nav-number">27.</span> <span class="nav-text">找出人流量的高峰期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预约连续空余座位"><span class="nav-number">28.</span> <span class="nav-text">预约连续空余座位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出符合条件的电影"><span class="nav-number">29.</span> <span class="nav-text">找出符合条件的电影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">29.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">30.</span> <span class="nav-text">题源</span></a></li></div>
             
 
           </div>
@@ -3248,7 +3514,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">107.8k</span>
+    <span title="Site words total count">108.4k</span>
   
 </div>
 
