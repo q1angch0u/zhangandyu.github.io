@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T15:58:52.906Z">
+<meta property="og:updated_time" content="2019-07-28T17:35:16.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL面试题">
 <meta name="twitter:description" content="结合两个表 问题描述：  表1：Preson    Column Name Type     PersonId int   FirstName varchar   LastName varchar    表2： Address    Column Name Type     AddressId int   PersonId int   City varchar   State varchar">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.9k 字
+                  6.7k 字
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  30 分钟
+                  34 分钟
                 </span>
               
             </div>
@@ -3177,6 +3177,278 @@
 </table>
 <p>答案1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">     *</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    cinema</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">     <span class="keyword">mod</span>(<span class="keyword">id</span>, <span class="number">2</span>) = <span class="number">1</span> </span><br><span class="line">     <span class="keyword">and</span> </span><br><span class="line">     description != <span class="string">'boring'</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    rating <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
 <p>答案2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    *</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    cinema</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">   description != <span class="string">'boring'</span></span><br><span class="line">   <span class="keyword">and</span></span><br><span class="line">   <span class="keyword">id</span> % <span class="number">2</span> !=<span class="number">0</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    rating <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id><a href="#" class="headerlink" title=" "></a> </h1><p>表：Sales</p>
+<table>
+<thead>
+<tr>
+<th>sale_id</th>
+<th>product_id</th>
+<th>year</th>
+<th>quantity</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>2008</td>
+<td>10</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>100</td>
+<td>2009</td>
+<td>12</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>7</td>
+<td>200</td>
+<td>2011</td>
+<td>15</td>
+<td>9000</td>
+</tr>
+</tbody>
+</table>
+<p>表：Product</p>
+<table>
+<thead>
+<tr>
+<th>product_id</th>
+<th>product_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Nokia</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Apple</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Samsung</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 编写sql查询， 选择每个销售产品的第一年的数据， 输出结果如下</p>
+<table>
+<thead>
+<tr>
+<th>product_id</th>
+<th>first_year</th>
+<th>quantity</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>2008</td>
+<td>10</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>200</td>
+<td>2011</td>
+<td>15</td>
+<td>9000</td>
+</tr>
+</tbody>
+</table>
+<p>答案：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    product_id,</span><br><span class="line">    <span class="keyword">year</span>  <span class="keyword">as</span> first_year,</span><br><span class="line">    quantity,</span><br><span class="line">    price</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span> </span><br><span class="line">        product_id,</span><br><span class="line">        <span class="keyword">year</span>,</span><br><span class="line">        quantity,price,</span><br><span class="line">        <span class="keyword">rank</span>() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> product_id <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">year</span>) rn</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        sales)</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    rn=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="找到购买所有产品的顾客"><a href="#找到购买所有产品的顾客" class="headerlink" title="找到购买所有产品的顾客"></a>找到购买所有产品的顾客</h1><p>表1： customer</p>
+<table>
+<thead>
+<tr>
+<th>customer_id</th>
+<th>product_key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>表2： product</p>
+<p>| product_key |<br>+————-+<br>| 5           |<br>| 6           |</p>
+<p>要求：  找出从 customer 表中购买了 product 表所有产品的客户id。 输出结果如下</p>
+<table>
+<thead>
+<tr>
+<th>customer_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>答案：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    customer_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    customer</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    customer_id</span><br><span class="line"><span class="keyword">having</span> </span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> product_key) =</span><br><span class="line">    (<span class="keyword">select</span> </span><br><span class="line">        <span class="keyword">count</span>(<span class="keyword">distinct</span> product_key)</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        product )</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    customer_id</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    (<span class="keyword">select</span> </span><br><span class="line">        customer_id, <span class="keyword">count</span>(<span class="keyword">distinct</span> product_key) <span class="keyword">as</span> <span class="keyword">num</span> </span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        customer</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        customer_id) <span class="keyword">as</span> a1</span><br><span class="line"><span class="keyword">join</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">count</span>(product_key) <span class="keyword">as</span> <span class="keyword">num</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        product</span><br><span class="line">) <span class="keyword">as</span> a2</span><br><span class="line"><span class="keyword">on</span> a1.num = a2.num</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="查询关注者的关注数据"><a href="#查询关注者的关注数据" class="headerlink" title="查询关注者的关注数据"></a>查询关注者的关注数据</h1><p>表：follow</p>
+<p>| followee (博主)   | follower(关注者)   |<br>|————-+————|<br>|     A       |     B      |<br>|     B       |     C      |<br>|     B       |     D      |<br>|     D       |     E      |</p>
+<p>要求： 查询每个关注者， 被多少人关注。 输出结果如下：</p>
+<p>| follower    | num        |<br>|————-+————|<br>|     B       |  2         |<br>|     D       |  1         |</p>
+<blockquote>
+<p>B 和 D 都在在 follower 字段中出现，作为博主，B 被 C 和 D 关注，D 被 E 关注。A 不在 follower 字段内，所以A不在输出列表中。</p>
+</blockquote>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    f1.follower, </span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> f2.follower) <span class="keyword">as</span> <span class="keyword">num</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    follow f1</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span></span><br><span class="line">    follow f2</span><br><span class="line">    <span class="keyword">on</span> f1.follower = f2.followee</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    f1.follower</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>   </span><br><span class="line">    f1.follower</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="如何用python操作mysql"><a href="#如何用python操作mysql" class="headerlink" title="如何用python操作mysql"></a>如何用python操作mysql</h4><p>步骤</p>
+<ol>
+<li>安装 mysql-connector</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mysql-connector</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>连接数据库<blockquote>
+<p>通过 connection 对数据库的连接进行管理， 通过 cursor 创建游标对数据库中的数据进行操作。 </p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mysql.connector</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库连接</span></span><br><span class="line"></span><br><span class="line">db = mysql.connector.connect(</span><br><span class="line">    host=<span class="string">'ip地址'</span>,</span><br><span class="line">    user = <span class="string">"root"</span>, </span><br><span class="line">    passwd = <span class="string">"1234"</span>, <span class="comment"># 数据库密码</span></span><br><span class="line">    database = <span class="string">'default'</span>, <span class="comment"># 连接的数据库</span></span><br><span class="line">    auth_plugin = <span class="string">'mysql_native_password" )</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 获取操作游标</span></span><br><span class="line"><span class="string">cursor = db.cursor()</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>编写sql语句</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 输出sql 语句</span></span><br><span class="line">sql = <span class="string">"""select</span></span><br><span class="line"><span class="string">     btn_name</span></span><br><span class="line"><span class="string">from </span></span><br><span class="line"><span class="string">    cinema</span></span><br><span class="line"><span class="string">where</span></span><br><span class="line"><span class="string">    hit_date = "2019-07-26"</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>执行sql语句并返回结果</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行sql语句</span></span><br><span class="line">cursor.execute(sql)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数据集中的所有行</span></span><br><span class="line">cursor.fetchall()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数据中的第一行</span></span><br><span class="line"><span class="comment"># cursor.fetchone()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数据集中的n条数据</span></span><br><span class="line"><span class="comment"># cursor.fetchmany(n)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回数据集中中的行数</span></span><br><span class="line"><span class="comment"># cursor.rowcount</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>关闭游标和数据库连接</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭游标</span></span><br><span class="line">cursor.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭数据连接</span></span><br><span class="line">db.close()</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>延伸： 捕获异常信息。<blockquote>
+<p>在对数据进行增加、删除和修改时， 可能会出现异常，需要对异常数据进行捕获。</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    sql = <span class="string">"""INSER INTO player (team_id, player_name, height) VALUES (%s, %s, %s)"""</span></span><br><span class="line">    val = (<span class="number">1000</span>, <span class="string">"zhangyu"</span>, <span class="number">1.95</span>)</span><br><span class="line">    <span class="comment"># 执行sql语句</span></span><br><span class="line">    cursor.execute(sql, val)</span><br><span class="line">    <span class="comment"># 进行提交</span></span><br><span class="line">    db.commit()</span><br><span class="line">    print(cursor.rowcount, <span class="string">"记录插入成功。"</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="comment"># 打印异常信息</span></span><br><span class="line">    traceback.print_exc()</span><br><span class="line">    <span class="comment"># 回滚</span></span><br><span class="line">    db.rollback()</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 关闭数据库连接</span></span><br><span class="line">    db.close()</span><br></pre></td></tr></table></figure>
+<p>参考资料： 极客时间-sql必知必会</p>
+<hr>
+<h1 id="求出每个项目中经验最丰富的员工"><a href="#求出每个项目中经验最丰富的员工" class="headerlink" title="求出每个项目中经验最丰富的员工"></a>求出每个项目中经验最丰富的员工</h1><p>表：Project table</p>
+<table>
+<thead>
+<tr>
+<th>project_id</th>
+<th>employee_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>表：Employee table</p>
+<table>
+<thead>
+<tr>
+<th>employee_id</th>
+<th>name</th>
+<th>experience_years</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Khaled</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ali</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>John</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Doe</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>要求： 求出每个项目中经验最丰富的员工， 输出结果如下</p>
+<blockquote>
+<p>ID为1和3的员工，在第一个项目中拥有最丰富的经验， 对于第二个项目， ID为1的员工拥有最丰富的经验</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>project_id</th>
+<th>employee_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    project_id,</span><br><span class="line">    employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    (<span class="keyword">select</span></span><br><span class="line">        p.project_id,</span><br><span class="line">        e.employee_id,</span><br><span class="line">        <span class="keyword">rank</span>() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> p.project_id <span class="keyword">order</span> <span class="keyword">by</span> e.experience_years <span class="keyword">desc</span>) rn</span><br><span class="line">    <span class="keyword">from</span> <span class="keyword">project</span> p, employee e</span><br><span class="line">    <span class="keyword">where</span> p.employee_id = e.employee_id)</span><br><span class="line"><span class="keyword">where</span> rn = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<hr>
 <p><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a></p>
 <p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <h2 id="http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><a href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description" class="headerlink" title="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description"></a><a href="http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description" target="_blank" rel="noopener">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</a></h2><h1 id="题源"><a href="#题源" class="headerlink" title="题源"></a>题源</h1><ul>
@@ -3281,8 +3553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/数据分析技能-算法-决策树/" rel="prev" title="算法-决策树">
-                算法-决策树 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/30/个人系统-类比系统/" rel="prev" title="类比汇总">
+                类比汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -3378,7 +3650,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3480,7 +3752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏分析3"><span class="nav-number">20.</span> <span class="nav-text">游戏分析3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏分析4"><span class="nav-number">20.0.1.</span> <span class="nav-text">游戏分析4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求中位数"><span class="nav-number">21.</span> <span class="nav-text">求中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找至少有5名直接下属的经理"><span class="nav-number">22.</span> <span class="nav-text">查找至少有5名直接下属的经理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给定数字的频率查中位数"><span class="nav-number">23.</span> <span class="nav-text">给定数字的频率查中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出当选最多的人名称"><span class="nav-number">24.</span> <span class="nav-text">找出当选最多的人名称</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选出所有-bonus-lt-1000的员工的-name-以及-bonus"><span class="nav-number">25.</span> <span class="nav-text">选出所有 bonus &lt; 1000的员工的 name 以及 bonus</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谁有最多的好友"><span class="nav-number">26.</span> <span class="nav-text">谁有最多的好友</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出人流量的高峰期"><span class="nav-number">27.</span> <span class="nav-text">找出人流量的高峰期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预约连续空余座位"><span class="nav-number">28.</span> <span class="nav-text">预约连续空余座位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出符合条件的电影"><span class="nav-number">29.</span> <span class="nav-text">找出符合条件的电影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">29.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">30.</span> <span class="nav-text">题源</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结合两个表"><span class="nav-number">1.</span> <span class="nav-text">结合两个表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取出排名第-2-高的数据"><span class="nav-number">2.</span> <span class="nav-text">取出排名第 2 高的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对数据进行排序"><span class="nav-number">3.</span> <span class="nav-text">对数据进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#留存率"><span class="nav-number">4.</span> <span class="nav-text">留存率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续出现三次的数字"><span class="nav-number">5.</span> <span class="nav-text">连续出现三次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续-4-个月活跃的用户明细"><span class="nav-number">6.</span> <span class="nav-text">连续 4 个月活跃的用户明细</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询比经理薪资高的员工姓名"><span class="nav-number">7.</span> <span class="nav-text">查询比经理薪资高的员工姓名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出重复邮件"><span class="nav-number">8.</span> <span class="nav-text">找出重复邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5月中连续7天登陆的用户数"><span class="nav-number">9.</span> <span class="nav-text">5月中连续7天登陆的用户数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出未订购任何内容的用户"><span class="nav-number">10.</span> <span class="nav-text">找出未订购任何内容的用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出各部门薪水最高的员工"><span class="nav-number">11.</span> <span class="nav-text">找出各部门薪水最高的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取每个部门中薪水前三名的员工"><span class="nav-number">12.</span> <span class="nav-text">获取每个部门中薪水前三名的员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学生-课程-成绩案例"><span class="nav-number">13.</span> <span class="nav-text">学生-课程-成绩案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每季度数据进行汇总"><span class="nav-number">14.</span> <span class="nav-text">对每季度数据进行汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释-lateral-view-函数"><span class="nav-number">15.</span> <span class="nav-text">解释 lateral view 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述"><span class="nav-number">15.0.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1："><span class="nav-number">15.0.2.</span> <span class="nav-text">问题1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2："><span class="nav-number">15.0.3.</span> <span class="nav-text">问题2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3："><span class="nav-number">15.0.4.</span> <span class="nav-text">问题3：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#删除重复的电子邮箱"><span class="nav-number">16.</span> <span class="nav-text">删除重复的电子邮箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上升的温度"><span class="nav-number">17.</span> <span class="nav-text">上升的温度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析1"><span class="nav-number">18.</span> <span class="nav-text">游戏玩家分析1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏玩家分析2"><span class="nav-number">19.</span> <span class="nav-text">游戏玩家分析2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#游戏分析3"><span class="nav-number">20.</span> <span class="nav-text">游戏分析3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏分析4"><span class="nav-number">20.0.1.</span> <span class="nav-text">游戏分析4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求中位数"><span class="nav-number">21.</span> <span class="nav-text">求中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找至少有5名直接下属的经理"><span class="nav-number">22.</span> <span class="nav-text">查找至少有5名直接下属的经理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给定数字的频率查中位数"><span class="nav-number">23.</span> <span class="nav-text">给定数字的频率查中位数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出当选最多的人名称"><span class="nav-number">24.</span> <span class="nav-text">找出当选最多的人名称</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选出所有-bonus-lt-1000的员工的-name-以及-bonus"><span class="nav-number">25.</span> <span class="nav-text">选出所有 bonus &lt; 1000的员工的 name 以及 bonus</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谁有最多的好友"><span class="nav-number">26.</span> <span class="nav-text">谁有最多的好友</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出人流量的高峰期"><span class="nav-number">27.</span> <span class="nav-text">找出人流量的高峰期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预约连续空余座位"><span class="nav-number">28.</span> <span class="nav-text">预约连续空余座位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找出符合条件的电影"><span class="nav-number">29.</span> <span class="nav-text">找出符合条件的电影</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">30.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找到购买所有产品的顾客"><span class="nav-number">31.</span> <span class="nav-text">找到购买所有产品的顾客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询关注者的关注数据"><span class="nav-number">32.</span> <span class="nav-text">查询关注者的关注数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何用python操作mysql"><span class="nav-number">32.0.0.1.</span> <span class="nav-text">如何用python操作mysql</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求出每个项目中经验最丰富的员工"><span class="nav-number">33.</span> <span class="nav-text">求出每个项目中经验最丰富的员工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-leetcode-liangjiateng-cn-leetcode-game-play-analysis-ii-description"><span class="nav-number">33.1.</span> <span class="nav-text">http://leetcode.liangjiateng.cn/leetcode/game-play-analysis-ii/description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题源"><span class="nav-number">34.</span> <span class="nav-text">题源</span></a></li></div>
             
 
           </div>
@@ -3514,7 +3786,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">108.6k</span>
+    <span title="Site words total count">106k</span>
   
 </div>
 
