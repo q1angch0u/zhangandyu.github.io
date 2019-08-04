@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangandyu.github.io/"/>
-  <updated>2019-08-04T02:34:47.970Z</updated>
+  <updated>2019-08-04T02:41:29.050Z</updated>
   <id>https://zhangandyu.github.io/</id>
   
   <author>
@@ -17,30 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://zhangandyu.github.io/2019/08/04/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4-%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/08/04/数据分析思维-异常分析/</id>
-    <published>2019-08-04T02:35:10.731Z</published>
-    <updated>2019-08-04T02:34:47.970Z</updated>
+    <title>数据异常分析</title>
+    <link href="https://zhangandyu.github.io/2019/08/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4-%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/08/03/数据分析思维-异常分析/</id>
+    <published>2019-08-02T16:00:00.000Z</published>
+    <updated>2019-08-04T02:41:29.050Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: 数据异常分析<br>date: 2019-08-03<br>tags: </p><ul><li>数据分析</li><li>运营<br>categories:</li><li>数据分析<br>password: </li></ul><p>作为一名数据分析师， 在工作中我们经常要对异常数据进行原因分析， 那么异常排查的方法都有哪些， 今天我们就来谈一谈。 </p><p>首先，在进行分析前，我们需要明确以下几点：</p><ol><li><p>对此数据的业务理解是否准确。 比如：APP的日活是如何定义的， 是用户只要启动APP，还是用户必须在APP中有点击行为。</p></li><li><p>数据的指标口径是否统一。  比如：某活动页面的 uv，是通过统计用户的手机号进行统计，还是根据用户tracking id 进行统计。不同的统计口径会导致数据出现差异。</p></li><li><p>数据的产出过程是否明确。 比如：数据是如何从日志中进行清洗，是否会存在数据多发情况。 </p></li><li><p>寻找相关运营或产品人员进行沟通，询问他们关于此数据异常的原因见解，往往能够提高我们的分析效率。 </p></li></ol><p>在明确以上问题的前提下， 接下来就是对异常原因的排查。首先我们排查以下两方面因素：</p><ol><li><p>外部因素： 时间因素，节假日活动，热点事件，政策影响等</p></li><li><p>内部因素： 部门运营活动，产品功能上线，大盘整体趋势、页面性能、SQL逻辑错误，数据指标口径调整等。</p></li><li><p>多维度拆解。从各个维度进行细分拆解，定位问题。比如：某产品活跃用户下降，那我们可以把活跃用户拆分成新用户、老用户、回流用户，然后针对不同的用户再进行细拆分析。</p></li></ol><p>在查找出异常原因之后，我们还需要做到以下两点：</p><ol><li><p>持续跟踪后续数据是否再次异常。在排查出原因并采取相应措施之后，我们需要持续跟踪数据，如果数据再次异常，那么说明给出的异常原因可能是错误的。 </p></li><li><p>对异常原因进行梳理，文档化。</p><blockquote><ol><li>问题描述：什么时间、什么指标异常、异常幅度</li><li>主要结论：异常因素有哪些，各自的影响程度如何</li><li>后续跟进：后续的解决方案是什么，解决时间，再次验证是否异常。</li><li>具体分析过程：分析过程与详细分析数据</li></ol></blockquote></li></ol><p>以上就是自己总结的数据异常原因分析，你还有哪些好用的分析方法，欢迎留言交流。</p><p>参考资料：</p><p><a href="https://mp.weixin.qq.com/s/xO2lrEXr-lCkD6ZhQluCNQ" target="_blank" rel="noopener">数据异常求生指南</a><br><a href="https://mp.weixin.qq.com/s/SW0y1zOOMdJ01REk2hprvQ" target="_blank" rel="noopener">数据分析之数据异常分析</a><br><a href="https://mp.weixin.qq.com/s/_WhFj4u9ptZa22jk2WLxDQ" target="_blank" rel="noopener">日思619.数据异常了，如何分析？</a></p>]]></content>
+    <content type="html"><![CDATA[<p>作为一名数据分析师， 在工作中我们经常要对异常数据进行原因分析， 那么异常排查的方法都有哪些， 今天我们就来谈一谈。 </p><p>首先，在进行分析前，我们需要明确以下几点：</p><ol><li><p>对此数据的业务理解是否准确。 比如：APP的日活是如何定义的， 是用户只要启动APP，还是用户必须在APP中有点击行为。</p></li><li><p>数据的指标口径是否统一。  比如：某活动页面的 uv，是通过统计用户的手机号进行统计，还是根据用户tracking id 进行统计。不同的统计口径会导致数据出现差异。</p></li><li><p>数据的产出过程是否明确。 比如：数据是如何从日志中进行清洗，是否会存在数据多发情况。 </p></li><li><p>寻找相关运营或产品人员进行沟通，询问他们关于此数据异常的原因见解，往往能够提高我们的分析效率。 </p></li></ol><p>在明确以上问题的前提下， 接下来就是对异常原因的排查。首先我们排查以下两方面因素：</p><ol><li><p>外部因素： 时间因素，节假日活动，热点事件，政策影响等</p></li><li><p>内部因素： 部门运营活动，产品功能上线，大盘整体趋势、页面性能、SQL逻辑错误，数据指标口径调整等。</p></li><li><p>多维度拆解。从各个维度进行细分拆解，定位问题。比如：某产品活跃用户下降，那我们可以把活跃用户拆分成新用户、老用户、回流用户，然后针对不同的用户再进行细拆分析。</p></li></ol><p>在查找出异常原因之后，我们还需要做到以下两点：</p><ol><li><p>持续跟踪后续数据是否再次异常。在排查出原因并采取相应措施之后，我们需要持续跟踪数据，如果数据再次异常，那么说明给出的异常原因可能是错误的。 </p></li><li><p>对异常原因进行梳理，文档化。</p><blockquote><ol><li>问题描述：什么时间、什么指标异常、异常幅度</li><li>主要结论：异常因素有哪些，各自的影响程度如何</li><li>后续跟进：后续的解决方案是什么，解决时间，再次验证是否异常。</li><li>具体分析过程：分析过程与详细分析数据</li></ol></blockquote></li></ol><p>以上就是自己总结的数据异常原因分析，你还有哪些好用的分析方法，欢迎留言交流。</p><p>参考资料：</p><p><a href="https://mp.weixin.qq.com/s/xO2lrEXr-lCkD6ZhQluCNQ" target="_blank" rel="noopener">数据异常求生指南</a><br><a href="https://mp.weixin.qq.com/s/SW0y1zOOMdJ01REk2hprvQ" target="_blank" rel="noopener">数据分析之数据异常分析</a><br><a href="https://mp.weixin.qq.com/s/_WhFj4u9ptZa22jk2WLxDQ" target="_blank" rel="noopener">日思619.数据异常了，如何分析？</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;p&gt;title: 数据异常分析&lt;br&gt;date: 2019-08-03&lt;br&gt;tags: &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数据分析&lt;/li&gt;
-&lt;li&gt;运营&lt;br&gt;categories:&lt;/li&gt;
-&lt;li&gt;数据分析&lt;br&gt;password: &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;作
+        &lt;p&gt;作为一名数据分析师， 在工作中我们经常要对异常数据进行原因分析， 那么异常排查的方法都有哪些， 今天我们就来谈一谈。 &lt;/p&gt;
+&lt;p&gt;首先，在进行分析前，我们需要明确以下几点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;对此数据的业务理解是否准确。 比如：APP的日活是如何定义的， 
       
     
     </summary>
     
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="运营" scheme="https://zhangandyu.github.io/tags/%E8%BF%90%E8%90%A5/"/>
     
   </entry>
   
@@ -252,6 +254,33 @@
   </entry>
   
   <entry>
+    <title>Excel模板</title>
+    <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Excel%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-Excel知识总结/</id>
+    <published>2019-05-17T16:00:00.000Z</published>
+    <updated>2019-07-13T14:43:13.961Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="必会的54个函数"><a href="#必会的54个函数" class="headerlink" title="必会的54个函数"></a>必会的54个函数</h1><h3 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h3><ol><li>day</li><li>month</li><li>year</li><li>date</li><li>today</li><li>weekday</li><li>weeknum 一年中的第几周</li></ol><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ol><li>product</li><li>rand</li><li>randbetween </li><li>round</li><li>sum</li><li>sumif</li><li>sumifs</li><li>sumproduct累加相乘</li></ol><h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><ol><li>large</li><li>small</li><li>max</li><li>min </li><li>median</li><li>rank 排名</li><li>count</li><li>countif</li><li>countifs</li><li>average</li><li>averageif</li><li>averageifs</li></ol><h3 id="查找和引用函数"><a href="#查找和引用函数" class="headerlink" title="查找和引用函数"></a>查找和引用函数</h3><ol><li>choose</li><li>match</li><li>index</li><li>indirect</li><li>column</li><li>row</li><li>vlookup</li><li>hlookup</li><li>lookup</li><li>offset</li><li>getpivotdata</li></ol><h3 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h3><ol><li>find</li><li>left</li><li>right</li><li>concatenate</li><li>replace</li><li>search</li><li>text</li><li>trim 函数—— 删除字符串中多余的空格</li><li>len</li><li>mid</li><li>value</li></ol><h3 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h3><ol><li>and </li><li>or</li><li>false</li><li>true</li><li>if</li><li>iferror</li></ol><hr><h1 id="指定Excel模板"><a href="#指定Excel模板" class="headerlink" title="指定Excel模板"></a>指定Excel模板</h1><ol><li>自定义区域</li><li>数据源区域</li><li>分析辅助区域</li><li>业务预警区域</li><li>业务分析区域</li><li>报告展示区域</li></ol><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><h2 id="常见图表"><a href="#常见图表" class="headerlink" title="常见图表"></a>常见图表</h2><ol><li><p>散点图</p></li><li><p>气泡图</p></li><li><p>单轴散点图</p></li><li><p>折线图</p></li><li><p>面积图</p></li><li><p>柱形图</p></li><li><p>瀑布图</p></li><li><p>漏斗图</p></li><li><p>雷达图</p></li></ol><h2 id="高级图表"><a href="#高级图表" class="headerlink" title="高级图表"></a>高级图表</h2><ol><li><p>树形图</p></li><li><p>桑基图</p></li><li><p>热力图</p></li><li><p>关系图</p></li><li><p>箱线图</p></li><li><p>标靶图</p></li><li><p>词云图</p></li><li><p>地理图</p></li><li><p>股价图</p><blockquote><p>数据形式： 日期， 开盘价，最高价， 最低价， 收盘价</p></blockquote></li></ol><h2 id="图表配色"><a href="#图表配色" class="headerlink" title="图表配色"></a>图表配色</h2><p>网址： color.adobe.com</p><h2 id="图标矢量图"><a href="#图标矢量图" class="headerlink" title="图标矢量图"></a>图标矢量图</h2><h2 id="csv文件有20位的数字怎么办"><a href="#csv文件有20位的数字怎么办" class="headerlink" title="csv文件有20位的数字怎么办"></a>csv文件有20位的数字怎么办</h2><p>新建excel,选择数据， 选择来自文本， 导入csv 文件， 选择逗号进行分列， 并同时对数字选择文本格式， 点击确定， 导成 xlsx格式。 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;必会的54个函数&quot;&gt;&lt;a href=&quot;#必会的54个函数&quot; class=&quot;headerlink&quot; title=&quot;必会的54个函数&quot;&gt;&lt;/a&gt;必会的54个函数&lt;/h1&gt;&lt;h3 id=&quot;日期函数：&quot;&gt;&lt;a href=&quot;#日期函数：&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="运营" scheme="https://zhangandyu.github.io/tags/%E8%BF%90%E8%90%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据分析师的通关升级</title>
     <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E9%80%9A%E5%85%B3%E5%8D%87%E7%BA%A7/"/>
     <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-通关升级/</id>
@@ -278,33 +307,6 @@
     
     
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Excel模板</title>
-    <link href="https://zhangandyu.github.io/2019/05/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Excel%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    <id>https://zhangandyu.github.io/2019/05/18/数据分析技能-Excel知识总结/</id>
-    <published>2019-05-17T16:00:00.000Z</published>
-    <updated>2019-07-13T14:43:13.961Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="必会的54个函数"><a href="#必会的54个函数" class="headerlink" title="必会的54个函数"></a>必会的54个函数</h1><h3 id="日期函数："><a href="#日期函数：" class="headerlink" title="日期函数："></a>日期函数：</h3><ol><li>day</li><li>month</li><li>year</li><li>date</li><li>today</li><li>weekday</li><li>weeknum 一年中的第几周</li></ol><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ol><li>product</li><li>rand</li><li>randbetween </li><li>round</li><li>sum</li><li>sumif</li><li>sumifs</li><li>sumproduct累加相乘</li></ol><h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><ol><li>large</li><li>small</li><li>max</li><li>min </li><li>median</li><li>rank 排名</li><li>count</li><li>countif</li><li>countifs</li><li>average</li><li>averageif</li><li>averageifs</li></ol><h3 id="查找和引用函数"><a href="#查找和引用函数" class="headerlink" title="查找和引用函数"></a>查找和引用函数</h3><ol><li>choose</li><li>match</li><li>index</li><li>indirect</li><li>column</li><li>row</li><li>vlookup</li><li>hlookup</li><li>lookup</li><li>offset</li><li>getpivotdata</li></ol><h3 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h3><ol><li>find</li><li>left</li><li>right</li><li>concatenate</li><li>replace</li><li>search</li><li>text</li><li>trim 函数—— 删除字符串中多余的空格</li><li>len</li><li>mid</li><li>value</li></ol><h3 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h3><ol><li>and </li><li>or</li><li>false</li><li>true</li><li>if</li><li>iferror</li></ol><hr><h1 id="指定Excel模板"><a href="#指定Excel模板" class="headerlink" title="指定Excel模板"></a>指定Excel模板</h1><ol><li>自定义区域</li><li>数据源区域</li><li>分析辅助区域</li><li>业务预警区域</li><li>业务分析区域</li><li>报告展示区域</li></ol><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><h2 id="常见图表"><a href="#常见图表" class="headerlink" title="常见图表"></a>常见图表</h2><ol><li><p>散点图</p></li><li><p>气泡图</p></li><li><p>单轴散点图</p></li><li><p>折线图</p></li><li><p>面积图</p></li><li><p>柱形图</p></li><li><p>瀑布图</p></li><li><p>漏斗图</p></li><li><p>雷达图</p></li></ol><h2 id="高级图表"><a href="#高级图表" class="headerlink" title="高级图表"></a>高级图表</h2><ol><li><p>树形图</p></li><li><p>桑基图</p></li><li><p>热力图</p></li><li><p>关系图</p></li><li><p>箱线图</p></li><li><p>标靶图</p></li><li><p>词云图</p></li><li><p>地理图</p></li><li><p>股价图</p><blockquote><p>数据形式： 日期， 开盘价，最高价， 最低价， 收盘价</p></blockquote></li></ol><h2 id="图表配色"><a href="#图表配色" class="headerlink" title="图表配色"></a>图表配色</h2><p>网址： color.adobe.com</p><h2 id="图标矢量图"><a href="#图标矢量图" class="headerlink" title="图标矢量图"></a>图标矢量图</h2><h2 id="csv文件有20位的数字怎么办"><a href="#csv文件有20位的数字怎么办" class="headerlink" title="csv文件有20位的数字怎么办"></a>csv文件有20位的数字怎么办</h2><p>新建excel,选择数据， 选择来自文本， 导入csv 文件， 选择逗号进行分列， 并同时对数字选择文本格式， 点击确定， 导成 xlsx格式。 </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;必会的54个函数&quot;&gt;&lt;a href=&quot;#必会的54个函数&quot; class=&quot;headerlink&quot; title=&quot;必会的54个函数&quot;&gt;&lt;/a&gt;必会的54个函数&lt;/h1&gt;&lt;h3 id=&quot;日期函数：&quot;&gt;&lt;a href=&quot;#日期函数：&quot; class=&quot;headerlink
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="运营" scheme="https://zhangandyu.github.io/tags/%E8%BF%90%E8%90%A5/"/>
     
   </entry>
   
@@ -440,6 +442,80 @@
   </entry>
   
   <entry>
+    <title>竞品分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-竞品分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-07-07T07:20:19.820Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>改版分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-07-07T07:08:14.710Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
+&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流量分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-流量分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-07-07T08:50:25.688Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用户增长分析</title>
     <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E5%88%86%E6%9E%90/"/>
     <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-用户增长分析/</id>
@@ -493,80 +569,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>流量分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-流量分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-07-07T08:50:25.688Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>改版分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-07-07T07:08:14.710Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
-&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>竞品分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-竞品分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-07-07T07:20:19.820Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hive 基础查询</title>
     <link href="https://zhangandyu.github.io/2019/04/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-Hive%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/"/>
     <id>https://zhangandyu.github.io/2019/04/18/数据分析技能-Hive基础查询/</id>
@@ -591,6 +593,28 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
+    <title>类比汇总</title>
+    <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E7%B1%BB%E6%AF%94%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://zhangandyu.github.io/2019/03/30/个人系统-类比系统/</id>
+    <published>2019-03-29T16:00:00.000Z</published>
+    <updated>2019-07-11T05:02:26.174Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……</p><a id="more"></a><hr><p>在我们使用函数的过程中，我们常常有意忽略它的内部如何完成从输入到输出之间的处理过程 —— 这就好像我们平日里用灯泡一样，大多数情况下，我们只要知道开关的使用方法就够了 —— 至于为什么按到这个方向上灯会亮，为什么按到另外一个方向上灯会灭，并不是我们作为用户必须关心的事情……</p><p>当然，如果你是设计开关的人就不一样了，你必须知道其中的运作原理；但是，最终，你还是希望你的用户用最简单方便的操作界面，而不是必须搞懂所有原理才能够使用你所设计的产品……</p><hr><p>在任何一本编程书籍之中，关于字符串的内容总是很长 —— 就好像每本英语语法书中，关于动词的内容总是占全部内容的至少三分之二。</p><hr><p>教育就像一副眼镜。<br>戴上眼镜之前和之后，我们看到的其实是同样的世界；但是戴上眼镜之后，我们就看得更清楚。</p><hr><p>我们是这样一台计算机，厂商（我们的父母）并没有为我们提供详尽的说明书，也不负责定期升级我们的操作系统——即使他们并非故意。</p><hr><p>人与人之间很不一样，就好像计算机和计算机之间也很不一样，有些中央处理器（头脑）更强大一些，有些人的内存容量（记忆力）更大一些，有些人的硬盘空间（笔记与藏书）更大一些，有些人显示器（外表）更漂亮一些。</p><hr><p>很多人的处理器是落伍的，输入和输出设备常常残缺不全，内存小到没法用的底部，硬盘甚至根本就没有……至于连网设备么，真的很差，甚至真的还不如没有，因为即使连着网也因为缺乏通讯协议而完全无法使用…</p><hr><p>科学是由信息构成的，正如房子是用砖头盖的一样，可问题在于，正如仅仅一堆砖头放在那里的时候，我们不能称其为房子一样，一堆信息放在一块就叫科学，有点不像话……</p><hr><p>学习电脑编程的函数时，我把函数想象成铅笔刀，钝铅笔进去，锐利的铅笔出来，这个模型不依赖于图像，但是过程类似。</p><hr><p>两个自我： 大象和骑象人</p><blockquote><p>人的感性面就是一头大象，而理智面就是一个骑象人。<br>骑象人骑在大象背上，手里握着缰绳，好像是他在指挥大象，但实际上，他的力量微不足道。一旦和大象发生冲突，他想往左，而大象想往右。那他通常是拗不过大象的。 </p></blockquote><hr><p>就像人有一套生理免疫系统来排斥不属于身体的微生物一样，人的心理也有一套免疫系统，它会排斥我们采取新的行为方式，以此来维持心理结构的平衡和稳定。 </p><hr><p>我们要验证这些假设对不对，什么时候成立，什么时候不成立。</p><p>这就像学习游泳，我们既不能只在岸上熟读《怎么学游泳》的书，也不能一下子要求自己跳到深水区，这样就被淹死了。 </p><hr><p>同一辆车， 在公路上开， 和在泥地上开， 要达到相同的速度， 付出的努力是不同的。 同理， 不同的工作环境和内丝， 带来不同的难度， 对采用的技术和努力程度也有不同的要求。 所以只衡量结果却不考虑过程， 有失公平。 考虑过程， 就包括了对工作暖色、环境因素带来的工作复杂度的度量， 也体现了对个人技能、态度的衡量。 </p><hr><p>中国人是椰子文化，擅长熟人社会的交往规则，不擅长与陌生人打交道。</p><p>西方人是桃子文化， 擅长与陌生人打交道。 </p><hr><p>闭环原则是工作中最常用也是最有效的原则，但很少有人能够一直做到。这就像“运动和良好的饮食可以帮助我们保持健康和身材”一样，几乎所有人都知道， 但很少有人能够做到。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="素材" scheme="https://zhangandyu.github.io/categories/%E7%B4%A0%E6%9D%90/"/>
+    
+    
+      <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>搜索系统</title>
     <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E6%90%9C%E7%B4%A2%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangandyu.github.io/2019/03/30/个人系统-搜索系统/</id>
@@ -611,28 +635,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       
     
     </summary>
-    
-    
-      <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类比汇总</title>
-    <link href="https://zhangandyu.github.io/2019/03/30/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E7%B1%BB%E6%AF%94%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zhangandyu.github.io/2019/03/30/个人系统-类比系统/</id>
-    <published>2019-03-29T16:00:00.000Z</published>
-    <updated>2019-07-11T05:02:26.174Z</updated>
-    
-    <content type="html"><![CDATA[<p>学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……</p><a id="more"></a><hr><p>在我们使用函数的过程中，我们常常有意忽略它的内部如何完成从输入到输出之间的处理过程 —— 这就好像我们平日里用灯泡一样，大多数情况下，我们只要知道开关的使用方法就够了 —— 至于为什么按到这个方向上灯会亮，为什么按到另外一个方向上灯会灭，并不是我们作为用户必须关心的事情……</p><p>当然，如果你是设计开关的人就不一样了，你必须知道其中的运作原理；但是，最终，你还是希望你的用户用最简单方便的操作界面，而不是必须搞懂所有原理才能够使用你所设计的产品……</p><hr><p>在任何一本编程书籍之中，关于字符串的内容总是很长 —— 就好像每本英语语法书中，关于动词的内容总是占全部内容的至少三分之二。</p><hr><p>教育就像一副眼镜。<br>戴上眼镜之前和之后，我们看到的其实是同样的世界；但是戴上眼镜之后，我们就看得更清楚。</p><hr><p>我们是这样一台计算机，厂商（我们的父母）并没有为我们提供详尽的说明书，也不负责定期升级我们的操作系统——即使他们并非故意。</p><hr><p>人与人之间很不一样，就好像计算机和计算机之间也很不一样，有些中央处理器（头脑）更强大一些，有些人的内存容量（记忆力）更大一些，有些人的硬盘空间（笔记与藏书）更大一些，有些人显示器（外表）更漂亮一些。</p><hr><p>很多人的处理器是落伍的，输入和输出设备常常残缺不全，内存小到没法用的底部，硬盘甚至根本就没有……至于连网设备么，真的很差，甚至真的还不如没有，因为即使连着网也因为缺乏通讯协议而完全无法使用…</p><hr><p>科学是由信息构成的，正如房子是用砖头盖的一样，可问题在于，正如仅仅一堆砖头放在那里的时候，我们不能称其为房子一样，一堆信息放在一块就叫科学，有点不像话……</p><hr><p>学习电脑编程的函数时，我把函数想象成铅笔刀，钝铅笔进去，锐利的铅笔出来，这个模型不依赖于图像，但是过程类似。</p><hr><p>两个自我： 大象和骑象人</p><blockquote><p>人的感性面就是一头大象，而理智面就是一个骑象人。<br>骑象人骑在大象背上，手里握着缰绳，好像是他在指挥大象，但实际上，他的力量微不足道。一旦和大象发生冲突，他想往左，而大象想往右。那他通常是拗不过大象的。 </p></blockquote><hr><p>就像人有一套生理免疫系统来排斥不属于身体的微生物一样，人的心理也有一套免疫系统，它会排斥我们采取新的行为方式，以此来维持心理结构的平衡和稳定。 </p><hr><p>我们要验证这些假设对不对，什么时候成立，什么时候不成立。</p><p>这就像学习游泳，我们既不能只在岸上熟读《怎么学游泳》的书，也不能一下子要求自己跳到深水区，这样就被淹死了。 </p><hr><p>同一辆车， 在公路上开， 和在泥地上开， 要达到相同的速度， 付出的努力是不同的。 同理， 不同的工作环境和内丝， 带来不同的难度， 对采用的技术和努力程度也有不同的要求。 所以只衡量结果却不考虑过程， 有失公平。 考虑过程， 就包括了对工作暖色、环境因素带来的工作复杂度的度量， 也体现了对个人技能、态度的衡量。 </p><hr><p>中国人是椰子文化，擅长熟人社会的交往规则，不擅长与陌生人打交道。</p><p>西方人是桃子文化， 擅长与陌生人打交道。 </p><hr><p>闭环原则是工作中最常用也是最有效的原则，但很少有人能够一直做到。这就像“运动和良好的饮食可以帮助我们保持健康和身材”一样，几乎所有人都知道， 但很少有人能够做到。</p><hr>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;学习一门技能，你需要知道最少必要知识。 这就好像你拿着一张地图，不可能一下子掌握其中所有的细节，但花几分钟搞清楚 “图例”（Legend）部分总是可以的，知道什么样的线标示的是公交车，什么样的线标示的是地铁，什么样的线标示的是桥梁，然后知道上北下南左西右东 —— 这之后，就可以开始慢慢研究地图了……&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="素材" scheme="https://zhangandyu.github.io/categories/%E7%B4%A0%E6%9D%90/"/>
     
     
       <category term="资料" scheme="https://zhangandyu.github.io/tags/%E8%B5%84%E6%96%99/"/>
@@ -902,31 +904,25 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>个人三观</title>
-    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82/"/>
-    <id>https://zhangandyu.github.io/2019/01/06/个人系统-个人三观/</id>
+    <title>微信公众号留言记录</title>
+    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
+    <id>https://zhangandyu.github.io/2019/01/06/个人系统-微信公众号留言管理/</id>
     <published>2019-01-05T16:00:00.000Z</published>
-    <updated>2019-07-14T01:35:01.365Z</updated>
+    <updated>2019-07-30T06:23:27.515Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="我的价值观"><a href="#我的价值观" class="headerlink" title="我的价值观"></a>我的价值观</h1><ul><li>勤奋</li><li>诚实</li><li>认真</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>我自身是不是一个有价值、值得被爱的人。能没有能给别人幸福和安全感的强大内心，有没有给予女孩一个理想的、美好的未来的能力。 </p><h3 id="价值观"><a href="#价值观" class="headerlink" title="价值观"></a>价值观</h3><ol><li><p>挣钱<br>你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。</p></li><li><p>技术<br>学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 </p></li></ol><p>并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。</p><ol start="3"><li><p>职业<br>首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。<br>某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 </p></li><li><p>客户<br>我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 </p></li><li><p>写作</p></li></ol><ul><li>第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。</li><li>第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。</li><li>第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。</li><li>第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。</li></ul><ol start="6"><li>人生</li></ol><ul><li>第一阶段： 20-30岁， 打基础阶段。<br>在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。</li><li>第二阶段：30-40岁，人生发张阶段。<br>因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。<br>在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 </li></ul><ol start="7"><li>建议</li></ol><ul><li><p>客观的审视自己<br>找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。<br>在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。</p></li><li><p>确定自己想要什么<br>如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。<br>注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。</p></li><li><p>注重长期的可能性，而不是短期的功利。<br>20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 </p></li><li><p>尽量关注自己会得到的东西，而不是自己会失去的东西。<br>因为无论你怎么选，你都会有得有失。</p></li><li><p>不要喝大众的思维方式一样。<br>因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 </p></li><li><p>很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因”</p></li></ul><hr><h1 id="我的三观"><a href="#我的三观" class="headerlink" title="我的三观"></a>我的三观</h1><ul><li>人生观-你想成为什么样的人</li><li>价值观-你觉得什么对你来说更重要</li><li>世界观-你是怎么来看这个世界的</li></ul><h3 id="世界观"><a href="#世界观" class="headerlink" title="世界观"></a>世界观</h3><blockquote><p>要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说</p></blockquote><p>你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 </p><p>多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 </p><h3 id="人生观"><a href="#人生观" class="headerlink" title="人生观"></a>人生观</h3><p>什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 </p><p>选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 </p><p>因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 </p><p>你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。 </p><h1 id="必须做的5件事"><a href="#必须做的5件事" class="headerlink" title="必须做的5件事"></a>必须做的5件事</h1><ol><li><p>想尽办法，跟牛人在一起</p><blockquote><p>在跟牛人的交流中， 能迅速打开视野，增长见识， 还能交到朋友。<br>经常交流的人， 对你有很大的反向塑造里，想成为牛人，就一定要常见牛人，付费约见是一种很好的方式。 </p></blockquote></li><li><p>读以致用， 好书至少读十篇</p></li></ol><ul><li>一定要每天坚持读书， 哪怕每天只读5页</li><li>输出， 读完之后， 需要总结，写出文章来，没有输出的输入，质量是不行的。</li><li>好书读十遍，遇到好书， 一定要反复读</li><li>读以致用， 成长的关键在于干事情，并且做出成绩来，读完就要用</li></ul><ol start="3"><li><p>做人大方，持续真诚地利他<br>如果你是个持续大方的人，别人就会知道，跟你合作、和你交往，不会吃亏，朋友、机会才会越来越多</p></li><li><p>视时如命，有极强的抗扰力<br>主动见想见的人，去做该做的事情，但不要被别人打乱你的节奏。</p></li><li><p>持续分享，传播有用的内容<br>想要打造个人品牌，持续对外输出有用的内容，是至关重要的事情。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;我的价值观&quot;&gt;&lt;a href=&quot;#我的价值观&quot; class=&quot;headerlink&quot; title=&quot;我的价值观&quot;&gt;&lt;/a&gt;我的价值观&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;勤奋&lt;/li&gt;
-&lt;li&gt;诚实&lt;/li&gt;
-&lt;li&gt;认真&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;问题&quot;&gt;&lt;a
+        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
+
       
     
     </summary>
     
       <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
     
     
       <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
@@ -954,32 +950,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
 &lt;li&gt;&lt;p&gt;你做没做工作， 是否真的在做工作，大家是能够看到的，能够感觉到的， 但是大家平时不说出来， 关键时候自有评判。 &lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;不要总是为了逃避思考，而去做那些枯燥无意义的事情，学会知道什么最重要。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信公众号留言记录</title>
-    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
-    <id>https://zhangandyu.github.io/2019/01/06/个人系统-微信公众号留言管理/</id>
-    <published>2019-01-05T16:00:00.000Z</published>
-    <updated>2019-07-30T06:23:27.515Z</updated>
-    
-    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
-
-      
     
     </summary>
     
@@ -1027,35 +997,34 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>专题分析</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-01-14T16:11:16.075Z</updated>
+    <title>个人三观</title>
+    <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82/"/>
+    <id>https://zhangandyu.github.io/2019/01/06/个人系统-个人三观/</id>
+    <published>2019-01-05T16:00:00.000Z</published>
+    <updated>2019-07-14T01:35:01.365Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="我的价值观"><a href="#我的价值观" class="headerlink" title="我的价值观"></a>我的价值观</h1><ul><li>勤奋</li><li>诚实</li><li>认真</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>我自身是不是一个有价值、值得被爱的人。能没有能给别人幸福和安全感的强大内心，有没有给予女孩一个理想的、美好的未来的能力。 </p><h3 id="价值观"><a href="#价值观" class="headerlink" title="价值观"></a>价值观</h3><ol><li><p>挣钱<br>你得解决一个核心问题， 那就是为什么别人愿意给你钱。 你要提高自己的能力，让自己值那个价钱，让别人愿意付钱。越有能力的人，越不计较一些短期得失。关心长期利益的人一定不是投机者，而是投资者，投资者会把时间、精力、金钱投资在能让自己成长和提升的地方，能让自己施展本领与抱负的地方，他们培养自己的领导力和影响力。</p></li><li><p>技术<br>学习能力是一个好的工程师必须具备的能力。 花时间再技术的原理和技术的本质上，需要了解各种各样的技术的设计方法以及能在原理。 </p></li></ol><p>并不存在没有时间，关键在于你对学习有多少渴望程度，对要学的东西有多大的热情。 这点是非常重要的，因为学习者件事其实是听反人性的。反人性的事基本上都是要付出很多，而且还要坚持很久。所以， 如果对学习没有渴望的话，或者不从学习中找到快乐的话，那么其实就很难坚持，无论你有没有时间。</p><ol start="3"><li><p>职业<br>首先，我必须完成公司交给我的任务， 然后，我会尽我所能的找到工作中可以提升效率的地方，并改善它。<br>某件事的进步一定会和现状有一些摩擦。有的人害怕摩擦而选择忍耐，我觉得和别人的摩擦并不可怕，因为大家的目标都是基本一致的，只是做事的标准和方法不一样，这是可以沟通和相互理解的。 相反，如果没有去推动这件事，我觉得对于公司和个人来说，都是一种人生的浪费。 </p></li><li><p>客户<br>我更愿意鲜明的表达我的观点，并拉着用户和我一起成长，因为我并不觉得完成客户的项目有成就感，我的成就感来自客户的成长。 面对客户做的不对的地方，我基本都是直言不讳的说出来。 因为我觉得把真实的想法说出来是对客户、对自己的基本尊重，不管客户最终选择什么，我都要把利弊跟客户讲清楚。 </p></li><li><p>写作</p></li></ol><ul><li>第一阶段，写文档阶段。 把学习到的都系都以笔记的方式记录下来，方便我以后可以翻出来看看。</li><li>第二阶段，有利益驱动的阶段。 因为我的一篇技术文章，让我接到了一个培训的私活。</li><li>第三个阶段， 记录自己观点打自己脸的阶段。 写博客记录自己的一些想法和观点， 然后过一段时间，打自己脸。 能够看到自己成长的过程，并且可以及时修正。</li><li>第四个阶段，与他人交互的阶段。 写一些观点鲜明的文章。学会从不同的观点，以及别人的批评中，让自己变得更加完善和成熟。 从写作中锻炼了自己的表达能力，能够更好的与别人交流和沟通。</li></ul><ol start="6"><li>人生</li></ol><ul><li>第一阶段： 20-30岁， 打基础阶段。<br>在这个阶段，我们要开阔眼界，把基础打扎实，努力学习和成长。</li><li>第二阶段：30-40岁，人生发张阶段。<br>因为整个社会一定会把社会的重担交给这群人，30-40岁的人年富力强，既有经验又有精力，还敢想敢做，所以这群人是整个社会的中流砥柱。<br>在这个阶段，你要明确自己奋斗的方向，需要做有挑战的事，需要提升自己的技术领导力。 </li></ul><ol start="7"><li>建议</li></ol><ul><li><p>客观的审视自己<br>找到自己的长处，不断在自己的长处上发展自我。知道自己几斤几两才能清楚自己适合干什么。不然，目标设置过高自己达不到，反而让自己难受。<br>在职场上，审视自己的最佳方式，就是隔三差五的出去面试一把，看看自己在市场上能够到什么样的级别。</p></li><li><p>确定自己想要什么<br>如果不确定这个是，你就会纠结，不知道自己要什么，也就不知道自己要去哪里。<br>注意，你不可能什么都要，你需要极端地知道自己要什么。所谓“极端”，就是自己不会受其他东西或其他人的影响，不会因为这条路上有人退出你就开始迷茫或疑惑，而不会因为别的路上有人成功了，你就羡慕。</p></li><li><p>注重长期的可能性，而不是短期的功利。<br>20-30岁，因为多经历一些有挑战的事，多去选择能给自己带来更多可能的事。多去选择能让自己成长的事，尤其是能够让自己开阔眼界的事情。 </p></li><li><p>尽量关注自己会得到的东西，而不是自己会失去的东西。<br>因为无论你怎么选，你都会有得有失。</p></li><li><p>不要喝大众的思维方式一样。<br>因为绝大多数人都是平庸的，所以，如果你和大众的思维方式一样，你做出来的选择也会和大众的一样平庸。 </p></li><li><p>很多事情能更早做的什么程度，其实在思想的源头就被决定了，因为它会绝大程度地收到思考问题的出发点、思维方式、格局观、价值观等因素的影响。而这些才是最本源的东西，甚至可以定义为思维的“基因”</p></li></ul><hr><h1 id="我的三观"><a href="#我的三观" class="headerlink" title="我的三观"></a>我的三观</h1><ul><li>人生观-你想成为什么样的人</li><li>价值观-你觉得什么对你来说更重要</li><li>世界观-你是怎么来看这个世界的</li></ul><h3 id="世界观"><a href="#世界观" class="headerlink" title="世界观"></a>世界观</h3><blockquote><p>要有一个好的世界观，你需要亲身去经历和体会这个世界，而不是光听别人怎么说</p></blockquote><p>你的影响力体现在有多少人信赖你并希望得到你的帮助。 因此，多交一些朋友，多吧自己的想法付诸实践，哪怕没有成功，你的人生也会比别人过得有意义。 </p><p>多通过一件事来引发你的思考，想一想有什么可以改善的地方，有什么方法可以做的更好，有哪些是自己可以添砖加瓦的？你会发现，只要你坚持这么做，你个人的提升以及对社会的价值会越来越大，你的影响力也会越来越大。 </p><h3 id="人生观"><a href="#人生观" class="headerlink" title="人生观"></a>人生观</h3><p>什么样的人干什么样的事，什么样的阶段做什么样的选择。 有人说，选择比努力更重要，我觉得，选择和决定，比努力更难。 努力是认准了一件事之后不停的发力， 而决定要认准哪件事作为为自己坚持和努力的方向，则是令人彷徨和焦虑的。面对人生，你每一天都在做一个又一个的决定，在做一个又一个的选择，有的决定打大，有的决定小，你的人生轨迹就是沿着这一个一个的决定和选择走出来的。 </p><p>选择是有代价的，而不选择的代价更大。 选择时要冒险的，你不敢冒险时风险可能更大‘选择时需要放弃的，鱼和熊掌不可兼得。想想等你老了回头看时，好多事情再年轻的时候不敢做，可你再没有机会了，你就知道不敢选择、不敢冒险的代价有多大了。 选择时一种权衡，这世上根本不会有什么完美，只要你想做事，有雄心壮志，你的人生就是一个坑接着一个坑，你所能做的就是找到你喜欢的方向跳坑。 </p><p>因此你要想清楚你自己想要什么，不要什么，而且还不能要得太多，这样你才好做选择。否则，影响决定的因子太多，决定就不好做，也做不好。 </p><p>你对你选择结果的坚持和守护，成为了你的三观，而你的三观影响着你的选择，你的选择影响着你的人生。 </p><h1 id="必须做的5件事"><a href="#必须做的5件事" class="headerlink" title="必须做的5件事"></a>必须做的5件事</h1><ol><li><p>想尽办法，跟牛人在一起</p><blockquote><p>在跟牛人的交流中， 能迅速打开视野，增长见识， 还能交到朋友。<br>经常交流的人， 对你有很大的反向塑造里，想成为牛人，就一定要常见牛人，付费约见是一种很好的方式。 </p></blockquote></li><li><p>读以致用， 好书至少读十篇</p></li></ol><ul><li>一定要每天坚持读书， 哪怕每天只读5页</li><li>输出， 读完之后， 需要总结，写出文章来，没有输出的输入，质量是不行的。</li><li>好书读十遍，遇到好书， 一定要反复读</li><li>读以致用， 成长的关键在于干事情，并且做出成绩来，读完就要用</li></ul><ol start="3"><li><p>做人大方，持续真诚地利他<br>如果你是个持续大方的人，别人就会知道，跟你合作、和你交往，不会吃亏，朋友、机会才会越来越多</p></li><li><p>视时如命，有极强的抗扰力<br>主动见想见的人，去做该做的事情，但不要被别人打乱你的节奏。</p></li><li><p>持续分享，传播有用的内容<br>想要打造个人品牌，持续对外输出有用的内容，是至关重要的事情。</p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需求沟通&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;一定要将20
+        &lt;h1 id=&quot;我的价值观&quot;&gt;&lt;a href=&quot;#我的价值观&quot; class=&quot;headerlink&quot; title=&quot;我的价值观&quot;&gt;&lt;/a&gt;我的价值观&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;勤奋&lt;/li&gt;
+&lt;li&gt;诚实&lt;/li&gt;
+&lt;li&gt;认真&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;问题&quot;&gt;&lt;a
       
     
     </summary>
     
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+      <category term="阅读" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/%E9%98%85%E8%AF%BB/"/>
     
     
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+      <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
     
   </entry>
   
@@ -1106,6 +1075,39 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       
       
         &lt;h3 id=&quot;数据埋点方案&quot;&gt;&lt;a href=&quot;#数据埋点方案&quot; class=&quot;headerlink&quot; title=&quot;数据埋点方案&quot;&gt;&lt;/a&gt;数据埋点方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.sensorsdata.cn/blog/20181114-2/&quot; 
+      
+    
+    </summary>
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="各项细分" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%90%84%E9%A1%B9%E7%BB%86%E5%88%86/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="分析流程" scheme="https://zhangandyu.github.io/tags/%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>专题分析</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-01-14T16:11:16.075Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求沟通&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一定要将20
       
     
     </summary>
