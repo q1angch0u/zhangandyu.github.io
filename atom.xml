@@ -18,8 +18,8 @@
   
   <entry>
     <title>数据分析如何懂业务？</title>
-    <link href="https://zhangandyu.github.io/2019/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E6%87%82%E4%B8%9A%E5%8A%A1/"/>
-    <id>https://zhangandyu.github.io/2019/08/14/数据分析如何懂业务/</id>
+    <link href="https://zhangandyu.github.io/2019/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E5%A6%82%E4%BD%95%E6%87%82%E4%B8%9A%E5%8A%A1/"/>
+    <id>https://zhangandyu.github.io/2019/08/14/数据分析方法-如何懂业务/</id>
     <published>2019-08-13T16:00:00.000Z</published>
     <updated>2019-08-18T15:16:19.536Z</updated>
     
@@ -141,9 +141,9 @@
     <link href="https://zhangandyu.github.io/2019/07/31/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD-%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84SQL%E5%87%BD%E6%95%B0/"/>
     <id>https://zhangandyu.github.io/2019/07/31/数据分析技能-工作中常见的SQL函数/</id>
     <published>2019-07-30T16:00:00.000Z</published>
-    <updated>2019-08-04T15:10:46.167Z</updated>
+    <updated>2019-08-18T15:17:36.888Z</updated>
     
-    <content type="html"><![CDATA[<p>SQL 语言是每个数据分析师必备的技能，毕竟能否快速准确的从数据库中得到想要的数据，关系到后面的每一步分析。掌握SQL 函数可以让我们很快得到想要的结果， 以下为几类常见的 SQL 函数：</p><ol><li>聚合函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>count()</td><td>个数统计函数</td></tr><tr><td>count(distinct  )</td><td>统计去重之后的个数</td></tr><tr><td>sum()</td><td>求和</td></tr><tr><td>sum(distinct )</td><td>去重之后的和</td></tr><tr><td>avg()</td><td>平均值</td></tr><tr><td>avg(distinct)</td><td>去重之后的平均值</td></tr><tr><td>min()</td><td>最小值</td></tr><tr><td>max()</td><td>最大值</td></tr><tr><td>corr(A, B)</td><td>相关系数</td></tr><tr><td>var_pop()</td><td>方差</td></tr><tr><td>var_samp()</td><td>样本方差</td></tr><tr><td>stddev_pop()</td><td>标准偏差</td></tr><tr><td>stddev_samp()</td><td>标准样本偏差</td></tr><tr><td>covar_pop(A, B)</td><td>协方差</td></tr><tr><td>covar_samp(A, B)</td><td>样本协方差</td></tr><tr><td>RAND()</td><td>随机数</td></tr></tbody></table><ol start="2"><li>字符串函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>concat()</td><td>拼接字符串</td></tr><tr><td>length()</td><td>计算字符串的长度，一个汉字算三个字符</td></tr><tr><td>instr (A ,B )</td><td>返回字符B首次在A中出现的位置,不存在返回0</td></tr><tr><td>lcase()</td><td>转换成小写</td></tr><tr><td>left(string2 ,length )</td><td>从string2中的左边起取length个字符</td></tr><tr><td>lower()</td><td>将字串转化为小写</td></tr><tr><td>upper()</td><td>将字符转化为大写</td></tr><tr><td>replace()</td><td>替换字符</td></tr><tr><td>substr()</td><td>返回字符串A从start位置开始，长度为len的字符串</td></tr><tr><td>substring()</td><td>截取字符串</td></tr><tr><td>substring_index()</td><td>通过截取获取不同索引位的字符</td></tr><tr><td>LTRIM (string2 )</td><td>去除前端空格</td></tr><tr><td>RTRIM (string2 )</td><td>去除后端空格</td></tr></tbody></table><ol start="3"><li>时间函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>NOW ( )</td><td>当前时间</td></tr><tr><td>extract()</td><td>抽取具体的年、月、日</td></tr><tr><td>date()</td><td>返回时间的日期部分</td></tr><tr><td>year()</td><td>返回时间的年份</td></tr><tr><td>month()</td><td>返回时间的月份</td></tr><tr><td>day()</td><td>返回日期的天</td></tr><tr><td>hour()</td><td>返回时间的小时</td></tr><tr><td>minute()</td><td>返回时间的分钟</td></tr><tr><td>second()</td><td>返回时间的秒</td></tr><tr><td>week ()</td><td>第几周</td></tr><tr><td>dayofweek()</td><td>返回星期几，1为星期天</td></tr><tr><td>dayofyear()</td><td>一年中的第几天</td></tr><tr><td>sec_to_time ( )</td><td>秒数转成时间</td></tr><tr><td>dateadd()</td><td>时间相加</td></tr><tr><td>date_sub()</td><td>时间相减</td></tr><tr><td>datediff()</td><td>时间的差值</td></tr><tr><td>date_format()</td><td>输出指定时间格式</td></tr><tr><td>datename()</td><td>返回日期部分的参数</td></tr><tr><td>datepart()</td><td>返回日期、时间的单独部分</td></tr></tbody></table><ol start="4"><li>窗口函数等</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>rank()</td><td>排名相等的会留下空位</td></tr><tr><td>dense_rank()</td><td>排名相等的不会留下空位</td></tr><tr><td>row_number()</td><td>排名不管数据是否相等</td></tr><tr><td>lag()</td><td>访问相同结果集的先前行中的数据</td></tr><tr><td>lead()</td><td>访问相同结果集的后续行中的数据</td></tr><tr><td>first_value()</td><td>返回组中数据窗口的第一个值</td></tr><tr><td>last_value()</td><td>返回组中数据窗口的最后一个值</td></tr><tr><td>if()</td><td>条件判断函数</td></tr><tr><td>case…when…else…end</td><td>判断各个元素是否满足了某种条件的集合</td></tr><tr><td>over()</td><td>与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</td></tr><tr><td>split()</td><td>hive字符串分割函数</td></tr><tr><td>intersect</td><td>交集</td></tr><tr><td>except</td><td>差集</td></tr><tr><td>union all</td><td>并集</td></tr></tbody></table><p>以上就是我总结的常用的 SQL 函数， 你还有哪些好用的 SQL 函数， 欢迎留言补充。</p>]]></content>
+    <content type="html"><![CDATA[<p>SQL 语言是每个数据分析师必备的技能，毕竟能否快速准确的从数据库中得到想要的数据，关系到后面的每一步分析。掌握SQL 函数可以让我们很快得到想要的结果， 以下为几类常见的 SQL 函数：</p><ol><li>聚合函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>count()</td><td>个数统计函数</td></tr><tr><td>count(distinct  )</td><td>统计去重之后的个数</td></tr><tr><td>sum()</td><td>求和</td></tr><tr><td>sum(distinct )</td><td>去重之后的和</td></tr><tr><td>avg()</td><td>平均值</td></tr><tr><td>avg(distinct)</td><td>去重之后的平均值</td></tr><tr><td>min()</td><td>最小值</td></tr><tr><td>max()</td><td>最大值</td></tr><tr><td>corr(A, B)</td><td>相关系数</td></tr><tr><td>var_pop()</td><td>方差</td></tr><tr><td>var_samp()</td><td>样本方差</td></tr><tr><td>stddev_pop()</td><td>标准偏差</td></tr><tr><td>stddev_samp()</td><td>标准样本偏差</td></tr><tr><td>covar_pop(A, B)</td><td>协方差</td></tr><tr><td>covar_samp(A, B)</td><td>样本协方差</td></tr><tr><td>RAND()</td><td>随机数</td></tr></tbody></table><ol start="2"><li>字符串函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>concat()</td><td>拼接字符串</td></tr><tr><td>length()</td><td>计算字符串的长度，一个汉字算三个字符</td></tr><tr><td>instr (A ,B )</td><td>返回字符B首次在A中出现的位置,不存在返回0</td></tr><tr><td>lcase()</td><td>转换成小写</td></tr><tr><td>left(string2 ,length )</td><td>从string2中的左边起取length个字符</td></tr><tr><td>lower()</td><td>将字串转化为小写</td></tr><tr><td>upper()</td><td>将字符转化为大写</td></tr><tr><td>replace()</td><td>替换字符</td></tr><tr><td>substr()</td><td>返回字符串A从start位置开始，长度为len的字符串</td></tr><tr><td>substring()</td><td>截取字符串</td></tr><tr><td>substring_index()</td><td>通过截取获取不同索引位的字符</td></tr><tr><td>LTRIM (string2 )</td><td>去除前端空格</td></tr><tr><td>RTRIM (string2 )</td><td>去除后端空格</td></tr></tbody></table><ol start="3"><li>时间函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>NOW ( )</td><td>当前时间</td></tr><tr><td>extract()</td><td>抽取具体的年、月、日</td></tr><tr><td>date()</td><td>返回时间的日期部分</td></tr><tr><td>year()</td><td>返回时间的年份</td></tr><tr><td>month()</td><td>返回时间的月份</td></tr><tr><td>day()</td><td>返回日期的天</td></tr><tr><td>hour()</td><td>返回时间的小时</td></tr><tr><td>minute()</td><td>返回时间的分钟</td></tr><tr><td>second()</td><td>返回时间的秒</td></tr><tr><td>week ()</td><td>第几周</td></tr><tr><td>dayofweek()</td><td>返回星期几，1为星期天</td></tr><tr><td>dayofyear()</td><td>一年中的第几天</td></tr><tr><td>sec_to_time ( )</td><td>秒数转成时间</td></tr><tr><td>dateadd()</td><td>时间相加</td></tr><tr><td>date_sub()</td><td>时间相减</td></tr><tr><td>datediff()</td><td>时间的差值</td></tr><tr><td>date_format()</td><td>输出指定时间格式</td></tr><tr><td>datename()</td><td>返回日期部分的参数</td></tr><tr><td>datepart()</td><td>返回日期、时间的单独部分</td></tr></tbody></table><ol start="4"><li>窗口函数等</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>rank()</td><td>排名相等的会留下空位</td></tr><tr><td>dense_rank()</td><td>排名相等的不会留下空位</td></tr><tr><td>row_number()</td><td>排名不管数据是否相等</td></tr><tr><td>lag()</td><td>访问相同结果集的先前行中的数据</td></tr><tr><td>lead()</td><td>访问相同结果集的后续行中的数据</td></tr><tr><td>first_value()</td><td>返回组中数据窗口的第一个值</td></tr><tr><td>last_value()</td><td>返回组中数据窗口的最后一个值</td></tr><tr><td>if()</td><td>条件判断函数</td></tr><tr><td>case…when…else…end</td><td>判断各个元素是否满足了某种条件的集合</td></tr><tr><td>over()</td><td>与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</td></tr><tr><td>split()</td><td>hive字符串分割函数</td></tr><tr><td>intersect</td><td>交集</td></tr><tr><td>except</td><td>差集</td></tr><tr><td>union all</td><td>并集</td></tr><tr><td>round</td><td>把数值字段舍入为指定的小数位数</td></tr><tr><td>difference</td><td>衡量两个值之间的差异</td></tr><tr><td>coalesce</td><td>1、将控制替换成其他值；2、返回第一个非空值</td></tr><tr><td>pivot</td><td>行转换列</td></tr></tbody></table><p>以上就是我总结的常用的 SQL 函数， 你还有哪些好用的 SQL 函数， 欢迎留言补充。</p>]]></content>
     
     <summary type="html">
     
@@ -167,31 +167,6 @@
       <category term="SQL" scheme="https://zhangandyu.github.io/tags/SQL/"/>
     
       <category term="SQL 函数" scheme="https://zhangandyu.github.io/tags/SQL-%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见的sql函数都有哪些</title>
-    <link href="https://zhangandyu.github.io/2019/07/31/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-%E5%B8%B8%E8%A7%81%E7%9A%84SQL%E5%87%BD%E6%95%B0/"/>
-    <id>https://zhangandyu.github.io/2019/07/31/数据分析-常见的SQL函数/</id>
-    <published>2019-07-30T16:00:00.000Z</published>
-    <updated>2019-08-18T15:11:39.026Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="常见的sql函数都有哪些"><a href="#常见的sql函数都有哪些" class="headerlink" title="常见的sql函数都有哪些"></a>常见的sql函数都有哪些</h1><p>在日常工作中经常需要使用 SQL 语句进行数据查询， 以下为常见 SQL 函数：</p><ol><li>聚合函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>count()</td><td>个数统计函数</td></tr><tr><td>count(distinct  )</td><td>统计去重之后的个数</td></tr><tr><td>sum()</td><td>求和</td></tr><tr><td>sum(distinct )</td><td>去重之后的和</td></tr><tr><td>avg()</td><td>平均值</td></tr><tr><td>avg(distinct)</td><td>去重之后的平均值</td></tr><tr><td>min()</td><td>最小值</td></tr><tr><td>max()</td><td>最大值</td></tr><tr><td>corr(A, B)</td><td>相关系数</td></tr><tr><td>var_pop()</td><td>方差</td></tr><tr><td>var_samp()</td><td>样本方差</td></tr><tr><td>stddev_pop()</td><td>标准偏差</td></tr><tr><td>stddev_samp()</td><td>标准样本偏差</td></tr><tr><td>covar_pop(A, B)</td><td>协方差</td></tr><tr><td>covar_samp(A, B)</td><td>样本协方差</td></tr><tr><td>RAND()</td><td>随机数</td></tr></tbody></table><ol start="2"><li>字符串函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>concat()</td><td>拼接字符串</td></tr><tr><td>length()</td><td>计算字符串的长度，一个汉字算三个字符</td></tr><tr><td>instr (A ,B )</td><td>返回字符B首次在A中出现的位置,不存在返回0</td></tr><tr><td>lcase</td><td>转换成小写</td></tr><tr><td>left (string2 ,length )</td><td>从string2中的左边起取length个字符</td></tr><tr><td>lower()</td><td>将字串转化为小写</td></tr><tr><td>upper()</td><td>将字符转化为大写</td></tr><tr><td>replace()</td><td>替换字符</td></tr><tr><td>substr()</td><td>返回字符串A从start位置开始，长度为len的字符串</td></tr><tr><td>substring()</td><td>截取字符串</td></tr><tr><td>substring_index()</td><td>通过截取获取不同索引位的字符</td></tr><tr><td>LTRIM (string2 )</td><td>去除前端空格</td></tr><tr><td>RTRIM (string2 )</td><td>去除后端空格</td></tr></tbody></table><ol start="3"><li>时间函数</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>NOW ( )</td><td>当前时间</td></tr><tr><td>extract()</td><td>抽取具体的年、月、日</td></tr><tr><td>date()</td><td>返回时间的日期部分</td></tr><tr><td>year()</td><td>返回时间的年份</td></tr><tr><td>month()</td><td>返回时间的月份</td></tr><tr><td>day()</td><td>返回日期的天</td></tr><tr><td>hour()</td><td>返回时间的小时</td></tr><tr><td>minute()</td><td>返回时间的分钟</td></tr><tr><td>second()</td><td>返回时间的秒</td></tr><tr><td>week ()</td><td>第几周</td></tr><tr><td>dayofweek()</td><td>返回星期几，1为星期天</td></tr><tr><td>dayofyear()</td><td>一年中的第几天</td></tr><tr><td>sec_to_time ( )</td><td>秒数转成时间</td></tr><tr><td>dateadd()</td><td>时间相加</td></tr><tr><td>date_sub()</td><td>时间相减</td></tr><tr><td>datediff()</td><td>时间的差值</td></tr><tr><td>date_format()</td><td>输出指定时间格式</td></tr><tr><td>datename()</td><td>返回日期部分的参数</td></tr><tr><td>datepart()</td><td>返回日期、时间的单独部分</td></tr></tbody></table><ol start="4"><li>其他函数与表达式</li></ol><table><thead><tr><th>函数名</th><th>定义</th></tr></thead><tbody><tr><td>rank()</td><td>排名相等的会留下空位</td></tr><tr><td>dense_rank()</td><td>排名相等的不会留下空位</td></tr><tr><td>row_number()</td><td>排名不管数据是否相等</td></tr><tr><td>lag()</td><td>访问相同结果集的先前行中的数据</td></tr><tr><td>lead()</td><td>访问相同结果集的后续行中的数据</td></tr><tr><td>first_value()</td><td>返回组中数据窗口的第一个值</td></tr><tr><td>last_value()</td><td>返回组中数据窗口的最后一个值</td></tr><tr><td>if()</td><td>条件判断函数</td></tr><tr><td>case…when…else…</td><td>如何…那么…否则…</td></tr><tr><td>over</td><td>与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</td></tr><tr><td>split()</td><td>hive字符串分割函数</td></tr><tr><td>intersect</td><td>交集</td></tr><tr><td>except</td><td>差集</td></tr><tr><td>union all</td><td>并集</td></tr><tr><td>round</td><td>把数值字段舍入为指定的小数位数</td></tr><tr><td>difference</td><td>衡量两个值之间的差异</td></tr><tr><td>coalesce</td><td>1、将控制替换成其他值；2、返回第一个非空值</td></tr><tr><td>pivot</td><td>行转换列</td></tr></tbody></table><p>以上就是我总结的常用的 SQL 函数， 你还有哪些好用的 SQL 函数， 欢迎留言补充。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;常见的sql函数都有哪些&quot;&gt;&lt;a href=&quot;#常见的sql函数都有哪些&quot; class=&quot;headerlink&quot; title=&quot;常见的sql函数都有哪些&quot;&gt;&lt;/a&gt;常见的sql函数都有哪些&lt;/h1&gt;&lt;p&gt;在日常工作中经常需要使用 SQL 语句进行数据查询， 以下为
-      
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -220,6 +195,37 @@
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="报告" scheme="https://zhangandyu.github.io/tags/%E6%8A%A5%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>沟通系统</title>
+    <link href="https://zhangandyu.github.io/2019/07/01/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E6%B2%9F%E9%80%9A%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://zhangandyu.github.io/2019/07/01/个人系统-沟通系统/</id>
+    <published>2019-06-30T16:00:00.000Z</published>
+    <updated>2019-08-04T14:57:26.599Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><ol><li>中西方文化差异</li></ol><ul><li><p>椰子文化。</p><blockquote><p>擅长熟人社会的社交规则和技巧，不擅长与陌生人打交道。</p></blockquote></li><li><p>桃子文化。</p></li></ul><ol start="2"><li><p>人情关系中很多都是和你相似的人，而信息关系能让你认识大量不同质的人。 </p></li><li><p>真正的社交不是为了利用别人，而是帮助别人成功，是合作与互助。你和他人共享信息，蛋糕就会越做越大。 </p></li></ol><h1 id="如何闲谈"><a href="#如何闲谈" class="headerlink" title="如何闲谈"></a>如何闲谈</h1><h3 id="心态建立"><a href="#心态建立" class="headerlink" title="心态建立"></a>心态建立</h3><ol><li><p>主人心态</p><blockquote><p>假设自己是活动组织者。</p></blockquote></li><li><p>我们是还没有认识的朋友。</p><blockquote><p>最糟的情况就是他不理你，这又有什么关系。</p></blockquote></li></ol><h3 id="闲谈的方法"><a href="#闲谈的方法" class="headerlink" title="闲谈的方法"></a>闲谈的方法</h3><ol><li>问一个让对方自如的问题。</li></ol><ul><li><p>不要问那种一个词就可以回答的问题。</p><blockquote><p>你喜欢恐怖电影吗？<br>你喜欢哪种类型的电影？</p></blockquote></li><li><p>不要问太泛或者太深的问题</p></li><li><ul><li>封闭式和开放式问题经常穿插使用。<blockquote><p>你对一带一路怎么看？<br>一带一路对你们那个行业有什么影响？电信类算不算最大的？</p></blockquote></li></ul></li></ul><ol start="2"><li>养成一问二答的习惯。<blockquote><p>你们家乡也会那么冷吗？<br>没那么冷。 今年冬天咱们这真是少有的冷。不过我今天穿了发热衣，真的好像我身上在发热。 </p></blockquote></li></ol><ol start="3"><li>仔细聆听对方的话，从中找到信息点，然后不断扩展。 <blockquote><p>扩展在于真正的倾听。 你要把对方的话放在你的话里面， 让对方感觉被关注了。</p><p>有些人倾听， 仅仅是在等待自己发言的机会。 停留在很初级的“一边听一边点头，或者重复最后几个词，或者看对方眼睛等。 当一个人真正在听的时候， 不需要有意展示这些聆听技巧。 </p><p>用自己发散的、跳跃的思维， 抓住原信息中的关键词，扩展出一堆新信息。 </p></blockquote></li></ol><hr><h1 id="如何开场，构建话题"><a href="#如何开场，构建话题" class="headerlink" title="如何开场，构建话题"></a>如何开场，构建话题</h1><ol><li>冷读者 + 热捧者<blockquote><p>不要有压力，傻白甜的问题都可以，明知故问也行。</p></blockquote></li></ol><ul><li>冷读者： 展现你的观察力， 让第一句话显得不唐突。</li><li>热捧者： 展现你的善意，谈话以给对方造成愉悦为己任。</li></ul><blockquote><p>你是做什么的?<br>你说话很有条理，你是从事培训行业的吗？</p></blockquote><ol start="2"><li>如何找话题</li></ol><ul><li><p>从周围的道具找话题</p><blockquote><p>你的装备挺齐全的，能借支笔吗？</p></blockquote></li><li><p>从对方身体、个性、气质风度、服饰上找话题</p><blockquote><p>你这肌肉练得挺好，经常健身吧？</p></blockquote></li><li><p>从那时那刻的状态上找话题</p><blockquote><p>看你今天兴致很高，有啥开心事吗？</p></blockquote></li><li><p>猜谜游戏</p><blockquote><p>你是从哪来的？<br>你是从哪来的，等等，让我猜猜，给我两个提示吧。</p></blockquote></li><li><p>放低身段，诚心请教</p><blockquote><p>虽然我还没找到女朋友，但想取取经，让一段感情持久的秘诀是什么？</p></blockquote></li></ul><ol start="3"><li>注意事项</li></ol><ul><li>要“冷读+热捧”，而不要去做一个挑战者。</li><li>对讨论本人的话题，做积极正面的评论，用“是的，…而且…”的模式。</li></ul><hr><h1 id="把握交谈的节奏"><a href="#把握交谈的节奏" class="headerlink" title="把握交谈的节奏"></a>把握交谈的节奏</h1><ol><li>说、问、说 三部曲</li></ol><p>先做一个自我陈述， 然后问一个开放式问题， 之后再自我陈述。</p><blockquote><p>你问了问题之后， 有两种可能， 第一种是对方滔滔不绝，那你就做个可爱的聆听者。 第二种，他回应不多，那你就要准备好退路， 做自我陈述。</p><p>A：北京的夏天好热啊，热的我眼睛都冒汗了。 你是北京人吗？<br>B： 不是<br>A: 哦哦， 我在西安住过三年，那儿的天气更热， 那儿只有两个季节：室内、室外。</p></blockquote><ol start="2"><li>冷场急救术</li></ol><ul><li><p>另起炉灶</p></li><li><p>正反回应<br>正面回应，我和你很有共鸣；反面回应，我和你没有共鸣，但我很有兴趣探究你的世界。</p><blockquote><p>A:我刚从罗马回来<br>正面回应： 我刚重温完《罗马假日》， 真正的罗马和电影的罗马有什么区别？<br>反面回应： 我从来没去过罗马，罗马哪些地方值得一游？</p></blockquote></li><li><p>扮演苏格拉底</p></li></ul><p>为什么？….的原因是？ 我不大懂你的意思，能再解释一下吗？</p><ol start="3"><li>注意事项</li></ol><ul><li>聊天是平衡的艺术，就像打网球。 球不能永远在某一方手里。 一方接到球后，将生活中的细节娓娓道来，你对他的话稍加评论，然后再加上新的观点，问个新问题，他又接球。 不要把球拽在自己的手里超过20s,禁止把球拽在自己的手里超过40s。</li></ul><p>社交最基本的底线是<br>当你主动加他人<br>得说明自己是谁，做什么，加好友的用意是什么<br>三句话的敲门砖都不会<br>如何与他人交流和沟通呢</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;背景知识&quot;&gt;&lt;a href=&quot;#背景知识&quot; class=&quot;headerlink&quot; title=&quot;背景知识&quot;&gt;&lt;/a&gt;背景知识&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;中西方文化差异&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;椰子文化。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p
+      
+    
+    </summary>
+    
+      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="沟通" scheme="https://zhangandyu.github.io/tags/%E6%B2%9F%E9%80%9A/"/>
     
   </entry>
   
@@ -254,37 +260,6 @@
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="数据敏感度" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E6%95%8F%E6%84%9F%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>沟通系统</title>
-    <link href="https://zhangandyu.github.io/2019/07/01/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E6%B2%9F%E9%80%9A%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zhangandyu.github.io/2019/07/01/个人系统-沟通系统/</id>
-    <published>2019-06-30T16:00:00.000Z</published>
-    <updated>2019-08-04T14:57:26.599Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><ol><li>中西方文化差异</li></ol><ul><li><p>椰子文化。</p><blockquote><p>擅长熟人社会的社交规则和技巧，不擅长与陌生人打交道。</p></blockquote></li><li><p>桃子文化。</p></li></ul><ol start="2"><li><p>人情关系中很多都是和你相似的人，而信息关系能让你认识大量不同质的人。 </p></li><li><p>真正的社交不是为了利用别人，而是帮助别人成功，是合作与互助。你和他人共享信息，蛋糕就会越做越大。 </p></li></ol><h1 id="如何闲谈"><a href="#如何闲谈" class="headerlink" title="如何闲谈"></a>如何闲谈</h1><h3 id="心态建立"><a href="#心态建立" class="headerlink" title="心态建立"></a>心态建立</h3><ol><li><p>主人心态</p><blockquote><p>假设自己是活动组织者。</p></blockquote></li><li><p>我们是还没有认识的朋友。</p><blockquote><p>最糟的情况就是他不理你，这又有什么关系。</p></blockquote></li></ol><h3 id="闲谈的方法"><a href="#闲谈的方法" class="headerlink" title="闲谈的方法"></a>闲谈的方法</h3><ol><li>问一个让对方自如的问题。</li></ol><ul><li><p>不要问那种一个词就可以回答的问题。</p><blockquote><p>你喜欢恐怖电影吗？<br>你喜欢哪种类型的电影？</p></blockquote></li><li><p>不要问太泛或者太深的问题</p></li><li><ul><li>封闭式和开放式问题经常穿插使用。<blockquote><p>你对一带一路怎么看？<br>一带一路对你们那个行业有什么影响？电信类算不算最大的？</p></blockquote></li></ul></li></ul><ol start="2"><li>养成一问二答的习惯。<blockquote><p>你们家乡也会那么冷吗？<br>没那么冷。 今年冬天咱们这真是少有的冷。不过我今天穿了发热衣，真的好像我身上在发热。 </p></blockquote></li></ol><ol start="3"><li>仔细聆听对方的话，从中找到信息点，然后不断扩展。 <blockquote><p>扩展在于真正的倾听。 你要把对方的话放在你的话里面， 让对方感觉被关注了。</p><p>有些人倾听， 仅仅是在等待自己发言的机会。 停留在很初级的“一边听一边点头，或者重复最后几个词，或者看对方眼睛等。 当一个人真正在听的时候， 不需要有意展示这些聆听技巧。 </p><p>用自己发散的、跳跃的思维， 抓住原信息中的关键词，扩展出一堆新信息。 </p></blockquote></li></ol><hr><h1 id="如何开场，构建话题"><a href="#如何开场，构建话题" class="headerlink" title="如何开场，构建话题"></a>如何开场，构建话题</h1><ol><li>冷读者 + 热捧者<blockquote><p>不要有压力，傻白甜的问题都可以，明知故问也行。</p></blockquote></li></ol><ul><li>冷读者： 展现你的观察力， 让第一句话显得不唐突。</li><li>热捧者： 展现你的善意，谈话以给对方造成愉悦为己任。</li></ul><blockquote><p>你是做什么的?<br>你说话很有条理，你是从事培训行业的吗？</p></blockquote><ol start="2"><li>如何找话题</li></ol><ul><li><p>从周围的道具找话题</p><blockquote><p>你的装备挺齐全的，能借支笔吗？</p></blockquote></li><li><p>从对方身体、个性、气质风度、服饰上找话题</p><blockquote><p>你这肌肉练得挺好，经常健身吧？</p></blockquote></li><li><p>从那时那刻的状态上找话题</p><blockquote><p>看你今天兴致很高，有啥开心事吗？</p></blockquote></li><li><p>猜谜游戏</p><blockquote><p>你是从哪来的？<br>你是从哪来的，等等，让我猜猜，给我两个提示吧。</p></blockquote></li><li><p>放低身段，诚心请教</p><blockquote><p>虽然我还没找到女朋友，但想取取经，让一段感情持久的秘诀是什么？</p></blockquote></li></ul><ol start="3"><li>注意事项</li></ol><ul><li>要“冷读+热捧”，而不要去做一个挑战者。</li><li>对讨论本人的话题，做积极正面的评论，用“是的，…而且…”的模式。</li></ul><hr><h1 id="把握交谈的节奏"><a href="#把握交谈的节奏" class="headerlink" title="把握交谈的节奏"></a>把握交谈的节奏</h1><ol><li>说、问、说 三部曲</li></ol><p>先做一个自我陈述， 然后问一个开放式问题， 之后再自我陈述。</p><blockquote><p>你问了问题之后， 有两种可能， 第一种是对方滔滔不绝，那你就做个可爱的聆听者。 第二种，他回应不多，那你就要准备好退路， 做自我陈述。</p><p>A：北京的夏天好热啊，热的我眼睛都冒汗了。 你是北京人吗？<br>B： 不是<br>A: 哦哦， 我在西安住过三年，那儿的天气更热， 那儿只有两个季节：室内、室外。</p></blockquote><ol start="2"><li>冷场急救术</li></ol><ul><li><p>另起炉灶</p></li><li><p>正反回应<br>正面回应，我和你很有共鸣；反面回应，我和你没有共鸣，但我很有兴趣探究你的世界。</p><blockquote><p>A:我刚从罗马回来<br>正面回应： 我刚重温完《罗马假日》， 真正的罗马和电影的罗马有什么区别？<br>反面回应： 我从来没去过罗马，罗马哪些地方值得一游？</p></blockquote></li><li><p>扮演苏格拉底</p></li></ul><p>为什么？….的原因是？ 我不大懂你的意思，能再解释一下吗？</p><ol start="3"><li>注意事项</li></ol><ul><li>聊天是平衡的艺术，就像打网球。 球不能永远在某一方手里。 一方接到球后，将生活中的细节娓娓道来，你对他的话稍加评论，然后再加上新的观点，问个新问题，他又接球。 不要把球拽在自己的手里超过20s,禁止把球拽在自己的手里超过40s。</li></ul><p>社交最基本的底线是<br>当你主动加他人<br>得说明自己是谁，做什么，加好友的用意是什么<br>三句话的敲门砖都不会<br>如何与他人交流和沟通呢</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;背景知识&quot;&gt;&lt;a href=&quot;#背景知识&quot; class=&quot;headerlink&quot; title=&quot;背景知识&quot;&gt;&lt;/a&gt;背景知识&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;中西方文化差异&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;椰子文化。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p
-      
-    
-    </summary>
-    
-      <category term="个人系统" scheme="https://zhangandyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-      <category term="沟通" scheme="https://zhangandyu.github.io/tags/%E6%B2%9F%E9%80%9A/"/>
     
   </entry>
   
@@ -537,34 +512,6 @@
   </entry>
   
   <entry>
-    <title>改版分析</title>
-    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-08-04T15:05:38.245Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
-&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
-      
-    
-    </summary>
-    
-      <category term="数据分析方法" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="改版分析" scheme="https://zhangandyu.github.io/tags/%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>面试系统</title>
     <link href="https://zhangandyu.github.io/2019/04/22/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E9%9D%A2%E8%AF%95%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zhangandyu.github.io/2019/04/22/个人系统-面试系统/</id>
@@ -661,6 +608,34 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="流量分析" scheme="https://zhangandyu.github.io/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>改版分析</title>
+    <link href="https://zhangandyu.github.io/2019/04/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2019/04/22/数据分析方法-改版分析/</id>
+    <published>2019-04-21T16:00:00.000Z</published>
+    <updated>2019-08-04T15:05:38.245Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;改版分析&quot;&gt;&lt;a href=&quot;#改版分析&quot; class=&quot;headerlink&quot; title=&quot;改版分析&quot;&gt;&lt;/a&gt;改版分析&lt;/h1&gt;&lt;p&gt; 新改版页面的效果怎么样？&lt;/p&gt;
+&lt;p&gt; 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。&lt;/
+      
+    
+    </summary>
+    
+      <category term="数据分析方法" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="改版分析" scheme="https://zhangandyu.github.io/tags/%E6%94%B9%E7%89%88%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -911,32 +886,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>微信公众号留言记录</title>
-    <link href="https://zhangandyu.github.io/2019/01/06/%E7%94%9F%E6%B4%BB%E8%B5%84%E6%96%99-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
-    <id>https://zhangandyu.github.io/2019/01/06/生活资料-微信公众号留言管理/</id>
-    <published>2019-01-05T16:00:00.000Z</published>
-    <updated>2019-08-04T15:01:11.006Z</updated>
-    
-    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="生活资料" scheme="https://zhangandyu.github.io/categories/%E7%94%9F%E6%B4%BB%E8%B5%84%E6%96%99/"/>
-    
-    
-      <category term="留言" scheme="https://zhangandyu.github.io/tags/%E7%95%99%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>个人三观</title>
     <link href="https://zhangandyu.github.io/2019/01/06/%E4%B8%AA%E4%BA%BA%E7%B3%BB%E7%BB%9F-%E4%B8%AA%E4%BA%BA%E4%B8%89%E8%A7%82/"/>
     <id>https://zhangandyu.github.io/2019/01/06/个人系统-个人三观/</id>
@@ -965,6 +914,32 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       <category term="认知" scheme="https://zhangandyu.github.io/tags/%E8%AE%A4%E7%9F%A5/"/>
     
       <category term="三观" scheme="https://zhangandyu.github.io/tags/%E4%B8%89%E8%A7%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信公众号留言记录</title>
+    <link href="https://zhangandyu.github.io/2019/01/06/%E7%94%9F%E6%B4%BB%E8%B5%84%E6%96%99-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%95%99%E8%A8%80%E7%AE%A1%E7%90%86/"/>
+    <id>https://zhangandyu.github.io/2019/01/06/生活资料-微信公众号留言管理/</id>
+    <published>2019-01-05T16:00:00.000Z</published>
+    <updated>2019-08-04T15:01:11.006Z</updated>
+    
+    <content type="html"><![CDATA[<p>naivepinocchio ：<br>很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;naivepinocchio ：&lt;br&gt;很高兴认识你！最近也在学sql 你更新的太勤啦 真好！跟你一起进步！&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="生活资料" scheme="https://zhangandyu.github.io/categories/%E7%94%9F%E6%B4%BB%E8%B5%84%E6%96%99/"/>
+    
+    
+      <category term="留言" scheme="https://zhangandyu.github.io/tags/%E7%95%99%E8%A8%80/"/>
     
   </entry>
   
@@ -1069,37 +1044,6 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
   </entry>
   
   <entry>
-    <title>专题分析</title>
-    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
-    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
-    <published>2018-12-21T16:00:00.000Z</published>
-    <updated>2019-08-04T15:07:13.264Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需求沟通&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;一定要将20
-      
-    
-    </summary>
-    
-      <category term="数据分析方法" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
-    
-    
-      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-      <category term="专题分析" scheme="https://zhangandyu.github.io/tags/%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>营销活动分析</title>
     <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8%E5%88%86%E6%9E%90/"/>
     <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-营销活动分析/</id>
@@ -1150,6 +1094,37 @@ https://mp.weixin.qq.com/s/KWexZ_n8Q24uowDvKlOgZg --&gt;
       <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="埋点方案" scheme="https://zhangandyu.github.io/tags/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>专题分析</title>
+    <link href="https://zhangandyu.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
+    <id>https://zhangandyu.github.io/2018/12/22/数据分析方法-专题分析/</id>
+    <published>2018-12-21T16:00:00.000Z</published>
+    <updated>2019-08-04T15:07:13.264Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="专题分析"><a href="#专题分析" class="headerlink" title="专题分析"></a>专题分析</h3><p>数据分析师的一个重要考核， 就是专题分析的效果</p><ol><li>需求沟通</li></ol><p>一定要将20%以上的时间分配在沟通需求上，一定要当面沟通。 </p><p>原始需求——了解需求—— 本质需求——逻辑树——sql提数——分析方法——写分析报告</p><p>例如上线活动效果的专题分析流程：</p><ul><li>业务需求解读————需要与业务方当面沟通， 业务沟通贯穿整个分析流程。</li><li>活动效果的数据情况</li><li>目前活动对整个APP活跃用户，或者留存率的影响，以及活动的问题有哪些</li><li>活动的拉新、促活，用户粘性情况， 活动效果的优劣</li><li>通过逻辑树进行整理</li><li>建立分析AP， 分析师与业务方之间完成分析数据对焦，形成最终报告框架和结构。</li><li>通过SQL进行取数验证</li><li>分析： 组成部分、数量比较、维度变化、各项变化、各项相关性、其他数据挖掘</li><li>撰写报告： 90%的图+10的文，标题就是结论。 结论前置。 讲故事，报告的逻辑性一定要强。</li></ul><ol start="2"><li>项目专题分析的特征</li></ol><ul><li>有目标——围绕项目KPI来进行。 </li><li>有节奏——2-3周输出一份完整的报告。 </li><li>有闭环——报告不能太技术性， 要写成大白话最好， 说人话。 要明确给业务方提供建议改进方向， 而不是自己技术展现。</li></ul><p>3.专题分析实战</p><ul><li><p>项目背景：<br>电信app要在数据分析的基础上， 对产品运营进行优化，提升用户留存5%的绝对值。 </p></li><li><p>第1阶段：新用户留存整体分析<br>目的： 摸清数据现状， 同时找到若干个切入点。<br>关键点： 不要太注重细节， 该过程讲究报告产出的时效性，指明数据分析的方向， 让其他人员感受到数据分析师的存在。<br>过程：渠道方面， 各渠道的uv, 一、二级渠道的次留、7留。 产品方面, 主要功能的渗透率，功能是否出问题， 关键漏斗数据如何， 漏斗数据上有无发现。 用户方面， 产品用户的画像是什么， 用户的行为分布如何。 使用产品用户的分布。 </p></li><li><p>第2阶段： 寻找优化切入点， 一般是1-2个。<br>比如： 1. 关键立即数据发现曝光pv到点击pv的ctr很低， 我们可以围绕这个点细致分析： 对于新用户， 应该曝光什么，在什么时候， 什么位置曝光。 2. 某个量大的二级渠道的次留明显低于其他渠道， 围绕这个点，来进一步分析原因： 渠道本身质量存在问题？用户安装了竞品？当前产品设计与渠道用户不太匹配？高留存的渠道本身特征是什么？<br>通过这两点， 给渠道和运营的同事提供建议， 结合A/B测试， 就能看到数据分析的效果。 </p></li><li><p>第3阶段：</p></li><li><ul><li>不断重复前两个阶段， 继续寻找其他切入点。 </li></ul></li><li><ul><li>同时进行竞品分析， 营销活动分析，用户流失分析等等</li></ul></li><li><ul><li>每一次分析报告都要有能落地的点， 并且真正的落地了。 形成闭环，  评判数据分析师的标准： 产出专题分析的质量和数量。  质量就是数据分析落地的点和提神的kpi。 </li></ul></li></ul><h1 id="改版分析"><a href="#改版分析" class="headerlink" title="改版分析"></a>改版分析</h1><p> 新改版页面的效果怎么样？</p><p> 产品迭代的需求来源： 市场调研、竞品分析、用户反馈、数据分析、团队头脑风暴。</p><p> 分析方向：</p><ol><li>改版后， 新功能是否受欢迎</li><li>改版后， 对产品的流程转化率是否有提升</li><li>改版后， 对产品的整体留存的影响</li><li>改版后， 用户究竟如何使用新功</li></ol><ol><li><p>功能活跃比<br>新功能的用户数 / 同期客户端活跃用户数</p></li><li><p>漏斗转化提升</p></li><li><p>次日留存、周留存、月留存等指标是否朝着更好的方向发展。 </p></li><li><p>用户使用新功能， 是否符合你的预设， 还是说用户创造出了新的玩法。 </p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;专题分析&quot;&gt;&lt;a href=&quot;#专题分析&quot; class=&quot;headerlink&quot; title=&quot;专题分析&quot;&gt;&lt;/a&gt;专题分析&lt;/h3&gt;&lt;p&gt;数据分析师的一个重要考核， 就是专题分析的效果&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求沟通&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一定要将20
+      
+    
+    </summary>
+    
+      <category term="数据分析方法" scheme="https://zhangandyu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="数据分析" scheme="https://zhangandyu.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="专题分析" scheme="https://zhangandyu.github.io/tags/%E4%B8%93%E9%A2%98%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
