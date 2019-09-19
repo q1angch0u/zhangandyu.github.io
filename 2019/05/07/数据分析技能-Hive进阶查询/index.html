@@ -134,21 +134,21 @@
 
 
 
-<meta name="description" content="Hive中文手册 窗口函数 CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apo">
+<meta name="description" content="CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apos;1&amp;apos; then">
 <meta name="keywords" content="数据分析,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive 进阶查询">
 <meta property="og:url" content="https://zhangandyu.github.io/2019/05/07/数据分析技能-Hive进阶查询/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="Hive中文手册 窗口函数 CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apo">
+<meta property="og:description" content="CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apos;1&amp;apos; then">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe6c219ca3f57084.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe78ba58dfb91072.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/10/5cfe79320dfb423235.png">
-<meta property="og:updated_time" content="2019-08-04T15:08:16.332Z">
+<meta property="og:updated_time" content="2019-09-11T18:27:17.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 进阶查询">
-<meta name="twitter:description" content="Hive中文手册 窗口函数 CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apo">
+<meta name="twitter:description" content="CASE 表达式简单 表达式 与搜索表达式 简单case表达式 1234CASE sex    WHEN &amp;apos;1&amp;apos; THEN &amp;apos;男&amp;apos;    when &amp;apos;2&amp;apos; then &amp;apos;女&amp;apos;else &amp;apos;其他&amp;apos; end  搜索case表达式   123CASE when sex = &amp;apos;1&amp;apos; then">
 <meta name="twitter:image" content="https://i.loli.net/2019/06/10/5cfe6c219ca3f57084.png">
 
 
@@ -441,7 +441,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k 字
+                  2k 字
                 </span>
               
 
@@ -478,9 +478,7 @@
       
 
       
-        <p><a href="https://www.docs4dev.com/docs/zh/apache-hive/3.1.1/reference/LanguageManual_LateralView.html" target="_blank" rel="noopener">Hive中文手册</a></p>
-<p><a href="http://www.pianshen.com/article/856315136/" target="_blank" rel="noopener">窗口函数</a></p>
-<h1 id="CASE-表达式"><a href="#CASE-表达式" class="headerlink" title="CASE 表达式"></a>CASE 表达式</h1><h3 id="简单-表达式-与搜索表达式"><a href="#简单-表达式-与搜索表达式" class="headerlink" title="简单 表达式 与搜索表达式"></a>简单 表达式 与搜索表达式</h3><ol>
+        <h1 id="CASE-表达式"><a href="#CASE-表达式" class="headerlink" title="CASE 表达式"></a>CASE 表达式</h1><h3 id="简单-表达式-与搜索表达式"><a href="#简单-表达式-与搜索表达式" class="headerlink" title="简单 表达式 与搜索表达式"></a>简单 表达式 与搜索表达式</h3><ol>
 <li><p>简单case表达式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE sex</span><br><span class="line">    WHEN &apos;1&apos; THEN &apos;男&apos;</span><br><span class="line">    when &apos;2&apos; then &apos;女&apos;</span><br><span class="line">else &apos;其他&apos; end</span><br></pre></td></tr></table></figure>
 </li>
@@ -1161,6 +1159,8 @@
 <p><a href="http://lxw1234.com/archives/2015/06/317.htm">http://lxw1234.com/archives/2015/06/317.htm</a></p>
 <p><a href="https://zenoh.iteye.com/blog/1748592">https://zenoh.iteye.com/blog/1748592</a></p>
 <p><a href="http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89">http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89</a></p>
+<p><a href="https://www.docs4dev.com/docs/zh/apache-hive/3.1.1/reference/LanguageManual_LateralView.html">Hive中文手册</a></p>
+<p><a href="http://www.pianshen.com/article/856315136/">窗口函数</a></p>
 -->
       
     </div>
@@ -1245,8 +1245,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/12/数据分析方法-常用指标/" rel="prev" title="数据分析——数据分析的常用指标">
-                数据分析——数据分析的常用指标 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/12/个人系统-心理系统/" rel="prev" title="心理系统">
+                心理系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
