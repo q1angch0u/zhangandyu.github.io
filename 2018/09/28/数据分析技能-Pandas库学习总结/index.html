@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。 常用的软件Anaconda是数据分析中运行python的一款利器， 安装教">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-04T15:08:31.391Z">
+<meta property="og:updated_time" content="2019-09-29T09:11:58.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas 库学习总结">
 <meta name="twitter:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。 常用的软件Anaconda是数据分析中运行python的一款利器， 安装教">
@@ -638,7 +638,7 @@
 <h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><ol>
 <li>删除空值 （dropna函数）</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.dropna(how=&apos;any&apos;)</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/yuanxiang01/article/details/78738812" target="_blank" rel="noopener">https://blog.csdn.net/yuanxiang01/article/details/78738812</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.dropna(how=&apos;any&apos;)</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">用法：DataFrame.drop(labels=None,axis=0, index=None, columns=None, inplace=False)</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">labels 就是要删除的行列的名字，用列表给定</span><br><span class="line">axis 默认为0，指删除行，因此删除columns时要指定axis=1；</span><br><span class="line">index 直接指定要删除的行</span><br><span class="line">columns 直接指定要删除的列</span><br><span class="line">inplace=False，默认该删除操作不改变原数据，而是返回一个执行删除操作后的新dataframe；</span><br><span class="line">inplace=True，则会直接在原数据上进行删除操作，删除后无法返回。</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 删除包含 集团 二字 的行</span><br><span class="line"></span><br><span class="line">read_data = data_excel_2[- data_excel_2[&apos;所属省份名称&apos;].isin([&apos;集团&apos;])]</span><br></pre></td></tr></table></figure>
 <ol start="2">
@@ -856,8 +856,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/个人系统-阅读系统/" rel="prev" title="阅读系统">
-                阅读系统 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/个人系统-写作系统/" rel="prev" title="写作系统">
+                写作系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1089,7 +1089,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">105k</span>
+    <span title="Site words total count">103.2k</span>
   
 </div>
 
