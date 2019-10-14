@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。 常用的软件Anaconda是数据分析中运行python的一款利器， 安装教">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-29T09:11:58.156Z">
+<meta property="og:updated_time" content="2019-10-14T10:25:07.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas 库学习总结">
 <meta name="twitter:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。 常用的软件Anaconda是数据分析中运行python的一款利器， 安装教">
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.7k 字
+                  4.8k 字
                 </span>
               
 
@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  21 分钟
+                  22 分钟
                 </span>
               
             </div>
@@ -767,7 +767,7 @@
 <ol start="5">
 <li>切分与分列、 合并</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#切分</span><br><span class="line">a.split(&apos;_&apos;)</span><br><span class="line"></span><br><span class="line"># 切分， 且成为新列</span><br><span class="line">a.split(&apos;_&apos;, expand = True)</span><br><span class="line"></span><br><span class="line"># 对切分进行限制, 只切1次</span><br><span class="line">a.split(&apos;_&apos;, expand = True, n=1)</span><br><span class="line"></span><br><span class="line"># 查看是否包含</span><br><span class="line">a.str.contains(&apos;A&apos;)</span><br><span class="line"></span><br><span class="line"># 分列</span><br><span class="line">s.str.get_dummies(sep= &apos;|&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">对两列数据进行合并</span><br><span class="line">df[&apos;省份_名称&apos;] = df[&apos;省份&apos;].str.cat(df[&apos;名称&apos;],sep = &apos;_&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#切分</span><br><span class="line">a.split(&apos;_&apos;)</span><br><span class="line"></span><br><span class="line"># 切分， 且成为新列</span><br><span class="line">a.split(&apos;_&apos;, expand = True)</span><br><span class="line"></span><br><span class="line"># 对切分进行限制, 只切1次</span><br><span class="line">a.split(&apos;_&apos;, expand = True, n=1)</span><br><span class="line"></span><br><span class="line"># 查看是否包含</span><br><span class="line">a.str.contains(&apos;A&apos;)</span><br><span class="line"></span><br><span class="line"># 分列</span><br><span class="line">s.str.get_dummies(sep= &apos;|&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># pandas对dataframe中的某一列使用split做字符串切割：</span><br><span class="line"># words = df[&apos;col&apos;].split()</span><br><span class="line"># 报错：</span><br><span class="line"># AttributeError: &apos;Series&apos; object has no attribute &apos;split&apos;</span><br><span class="line"># 原因是df[&apos;col&apos;]返回的是一个Series对象，需要先把Series对象转换为字符串：pandas.Series.str.split</span><br><span class="line"># words = df[&apos;col&apos;].str.split()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">对两列数据进行合并</span><br><span class="line">df[&apos;省份_名称&apos;] = df[&apos;省份&apos;].str.cat(df[&apos;名称&apos;],sep = &apos;_&apos;)</span><br></pre></td></tr></table></figure>
 <h3 id="读取excel-中的各个sheeht名称，并且进行合并"><a href="#读取excel-中的各个sheeht名称，并且进行合并" class="headerlink" title="读取excel 中的各个sheeht名称，并且进行合并"></a>读取excel 中的各个sheeht名称，并且进行合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rbook = []</span><br><span class="line">kong_data = os.listdir(r&apos;F:\zy_data\省资源位数据\3月省资源位数据\省资源位&apos;)</span><br><span class="line">for file_name in kong_data:</span><br><span class="line">    data_excel = pd.ExcelFile(r&apos;F:\zy_data\省资源位数据\3月省资源位数据\省资源位\\&apos;+file_name)</span><br><span class="line">    sheet = data_excel.sheet_names</span><br><span class="line">    for i in sheet:</span><br><span class="line">        data_button_rest = pd.read_excel(r&apos;F:\zy_data\省资源位数据\3月省资源位数据\省资源位\\&apos;+file_name, sheet_name= i )</span><br><span class="line">        rbook.append(data_button_rest)</span><br><span class="line">        result_df =pd.concat(rbook)</span><br><span class="line">datas_excel = pd.DataFrame(result_df)</span><br></pre></td></tr></table></figure>
 <h3 id="将运行的所有数据都展现出来，-而不是只展现最后一条"><a href="#将运行的所有数据都展现出来，-而不是只展现最后一条" class="headerlink" title="将运行的所有数据都展现出来， 而不是只展现最后一条"></a>将运行的所有数据都展现出来， 而不是只展现最后一条</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from  IPython.core.interactiveshell import InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = &quot;all&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="字符和数值之间的转化"><a href="#字符和数值之间的转化" class="headerlink" title="字符和数值之间的转化"></a>字符和数值之间的转化</h3><p><code></code><br>int()  # 转化成整数<br>float() # 转化成浮点数<br>str() # 转化成字符<br>type() # 查看格式</p>
@@ -856,8 +856,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/个人系统-阅读系统/" rel="prev" title="阅读系统">
-                阅读系统 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/个人系统-写作系统/" rel="prev" title="写作系统">
+                写作系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1089,7 +1089,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">105.9k</span>
+    <span title="Site words total count">106k</span>
   
 </div>
 
