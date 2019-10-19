@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚">
+<meta name="description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚   数据采集和埋点方式全埋点（无埋点、自动埋">
 <meta name="keywords" content="数据分析,埋点方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="业务分析——埋点方案">
 <meta property="og:url" content="https://zhangandyu.github.io/2018/12/22/数据分析技能-埋点方案/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚">
+<meta property="og:description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚   数据采集和埋点方式全埋点（无埋点、自动埋">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-04T15:11:04.406Z">
+<meta property="og:updated_time" content="2019-10-18T06:30:22.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="业务分析——埋点方案">
-<meta name="twitter:description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚">
+<meta name="twitter:description" content="数据埋点方案https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚   数据采集和埋点方式全埋点（无埋点、自动埋">
 
 
 
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  123 字
+                  194 字
                 </span>
               
 
@@ -482,6 +482,10 @@
 <li>数据采集方案没有想清楚， 哪些应该在前端埋点，哪些应该在后端埋点，埋点采集sdk如何正确使用没有了解清楚</li>
 </ol>
 <hr>
+<h1 id="数据采集和埋点方式"><a href="#数据采集和埋点方式" class="headerlink" title="数据采集和埋点方式"></a>数据采集和埋点方式</h1><h2 id="全埋点（无埋点、自动埋点）"><a href="#全埋点（无埋点、自动埋点）" class="headerlink" title="全埋点（无埋点、自动埋点）"></a>全埋点（无埋点、自动埋点）</h2><p><a href="https://www.sensorsdata.cn/blog/20181206-2/" target="_blank" rel="noopener">什么是全埋点？</a></p>
+<p><a href="https://www.sensorsdata.cn/school/library/cfd8cf4e7ea6360775e118954518de2c?utm_source=WeChat&amp;utm_medium=free&amp;utm_term=%e9%98%85%e8%af%bb%e5%8e%9f%e6%96%87&amp;utm_content=%e7%99%bd%e7%9a%ae%e4%b9%a6-Android%e5%85%a8%e5%9f%8b%e7%82%b9&amp;utm_campaign=sensorsdata2" target="_blank" rel="noopener">《Android 全埋点技术白皮书》</a></p>
+<h3 id="什么是全埋点"><a href="#什么是全埋点" class="headerlink" title="什么是全埋点"></a>什么是全埋点</h3><p>预先收集用户的所有行为数据， 然后根据实际分析需求从中提取行为数据。 </p>
+<p># </p>
 
       
     </div>
@@ -556,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/22/数据分析方法-营销活动分析/" rel="next" title="营销活动分析">
-                <i class="fa fa-chevron-left"></i> 营销活动分析
+              <a href="/2018/10/27/个人系统-投资系统/" rel="next" title="投资系统">
+                <i class="fa fa-chevron-left"></i> 投资系统
               </a>
             
           </div>
@@ -566,8 +570,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/22/数据分析方法-岗位介绍/" rel="prev" title="业务分析-数据分析师岗位介绍">
-                业务分析-数据分析师岗位介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/22/数据分析方法-营销活动分析/" rel="prev" title="营销活动分析">
+                营销活动分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +667,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -765,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据埋点方案"><span class="nav-number">1.</span> <span class="nav-text">数据埋点方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据埋点方案"><span class="nav-number">1.</span> <span class="nav-text">数据埋点方案</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#数据采集和埋点方式"><span class="nav-number"></span> <span class="nav-text">数据采集和埋点方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全埋点（无埋点、自动埋点）"><span class="nav-number"></span> <span class="nav-text">全埋点（无埋点、自动埋点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是全埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是全埋点</span></a></li></ol></li></ol></li></div>
             
 
           </div>
@@ -799,7 +803,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">106k</span>
+    <span title="Site words total count">106.1k</span>
   
 </div>
 
