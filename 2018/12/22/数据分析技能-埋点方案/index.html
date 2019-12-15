@@ -134,13 +134,13 @@
 
 
 
-<meta name="description" content="数据埋点方案 埋点需求：  代码埋点 无埋点   全埋点  埋点方案比较  埋点实施流程  不同场景的埋点方案 https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些">
+<meta name="description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
 <meta name="keywords" content="数据分析,埋点方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="业务分析——埋点方案">
 <meta property="og:url" content="https://zhangandyu.github.io/2018/12/22/数据分析技能-埋点方案/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="数据埋点方案 埋点需求：  代码埋点 无埋点   全埋点  埋点方案比较  埋点实施流程  不同场景的埋点方案 https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些">
+<meta property="og:description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/TMEiAdIVWNg6vuZ.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/bSmPA7gtMeoIzrT.png">
@@ -149,10 +149,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/21/E6weVz43Hhua1Ib.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/qOHeoBS9GcJZ3x1.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/4dL8rDeHgb6ZQOo.png">
-<meta property="og:updated_time" content="2019-11-21T15:55:10.769Z">
+<meta property="og:updated_time" content="2019-12-15T11:04:29.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="业务分析——埋点方案">
-<meta name="twitter:description" content="数据埋点方案 埋点需求：  代码埋点 无埋点   全埋点  埋点方案比较  埋点实施流程  不同场景的埋点方案 https://www.sensorsdata.cn/blog/20181114-2/ 问题：  需求整理不完善， 没有整体考虑， 版本更替原有埋点不可用 数据统计口径不清楚，没有将埋点的具体采集时机郑群传达，埋点不是自己想要定义的指标 数据采集方案没有想清楚， 哪些应该在前端埋点，哪些">
+<meta name="twitter:description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/21/TMEiAdIVWNg6vuZ.png">
 
 
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  909 字
+                  1k 字
                 </span>
               
 
@@ -482,7 +482,12 @@
       
 
       
-        <h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><hr>
+        <h3 id="APP埋点上报规则如何制定"><a href="#APP埋点上报规则如何制定" class="headerlink" title="APP埋点上报规则如何制定"></a>APP埋点上报规则如何制定</h3><p> 数据统计埋点工作框架及细节规范  <a href="https://zhuanlan.zhihu.com/p/78267447" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/78267447</a></p>
+<p> 数据分析入门：初识数据埋点（一） <a href="http://www.woshipm.com/data-analysis/872543.html" target="_blank" rel="noopener">http://www.woshipm.com/data-analysis/872543.html</a></p>
+<p> 有赞埋点实践  <a href="https://tech.youzan.com/track-1/" target="_blank" rel="noopener">https://tech.youzan.com/track-1/</a></p>
+<p> 美团点评前端无痕埋点实践  <a href="https://tech.meituan.com/2017/03/02/mt-mobile-analytics-practice.html" target="_blank" rel="noopener">https://tech.meituan.com/2017/03/02/mt-mobile-analytics-practice.html</a></p>
+<p>知乎客户端埋点流程、模型和平台技术 <a href="https://zhuanlan.zhihu.com/p/40985361" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/40985361</a></p>
+<h3 id="数据埋点方案"><a href="#数据埋点方案" class="headerlink" title="数据埋点方案"></a>数据埋点方案</h3><hr>
 <p>埋点需求：<br><img src="https://i.loli.net/2019/11/21/TMEiAdIVWNg6vuZ.png" alt="微信截图_20191121230856.png"></p>
 <hr>
 <p>代码埋点</p>
@@ -595,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/27/个人系统-投资系统/" rel="next" title="投资系统">
-                <i class="fa fa-chevron-left"></i> 投资系统
+              <a href="/2018/09/28/数据分析技能-pandas库/" rel="next" title="Pandas 库总结">
+                <i class="fa fa-chevron-left"></i> Pandas 库总结
               </a>
             
           </div>
@@ -605,8 +610,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/22/数据分析方法-专题分析/" rel="prev" title="专题分析">
-                专题分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/20/生活资料-个人成长书单/" rel="prev" title="读书档案">
+                读书档案 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -702,7 +707,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -713,7 +718,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -724,7 +729,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -810,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据埋点方案"><span class="nav-number">1.</span> <span class="nav-text">数据埋点方案</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据采集和埋点方式"><span class="nav-number"></span> <span class="nav-text">数据采集和埋点方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全埋点（无埋点、自动埋点）"><span class="nav-number"></span> <span class="nav-text">全埋点（无埋点、自动埋点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是全埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是全埋点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无埋点的优势"><span class="nav-number">2.</span> <span class="nav-text">无埋点的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无埋点的缺点"><span class="nav-number">3.</span> <span class="nav-text">无埋点的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码埋点"><span class="nav-number"></span> <span class="nav-text">代码埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是代码埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是代码埋点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#APP埋点上报规则如何制定"><span class="nav-number">1.</span> <span class="nav-text">APP埋点上报规则如何制定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据埋点方案"><span class="nav-number">2.</span> <span class="nav-text">数据埋点方案</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据采集和埋点方式"><span class="nav-number"></span> <span class="nav-text">数据采集和埋点方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全埋点（无埋点、自动埋点）"><span class="nav-number"></span> <span class="nav-text">全埋点（无埋点、自动埋点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是全埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是全埋点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无埋点的优势"><span class="nav-number">2.</span> <span class="nav-text">无埋点的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无埋点的缺点"><span class="nav-number">3.</span> <span class="nav-text">无埋点的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码埋点"><span class="nav-number"></span> <span class="nav-text">代码埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是代码埋点"><span class="nav-number">1.</span> <span class="nav-text">什么是代码埋点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li></div>
             
 
           </div>
@@ -844,7 +849,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">123.2k</span>
+    <span title="Site words total count">30.2k</span>
   
 </div>
 
