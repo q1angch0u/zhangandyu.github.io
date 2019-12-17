@@ -134,13 +134,13 @@
 
 
 
-<meta name="description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
+<meta name="description" content="APP埋点上报规则如何制定埋点中业务的痛点：  改版前后，同一位置命名不统一，导致数据提取比较麻烦。   按钮数据出现漏采，多发情况。   数据埋点不能很好的服务于业务， 有些业务的划分埋点也许要埋点。  数据埋点业务繁琐，埋点需求-埋点方案-需求评审-研发实施-埋点测试-埋点更正-上线数据采集。  每一步都比较繁琐。   用户换端，导致有些数据追踪不到。      数据统计埋点工作框架及细节规范">
 <meta name="keywords" content="数据分析,埋点方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="业务分析——埋点方案">
 <meta property="og:url" content="https://zhangandyu.github.io/2018/12/22/数据分析技能-埋点方案/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
-<meta property="og:description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
+<meta property="og:description" content="APP埋点上报规则如何制定埋点中业务的痛点：  改版前后，同一位置命名不统一，导致数据提取比较麻烦。   按钮数据出现漏采，多发情况。   数据埋点不能很好的服务于业务， 有些业务的划分埋点也许要埋点。  数据埋点业务繁琐，埋点需求-埋点方案-需求评审-研发实施-埋点测试-埋点更正-上线数据采集。  每一步都比较繁琐。   用户换端，导致有些数据追踪不到。      数据统计埋点工作框架及细节规范">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/TMEiAdIVWNg6vuZ.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/bSmPA7gtMeoIzrT.png">
@@ -149,10 +149,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/21/E6weVz43Hhua1Ib.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/qOHeoBS9GcJZ3x1.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/21/4dL8rDeHgb6ZQOo.png">
-<meta property="og:updated_time" content="2019-12-15T11:04:29.045Z">
+<meta property="og:updated_time" content="2019-12-15T16:20:02.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="业务分析——埋点方案">
-<meta name="twitter:description" content="APP埋点上报规则如何制定 数据统计埋点工作框架及细节规范  https://zhuanlan.zhihu.com/p/78267447  数据分析入门：初识数据埋点（一） http://www.woshipm.com/data-analysis/872543.html  有赞埋点实践  https://tech.youzan.com/track-1/  美团点评前端无痕埋点实践  https:/">
+<meta name="twitter:description" content="APP埋点上报规则如何制定埋点中业务的痛点：  改版前后，同一位置命名不统一，导致数据提取比较麻烦。   按钮数据出现漏采，多发情况。   数据埋点不能很好的服务于业务， 有些业务的划分埋点也许要埋点。  数据埋点业务繁琐，埋点需求-埋点方案-需求评审-研发实施-埋点测试-埋点更正-上线数据采集。  每一步都比较繁琐。   用户换端，导致有些数据追踪不到。      数据统计埋点工作框架及细节规范">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/21/TMEiAdIVWNg6vuZ.png">
 
 
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k 字
+                  1.2k 字
                 </span>
               
 
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -482,7 +482,21 @@
       
 
       
-        <h3 id="APP埋点上报规则如何制定"><a href="#APP埋点上报规则如何制定" class="headerlink" title="APP埋点上报规则如何制定"></a>APP埋点上报规则如何制定</h3><p> 数据统计埋点工作框架及细节规范  <a href="https://zhuanlan.zhihu.com/p/78267447" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/78267447</a></p>
+        <h3 id="APP埋点上报规则如何制定"><a href="#APP埋点上报规则如何制定" class="headerlink" title="APP埋点上报规则如何制定"></a>APP埋点上报规则如何制定</h3><p>埋点中业务的痛点：</p>
+<ol>
+<li><p>改版前后，同一位置命名不统一，导致数据提取比较麻烦。 </p>
+</li>
+<li><p>按钮数据出现漏采，多发情况。 </p>
+</li>
+<li><p>数据埋点不能很好的服务于业务， 有些业务的划分埋点也许要埋点。</p>
+</li>
+<li><p>数据埋点业务繁琐，埋点需求-埋点方案-需求评审-研发实施-埋点测试-埋点更正-上线数据采集。  每一步都比较繁琐。 </p>
+</li>
+<li><p>用户换端，导致有些数据追踪不到。 </p>
+</li>
+</ol>
+<hr>
+<p> 数据统计埋点工作框架及细节规范  <a href="https://zhuanlan.zhihu.com/p/78267447" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/78267447</a></p>
 <p> 数据分析入门：初识数据埋点（一） <a href="http://www.woshipm.com/data-analysis/872543.html" target="_blank" rel="noopener">http://www.woshipm.com/data-analysis/872543.html</a></p>
 <p> 有赞埋点实践  <a href="https://tech.youzan.com/track-1/" target="_blank" rel="noopener">https://tech.youzan.com/track-1/</a></p>
 <p> 美团点评前端无痕埋点实践  <a href="https://tech.meituan.com/2017/03/02/mt-mobile-analytics-practice.html" target="_blank" rel="noopener">https://tech.meituan.com/2017/03/02/mt-mobile-analytics-practice.html</a></p>
@@ -600,7 +614,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/数据分析技能-pandas库/" rel="next" title="Pandas 库总结">
+              <a href="/2018/09/28/数据分析技能-Pandas库/" rel="next" title="Pandas 库总结">
                 <i class="fa fa-chevron-left"></i> Pandas 库总结
               </a>
             
@@ -849,7 +863,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.2k</span>
+    <span title="Site words total count">31k</span>
   
 </div>
 

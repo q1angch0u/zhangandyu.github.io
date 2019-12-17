@@ -138,11 +138,11 @@
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pandas 库总结">
-<meta property="og:url" content="https://zhangandyu.github.io/2018/09/28/数据分析技能-pandas库/index.html">
+<meta property="og:url" content="https://zhangandyu.github.io/2018/09/28/数据分析技能-Pandas库/index.html">
 <meta property="og:site_name" content="怪兽宇的小站">
 <meta property="og:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。  常用的软件 Anaconda是数据分析中运行python的一款利器， 安">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T04:53:21.713Z">
+<meta property="og:updated_time" content="2019-12-16T09:45:43.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas 库总结">
 <meta name="twitter:description" content="python中的单引号，双引号，三引号的不同作用 Pandas简介Pandas是python数据分析中一个非常核心的数据库， 在日常的工作中经常需要使用Pandas库来对数据进行处理分析。Pandas的核心为两大数据结构， Series和DataFrame，Series用于存储一维数据， 而DataFrame存储多维数据。  常用的软件 Anaconda是数据分析中运行python的一款利器， 安">
@@ -175,7 +175,7 @@
 
 
 
-  <link rel="canonical" href="https://zhangandyu.github.io/2018/09/28/数据分析技能-pandas库/">
+  <link rel="canonical" href="https://zhangandyu.github.io/2018/09/28/数据分析技能-Pandas库/">
 
 
 
@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2018/09/28/数据分析技能-pandas库/">
+    <link itemprop="mainEntityOfPage" href="https://zhangandyu.github.io/2018/09/28/数据分析技能-Pandas库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="怪兽宇">
@@ -409,8 +409,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/28/数据分析技能-pandas库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/28/数据分析技能-pandas库/" itemprop="commentCount"></span>
+                <a href="/2018/09/28/数据分析技能-Pandas库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/28/数据分析技能-Pandas库/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -437,7 +437,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  124 字
+                  768 字
                 </span>
               
 
@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -482,36 +482,6 @@
 </blockquote>
 </li>
 </ul>
-<!-- 
-
-# Series对象
-Series用于存储一维数据，由两个相互关联的数组组成， 主数组用来存放数据。
-
-
-1. 创建Series对象
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zy = pd.Series([2, 3, 4, 6, 7, 4], index = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;])</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>查看Series对象的两个数组</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看元素</span><br><span class="line">zy.values</span><br><span class="line"></span><br><span class="line"># 查看索引</span><br><span class="line">zy.index</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>查看元素</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将zy看做Numpy数组，指定键</span><br><span class="line">zy[2]</span><br><span class="line">zy[0:2]</span><br><span class="line"></span><br><span class="line"># 指定标签</span><br><span class="line">zy[&apos;c&apos;]</span><br><span class="line">zy[[&apos;b&apos;, &apos;c&apos;]]</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>筛选元素</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zy[zy &gt;3]</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>查看组成元素</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看包含的不同元素</span><br><span class="line">zy.unique()</span><br><span class="line">zy.value_counts()</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>通过字典来创建</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zy=Series(&#123;&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3&#125;)</span><br></pre></td></tr></table></figure>
-<p>— –&gt;</p>
 <h1 id="时间函数"><a href="#时间函数" class="headerlink" title="时间函数"></a>时间函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">from datetime import datetime, time, timedelta</span><br></pre></td></tr></table></figure>
 <ul>
 <li>现在时间</li>
@@ -538,7 +508,7 @@ Series用于存储一维数据，由两个相互关联的数组组成， 主数�
 <hr>
 <h1 id="读取与写入Excel数据"><a href="#读取与写入Excel数据" class="headerlink" title="读取与写入Excel数据"></a>读取与写入Excel数据</h1><p>相对路径与绝对路径:</p>
 <blockquote>
-<p><a href="https://blog.csdn.net/m0_37693335/article/details/81474995">https://blog.csdn.net/m0_37693335/article/details/81474995</a></p>
+<p><a href="https://blog.csdn.net/m0_37693335/article/details/81474995" target="_blank" rel="noopener">https://blog.csdn.net/m0_37693335/article/details/81474995</a></p>
 </blockquote>
 <ol>
 <li>读取文件夹的内容</li>
@@ -1055,7 +1025,7 @@ Series用于存储一维数据，由两个相互关联的数组组成， 主数�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas简介"><span class="nav-number">1.</span> <span class="nav-text">Pandas简介</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pandas简介"><span class="nav-number">1.</span> <span class="nav-text">Pandas简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间函数"><span class="nav-number">2.</span> <span class="nav-text">时间函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读取与写入Excel数据"><span class="nav-number">3.</span> <span class="nav-text">读取与写入Excel数据</span></a></li></ol></div>
             
 
           </div>
@@ -1089,7 +1059,7 @@ Series用于存储一维数据，由两个相互关联的数组组成， 主数�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.2k</span>
+    <span title="Site words total count">31k</span>
   
 </div>
 
@@ -1262,8 +1232,8 @@ Series用于存储一维数据，由两个相互关联的数组组成， 主数�
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://zhangandyu.github.io/2018/09/28/数据分析技能-pandas库/';
-          this.page.identifier = '2018/09/28/数据分析技能-pandas库/';
+          this.page.url = 'https://zhangandyu.github.io/2018/09/28/数据分析技能-Pandas库/';
+          this.page.identifier = '2018/09/28/数据分析技能-Pandas库/';
           this.page.title = 'Pandas 库总结';
         };
         var d = document, s = d.createElement('script');
