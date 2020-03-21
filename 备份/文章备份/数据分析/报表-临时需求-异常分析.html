@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="个人博客"><title>业务分析——工作报表、临时需求、异常数据排查 | 怪兽宇的小站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','127783955','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">业务分析——工作报表、临时需求、异常数据排查</h1><a id="logo" href="/.">怪兽宇的小站</a><p class="description">脚踏实地，仰望星空!</p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">业务分析——工作报表、临时需求、异常数据排查</h1><div class="post-content"><h3 id="一、-日报、周报、月报"><a href="#一、-日报、周报、月报" class="headerlink" title="一、 日报、周报、月报"></a>一、 日报、周报、月报</h3><p>日报</p>
+<blockquote>
+<p>日报每天都要看。<br>编写数据脚本，实现日报半自动化。 </p>
+</blockquote>
+<p>为什么每天要看日报：</p>
+<ul>
+<li><p>了解公司业务现状<br>  当公司同事询问数据时，能够做到对基础的业务数据脱口而出,一定要对公司的核心指标数据熟记于心</p>
+</li>
+<li><p>培养个人数据敏感性<br>  当每天看数据时，都能够看到数据的波动变化。比如每日客户端活跃用户数都是在550-600万用户之间，突然一天增长到605万，能够做到有所怀疑，并进一步寻找原因。这就是数据敏感性。 </p>
+</li>
+<li><p>提供业务发展建议<br>  通过日报的数据观察，能够知道当产品运营做出哪些优化时， 数据会出现涨跌情况，给业务运营提供发展建议。 </p>
+<p>周报</p>
+<blockquote>
+<p>看短期趋势。</p>
+</blockquote>
+</li>
+</ul>
+<p>周报作用：</p>
+<ul>
+<li>新版本发布往往一到两周，通过一周的时间长短， 可以分析APP新版本的改版效果。</li>
+<li>一周的数据更加稳定， 有说服力。 </li>
+</ul>
+<p> 月报</p>
+<blockquote>
+<p>给出建议。</p>
+</blockquote>
+<p>月报内容：</p>
+<ul>
+<li><p>通过月报对公司业务进行梳理，月报一定要有给业务运营的建议，不能只是罗列数据。 </p>
+</li>
+<li><p>当通过数据变化发现某些活动效果好时， 一定要把分析原因放到月报里去展现，让所有管理层知道，从而推送业务的发展。</p>
+</li>
+</ul>
+<hr>
+<h3 id="二、临时数据需求"><a href="#二、临时数据需求" class="headerlink" title="二、临时数据需求"></a>二、临时数据需求</h3><ol>
+<li>管理层需求：</li>
+</ol>
+<ul>
+<li>优先级最高</li>
+<li>了解需求背景，思考为何要这个数据， 通过这个数据可以进行哪些决策</li>
+<li>一定要进行核对，不能出错，只能给一遍。</li>
+<li>必须时候找上级进行询问</li>
+</ul>
+<ol start="2">
+<li>业务需求：</li>
+</ol>
+<ul>
+<li>询问为何要这个数据</li>
+<li>建立该业务类的分析框架</li>
+<li>只给业务方最核心的需求，其他延伸需求让自己去取数</li>
+<li>坚决不做提数机</li>
+</ul>
+<blockquote>
+<p>例如： 优惠券的使用情况如何，如何优化？<br>建立分析框架：</p>
+<ul>
+<li>优惠券的下发人数</li>
+<li>优惠券的点击人数</li>
+<li>优惠券的使用人数</li>
+<li>优惠券的使用金额</li>
+<li>用户消费优惠券的频次</li>
+<li>优惠券的消费时段</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="三、数据异常排查"><a href="#三、数据异常排查" class="headerlink" title="三、数据异常排查"></a>三、数据异常排查</h3><p>清楚以下三点：</p>
+<ol>
+<li>业务理解</li>
+<li>指标口径</li>
+<li>当前数据产出过程</li>
+</ol>
+<p>数据异常原因分析：</p>
+<ol>
+<li>数据有问题</li>
+</ol>
+<ul>
+<li>将时间轴拉长，看数据是近期异常还是历史异常，对比近三个月数据。</li>
+<li>查看和该指标关联的其他核心指标是否也异常，如果异常，也要一并查看。</li>
+<li>核查埋点是否有问题， 数据是否存在多发情况。</li>
+<li>业务口径是否有问题， 取的数据是不是真正需要的数据。</li>
+<li>写的sql逻辑是否有误， 或者android 和 ios 数据没有相加。 </li>
+</ul>
+<ol start="2">
+<li>业务发生了变化</li>
+</ol>
+<ul>
+<li>同口径下，同比环比数据是否异常， 在长时间轴的条件下进行对比</li>
+<li>进行细拆， 看到底是哪个指标的数据出现了异常， 将该指标和相关的指标一起进行对比</li>
+<li>与负责此指标的负责人进行沟通， 询问他们近期是否做了推广活动。</li>
+<li>产品最近是否发布了新版本，或者某个功能改版存在缺陷问题。 </li>
+</ul>
+<ol start="3">
+<li>其他因素影响</li>
+</ol>
+<ul>
+<li>假期效应： 开学季， 暑期， 四大节日，当地节日</li>
+<li>热点事件：常规热点如运动会，世界杯，其他热点事件</li>
+<li>活动影响： 双11， 618， 支付宝送红包</li>
+<li>政策影响： 金融监管</li>
+<li>底层系统故障： 服务器迁移导致数据丢失</li>
+<li>存在外部刷量作弊情况</li>
+<li>统计口径： 业务逻辑进行了更改， 之前某业务有统计， 但现在不统计了。  数据计算方式改变</li>
+</ul>
+<p>要对异常排查进行闭环</p>
+<ol>
+<li>持续跟踪后期数据是否再次异常<br>比如7.0版本数据存在多发现象， 但7.1版本开发说已更改， 当7.1版本发布之后， 要及时去查看数据是否再次异常。 </li>
+<li>对数据异常一定要记录， 对异常口径要留文档。</li>
+<li>邮件化， 当数据异常排查原因查明， 并且确认更改之后， 发邮件给相关方， 描述数据异常的影响范围和主要结论。 </li>
+</ol>
+<hr>
+<p>作为一名数据分析师， 一定要经常去看这三种报表，培养自己的数据敏感度，了解业务的各种核心指标。</p>
+</div></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' ? true : false;
+var verify = 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'LWPB8jjoMUiH98OUCjulreBj-gzGzoHsz',
+  appKey:'YOWrXQ1oP2QTavuCRp2QeRYV',
+  placeholder:'　快来留下你的脚印吧',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人系统/">个人系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析技能/">数据分析技能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析方法/">数据分析方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活资料/">生活资料</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/博客主题/" style="font-size: 15px;">博客主题</a> <a href="/tags/Hive/" style="font-size: 15px;">Hive</a> <a href="/tags/sql/" style="font-size: 15px;">sql</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/数据分析/" style="font-size: 15px;">数据分析</a> <a href="/tags/统计学/" style="font-size: 15px;">统计学</a> <a href="/tags/改版分析/" style="font-size: 15px;">改版分析</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/思考方法/" style="font-size: 15px;">思考方法</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/思维方法/" style="font-size: 15px;">思维方法</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/书单/" style="font-size: 15px;">书单</a> <a href="/tags/音乐/" style="font-size: 15px;">音乐</a> <a href="/tags/逻辑/" style="font-size: 15px;">逻辑</a> <a href="/tags/类比/" style="font-size: 15px;">类比</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/博客主题更换/">博客更换主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/方法-改版分析/">改版分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/技能-Hive进阶学习/">Hive 进阶查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/技能-Hive基础学习/">Hive 基础查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/通用-沟通能力-类比系统/">类比汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/方法-常见的分析方法/">常见的分析思维方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/方法-常见的分析模型/">常见的分析思维模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/生活-个人总结-成长书单/">读书档案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/20/生活-个人总结-《零秒思考》读书笔记/">如何整理大脑思绪</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/13/生活-个人总结-《好好学习》读书笔记/">反思日记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.chinawebanalytics.cn/" title="互联网分析在中国" target="_blank">互联网分析在中国</a><ul></ul><a href="https://www.yangzhiping.com/" title="阳志平的网志" target="_blank">阳志平的网志</a><ul></ul><a href="https://maxoxo.me/" title="maxOS" target="_blank">maxOS</a><ul></ul><a href="https://thelongestway.com/" title="The Longest Way" target="_blank">The Longest Way</a><ul></ul><a href="https://christophrehage.cn/" title="Christoph Rehage" target="_blank">Christoph Rehage</a><ul></ul><a href="https://codechina.org/" title="Tinyfool的中文Blog" target="_blank">Tinyfool的中文Blog</a><ul></ul><a href="http://sunny.blogchina.com/" title="梁宁的专栏" target="_blank">梁宁的专栏</a><ul></ul><a href="https://ayearofreadingtheworld.com/" title="A year of reading the world" target="_blank">A year of reading the world</a><ul></ul><a href="http://www.storytellingwithdata.com/blog/" title="storytelling-data" target="_blank">storytelling-data</a><ul></ul><a href="https://github.com/xiaolai/xiaolai.github.io" title="李笑来作品集##" target="_blank">李笑来作品集##</a><ul></ul><a href="https://etc.usf.edu/lit2go/55/around-the-world-in-80-days/" title="英文有声读物" target="_blank">英文有声读物</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">怪兽宇的小站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/copycode/js/copycode.js"></script><link rel="stylesheet" type="text/css" href="/copycode/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

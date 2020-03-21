@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="个人博客"><title>面试问题 | 怪兽宇的小站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','127783955','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">面试问题</h1><a id="logo" href="/.">怪兽宇的小站</a><p class="description">脚踏实地，仰望星空!</p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">面试问题</h1><div class="post-content"><h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ol>
+<li><p>工作中， 提数数据时，有没有遇到过数据倾斜问题， 什么是数据倾斜，  如何避免数据倾斜问题?</p>
+</li>
+<li><p>你觉得一个数据分析师应该具有哪些能力？你更侧重什么能力？</p>
+</li>
+<li><p>假如有一天我们的复购率下降了， 你如何分析和假设，并制定策略？</p>
+</li>
+<li><p>你做过的项目中， 在宏观、中观、微观层面实用的方法有哪些？他们之间的逻辑关系和分析的层级是什么样子的？</p>
+</li>
+<li><p>excel，sql,可视化，python 现场操作</p>
+</li>
+<li><p>你在工作中具体做了哪些事， 给公司和客户带来了什么样的提升</p>
+</li>
+<li><p>某城市有两种颜色的出租车，蓝车和绿车的比率是15:85. 一辆出租车夜间肇事逃逸，但有一位目击证人，这位目击证人认定肇事的出租车是蓝色的。 但是，他的目击未必可信，公安人员经过在相同环境下对该目击者进行“蓝绿”测试得到：80%的情况下识别正确，20%的情况下不正确。那么， 实际为蓝车的可能性为多少。 </p>
+</li>
+<li><p>用 python 实现 1+2+3+……+100</p>
+</li>
+<li><p>如何理解过度拟合</p>
+</li>
+<li><p>为什们说朴素贝叶斯是“朴素”的</p>
+</li>
+<li><p>K-means 算法 和 knn 算法的区别是什么</p>
+</li>
+<li><p>找出 1-100 以内的所有质数</p>
+</li>
+<li><p>下面代码输出的结果会是什么</p>
+</li>
+</ol>
+<p>代码1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    else:               # 下一行的 print(n) 事实上属于语句块 for i in range(2, n): </span><br><span class="line">        print(n)        # 整个循环结束，都没有发生 break 的情况下，才执行一次 print(n)</span><br></pre></td></tr></table></figure></p>
+<p>代码2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    else:               </span><br><span class="line">        print(n)</span><br></pre></td></tr></table></figure></p>
+<p>代码3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">    print(n)            # 事实上相当于针对 range(2, 100) 中每个 n 都执行了一次 print(n)</span><br><span class="line">                        # 这个 print(n) 属于语句块 for n in range(2, 100):</span><br></pre></td></tr></table></figure></p>
+<p>代码4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 100):</span><br><span class="line">    if n == 2:</span><br><span class="line">        print(n)</span><br><span class="line">        continue</span><br><span class="line">    for i in range(2, n):</span><br><span class="line">        if (n % i) == 0:</span><br><span class="line">            break</span><br><span class="line">        print(n)            # 事实上相当于针对 range(2, n) 中每个 n 都执行了一次 print(n)</span><br></pre></td></tr></table></figure></p>
+<ol start="14">
+<li>输出1000以内的斐波那契数列</li>
+</ol>
+<hr>
+<h3 id="问题2，答案："><a href="#问题2，答案：" class="headerlink" title="问题2，答案："></a>问题2，答案：</h3><blockquote>
+<p>要分开说：业务、思维、工具、算法、用户体验、宏观层面。<br>回答的时候不要扯数据、分析。</p>
+</blockquote>
+<h3 id="问题3，-答案："><a href="#问题3，-答案：" class="headerlink" title="问题3， 答案："></a>问题3， 答案：</h3><p>复购率，从商业角度来讲，就是竞争能力下降，无非价格、质量、口碑等因素。</p>
+<p>复购率 = 重复购买率。 也就是复购次数 &gt;=2 的用户占所有购买总用户的占比，影响复购率的直接因素是两个， 一个是总用户群体中， 一个是购买次数&gt;=2的用户数，<br>复购率第要么是购买总用户数增大，要么是购买次数&gt;=2的用户减少，然后再分别去找这两个对应的因素，并进行细分，最后给出结论是正向影响还是负向影响，采取什么措施<br>去解决这样的问题。 </p>
+<h3 id="问题4，参考答案："><a href="#问题4，参考答案：" class="headerlink" title="问题4，参考答案："></a>问题4，参考答案：</h3><ol>
+<li>宏观层面一般影响的是一个业务，甚至是企业的发展方向。会向外看竞品分析，行业分析、包括潜在竞品分析，甚至是对于整个大环境的预判。比如人工智能，5G等。<br>向内看经营分析，对业务完整的经营闭环的健康分析。</li>
+<li>中观层面，分析方法论。 如AAARR分析模型。 漏斗分析模型，路径分析模型等。</li>
+<li>微观层面， 数据分析的软实力。如数据敏感度，逻辑思维能力。</li>
+<li>逻辑关系： 中观能力是硬核能力，微观能力是转实力，两者具备才能上升为宏观能力。</li>
+</ol>
+<h3 id="问题6，-答案："><a href="#问题6，-答案：" class="headerlink" title="问题6， 答案："></a>问题6， 答案：</h3><p>把实际问题分层</p>
+<blockquote>
+<p>定位问题，从数据的角度发现了管理的误区和营销的浪费<br>发现了好机会，对目前的业务发展和增长空间进行了诊断分析, 让业务又了新的方向<br>优化了商业模式，借助上下游产业分析，找出了利于公司在**方面迅速提升……<br>回答问题要有原则，务实，通俗易懂，直击企业场景</p>
+</blockquote>
+<h3 id="问题7，答案："><a href="#问题7，答案：" class="headerlink" title="问题7，答案："></a>问题7，答案：</h3><p>蓝车： 150    80% 蓝车  120 量          20%绿车  30量</p>
+<p>绿车： 850      80% 绿车  680  蓝车  170<br>120/ (120+170) = 41.37%</p>
+<h3 id="问题8，-答案："><a href="#问题8，-答案：" class="headerlink" title="问题8， 答案："></a>问题8， 答案：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum = 0</span><br><span class="line">for i in range(1,100)</span><br><span class="line">    sum = sum + i</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+<h3 id="问题12"><a href="#问题12" class="headerlink" title="问题12"></a>问题12</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for i in range(2, 100):</span><br><span class="line">    if i == 2:</span><br><span class="line">        print(i)</span><br><span class="line">        continue</span><br><span class="line">    for n in range(2, i):</span><br><span class="line">        if i % n ==0:</span><br><span class="line">            break</span><br><span class="line">    else:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+<h3 id="问题14"><a href="#问题14" class="headerlink" title="问题14"></a>问题14</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n =1000</span><br><span class="line">a = 0 b = 1</span><br><span class="line">while a &lt; n:</span><br><span class="line">    print(a, end =&apos; &apos;)</span><br><span class="line">    a, b = b, a+b</span><br><span class="line">print()</span><br></pre></td></tr></table></figure>
+<hr>
+<ol>
+<li>GOOGLE 对于商业数据分析师都有哪些要求？</li>
+</ol>
+<p>必须要懂的技能：</p>
+<ul>
+<li>sql 必会</li>
+<li>概率问题： 最基本的统计概率知识。 </li>
+<li>产品数据发生变化，如何分析，原因分析。 对产品数据有一个直觉。<br>对产品需要特别熟悉， 对每个按钮都点击，思考产品经理在做这个按钮时，用户是什么群体，实现什么功能，我作为用户会如何去用，这个产品好不好，你会不会去用，原因是什么，不会去用的原因是什么？</li>
+<li>A/B test 问题</li>
+<li>商业，产品如何去赚钱， 商业的流量， 如何变现，如何转化</li>
+<li>交流能力，为什么这么做， 我是怎么想的， 为什么要这么做， 概率问题要讲清楚。<br>将故事的能力。 </li>
+</ul>
+<p>面试官问我这个问题， 是想考察我什么， 保证在回答过程中， 将能力与经验体现出来。 </p>
+<ul>
+<li><p>是否聪明， 你解决问题的能力。 </p>
+<blockquote>
+<p>你一上来并不知道答案是什么，但你能够依照步骤，有条理，有逻辑的提供解决问题的方案。 </p>
+</blockquote>
+</li>
+<li><p>需要注意：</p>
+</li>
+<li><ul>
+<li>先证明自己是否真正的听懂了， 是否真正理解问题</li>
+</ul>
+</li>
+<li><ul>
+<li>想把自己的思路想清楚， 然后把自己的思路给别人讲清楚。 </li>
+</ul>
+</li>
+<li><ul>
+<li>你这么想的目的是什么，能解决什么样的问题</li>
+</ul>
+</li>
+<li><ul>
+<li>能够将你的整体思路进行概括</li>
+</ul>
+</li>
+<li><ul>
+<li>你不提供原因， 没法在工作中说服别人， 让别人去信服你说的是否靠谱。 </li>
+</ul>
+</li>
+<li><p>给一个困难的场景， 问你如何去做。</p>
+<blockquote>
+<p>描述一下，之前如何和别人去合作的<br>如果你去旅游，但突然有工作安排，你会如何去做…..</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>面试时要积极，价值观等</li>
+</ul>
+<p>面试官， 哪些会让人眼前一亮， 哪些会被一票否决？</p>
+<p>一票否决：</p>
+<ul>
+<li><p>撒谎： </p>
+<blockquote>
+<p>懂一点，但是夸大了很多。<br>表达的方式， 让别人不信任你说的。</p>
+</blockquote>
+</li>
+<li><p>你为什么会来google, 你为什么会感兴趣数据分析？</p>
+<blockquote>
+<p>不要说 google 非常好，非常有趣， 数据非常多之类的话<br>要讲你个人的感受，小细节。让别人能够感受到你对这个工作非常的有兴趣。 </p>
+</blockquote>
+</li>
+<li><p>错误的答案。</p>
+<blockquote>
+<p>sql 错误。    </p>
+</blockquote>
+</li>
+</ul>
+<p>亮点：</p>
+<ul>
+<li><p>能够感觉到你对公司非常的感兴趣， 你对现在的工作非常的感兴趣。  对商业问题非常的有兴趣，解决了什么问题。<br>你对你做的事情，你非常的感兴趣。 希望能够跟积极的人去工作。 </p>
+</li>
+<li><p>你怎么能让我喜欢你，觉得你非常的有趣， 非常有亲和力。小细节。</p>
+</li>
+<li><p>工作经历必须有有价值的东西。 你这个产品，你这个经历，学到了什么东西</p>
+</li>
+<li><p>把每个问题都回答的好一点。</p>
+</li>
+<li><p>分析问题的思路是最重要的。 </p>
+</li>
+</ul>
+<p>面试中的代码很重要吗？</p>
+<ul>
+<li>不重要</li>
+<li>把时间花费在 sql 上， 要写sql</li>
+<li>你的sql 要非常非常好</li>
+<li>你写sql, 是如何解决问题， 确定要做的事情， 数据是什么样子， 你先做哪一步， 你的思路是什么，在写的时候要一直去说</li>
+<li>你要去敲出正确的sql 代码</li>
+</ul>
+<p>简历要有关键词： 学校，公司， 技能关键词， </p>
+</div></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' ? true : false;
+var verify = 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'LWPB8jjoMUiH98OUCjulreBj-gzGzoHsz',
+  appKey:'YOWrXQ1oP2QTavuCRp2QeRYV',
+  placeholder:'　快来留下你的脚印吧',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人系统/">个人系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析技能/">数据分析技能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析方法/">数据分析方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活资料/">生活资料</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/博客主题/" style="font-size: 15px;">博客主题</a> <a href="/tags/Hive/" style="font-size: 15px;">Hive</a> <a href="/tags/sql/" style="font-size: 15px;">sql</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/数据分析/" style="font-size: 15px;">数据分析</a> <a href="/tags/统计学/" style="font-size: 15px;">统计学</a> <a href="/tags/改版分析/" style="font-size: 15px;">改版分析</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/思考方法/" style="font-size: 15px;">思考方法</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/思维方法/" style="font-size: 15px;">思维方法</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/书单/" style="font-size: 15px;">书单</a> <a href="/tags/音乐/" style="font-size: 15px;">音乐</a> <a href="/tags/逻辑/" style="font-size: 15px;">逻辑</a> <a href="/tags/类比/" style="font-size: 15px;">类比</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/博客主题更换/">博客更换主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/方法-改版分析/">改版分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/技能-Hive进阶学习/">Hive 进阶查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/技能-Hive基础学习/">Hive 基础查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/30/通用-沟通能力-类比系统/">类比汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/方法-常见的分析方法/">常见的分析思维方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/方法-常见的分析模型/">常见的分析思维模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/生活-个人总结-成长书单/">读书档案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/20/生活-个人总结-《零秒思考》读书笔记/">如何整理大脑思绪</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/13/生活-个人总结-《好好学习》读书笔记/">反思日记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.chinawebanalytics.cn/" title="互联网分析在中国" target="_blank">互联网分析在中国</a><ul></ul><a href="https://www.yangzhiping.com/" title="阳志平的网志" target="_blank">阳志平的网志</a><ul></ul><a href="https://maxoxo.me/" title="maxOS" target="_blank">maxOS</a><ul></ul><a href="https://thelongestway.com/" title="The Longest Way" target="_blank">The Longest Way</a><ul></ul><a href="https://christophrehage.cn/" title="Christoph Rehage" target="_blank">Christoph Rehage</a><ul></ul><a href="https://codechina.org/" title="Tinyfool的中文Blog" target="_blank">Tinyfool的中文Blog</a><ul></ul><a href="http://sunny.blogchina.com/" title="梁宁的专栏" target="_blank">梁宁的专栏</a><ul></ul><a href="https://ayearofreadingtheworld.com/" title="A year of reading the world" target="_blank">A year of reading the world</a><ul></ul><a href="http://www.storytellingwithdata.com/blog/" title="storytelling-data" target="_blank">storytelling-data</a><ul></ul><a href="https://github.com/xiaolai/xiaolai.github.io" title="李笑来作品集##" target="_blank">李笑来作品集##</a><ul></ul><a href="https://etc.usf.edu/lit2go/55/around-the-world-in-80-days/" title="英文有声读物" target="_blank">英文有声读物</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">怪兽宇的小站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/copycode/js/copycode.js"></script><link rel="stylesheet" type="text/css" href="/copycode/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
