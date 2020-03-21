@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[博客更换主题]]></title>
+    <title><![CDATA[博客主题更换]]></title>
     <url>%2F2020%2F03%2F20%2F%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[最近把自己的个人博客主题由 fluid 换成了 maupassant,个人感觉 maupassant 主题简洁明了，更加符合自己的胃口。 这篇文章把自己在更换主题的流程和遇到的问题总结一下： 博客登陆 12345git config --global.name&apos;zhang&apos;git config --global.email &apos;zhang@qq.com&apos;cd E:/zy_bloghexo ghexo d 下载主题到本地 1git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant 安装插件-安装一直显示错误，于是自己换成了镜像安装。 1$ npm install hexo-renderer-pug --save 镜像安装 12345# 安装镜像npm install -g cnpm --registry=https://registry.npm.taobao.org# 安装后用定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:安装插件cnpm install hexo-renderer-sass --save 按照文档对主题进行配置大道至简——Hexo简洁主题推荐 常见错误 错误1：自从修改完主题进行上传，就一直报这样的错误，折腾了半天终于解决了。 12345678910111213141516171819错误： $ hexo dINFO Deploying: gitINFO Clearing .deploy_git folder...INFO Copying files from public folder...INFO Copying files from extend dirs...warning: could not open directory &apos;2018/02/17/《刻意学习》读书笔记 /&apos;: No such file or directorywarning: could not open directory &apos;2018/02/17/读书笔记-《刻意学习》读书笔记 /&apos;: No such file or directorywarning: could not open directory &apos;2019/02/17/《刻意学习》读书笔记 /&apos;: No such file or directoryOn branch masterUntracked files:(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed) 2018/02/ &quot;2019/02/17/\343\200\212\345\210\273\346\204\217\345\255\246\344\271\240\343\200\213\350\257\273\344\271\246\347\254\224\350\256\260 /&quot;nothing added to commit but untracked files present (use &quot;git add&quot; to track)Everything up-to-dateBranch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:zhangandyu/zhangandyu.github.io.git&apos;.INFO Deploy done: git 解法方法： 下载插件 1cnpm install hexo-deployer-git -save 删除原文件 .deploy_git 123456789101112# 删除时，文件显示找不到该项目--https://zhuanlan.zhihu.com/p/55077318去桌面新建一个文本文件，并输入如下内容:DEL /F /A /Q \\?\%1RD /S /Q \\?\%1保存该文本，将文件后缀名修改为.bat，文件名随意。我们将需要删除的文件直接拖到这个.bat文件上即可删除。 重新生成和部署 123rm -rf .deploy_githexo ghexo d 错误2： 123ERROR Process failed: 备份/文章备份/python/数据分析技能-git学习笔记.mdYAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 6, column 11: categories: 解决方法： 1仔细看了看是因为创建的md文件头部声明中没有加空格。 错误3： 12FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlTypeError: Cannot set property &apos;lastIndex&apos; of undefined 解决方法： 1在配置文件_config.yml中将highlight选项的auto_detect设为false 其他错误及解决方案： Hexo常见问题解决方案 https://xuanwo.io/2014/08/14/hexo-usual-problem/]]></content>
       <categories>
         <category>生活资料</category>
       </categories>
@@ -211,8 +211,8 @@
         <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
         <tag>学习方法</tag>
+        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
