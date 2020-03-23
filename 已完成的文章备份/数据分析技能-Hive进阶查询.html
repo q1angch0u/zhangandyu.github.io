@@ -1,0 +1,1132 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="个人博客"><title>Hive 进阶查询 | 怪兽宇的小站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','127783955','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Hive 进阶查询</h1><a id="logo" href="/.">怪兽宇的小站</a><p class="description">脚踏实地，仰望星空!</p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tool/"><i class="fa fa-yelp"> 工具</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Hive 进阶查询</h1><div class="post-content"><h1 id="Hive查询性能优化"><a href="#Hive查询性能优化" class="headerlink" title="Hive查询性能优化"></a>Hive查询性能优化</h1><h2 id="什么是数据倾斜"><a href="#什么是数据倾斜" class="headerlink" title="什么是数据倾斜"></a>什么是数据倾斜</h2><p>当我们在Hive上进行查询时，因为数据的分散度不够， 导致大量数据集中在一台或者几台服务器上， 导致数据的计算速度远远低于平均计算速度， 计算过程特别耗时。</p>
+<h2 id="数据倾斜的表现"><a href="#数据倾斜的表现" class="headerlink" title="数据倾斜的表现"></a>数据倾斜的表现</h2><p>任务进度长时间维持在99%，查看任务监控页面，发现只有少量子任务未完成。</p>
+<p>##如何避免数据倾斜</p>
+<blockquote>
+<ul>
+<li>sql优化</li>
+<li>业务逻辑优化</li>
+</ul>
+</blockquote>
+<h3 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h3><ul>
+<li>在查询中， 避免使用 select *, 使用条件限制取需要的列</li>
+</ul>
+<h3 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h3><ul>
+<li><strong>当数据量特别大时，用 group by 代替 count(distinct)</strong></li>
+</ul>
+<blockquote>
+<p>count(distinct ),在数据量特别大的情况下，效率较低, 可以用先 group by 再 count 的方式进行代替。<br>因为count(distinct)是按group by 字段分组，按distinct字段排序</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    hit_date,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-10-01'</span> <span class="keyword">and</span> <span class="string">'2018-10-02'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
+<p>可以转换成：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    hit_date,</span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">    hit_date,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">     hit_date <span class="keyword">between</span> <span class="string">'2018-10-01'</span> <span class="keyword">and</span> <span class="string">'2018-10-02'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    hit_date, user_account) a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="方法3："><a href="#方法3：" class="headerlink" title="方法3："></a>方法3：</h3><ul>
+<li><strong>join 优化</strong></li>
+</ul>
+<blockquote>
+<p> 在使用 Join 进行外关联时， 将副表的过滤条件写在 where 后面，会先全表关联， 再进行过滤， 这样会耗费资源。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    a.price_close, b.price_close</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    b <span class="keyword">JOIN</span> a <span class="keyword">ON</span> b.ymd = a.ymd <span class="keyword">AND</span> b.symbol = a.symbol</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    s.symbol = <span class="string">'APPLE'</span></span><br></pre></td></tr></table></figure>
+<p>正确的写法是将 where 条件写在 on 后面</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    a.price_close, b.price_close</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    b <span class="keyword">JOIN</span> a <span class="keyword">ON</span> ( b.ymd = a.ymd <span class="keyword">AND</span> b.symbol = a.symbol <span class="keyword">and</span> s.symbol = <span class="string">'APPLE'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="方法4："><a href="#方法4：" class="headerlink" title="方法4："></a>方法4：</h3><ul>
+<li><strong>避免 union all 子查询中使用 group by</strong> 【替换 count(distinct) 除外】、<strong>count(distinct)、max、min等。</strong> </li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account,</span><br><span class="line">            hit_date</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-13'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span></span><br><span class="line">        <span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account,</span><br><span class="line">            hit_date</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-13'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    hit_date,</span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="方法5："><a href="#方法5：" class="headerlink" title="方法5："></a>方法5：</h3><ul>
+<li><strong>避免不同数据类型进行关联</strong></li>
+</ul>
+<blockquote>
+<p>使用CAST函数对数据类型进行转换，语法为cast(value AS TYPE)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    a.price_close,</span><br><span class="line">    b.price_close</span><br><span class="line">from</span><br><span class="line">    a join b  on a.user_id = cast(b.user_id as string)</span><br><span class="line">where</span><br><span class="line">    hit_date between &apos;2018-11-01&apos; and &apos;2018-11-02&apos;</span><br><span class="line">    and </span><br><span class="line">    a.symbol = &apos;apple&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="方法6："><a href="#方法6：" class="headerlink" title="方法6："></a>方法6：</h3><ul>
+<li><strong>无效ID在关联时的数据倾斜问题</strong></li>
+</ul>
+<blockquote>
+<p>把空值的 key 变成一个字符串加上随机数，就能把倾斜的数据分到不同的 reduce 上 ,解决数据倾斜问题。<br>需要用到Case When … Else…End语法</p>
+</blockquote>
+<p>写法1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span></span><br><span class="line">    *</span><br><span class="line"><span class="keyword">From</span> </span><br><span class="line">    a <span class="keyword">Join</span>  b</span><br><span class="line"><span class="keyword">On</span></span><br><span class="line">     a.user_id <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">And</span> </span><br><span class="line">    a.user_id = b.user_id</span><br><span class="line"><span class="keyword">Union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">Select</span></span><br><span class="line">    * </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    a.user_id <span class="keyword">is</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure></p>
+<p>写法2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span></span><br><span class="line">    *</span><br><span class="line"><span class="keyword">From</span></span><br><span class="line">    a <span class="keyword">left</span> <span class="keyword">out</span> <span class="keyword">Join</span> b</span><br><span class="line"><span class="keyword">On</span> </span><br><span class="line"><span class="keyword">Case</span> <span class="keyword">when</span> </span><br><span class="line">    a.user_id <span class="keyword">is</span> <span class="literal">null</span> </span><br><span class="line"><span class="keyword">then</span> </span><br><span class="line">    <span class="keyword">concat</span>(‘dp_hive’,<span class="keyword">rand</span>() ) </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">    a.user_id = b.user_id <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li>Hive的查询注意事项以及优化总结：<blockquote>
+<ol>
+<li><p>尽量尽早过滤数据，减少每个阶段的数据量。对于分区表要加分区，同时只选择需要使用到的字段</p>
+</li>
+<li><p>对历史库的计算经验</p>
+</li>
+<li><p>尽量原子化操作，尽量避免一个SQL包含复杂逻辑<br>可以使用中间表来完成复杂的逻辑</p>
+</li>
+<li><p>join操作 小表要注意放在join的左边，否则会引起磁盘和内存的大量消耗</p>
+</li>
+<li><p>如果union all的部分个数大于2，或者每个union部分数据量大，应该拆成多个insert into语句，实际测试过程中，执行时间能提升50%</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><strong>让服务器尽量少做事情，走最优的路径，以资源消耗最少为目标</strong></p>
+<hr>
+<p>参考资料：<br><!-- **Hive优化**
+1.我们知道大数据场景下不害怕数据量大，害怕的是数据倾斜，怎样避免数据倾斜，找到可能产生数据倾斜的函数尤为关键，数据量较大的情况下，慎用count(distinct), count(distinct)容易产生倾斜问题。
+2.设置合理的map  reduce的task数量 --></p>
+<blockquote>
+<p><a href="https://blog.csdn.net/yu0_zhang0/article/details/81776459" target="_blank" rel="noopener">https://blog.csdn.net/yu0_zhang0/article/details/81776459</a></p>
+<p><a href="https://blog.csdn.net/young_0609/article/details/84593316" target="_blank" rel="noopener">https://blog.csdn.net/young_0609/article/details/84593316</a></p>
+<p><a href="https://blog.csdn.net/qq_29232943/article/details/79644614" target="_blank" rel="noopener">https://blog.csdn.net/qq_29232943/article/details/79644614</a></p>
+<p><a href="http://lxw1234.com/archives/2015/06/317.htm" target="_blank" rel="noopener">http://lxw1234.com/archives/2015/06/317.htm</a></p>
+<p><a href="https://zenoh.iteye.com/blog/1748592" target="_blank" rel="noopener">https://zenoh.iteye.com/blog/1748592</a></p>
+<p><a href="http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89" target="_blank" rel="noopener">http://www.lwyyyyyy.cn/getArticleDetailInfo?articleId=89</a></p>
+</blockquote>
+<hr>
+<h1 id="求两组数据的交集，-并集，-差集"><a href="#求两组数据的交集，-并集，-差集" class="headerlink" title="求两组数据的交集， 并集， 差集"></a>求两组数据的交集， 并集， 差集</h1><h2 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h2><p>union 与 union all </p>
+<blockquote>
+<p>union, 结果包含所有行， 并删除重复行<br>unoin all, 结果包含所有行， 但不删除重复行</p>
+</blockquote>
+<p>写法1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span></span><br><span class="line">        <span class="keyword">union</span> </span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%手淘%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>点击支付宝或者手淘活动的人数总共有 435499 人</p>
+</blockquote>
+<p>写法2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span></span><br><span class="line">        <span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%手淘%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>点击支付宝或者手淘活动的次数为 665935</p>
+</blockquote>
+<hr>
+<h2 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h2><p>写法1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span></span><br><span class="line">        <span class="keyword">intersect</span></span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-02'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%手淘%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p> 点击支付宝又点击手淘活动的人数为 66174</p>
+</blockquote>
+<hr>
+<h2 id="差集"><a href="#差集" class="headerlink" title="差集"></a>差集</h2><blockquote>
+<p>(except 函数 与 join写法)</p>
+</blockquote>
+<p>写法1：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-25'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span></span><br><span class="line">        <span class="keyword">except</span></span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-25'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%手淘%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br></pre></td></tr></table></figure></p>
+<p>写法2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-01'</span> <span class="keyword">and</span> <span class="string">'2018-12-25'</span></span><br><span class="line">            <span class="keyword">and</span></span><br><span class="line">            nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            user_account</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            <span class="keyword">data</span></span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            hit_date <span class="keyword">between</span> <span class="string">'2018-12-20'</span> <span class="keyword">and</span> <span class="string">'2018-12-25'</span></span><br><span class="line">        <span class="keyword">and</span></span><br><span class="line">        nbtn_name <span class="keyword">like</span> <span class="string">"%支付宝%"</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1 <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> a2 </span><br><span class="line">    <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line">    <span class="keyword">and</span> a2.user_account <span class="keyword">is</span>  <span class="literal">null</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只参加支付宝活动， 没有参加手淘活动的人数为 369325<br>在求差集时， 需要注意前后顺序， 否则会出现逻辑错误<br>可以发现， 差集 + 交集 =并集， 369325 +  66174 = 435499</p>
+</blockquote>
+<p>写法3：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--详细列出差集的版本号</span></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span>(</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">  <span class="keyword">distinct</span> two <span class="keyword">as</span> user_account</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    test.data_csv</span><br><span class="line"><span class="keyword">except</span> </span><br><span class="line"></span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> user_account</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-09-01'</span> <span class="keyword">and</span> <span class="string">'2018-09-03'</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span>    </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> user_account</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-09-01'</span> <span class="keyword">and</span> <span class="string">'2018-09-03'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">   a2.six ,</span><br><span class="line">   <span class="keyword">COUNT</span>(a2.two) <span class="keyword">as</span> uv,</span><br><span class="line">   <span class="keyword">count</span>(a1.user_account) <span class="keyword">as</span> uv_1</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">a1, test.data_csv <span class="keyword">as</span> a2</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    a1.user_account = a2.two</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    a2.six</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="业务问题"><a href="#业务问题" class="headerlink" title="业务问题"></a>业务问题</h1><h2 id="计算留存率"><a href="#计算留存率" class="headerlink" title="计算留存率"></a>计算留存率</h2><blockquote>
+<p>求11月10-15号每天的1、3、7日留存率</p>
+</blockquote>
+<ul>
+<li>方法1： 一次性求次1日，次3日， 次7日留存</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    hit_date,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-04-25'</span> <span class="keyword">and</span> <span class="string">'2019-05-13'</span></span><br><span class="line">    <span class="keyword">and</span> </span><br><span class="line">    btn_information <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (<span class="keyword">select</span> </span><br><span class="line">    hit_date,</span><br><span class="line">    user_account</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-04-25'</span> <span class="keyword">and</span> <span class="string">'2019-05-13'</span></span><br><span class="line">    <span class="keyword">and</span> </span><br><span class="line">    btn_information <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">a1.hit_date,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) uv,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">1</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) next_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">3</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) three_day,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">datediff</span>(a2.hit_date, a1.hit_date) = <span class="number">7</span> <span class="keyword">then</span> a1.user_account <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> ) seven_day</span><br><span class="line"><span class="keyword">from</span> a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> a1.hit_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a1.hit_date</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法2：<blockquote>
+<ol>
+<li>统计每天的uv</li>
+<li>使用date_add 函数， 一次性求出10-15号每一天的次1、3、7日留存</li>
+<li>算出留存率</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>步骤1：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计10-15号每天uv</span></span><br><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">    hit_date,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    hit_date <span class="keyword">between</span>  <span class="string">'2018-11-10'</span> <span class="keyword">and</span> <span class="string">'2018-11-15'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">BY</span> </span><br><span class="line">    hit_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span> </span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
+<p>步骤2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计10-15号每天的次日留存数， 统计次3、7日留存只需将1换为3、7</span></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        hit_date</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer_view.data</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        hit_date <span class="keyword">between</span>  <span class="string">'2018-11-10'</span> <span class="keyword">and</span> <span class="string">'2018-11-15'</span></span><br><span class="line">),</span><br><span class="line">a2 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> </span><br><span class="line">        user_account,</span><br><span class="line">        hit_date</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        computer_view.data</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        hit_date <span class="keyword">between</span> <span class="string">'2018-11-10'</span> <span class="keyword">and</span> <span class="string">'2018-11-25'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a1.hit_date,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> a1.user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1 <span class="keyword">join</span> a2 <span class="keyword">on</span> a1.user_account = a2.user_account</span><br><span class="line"><span class="keyword">WHERE</span>   </span><br><span class="line">    a2.hit_date =  <span class="keyword">date_add</span>(a1.hit_date, <span class="number">1</span>) </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    a1.hit_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">BY</span></span><br><span class="line">    a1.hit_date</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>拓展方法：(迷神)</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 留存sql优化</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span> userid, <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">from</span>(</span><br><span class="line">        <span class="keyword">select</span> t1.userid,</span><br><span class="line">                t1.statdate</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            table1 t1</span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            t1.statdate &gt;= $&#123;上<span class="number">30</span>天日期&#125;</span><br><span class="line">            <span class="keyword">and</span> t1.statdate &lt;= $&#123;上一天日期&#125;</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            t1.userid,</span><br><span class="line">            t1.statdate</span><br><span class="line">        ) s1</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        userid</span><br><span class="line">    <span class="keyword">having</span></span><br><span class="line">        <span class="keyword">count</span>(<span class="number">1</span>) &gt; <span class="number">2</span></span><br><span class="line">    ) R1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此sql为一个样例，计算连续跟任意都适用，至于计算第N天，只需要更改下日期过滤条件，变成=$[上N天日期]，=${上一天日期}。<br>另外，这种方式适合跑当前周期数据，如果跑历史数据，可以写个循环。当然，最暴力还是直接用userid 关联。</p>
+</blockquote>
+<blockquote>
+<p>这种写法，更多是针对现在大部分分布式处理平台的特性，尽可能将数据合理均匀分片，每台服务器各自运算自己的，最后汇总。 尽可能少用 count distinct 这种写法，因为无法利用分片的特性。</p>
+</blockquote>
+<hr>
+<h2 id="计算上一步"><a href="#计算上一步" class="headerlink" title="计算上一步"></a>计算上一步</h2><ul>
+<li>求点击【确认充值】按钮的上一步点击的名称</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">with</span> a <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    user_account,</span><br><span class="line">    btn_name,</span><br><span class="line">    lag(btn_name, <span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> user_account <span class="keyword">order</span> <span class="keyword">by</span> create_timestamp) <span class="keyword">as</span> previous_btn_name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-11-01'</span> <span class="keyword">and</span><span class="string">'2018-11-01'</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    btn_name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">    btn_name <span class="keyword">like</span> <span class="string">'确认支付'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    previous_btn_name,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> c</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    previous_btn_name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    c <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span></span><br><span class="line">    <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>上一步点击的名称我已经知道了， 现在要想 之前通过上一步点击这些条件之后， 再点击【确认支付】按钮的 去重uv</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">with</span> a <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    user_account,</span><br><span class="line">    btn_name,</span><br><span class="line">    lag(btn_name, <span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> user_account <span class="keyword">order</span> <span class="keyword">by</span> create_timestamp) <span class="keyword">as</span> previous_btn_name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-11-01'</span> <span class="keyword">and</span><span class="string">'2018-11-01'</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    btn_name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">    btn_name <span class="keyword">like</span> <span class="string">'确认支付'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> c</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    (previous_btn_name <span class="keyword">like</span> <span class="string">"%10元%"</span> <span class="keyword">or</span> </span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%30元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%50元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%10元%"</span> <span class="keyword">or</span> </span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%30元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%50元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%100元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%200元%"</span> <span class="keyword">or</span></span><br><span class="line">    previous_btn_name <span class="keyword">like</span> <span class="string">"%300元%"</span> )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>125752</p>
+</blockquote>
+<hr>
+<h2 id="创建临时表"><a href="#创建临时表" class="headerlink" title="创建临时表"></a>创建临时表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test.nine_android_user_version_10</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    user_account,</span><br><span class="line">    app_version</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-09-01'</span> <span class="keyword">and</span> <span class="string">'2018-09-30'</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    user_account <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    app_version <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    user_account,</span><br><span class="line">    app_version</span><br></pre></td></tr></table></figure>
+<h2 id="原始日志中取数"><a href="#原始日志中取数" class="headerlink" title="原始日志中取数"></a>原始日志中取数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test.nine_user_version_10</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    url_par(url_query,<span class="string">'account'</span>) <span class="keyword">as</span> user_account,</span><br><span class="line">    <span class="keyword">split</span>(url_par(url_query,<span class="string">'AppID'</span>),<span class="string">' '</span>)[<span class="number">1</span>] <span class="keyword">as</span> app_version</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    apache_log.client_ios_sensor</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    dt <span class="keyword">between</span> <span class="string">'2018-10-01'</span> <span class="keyword">and</span> <span class="string">'2018-10-20'</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    url_par(url_query,<span class="string">'account'</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    url_par(url_query,<span class="string">'AppID'</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    url_par(url_query,<span class="string">'account'</span>),</span><br><span class="line">    <span class="keyword">split</span>(url_par(url_query,<span class="string">'AppID'</span>),<span class="string">' '</span>)[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="取-pv-gt-1-的用户量"><a href="#取-pv-gt-1-的用户量" class="headerlink" title="取 pv &gt;1 的用户量"></a>取 pv &gt;1 的用户量</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">user_account</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">computer_view.data</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">nbtn_name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> </span><br><span class="line"><span class="keyword">and</span></span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'&#123;&#125;'</span> <span class="keyword">and</span> <span class="string">'&#123;&#125;'</span></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">user_account</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">computer_view.data</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">nbtn_name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> </span><br><span class="line"><span class="keyword">and</span></span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'&#123;&#125;'</span> <span class="keyword">and</span> <span class="string">'&#123;&#125;'</span>),</span><br><span class="line">a2 <span class="keyword">as</span> (<span class="keyword">SELECT</span></span><br><span class="line"> user_account,</span><br><span class="line"><span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">user_account</span><br><span class="line"><span class="keyword">having</span></span><br><span class="line"><span class="keyword">count</span>(user_account) &gt; <span class="number">3</span>)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a2</span><br></pre></td></tr></table></figure>
+<h2 id="求连续4个月活跃的用户数"><a href="#求连续4个月活跃的用户数" class="headerlink" title="求连续4个月活跃的用户数"></a>求连续4个月活跃的用户数</h2><blockquote>
+<p>1月活跃的用户数， 在2月、3月、4月一直活跃的用户有多少？</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span>(</span><br><span class="line"><span class="keyword">select</span>  user_account , <span class="keyword">month</span>(hit_date) <span class="keyword">as</span> <span class="keyword">month</span></span><br><span class="line"><span class="keyword">from</span> compu_view.ios_log_view</span><br><span class="line"><span class="keyword">where</span> hit_date <span class="keyword">between</span> <span class="string">'2019-01-01'</span> <span class="keyword">and</span> <span class="string">'2019-04-30'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> user_account, <span class="keyword">month</span>(hit_date) </span><br><span class="line">),</span><br><span class="line">a2 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">    user_account,a1.month,</span><br><span class="line">    row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span>  user_account <span class="keyword">order</span> <span class="keyword">by</span> a1.month) <span class="keyword">as</span> px</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line">)</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">distinct</span> user_account) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a2</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    a2.px = <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><p><a href="https://wing324.github.io/2017/10/20/Hive%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/" target="_blank" rel="noopener">https://wing324.github.io/2017/10/20/Hive%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/</a></p>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count()</td>
+<td>个数统计函数</td>
+</tr>
+<tr>
+<td>count(distinct  )</td>
+<td>统计去重之后的个数</td>
+</tr>
+<tr>
+<td>sum()</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>sum(distinct )</td>
+<td>去重之后的和</td>
+</tr>
+<tr>
+<td>avg()</td>
+<td>平均值</td>
+</tr>
+<tr>
+<td>avg(distinct)</td>
+<td>去重之后的平均值</td>
+</tr>
+<tr>
+<td>min()</td>
+<td>最小值</td>
+</tr>
+<tr>
+<td>max()</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>corr(A, B)</td>
+<td>相关系数</td>
+</tr>
+<tr>
+<td>var_pop()</td>
+<td>方差</td>
+</tr>
+<tr>
+<td>var_samp()</td>
+<td>样本方差</td>
+</tr>
+<tr>
+<td>stddev_pop()</td>
+<td>标准偏差</td>
+</tr>
+<tr>
+<td>stddev_samp()</td>
+<td>标准样本偏差</td>
+</tr>
+<tr>
+<td>covar_pop(A, B)</td>
+<td>协方差</td>
+</tr>
+<tr>
+<td>covar_samp(A, B)</td>
+<td>样本协方差</td>
+</tr>
+<tr>
+<td>RAND()</td>
+<td>随机数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="时间函数"><a href="#时间函数" class="headerlink" title="时间函数"></a>时间函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOW ( )</td>
+<td>当前时间</td>
+</tr>
+<tr>
+<td>extract()</td>
+<td>抽取具体的年、月、日</td>
+</tr>
+<tr>
+<td>date()</td>
+<td>返回时间的日期部分</td>
+</tr>
+<tr>
+<td>year()</td>
+<td>返回时间的年份</td>
+</tr>
+<tr>
+<td>month()</td>
+<td>返回时间的月份</td>
+</tr>
+<tr>
+<td>day()</td>
+<td>返回日期的天</td>
+</tr>
+<tr>
+<td>hour()</td>
+<td>返回时间的小时</td>
+</tr>
+<tr>
+<td>minute()</td>
+<td>返回时间的分钟</td>
+</tr>
+<tr>
+<td>second()</td>
+<td>返回时间的秒</td>
+</tr>
+<tr>
+<td>week ()</td>
+<td>第几周</td>
+</tr>
+<tr>
+<td>dayofweek()</td>
+<td>返回星期几，1为星期天</td>
+</tr>
+<tr>
+<td>dayofyear()</td>
+<td>一年中的第几天</td>
+</tr>
+<tr>
+<td>sec_to_time ( )</td>
+<td>秒数转成时间</td>
+</tr>
+<tr>
+<td>dateadd()</td>
+<td>时间相加</td>
+</tr>
+<tr>
+<td>date_sub()</td>
+<td>时间相减</td>
+</tr>
+<tr>
+<td>datediff()</td>
+<td>时间的差值</td>
+</tr>
+<tr>
+<td>date_format()</td>
+<td>输出指定时间格式</td>
+</tr>
+<tr>
+<td>datename()</td>
+<td>返回日期部分的参数</td>
+</tr>
+<tr>
+<td>datepart()</td>
+<td>返回日期、时间的单独部分</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li><strong>sql 中的时间处理函数</strong></li>
+</ul>
+<ol>
+<li>now()<blockquote>
+<p>返回当前时间</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select now()</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>date()</p>
+<blockquote>
+<p>输出为日期,没有具体时间</p>
+</blockquote>
+</li>
+<li><p>date_add()</p>
+<blockquote>
+<p>时间相加<br>date_add(dt,interval 1 day ) 在dt的基础上加上一天</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date_add(hit_date, interval 1 day)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 给hit_date 添加一天</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>date_sub()</p>
+<blockquote>
+<p>时间相减</p>
+</blockquote>
+</li>
+<li><p>datediff()</p>
+<blockquote>
+<p>时间的差值</p>
+</blockquote>
+</li>
+</ol>
+<ol start="4">
+<li>date_format()<blockquote>
+<p>输出指定格式<br>对时间的格式进行改变<br>date_format(dt, “%Y-%m-%d”)</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_format(hit_date, "%Y-%m-%d)</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><p><a href="http://www.pianshen.com/article/856315136/" target="_blank" rel="noopener">窗口函数</a></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rank()</td>
+<td>排名相等的会留下空位</td>
+</tr>
+<tr>
+<td>dense_rank()</td>
+<td>排名相等的不会留下空位</td>
+</tr>
+<tr>
+<td>row_number()</td>
+<td>排名不管数据是否相等</td>
+</tr>
+<tr>
+<td>lag()</td>
+<td>访问相同结果集的先前行中的数据</td>
+</tr>
+<tr>
+<td>lead()</td>
+<td>访问相同结果集的后续行中的数据</td>
+</tr>
+<tr>
+<td>first_value()</td>
+<td>返回组中数据窗口的第一个值</td>
+</tr>
+<tr>
+<td>last_value()</td>
+<td>返回组中数据窗口的最后一个值</td>
+</tr>
+<tr>
+<td>if()</td>
+<td>条件判断函数</td>
+</tr>
+<tr>
+<td>case…when…else…end</td>
+<td>判断各个元素是否满足了某种条件的集合</td>
+</tr>
+<tr>
+<td>over()</td>
+<td>与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</td>
+</tr>
+<tr>
+<td>split()</td>
+<td>hive字符串分割函数</td>
+</tr>
+<tr>
+<td>intersect</td>
+<td>交集</td>
+</tr>
+<tr>
+<td>except</td>
+<td>差集</td>
+</tr>
+<tr>
+<td>union all</td>
+<td>并集</td>
+</tr>
+<tr>
+<td>round</td>
+<td>把数值字段舍入为指定的小数位数</td>
+</tr>
+<tr>
+<td>difference</td>
+<td>衡量两个值之间的差异</td>
+</tr>
+<tr>
+<td>coalesce</td>
+<td>1、将控制替换成其他值；2、返回第一个非空值</td>
+</tr>
+<tr>
+<td>pivot</td>
+<td>行转换列</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li><strong>over 函数</strong></li>
+</ul>
+<blockquote>
+<p>语法： over(partition by ….)<br>作用： 与聚合函数sum(), count(), avg()等结合使用， 实现分组聚合的功能</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据日期 和 mac_id 进行分组求每组的数量和， 并按日期排序</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    hit_date, </span><br><span class="line">    mac_id,</span><br><span class="line">    mac_color,</span><br><span class="line">    day_num,</span><br><span class="line">    <span class="keyword">sum</span>(day_num) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> hit_date, mac_id <span class="keyword">order</span> <span class="keyword">by</span> hit_date) <span class="keyword">as</span> sum_num</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    test.datas</span><br></pre></td></tr></table></figure>
+<hr>
+<table>
+<thead>
+<tr>
+<th>hit_date</th>
+<th>mac_id</th>
+<th>mac_color</th>
+<th>day_num</th>
+<th>sum_num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20171011</td>
+<td>1292</td>
+<td>金色</td>
+<td>11</td>
+<td>89</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>1292</td>
+<td>黑色</td>
+<td>19</td>
+<td>89</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>1292</td>
+<td>粉金</td>
+<td>58</td>
+<td>89</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>1292</td>
+<td>金色</td>
+<td>1</td>
+<td>89</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>2013</td>
+<td>金色</td>
+<td>9</td>
+<td>22</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>2013</td>
+<td>金色</td>
+<td>3</td>
+<td>22</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>1292</td>
+<td>金色</td>
+<td>5</td>
+<td>18</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>1292</td>
+<td>粉金</td>
+<td>1</td>
+<td>18</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>2013</td>
+<td>粉金</td>
+<td>1</td>
+<td>7</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>2013</td>
+<td>金色</td>
+<td>6</td>
+<td>7</td>
+</tr>
+<tr>
+<td>20171013</td>
+<td>1292</td>
+<td>黑色</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>20171013</td>
+<td>2013</td>
+<td>粉金</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># group by 语句</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    hit_date,</span><br><span class="line">    mac_id,</span><br><span class="line">    <span class="keyword">sum</span>(day_num) </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    test.data</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    hit_date,</span><br><span class="line">    mac_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    hit_date</span><br></pre></td></tr></table></figure>
+<hr>
+<table>
+<thead>
+<tr>
+<th>day_id</th>
+<th>mac_id</th>
+<th>sum_num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20171011</td>
+<td>124609</td>
+<td>1</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>20130</td>
+<td>22</td>
+</tr>
+<tr>
+<td>20171011</td>
+<td>12922</td>
+<td>89</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>12922</td>
+<td>18</td>
+</tr>
+<tr>
+<td>20171012</td>
+<td>20130</td>
+<td>7</td>
+</tr>
+<tr>
+<td>20171013</td>
+<td>12922</td>
+<td>1</td>
+</tr>
+<tr>
+<td>20171013</td>
+<td>20130</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>over(partition by)  与 group by 的区别<br>grou by 字段只能显示与分组聚合相关的字段， 而 over(partition by)<br>可以显示所有字段</p>
+</blockquote>
+<hr>
+<ul>
+<li><strong>LAG 和 LEAD 函数</strong></li>
+</ul>
+<blockquote>
+<p>语法： LAG(col,n,DEFAULT) 用于统计窗口内往上第n行值;<br>LEAD(col,n,DEFAULT) 用于统计窗口内往下第n行值</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算11月1-10号， 不同日期同一用户登陆客户端 pv 量对比</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span></span><br><span class="line">    user_account,</span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv,</span><br><span class="line">    hit_date</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-11-01'</span> <span class="keyword">and</span><span class="string">'2018-11-10'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    user_account, hit_date)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    user_account,</span><br><span class="line">    a1.hit_date,</span><br><span class="line">    a1.pv,</span><br><span class="line">    lag(a1.pv, <span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> user_account <span class="keyword">order</span> <span class="keyword">by</span> user_account, a1.hit_date) <span class="keyword">as</span> pv1,</span><br><span class="line">    <span class="keyword">lead</span>(a1.pv, <span class="number">1</span>) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> user_account  <span class="keyword">order</span> <span class="keyword">by</span> user_account, a1.hit_date) <span class="keyword">as</span> pv2</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><strong>first_value() 和 last_value() 函数</strong></li>
+</ul>
+<blockquote>
+<p>语法:first_value() ：比较每个用户浏览次数与第一天浏览次数进行比较，查询返回当前浏览次数以及第一天浏览次数<br>last_value() ： 比较每个用户浏览次数与最新一天浏览次数进行比较，查询返回当前浏览次数以及最新一天浏览次数</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> a1 <span class="keyword">as</span> (<span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> user_account,</span><br><span class="line">    <span class="keyword">count</span>(user_account) <span class="keyword">as</span> pv,</span><br><span class="line">    hit_date</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    computer_view.data</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-11-01'</span> <span class="keyword">and</span><span class="string">'2018-11-10'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    user_account, hit_date)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> user_account,</span><br><span class="line">    a1.hit_date,</span><br><span class="line">    a1.pv,</span><br><span class="line">    <span class="keyword">first_value</span>(a1.pv) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> user_account <span class="keyword">order</span> <span class="keyword">by</span> user_account, a1.hit_date) <span class="keyword">as</span> pv1,</span><br><span class="line">    <span class="keyword">last_value</span>(a1.pv) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> user_account  <span class="keyword">order</span> <span class="keyword">by</span> user_account, a1.hit_date) <span class="keyword">as</span> pv2</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>rank、dense_rank、 row_number  排序函数</strong></li>
+</ul>
+<p><a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql?view=sql-server-2017" target="_blank" rel="noopener">row_number函数说明</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ROW_NUMBER ( )   </span><br><span class="line">    OVER ( [ PARTITION BY value_expression , ... [ n ] ] order_by_clause )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明： rank函数， 返回数据项在分组中的排名， 排名相等的会留下空位， 如1、2、2、4<br>dense_rank函数， 返回数据项在分组中的排名， 排名相等的不会留下空位， 如1、2、2、3<br>row_number函数， 返回数据项在分组中的排名， 排名不管数据是否相等， 如1、2、3、4</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a,</span><br><span class="line">    row_number() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> b) row_number,</span><br><span class="line">    <span class="keyword">rank</span>() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> b) <span class="keyword">rank</span>,</span><br><span class="line">    <span class="keyword">dense_rank</span>() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> b) <span class="keyword">dense_rank</span> </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    lijie.test_rank</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>row_number</th>
+<th>rank</th>
+<th>dense_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>D</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>B</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>E</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>F</td>
+<td>6</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>G</td>
+<td>7</td>
+<td>7</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>if 函数</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">city, count(distinct user_account) as uv </span><br><span class="line">from </span><br><span class="line">an_log_view</span><br><span class="line">where </span><br><span class="line">hit_date = &apos;2019-06-10&apos;</span><br><span class="line">group by </span><br><span class="line">city</span><br><span class="line">having</span><br><span class="line">count(if( nbtn_name like &quot;发现&quot;, 1, null)) &gt;= 20</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">city,</span><br><span class="line">count(1),</span><br><span class="line">count(if( nbtn_name like &quot;发现&quot;, 1, null)),</span><br><span class="line">count(if(nbtn_name like &quot;发现&quot;， 1， null)) / count(1)</span><br><span class="line">from</span><br><span class="line">a1</span><br><span class="line">group by </span><br><span class="line">city</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><strong>lateral view 函数</strong></li>
+</ul>
+<p>描述：<br>    &gt; lateral view 用于和 split、explode、collect_set 函数 等一起使用， 能够将一行数据拆成多行数据，在此基础上对拆分后的数据进行聚合。 </p>
+<p>举例： </p>
+<p> 表： table</p>
+<table>
+<thead>
+<tr>
+<th>pageid</th>
+<th>adid_list</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>front_page</td>
+<td>[1,2,3]</td>
+</tr>
+<tr>
+<td>contact_page</td>
+<td>[3,4]</td>
+</tr>
+</tbody>
+</table>
+<p>将 表 table 中的 <code>adid_list</code> 转换为单独的行。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    pageid, adid</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    <span class="keyword">table</span></span><br><span class="line"><span class="keyword">lateral</span>  <span class="keyword">view</span> <span class="keyword">explode</span>(adid_list) adTable  <span class="keyword">as</span> adid</span><br></pre></td></tr></table></figure>
+<p>输出结果为：<br>|pageid  |adid_list|<br>|—|—|<br>|front_page|1|<br>|front_page|2|<br>|front_page|3|<br>|contact_page|3|<br>|contact_page|4|</p>
+<p>要求：  计算特定广告的展现次数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    adid, <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    <span class="keyword">table</span></span><br><span class="line"><span class="keyword">lateral</span> <span class="keyword">view</span> <span class="keyword">explode</span>(adid_list) adTable <span class="keyword">as</span> adid</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> </span><br><span class="line">    adid</span><br></pre></td></tr></table></figure>
+<p>输出结果为： </p>
+<table>
+<thead>
+<tr>
+<th>adid</th>
+<th>count(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>多个 lateral view 查询</li>
+</ol>
+<p>表： table2</p>
+<table>
+<thead>
+<tr>
+<th>array</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1,2]</td>
+<td>[“a”，”b”]</td>
+</tr>
+<tr>
+<td>[3,4]</td>
+<td>[“c”, “d”]</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    myCol1, myCol2</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    baseTable</span><br><span class="line"><span class="keyword">LATERAL</span> <span class="keyword">VIEW</span> <span class="keyword">explode</span>(col1) myTable1 <span class="keyword">AS</span> myCol1</span><br><span class="line"><span class="keyword">LATERAL</span> <span class="keyword">VIEW</span> <span class="keyword">explode</span>(col2) myTable2 <span class="keyword">AS</span> myCol2</span><br></pre></td></tr></table></figure>
+<p>输出结果为： </p>
+<table>
+<thead>
+<tr>
+<th>myCol1</th>
+<th>myCol2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>“a”</td>
+</tr>
+<tr>
+<td>1</td>
+<td>“b”</td>
+</tr>
+<tr>
+<td>2</td>
+<td>“a”</td>
+</tr>
+<tr>
+<td>2</td>
+<td>“b”</td>
+</tr>
+<tr>
+<td>3</td>
+<td>“c”</td>
+</tr>
+<tr>
+<td>3</td>
+<td>“d”</td>
+</tr>
+<tr>
+<td>4</td>
+<td>“c”</td>
+</tr>
+<tr>
+<td>4</td>
+<td>“d”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<hr>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concat()</td>
+<td>拼接字符串</td>
+</tr>
+<tr>
+<td>length()</td>
+<td>计算字符串的长度，一个汉字算三个字符</td>
+</tr>
+<tr>
+<td>instr (A ,B )</td>
+<td>返回字符B首次在A中出现的位置,不存在返回0</td>
+</tr>
+<tr>
+<td>lcase()</td>
+<td>转换成小写</td>
+</tr>
+<tr>
+<td>left(string2 ,length )</td>
+<td>从string2中的左边起取length个字符</td>
+</tr>
+<tr>
+<td>lower()</td>
+<td>将字串转化为小写</td>
+</tr>
+<tr>
+<td>upper()</td>
+<td>将字符转化为大写</td>
+</tr>
+<tr>
+<td>replace()</td>
+<td>替换字符</td>
+</tr>
+<tr>
+<td>substr()</td>
+<td>返回字符串A从start位置开始，长度为len的字符串</td>
+</tr>
+<tr>
+<td>substring()</td>
+<td>截取字符串</td>
+</tr>
+<tr>
+<td>substring_index()</td>
+<td>通过截取获取不同索引位的字符</td>
+</tr>
+<tr>
+<td>LTRIM (string2 )</td>
+<td>去除前端空格</td>
+</tr>
+<tr>
+<td>RTRIM (string2 )</td>
+<td>去除后端空格</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>字符串截取函数：substr,substring, substring_index</strong></li>
+</ul>
+<p>语法: substr(string A, int start, int len),substring(string A, int start, int len)</p>
+<p>返回值: string</p>
+<p>说明：返回字符串A从start位置开始，长度为len的字符串</p>
+<p>举例1：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> computer_view;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">substring</span>(charge_products,<span class="number">2</span>,<span class="number">30</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    <span class="keyword">data</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-10-01'</span> <span class="keyword">and</span> <span class="string">'2018-10-05'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    charge_products</span><br><span class="line"><span class="keyword">limit</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<p>举例2：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">     <span class="keyword">substring</span>(a2.charge_products,<span class="number">2</span>,<span class="number">80</span>),</span><br><span class="line">     a1.name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    lookup.products_lookup <span class="keyword">as</span>  a1    <span class="keyword">join</span>    computer_view.data   <span class="keyword">as</span> a2</span><br><span class="line">    <span class="keyword">on</span></span><br><span class="line">    a1.product =  <span class="keyword">substring</span>(a2.charge_products,<span class="number">2</span>,<span class="number">80</span>)</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2018-10-07'</span> <span class="keyword">and</span> <span class="string">'2018-10-13'</span></span><br><span class="line">    <span class="keyword">and</span></span><br><span class="line">    mall_events <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    <span class="keyword">substring</span>(a2.charge_products,<span class="number">2</span>,<span class="number">80</span>),</span><br><span class="line">    a1.name</span><br></pre></td></tr></table></figure></p>
+<p>举例3：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--打断</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">substring_index(page_url, <span class="string">'?'</span>, <span class="number">1</span>),</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">distinct</span> user_tracking_id) <span class="keyword">as</span> uv,</span><br><span class="line"><span class="keyword">count</span>(page_url) <span class="keyword">as</span> pv </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    computer_view</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-04-09'</span> <span class="keyword">and</span> <span class="string">'2019-04-09'</span> </span><br><span class="line"><span class="keyword">and</span> </span><br><span class="line">campaign <span class="keyword">like</span> <span class="string">"%scjh-scep-tcnr-9yuanka%"</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">substring_index(page_url, <span class="string">'?'</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    uv <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="CASE-表达式"><a href="#CASE-表达式" class="headerlink" title="CASE 表达式"></a>CASE 表达式</h1><h2 id="case-when-的简单用法"><a href="#case-when-的简单用法" class="headerlink" title="case when 的简单用法"></a>case when 的简单用法</h2><ol>
+<li>语句</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">case when  sex = &apos;1&apos; then &apos;男&apos;</span><br><span class="line">     when  sex = &apos;2&apos; then &apos;女&apos;</span><br><span class="line">else &apos;其他&apos; end</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<blockquote>
+<p> 必须写 end, else 部分默认为  null</p>
+</blockquote>
+<!-- 
+#### 2. 作用：
+* 等值转换
+* 范围转换
+* 列转行 -->
+<ol start="2">
+<li>等值转换</li>
+</ol>
+<ul>
+<li>有这么一张表 pop ：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>area(地区)</th>
+<th>population(万)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>渭南市</td>
+<td>538</td>
+</tr>
+<tr>
+<td>延安市</td>
+<td>226</td>
+</tr>
+<tr>
+<td>商洛市</td>
+<td>238</td>
+</tr>
+<tr>
+<td>昆明市</td>
+<td>673</td>
+</tr>
+<tr>
+<td>曲靖市</td>
+<td>650</td>
+</tr>
+<tr>
+<td>青岛市</td>
+<td>769</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>需要得出如下表的结果：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>省</th>
+<th>人口（万）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陕西</td>
+<td>1002</td>
+</tr>
+<tr>
+<td>云南</td>
+<td>1326</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>769</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>sql如下：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 将地名转换成省</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    <span class="keyword">case</span>  area</span><br><span class="line">        <span class="keyword">when</span> <span class="string">"渭南市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"延安市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"商洛市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"昆明市"</span> <span class="keyword">then</span> <span class="string">"云南"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"曲靖市"</span> <span class="keyword">then</span> <span class="string">"云南"</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">"其他"</span> <span class="keyword">end</span> <span class="keyword">as</span> district,</span><br><span class="line">    <span class="keyword">sum</span>(population)</span><br><span class="line"><span class="keyword">from</span> pop</span><br><span class="line"><span class="comment">-- group by </span></span><br><span class="line"><span class="comment">--     case area</span></span><br><span class="line"><span class="comment">--            when "渭南市" then "陕西"</span></span><br><span class="line"><span class="comment">--             when "延安市" then "陕西"</span></span><br><span class="line"><span class="comment">--             when "商洛市" then "陕西"</span></span><br><span class="line"><span class="comment">--             when "昆明市" then "云南"</span></span><br><span class="line"><span class="comment">--             when "曲靖市" then "云南"</span></span><br><span class="line"><span class="comment">--     else "其他" end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<!-- 
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 将地名转换成省</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    <span class="keyword">case</span>  area</span><br><span class="line">        <span class="keyword">when</span> <span class="string">"渭南市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"延安市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"商洛市"</span> <span class="keyword">then</span> <span class="string">"陕西"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"昆明市"</span> <span class="keyword">then</span> <span class="string">"云南"</span></span><br><span class="line">        <span class="keyword">when</span> <span class="string">"曲靖市"</span> <span class="keyword">then</span> <span class="string">"云南"</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">"其他"</span> <span class="keyword">end</span> <span class="keyword">as</span> district,</span><br><span class="line">    <span class="keyword">sum</span>(population)</span><br><span class="line"><span class="keyword">from</span> pop</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    district</span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> 4. 范围转换</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* 按人口数量等级划分</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span><span class="keyword">sql</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">case</span> <span class="keyword">when</span> population &lt; <span class="number">250</span> <span class="keyword">then</span> <span class="string">'1'</span></span><br><span class="line">            <span class="keyword">when</span> population &gt;= <span class="number">250</span> <span class="keyword">and</span> population &lt; <span class="number">500</span> <span class="keyword">then</span> <span class="string">'2'</span></span><br><span class="line">            <span class="keyword">when</span> population &gt;= <span class="number">500</span> <span class="keyword">and</span> population &lt; <span class="number">750</span> <span class="keyword">then</span> <span class="string">'3'</span></span><br><span class="line">            <span class="keyword">when</span> population &gt;= <span class="number">750</span> <span class="keyword">then</span> <span class="string">'4'</span></span><br><span class="line">        <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> <span class="keyword">as</span> pop_classs,</span><br><span class="line">        <span class="keyword">count</span>(*) <span class="keyword">as</span> cnt</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    pop</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    district;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">输出结果为：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* 省略写法</span><br><span class="line">&gt; select 子句 与group by 子句 两处写法一样，后期修改比较麻烦，可以下下面这样： --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*  其他例子</span><br><span class="line"></span><br><span class="line">|area(地区)|population(人口)|sex(性别)|</span><br><span class="line">|<span class="comment">--|--|--|</span></span><br><span class="line">|	渭南市	|	5286077	|1|</span><br><span class="line">|	渭南市	|	3286077	|2|</span><br><span class="line">|	延安市	|	2187009	|1|</span><br><span class="line">|	延安市	|	1187009	|2|</span><br><span class="line">|	商洛市	|	3351436	|1|</span><br><span class="line">|	商洛市	|	2351436	|2|</span><br><span class="line"></span><br><span class="line">按照性别对每个县进行汇总：</span><br><span class="line"></span><br><span class="line">```sql</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    area,</span><br><span class="line">    <span class="keyword">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> sex = <span class="string">'1'</span> <span class="keyword">then</span> population <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> cnt_m,</span><br><span class="line">    <span class="keyword">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> sex = <span class="string">'2'</span> <span class="keyword">then</span> population <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> cnt_f</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    pop</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    area</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="group-by-升级版"><a href="#group-by-升级版" class="headerlink" title="group by 升级版"></a>group by 升级版</h1><h4 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h4><p>通过 a1 明细表，获得每个店铺，每个城市，每个省份，每个大区以及全国5月的份的成交量情况。</p>
+<table>
+<thead>
+<tr>
+<th>order_id</th>
+<th>shop</th>
+<th>city</th>
+<th>province</th>
+<th>area</th>
+<th>hit_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+<td>西安</td>
+<td>陕西</td>
+<td>西北大区</td>
+<td>2019-05-04</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>上海</td>
+<td>上海</td>
+<td>华东大区</td>
+<td>2019-05-01</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C</td>
+<td>安康</td>
+<td>陕西</td>
+<td>西北大区</td>
+<td>2019-05-02</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+<td>北京</td>
+<td>北京</td>
+<td>华中大区</td>
+<td>2019-05-21</td>
+</tr>
+<tr>
+<td>5</td>
+<td>E</td>
+<td>延安</td>
+<td>陕西</td>
+<td>西北大区</td>
+<td>2019-05-03</td>
+</tr>
+<tr>
+<td>6</td>
+<td>F</td>
+<td>成都</td>
+<td>四川</td>
+<td>西南大区</td>
+<td>2019-05-19</td>
+</tr>
+<tr>
+<td>7</td>
+<td>G</td>
+<td>汉中</td>
+<td>陕西</td>
+<td>西北大区</td>
+<td>2019-06-04</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>H</td>
+<td>郑州</td>
+<td>河南</td>
+<td>西北大区</td>
+<td>2019-05-29</td>
+</tr>
+</tbody>
+</table>
+<h2 id="解法1："><a href="#解法1：" class="headerlink" title="解法1："></a>解法1：</h2><p> 分别写5个sql<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 全国成交量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line"><span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 大区成交量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">area,</span><br><span class="line"><span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">area</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 省成交量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">area,</span><br><span class="line">province,</span><br><span class="line"><span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">area,</span><br><span class="line">province</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 城市成交量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">area,</span><br><span class="line">province,</span><br><span class="line">city,</span><br><span class="line"><span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">area,</span><br><span class="line">province,</span><br><span class="line">city</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 店铺成交量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">area,</span><br><span class="line">province,</span><br><span class="line">city,</span><br><span class="line">shop,</span><br><span class="line"><span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">area,</span><br><span class="line">province,</span><br><span class="line">city,</span><br><span class="line">shop</span><br></pre></td></tr></table></figure>
+<p>这种方法太低效了， 还需要在excel中进行合并，比较麻烦。</p>
+<h2 id="解法2："><a href="#解法2：" class="headerlink" title="解法2："></a>解法2：</h2><p>通过 union 和 union all 对查询结果进行纵向合并</p>
+<blockquote>
+<p>union: 对合并后的结果进行去重处理<br>union all : 返回合并后的所有数据</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="literal">null</span>,<span class="literal">null</span>,<span class="literal">null</span>,<span class="literal">null</span>,<span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales <span class="keyword">from</span>  a1 <span class="keyword">where</span>  hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> area, <span class="literal">null</span> , <span class="literal">null</span> ,<span class="literal">null</span>, <span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales <span class="keyword">from</span>  a1 <span class="keyword">where</span>  hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span> <span class="keyword">group</span> <span class="keyword">by</span> area</span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> area, province , <span class="literal">null</span> ,<span class="literal">null</span>, <span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales <span class="keyword">from</span>  a1 <span class="keyword">where</span>  hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span> <span class="keyword">group</span> <span class="keyword">by</span> area, province</span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> area, province, city ,<span class="literal">null</span>, <span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales <span class="keyword">from</span>  a1 <span class="keyword">where</span>  hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span> <span class="keyword">group</span> <span class="keyword">by</span> area, province, city</span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> area, province, city ,shop, <span class="keyword">count</span>(order_id) <span class="keyword">as</span> sales <span class="keyword">from</span>  a1 <span class="keyword">where</span>  hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span> <span class="keyword">group</span> <span class="keyword">by</span> area, province, city, shop</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述式中有很多 null, 这是因为 union all 拼接的两个表的列数需要相等。</p>
+</blockquote>
+<p>结果如下：</p>
+<p><img src="https://i.loli.net/2019/06/10/5cfe6c219ca3f57084.png" alt=""></p>
+<h2 id="解法3："><a href="#解法3：" class="headerlink" title="解法3："></a>解法3：</h2><p>利用 <code>union all</code> 比写出5个sql 再在 Excel 中处理简单很多，但是代码比较冗余。可以用<code>grouping sets</code>来进行优化。 此函数可以根据不同维度组合进行聚合。</p>
+<p>将<code>union all</code> 语句用<code>grouping sets</code> 进行改写：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="literal">null</span>,</span><br><span class="line">    area,</span><br><span class="line">    province,</span><br><span class="line">    city,</span><br><span class="line">    shop,</span><br><span class="line">    <span class="keyword">count</span>(orderid) <span class="keyword">as</span> sales,</span><br><span class="line">    <span class="keyword">grouping_id</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="literal">null</span>,</span><br><span class="line">    area,</span><br><span class="line">    province,</span><br><span class="line">    city,</span><br><span class="line">    shop</span><br><span class="line"><span class="keyword">grouping</span> <span class="keyword">sets</span></span><br><span class="line">    (<span class="literal">null</span>,</span><br><span class="line">    area,</span><br><span class="line">    (area,province),</span><br><span class="line">    (area,province,city),</span><br><span class="line">    (area,province,city,shop)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="keyword">grouping_id</span></span><br></pre></td></tr></table></figure>
+<p>得到结果与利用 <code>union all</code>拼接结果相同。<code>group by</code>后面的字段表示要分组聚合的全部字段， <code>grouping sets</code>后面为 <code>group by</code> 后面各种字段的组合。</p>
+<p><code>grouping_id</code>表示每个分组的序号。 1 表示第一个分组、2表示第二个分组。我们可以根据<code>grouping_id</code> 选取我们需要的组合。如果我们需要全国的成交量，则让 <code>grouping_id = 1</code>, 需要每个省的成交量，让 <code>grouping_id = 3</code>。</p>
+<h2 id="解法4："><a href="#解法4：" class="headerlink" title="解法4："></a>解法4：</h2><p><code>cube</code>函数， 对<code>group by</code>的维度的所有组合进行聚合。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    area,</span><br><span class="line">    province,</span><br><span class="line">    <span class="keyword">count</span>(orderid) <span class="keyword">as</span> sales,</span><br><span class="line">    <span class="keyword">grouping_id</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    area,</span><br><span class="line">    province</span><br><span class="line"><span class="keyword">with</span> <span class="keyword">cube</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="keyword">grouping_id</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/06/10/5cfe78ba58dfb91072.png" alt=""></p>
+<p>以上代码对区域和省份进行了聚合， <code>cube</code> 会先对全部数据进行聚合，即 <code>null, null</code>， 再对<code>area,null</code>进行聚合，然后再对<code>null, province</code>进行聚合，最后再对<code>area,province</code>进行聚合。</p>
+<h2 id="解法5："><a href="#解法5：" class="headerlink" title="解法5："></a>解法5：</h2><p><code>rollup</code>函数， 和<code>cube</code>类似，是针对 <code>group by</code>所有维度的部分组合。 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    area,</span><br><span class="line">    province,</span><br><span class="line">    <span class="keyword">count</span>(orderid) <span class="keyword">as</span> sales,</span><br><span class="line">    <span class="keyword">grouping_id</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    a1</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    hit_date <span class="keyword">between</span> <span class="string">'2019-05-01'</span> <span class="keyword">and</span> <span class="string">'2019-05-31'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    area,</span><br><span class="line">    province</span><br><span class="line"><span class="keyword">with</span> <span class="keyword">rollup</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="keyword">grouping_id</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/06/10/5cfe79320dfb423235.png" alt=""></p>
+<p>对比<code>cube</code>和<code>rollup</code>得到的结果，我们发现<code>rollup</code>少了<code>null province</code> 这个组合，<code>rollup</code> 是以最左侧指标为主进行组合聚合。</p>
+<p>参考资料：<a href="https://mp.weixin.qq.com/s/Xw5DOHHGh838w8YXT9lO5g">讲讲 group 的plus版-张俊红</a></p>
+<hr>
+<!-- 
+# sql 自定义函数
+
+### 自定义标量函数
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Creat function 函数名（参数）</span><br><span class="line">Return 返回值数据类型</span><br><span class="line">[<span class="keyword">with</span> &#123;Encryption | Schemabinding 「将函数绑定到它引用的对象上」&#125;]</span><br><span class="line">[<span class="keyword">as</span>]</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">Return</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<p>例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">Creat FUNCTION</span><br><span class="line">     getNthHighestSalary(N INT)</span><br><span class="line">Returns INT</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">RETURN</span></span><br><span class="line">    (<span class="keyword">SELECT</span></span><br><span class="line">    <span class="keyword">IFNULL</span>(</span><br><span class="line">          (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> </span><br><span class="line">    Salary </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    Salary <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">2</span> <span class="keyword">offset</span> <span class="number">1</span>), </span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">    ) <span class="keyword">AS</span> getNthHighestSalary(N)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">----</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. 多个 like"%%" 语句， 运行比较慢， 有什么优化方法吗？</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">答案：</span></span><br><span class="line"><span class="string">1. 建立索引</span></span><br><span class="line"><span class="string">2. 使用函数来替代 like</span></span><br><span class="line"><span class="string">    &gt; mysql： 考虑 locate, position, instr, find_in_set</span></span><br><span class="line"><span class="string">    &gt; sql server: charindex, patindex </span></span><br><span class="line"><span class="string">    &gt; https://blog.csdn.net/lly983909814/article/details/71642814</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">---------------</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### 在 spark 中写 hive 循环, 工具 zeppelim</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>s</span><br><span class="line">%spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( a &lt;- <span class="number">0</span> <span class="keyword">until</span> <span class="number">30</span>)&#123;</span><br><span class="line">        // val <span class="keyword">sql</span>= s<span class="string">"""use default"""</span></span><br><span class="line">    // spark.sql(<span class="keyword">sql</span>)</span><br><span class="line">    val <span class="keyword">sql</span> = s<span class="string">"""</span></span><br><span class="line"><span class="string">    with a1 as (</span></span><br><span class="line"><span class="string">    select</span></span><br><span class="line"><span class="string">        user_account</span></span><br><span class="line"><span class="string">    from</span></span><br><span class="line"><span class="string">        computer_view.data</span></span><br><span class="line"><span class="string">    where</span></span><br><span class="line"><span class="string">         hit_date between "</span><span class="number">2018</span><span class="number">-11</span><span class="number">-01</span><span class="string">" and date_add("</span><span class="number">2018</span><span class="number">-11</span><span class="number">-01</span><span class="string">",$&#123;a&#125;)</span></span><br><span class="line"><span class="string">    union all </span></span><br><span class="line"><span class="string">        select</span></span><br><span class="line"><span class="string">        user_account</span></span><br><span class="line"><span class="string">    from</span></span><br><span class="line"><span class="string">        computer_view.data</span></span><br><span class="line"><span class="string">    where</span></span><br><span class="line"><span class="string">         hit_date between "</span><span class="number">2018</span><span class="number">-11</span><span class="number">-01</span><span class="string">" and date_add("</span><span class="number">2018</span><span class="number">-11</span><span class="number">-01</span><span class="string">",$&#123;a&#125;))</span></span><br><span class="line"><span class="string">    select</span></span><br><span class="line"><span class="string">        count(distinct user_account) as uv</span></span><br><span class="line"><span class="string">    from</span></span><br><span class="line"><span class="string">        a1</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    val <span class="keyword">data</span> = spark.sql(<span class="keyword">sql</span>)</span><br><span class="line">    println(<span class="string">"day:"</span>, a, <span class="string">"uv:"</span>, data.show())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://www.docs4dev.com/docs/zh/apache-hive/3.1.1/reference/LanguageManual_LateralView.html">Hive中文手册</a></p>
+--></div></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' ? true : false;
+var verify = 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'LWPB8jjoMUiH98OUCjulreBj-gzGzoHsz',
+  appKey:'YOWrXQ1oP2QTavuCRp2QeRYV',
+  placeholder:'　快来留下你的脚印吧',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人系统/">个人系统</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析技能/">数据分析技能</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析方法/">数据分析方法</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活资料/">生活资料</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/20/生活-个人总结-博客主题更换/">博客主题更换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/11/生活-个人总结-《麦肯锡精英高效阅读法》/">麦肯锡精英高效阅读法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/方法-数据异常分析/">数据异常分析方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/生活-个人总结-利用环境来辅助自己的进步/">利用环境来辅助自己进步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/方法-如何用数据说话/">如何用数据说话</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/数据分析报告-如何用数据说话/">如何用数据说话</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/01/技能-数据分析-培养数据敏感度/">培养数据敏感度</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/方法-改版分析/">改版分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/方法-常用指标/">搭建业务运营指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/技能-Hive进阶学习/">Hive 进阶查询</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Hive/" style="font-size: 15px;">Hive</a> <a href="/tags/sql/" style="font-size: 15px;">sql</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/数据分析/" style="font-size: 15px;">数据分析</a> <a href="/tags/数据敏感度/" style="font-size: 15px;">数据敏感度</a> <a href="/tags/统计学/" style="font-size: 15px;">统计学</a> <a href="/tags/常用指标/" style="font-size: 15px;">常用指标</a> <a href="/tags/改版分析/" style="font-size: 15px;">改版分析</a> <a href="/tags/岗位介绍/" style="font-size: 15px;">岗位介绍</a> <a href="/tags/异常分析/" style="font-size: 15px;">异常分析</a> <a href="/tags/活动分析/" style="font-size: 15px;">活动分析</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/思考方法/" style="font-size: 15px;">思考方法</a> <a href="/tags/思维方法/" style="font-size: 15px;">思维方法</a> <a href="/tags/心理/" style="font-size: 15px;">心理</a> <a href="/tags/方法/" style="font-size: 15px;">方法</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/博客主题/" style="font-size: 15px;">博客主题</a> <a href="/tags/书单/" style="font-size: 15px;">书单</a> <a href="/tags/音乐/" style="font-size: 15px;">音乐</a> <a href="/tags/逻辑/" style="font-size: 15px;">逻辑</a> <a href="/tags/类比/" style="font-size: 15px;">类比</a> <a href="/tags/报告/" style="font-size: 15px;">报告</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.chinawebanalytics.cn/" title="互联网分析在中国" target="_blank">互联网分析在中国</a><ul></ul><a href="https://www.yangzhiping.com/" title="阳志平的网志" target="_blank">阳志平的网志</a><ul></ul><a href="https://maxoxo.me/" title="maxOS" target="_blank">maxOS</a><ul></ul><a href="https://thelongestway.com/" title="The Longest Way" target="_blank">The Longest Way</a><ul></ul><a href="https://christophrehage.cn/" title="Christoph Rehage" target="_blank">Christoph Rehage</a><ul></ul><a href="https://codechina.org/" title="Tinyfool的中文Blog" target="_blank">Tinyfool的中文Blog</a><ul></ul><a href="http://sunny.blogchina.com/" title="梁宁的专栏" target="_blank">梁宁的专栏</a><ul></ul><a href="https://ayearofreadingtheworld.com/" title="A year of reading the world" target="_blank">A year of reading the world</a><ul></ul><a href="http://www.storytellingwithdata.com/blog/" title="storytelling-data" target="_blank">storytelling-data</a><ul></ul><a href="https://github.com/xiaolai/xiaolai.github.io" title="李笑来网站" target="_blank">李笑来网站</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">怪兽宇的小站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/love/js/love.js"></script><script type="text/javascript" src="/copycode/js/copycode.js"></script><link rel="stylesheet" type="text/css" href="/copycode/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
