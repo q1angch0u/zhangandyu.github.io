@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="个人博客"><title> | 怪兽宇的小站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','127783955','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">怪兽宇的小站</h1><a id="logo" href="/.">怪兽宇的小站</a><p class="description">脚踏实地，仰望星空!</p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tool/"><i class="fa fa-yelp"> 工具</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-content"><h1 id="业务场景埋点需求"><a href="#业务场景埋点需求" class="headerlink" title="业务场景埋点需求"></a>业务场景埋点需求</h1><h3 id="1-wap-页面采集进入页面-uv、-pv"><a href="#1-wap-页面采集进入页面-uv、-pv" class="headerlink" title="1. wap 页面采集进入页面 uv、 pv."></a>1. <strong>wap 页面采集进入页面 uv、 pv.</strong></h3><p>让页面开发人员按照《中国电信欢go wap采集部署方案》在网页源代码中引入网舟数据采集js脚本即可。</p>
+<ul>
+<li>部署方案：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1、在每个页面的头部（&lt;head&gt;标签的后面，放到所有js、css资源引用代码的前面），加入以下代码，如：</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.trkPageStart = new Date().getTime();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">2、在所有页面的首屏位置的底部（即页面第一屏显示内容最后位置的html代码所处的那一行）插入以下代码：</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">window.trkFirstScreenEnd = new Date().getTime(); </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">3、在页面的底部（整个页面的最底部，位于第4条通用代码之前）插入以下代码：</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">window.trkPageEnd = new Date().getTime();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">  说明：trkPartner参数使用合作商名称赋值，如霍尔果斯盈讯赋值为huoerguosi；</span><br><span class="line"></span><br><span class="line">4、通用代码：在页面的底部（&lt;/body&gt;标签的前面）引入以下代码：</span><br><span class="line">假如http链接引用如下：</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;  src=&quot;http://image1.chinatelecom-ec.com/client/wap/common/js/s_code.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">假如https链接引用如下：</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.189.cn/client/wap/common/js/s_code.js&quot;&gt;&lt;/script&gt; </span><br><span class="line"></span><br><span class="line">注：如果页面已经有引入该代码，则不需要重复引用</span><br></pre></td></tr></table></figure>
+<!---
+* 代码测试：
+![](/ConfWiki/uploads/xq/images/m_c2cebef738849db574d696d42bda3df0_r.png)
+--->
+<hr>
+<h3 id="2-wap页面内部按钮采集"><a href="#2-wap页面内部按钮采集" class="headerlink" title="2. wap页面内部按钮采集"></a>2. <strong>wap页面内部按钮采集</strong></h3><p> 开发人员需先在 wap 页面部署 wap页面采集js，然后才能按照插码方案，对指定按钮位置和名称进行埋点。 </p>
+<blockquote>
+<p>wap页面数据同时发往 wap库与客户端库，为使wap页面数据能够按照手机号统计。<br>在客户端内部的wap页面，使用此方法可以用手机号来进行计算。<br>在外部投放的wap页， 采集到到的手机号无法解密，所以无法用手机号来进行统计。<br>wap库查询按钮字段： navigation, wap库查询位置字段： btn_position</p>
+</blockquote>
+<ul>
+<li>部署方案-数据发送 wap库与客户端库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户选中图中位置1套餐，上报点击事件，调用方法为： </span><br><span class="line">trk_wap_jt.trkAppButtonClick (“50000036xxxxxx_x”，“sj5g-yyyh-center-1”,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span><br></pre></td></tr></table></figure>
+<!--
+* 代码测试
+ ![](/ConfWiki/uploads/xq/images/m_3f0a19b76eea25d6a9a700d6a3c93d4a_r.png)
+ -->
+<hr>
+<h3 id="3-原生页面数据采集"><a href="#3-原生页面数据采集" class="headerlink" title="3. 原生页面数据采集"></a>3. <strong>原生页面数据采集</strong></h3><p>原生页面数据采集，按照插码规则正常插码就可。 </p>
+<ul>
+<li>an</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 点击</span><br><span class="line">TrackingHelperBase.trkAppButtonClick(&quot;立即登录&quot; ,&quot;Syjh-sy-zysj-cell1_2_0&quot;,&quot;&quot; ,&quot;&quot;,&quot;&quot;);</span><br><span class="line"></span><br><span class="line">安卓说明： </span><br><span class="line">TrackingHelperBase.trkAppButtonClick(&quot;根据实际名称上报&quot; ,&quot;chongzhi-wychonghuafei-Top-2_1&quot;,&quot;标识&quot; ,&quot;业务大类&quot;,&quot;业务小类&quot;);</span><br><span class="line"></span><br><span class="line"># 曝光</span><br><span class="line">TrackingHelperBase.trkAppBgAction(&quot;本地专享+Syjh-sy-top-cell1_1_1:搜索+Syjh-sy-top-cell1_1_2:扫一扫+Syjh-sy-top- cell1_1_3&quot;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ios</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 点击</span><br><span class="line">[TrackingHelper trkAppButtonClick:@&quot;本地专享&quot; Location:@&quot;Syjh-sy-top-cell1_1_1&quot;Sign:@&quot;&quot; BigType:@&quot;&quot;SmallType:@&quot;&quot;];</span><br><span class="line"></span><br><span class="line"># ios说明</span><br><span class="line">TrackingHelper trkAppButtonClick:@&quot;根据实际名称上报&quot; Location:@&quot; chongzhi-wychonghuafei-Top-2_1&quot; Sign:@&quot;标识x&quot; BigType:@&quot;业务大类x&quot; SmallType:@&quot;业务小类x&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 曝光</span><br><span class="line">（1）参数bgbtn用所有曝光控件的按钮名称用+位置 用 : 拼接后赋值</span><br><span class="line">例如位置1 和位置4，位置5，同时出现在曝光范围内：</span><br><span class="line">[TrackingHelper trkAppBgAction:@&quot;本地专享+Syjh-sy-top-cell1_1_1:搜索+Syjh-sy-top-cell1_1_2:扫一扫+Syjh-sy-top- cell1_1_3&quot;];</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4-销售数据统计"><a href="#4-销售数据统计" class="headerlink" title="4. 销售数据统计"></a>4. <strong>销售数据统计</strong></h3><ul>
+<li>根据销售品id、cmpid、 订单编号, shop_id， sales_id来进行销售品统计。</li>
+</ul>
+<blockquote>
+<p> 点击详情页……..点击订单填写页…….点击订单支付页</p>
+<p> 销售品id: 确定销售什么产品，销售品id信息 在wap链接中进行添加。</p>
+<p> cmpid： 确定链接在哪个渠道投放，会在详情页链接添加cmpid。<br>  cmpid 在订单填写页和订单支付页体现。 方法1： 系统判定用户为一次访问，往前自动补全。 方法2： 让研发对cmpid进行透传。</p>
+<p>订单编号： 订单编号会在订单支付页生成，系统会进行采集， 用于和后台订单系统的订单号进行匹配。</p>
+</blockquote>
+<blockquote>
+<p>shop_id:与 cmpid 功能相同，用于后台订单系统来识别渠道来源。 在链接中可进行配置，或通过研发将cmpid值进行透传。</p>
+</blockquote>
+<blockquote>
+<p>sales_id: 销售品编号</p>
+</blockquote>
+<p><img src="/ConfWiki/uploads/xq/images/m_4465d545f3615119c7206743152d17d3_r.png" alt></p>
+<hr>
+<h3 id="5-wap链接参数-和-页面内参数-区别："><a href="#5-wap链接参数-和-页面内参数-区别：" class="headerlink" title="5. wap链接参数 和 页面内参数 区别："></a>5. <strong>wap链接参数 和 页面内参数 区别：</strong></h3><ul>
+<li>wap页面自带采集数据： 链接中不会明文显示的数据，但研发会通过加密传递。如：用户手机号、用户归属地、用户手机型号、ip地址、设备型号、系统版本、特殊事件</li>
+<li>wap页面常有指标： 页面浏览时长、跳出率。</li>
+<li>wap链接内参数会明文展现，手动添加即可，系统会自动解析，不需要单独开发。适合不涉及敏感信息的内容。如： cmpid, salesid,shopid</li>
+<li>页面内参数，不会明文展现，只能内部隐性传递。 采集数据需要研发进行开发，适合敏感信息较高的内容。</li>
+</ul>
+<h3 id="6-投放渠道追踪"><a href="#6-投放渠道追踪" class="headerlink" title="6.  投放渠道追踪"></a>6.  <strong>投放渠道追踪</strong></h3><p><img src="/ConfWiki/uploads/xq/images/m_f48b76338699c53e3f3f44651cbacebc_r.png" alt></p>
+<p>说明：</p>
+<ol>
+<li>cmpid 必须添加在 最终展现页面链接上，而不能添加在中间的跳转链接上。 </li>
+<li>原生页添加cmpid技术原理为：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">当判断app由外部链接调起，并在采集初始化代码:</span><br><span class="line"></span><br><span class="line">TrackingHelperBase.configureAppMeasurement()调用完成后添加以下方法调用并赋值：</span><br><span class="line">Hashtable&lt;String,Object&gt; ctxData = new Hashtable&lt;&gt;();</span><br><span class="line">ctxData.put(&quot;launchLink&quot;,启动链接);</span><br><span class="line">ctxData.put(&quot;cmpid&quot;,cmpid);</span><br><span class="line">TrackingHelperBase.setLaunchData(ctxData);</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">   参数启动链接使用唤醒app时的完整链接；</span><br><span class="line">   参数cmpid使用启动链接中cmpid参数赋值，不存在使用空字符串“”赋值。</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">ctxData.put(&quot;launchLink&quot;,&quot;ctclient:// startapp/android/open?     LinkType=1&amp;Link=10001&amp;BackUrl=</span><br><span class="line">http%3A%2F%2Fwww.189.cn&amp;Recomnbr=10000&amp;CmpId=expCode&quot;);</span><br><span class="line">ctxData.put(&quot;cmpid&quot;,&quot;expCode&quot;);</span><br><span class="line">TrackingHelperBase.setLaunchData(ctxData);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>下载客户端并启动，通过ip、手机型号、操作系统模糊匹配， 准确率在80%左右。 </p>
+<blockquote>
+<p>ios误差较大，主要是因为操作系统无法区分。 </p>
+</blockquote>
+</li>
+<li><p>页面涉及唤起客户端，需统计分渠道的拉新促活量。<br>(1) 投放页面需要插码，至少保证可统计页面pv、uv<br>(2) 配置每个渠道唤起客户端的链接，每个不同渠道分配不同的渠道编码(cmpid)<br>(3) 对于涉及订单的场景，需要求研发进行渠道编码的透传，直至保存至订单系统。</p>
+</li>
+</ol>
+<hr>
+<h3 id="7-客户端采集范围"><a href="#7-客户端采集范围" class="headerlink" title="7. 客户端采集范围"></a>7. <strong>客户端采集范围</strong></h3><ol>
+<li><strong>页面采集</strong></li>
+</ol>
+<ul>
+<li><p>采集 客户端原生页 page_name<br>需指定页面名称，进入原生页会发送页面事件，page_name = 指定页面名称</p>
+</li>
+<li><p>采集 客户端wap页<br>默认采集链接， 从客户端原生页进入wap页系统会采集 wap页的page_name</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>采集按钮</strong></li>
+</ol>
+<ul>
+<li>客户端内 原生和wap按钮都可采集.</li>
+<li>按钮点击采集代码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">安卓：TrackingHelperBase.trkAppButtonClick(&quot;根据实际名称上报&quot; ,&quot;chongzhi-wychonghuafei-Top-2_1&quot;,&quot;标识&quot; ,&quot;业务大类&quot;,&quot;业务小类&quot;);</span><br><span class="line"></span><br><span class="line">IOS:[TrackingHelper trkAppButtonClick:@&quot;根据实际名称上报&quot; Location:@&quot; chongzhi-wychonghuafei-Top-2_1&quot; Sign:@&quot;标识x&quot; BigType:@&quot;业务大类x&quot; SmallType:@&quot;业务小类x&quot;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按钮位置命名规则：<br><img src="/ConfWiki/uploads/xq/images/m_9cf9854584fc1de5d92ce7b3b2302530_r.png" alt></li>
+</ul>
+<ol start="3">
+<li><strong>曝光采集</strong></li>
+</ol>
+<ul>
+<li>曝光采集代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># an曝光</span><br><span class="line">TrackingHelperBase.trkAppBgAction(&quot;本地专享+Syjh-sy-top-cell1_1_1:搜索+Syjh-sy-top-cell1_1_2:扫一扫+Syjh-sy-top- cell1_1_3&quot;);</span><br><span class="line"></span><br><span class="line"># ios曝光</span><br><span class="line">[TrackingHelper trkAppBgAction:@&quot;本地专享+Syjh-sy-top-cell1_1_1:搜索+Syjh-sy-top-cell1_1_2:扫一扫+Syjh-sy-top- cell1_1_3&quot;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>曝光采集规则<br>1、控件100%露出时触发曝光事件；<br>2、控件在不切换页面的情况下，两次及以上露出算一次曝光；<br>3、在页面已经发送曝光的情况下，从该页面切走并且从其他页面切回到该页面以及刷新情况，控件重新触发曝光事件；<br>4、在页面已经发送曝光的情况下，客户端切入后台后，重新切回，页面内的控件重新触发曝光事件；<br>5、当用户快速划过页面时，控件不触发曝光事件（例：给定一个页面停留时长阈值）。</li>
+</ul>
+<ol start="4">
+<li><strong>按钮与页面来源</strong></li>
+</ol>
+<ul>
+<li><p>按钮来源<br>last_action:按钮来源</p>
+</li>
+<li><p>页面来源<br>Pre_page_action:上一页面的按钮来源<br>last_page:上一页面来源</p>
+</li>
+</ul>
+<ol start="5">
+<li><strong>其他参数</strong><br>用户归属地： GPS定位不准确，同一用电话号码归属地来进行分省。</li>
+</ol>
+<h3 id="8-服务器数据与解析"><a href="#8-服务器数据与解析" class="headerlink" title="8. 服务器数据与解析"></a>8. 服务器数据与解析</h3><ol>
+<li>实际服务器采集数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ctapp-ios.omniture.cn:9000/zag.gif?.a=&amp;.c=&amp;%3Frsid=eship-huanGo-ios&amp;AppID=CTPocket+7.5.0+%285%29&amp;CarrierName=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&amp;DeviceName=iPhone10%2C2&amp;OSVersion=iOS+13.1&amp;Resolution=1242x2208&amp;RunMode=Application&amp;a.=&amp;aid=3918EB5E43E849A3-0EE21E22850638E5&amp;appVersion=5&amp;c.=&amp;ce=UTF-8&amp;citygps=%E5%8C%97%E4%BA%AC&amp;codeVersion=20190820&amp;currentPage=Spjh-5G%E4%B8%93%E5%8C%BA&amp;deviceId=F093A537-8F33-4637-9823-1E3E1FA44CD1&amp;hitDate=2019-10-15+17%3A29%3A07&amp;lunchtype=aut_lunch&amp;ndh=1&amp;pageName=trkPageName&amp;pageView=Spjh-5G%E4%B8%93%E5%8C%BA&amp;t=00%2F00%2F0000+00%3A00%3A00+0+-480&amp;timestamp=1571131747&amp;v3=page_view_event&amp;v61=enable&amp;v63=101-106</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>系统解析后数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ctapp-ios.omniture.cn:9000/zag.gif?.a=&amp;.c=&amp;?rsid=eship-huanGo-ios&amp;AppID=CTPocket 7.5.0 (5)&amp;CarrierName=中国移动&amp;DeviceName=iPhone10,2&amp;OSVersion=iOS 13.1&amp;Resolution=1242x2208&amp;RunMode=Application&amp;a.=&amp;aid=3918EB5E43E849A3-0EE21E22850638E5&amp;appVersion=5&amp;c.=&amp;ce=UTF-8&amp;citygps=北京&amp;codeVersion=20190820&amp;currentPage=Spjh-5G专区&amp;deviceId=F093A537-8F33-4637-9823-1E3E1FA44CD1&amp;hitDate=2019-10-15 17:29:07&amp;lunchtype=aut_lunch&amp;ndh=1&amp;pageName=trkPageName&amp;pageView=Spjh-5G专区&amp;t=00/00/0000 00:00:00 0 -480&amp;timestamp=1571131747&amp;v3=page_view_event&amp;v61=enable&amp;v63=101-106</span><br></pre></td></tr></table></figure>
+<h3 id="9-微信数据采集"><a href="#9-微信数据采集" class="headerlink" title="9. 微信数据采集"></a>9. 微信数据采集</h3><ol>
+<li><p>微信小程序-页面与按钮采集<br>与wap页面和按钮采集原理相同，本质是在微信中嵌入wap页面，采集wap页面数据即可。 </p>
+</li>
+<li><p>微信小程序-互联网卡 用户订购数据采集</p>
+</li>
+</ol>
+<ul>
+<li>用户基本属性：可采集微信公众号关注用户的性别、微信填写省份、微信填写城市、微信填写国家、地理位置、微信昵称、微信头像、终端分布（ios、安卓）、终端机型（iPhone、华为、oppo、vivo等）、还可采集屏幕大小、IP地址、IP归属地。</li>
+<li>微信文章分享传播采集：分享URL、分享页Title分享方式、分享人OpenID、阅读人OpenID、分享层级/分享路径</li>
+<li>点击事件：已关注、关注时间、关注、取消关注的事件采集；包括OpenID、关注时间；本异网</li>
+</ul>
+<h3 id="10-cmpid命名规则"><a href="#10-cmpid命名规则" class="headerlink" title="10. cmpid命名规则"></a>10. cmpid命名规则</h3><ul>
+<li><strong>cmpid=活动名称-投放平台-活动位置-链接归属(省份)</strong><blockquote>
+<p>cmpid=20xinchun-khd-jdt_2-bj</p>
+</blockquote>
+</li>
+<li>各省缩写</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>省份</th>
+<th>缩写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>集团</td>
+<td>jt</td>
+</tr>
+<tr>
+<td>北京</td>
+<td>bj</td>
+</tr>
+<tr>
+<td>天津</td>
+<td>tj</td>
+</tr>
+<tr>
+<td>河北</td>
+<td>he</td>
+</tr>
+<tr>
+<td>山西</td>
+<td>sx</td>
+</tr>
+<tr>
+<td>宁夏</td>
+<td>nx</td>
+</tr>
+<tr>
+<td>内蒙</td>
+<td>nm</td>
+</tr>
+<tr>
+<td>辽宁</td>
+<td>ln</td>
+</tr>
+<tr>
+<td>黑龙江</td>
+<td>hl</td>
+</tr>
+<tr>
+<td>吉林</td>
+<td>jl</td>
+</tr>
+<tr>
+<td>陕西</td>
+<td>sn</td>
+</tr>
+<tr>
+<td>福建</td>
+<td>fj</td>
+</tr>
+<tr>
+<td>西藏</td>
+<td>xz</td>
+</tr>
+<tr>
+<td>青海</td>
+<td>qh</td>
+</tr>
+<tr>
+<td>贵州</td>
+<td>gz</td>
+</tr>
+<tr>
+<td>新疆</td>
+<td>xj</td>
+</tr>
+<tr>
+<td>甘肃</td>
+<td>gs</td>
+</tr>
+<tr>
+<td>山东</td>
+<td>sd</td>
+</tr>
+<tr>
+<td>河南</td>
+<td>ha</td>
+</tr>
+<tr>
+<td>云南</td>
+<td>yn</td>
+</tr>
+<tr>
+<td>江西</td>
+<td>jx</td>
+</tr>
+<tr>
+<td>浙江</td>
+<td>zj</td>
+</tr>
+<tr>
+<td>上海</td>
+<td>sh</td>
+</tr>
+<tr>
+<td>湖南</td>
+<td>hn</td>
+</tr>
+<tr>
+<td>安徽</td>
+<td>ah</td>
+</tr>
+<tr>
+<td>海南</td>
+<td>hi</td>
+</tr>
+<tr>
+<td>湖北</td>
+<td>hb</td>
+</tr>
+<tr>
+<td>重庆</td>
+<td>cq</td>
+</tr>
+<tr>
+<td>江苏</td>
+<td>js</td>
+</tr>
+<tr>
+<td>四川</td>
+<td>sc</td>
+</tr>
+<tr>
+<td>广西</td>
+<td>gx</td>
+</tr>
+<tr>
+<td>广东</td>
+<td>gd</td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' ? true : false;
+var verify = 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'LWPB8jjoMUiH98OUCjulreBj-gzGzoHsz',
+  appKey:'YOWrXQ1oP2QTavuCRp2QeRYV',
+  placeholder:'　快来留下你的脚印吧',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人系统/">个人系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析技能/">数据分析技能</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据分析方法/">数据分析方法</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活资料/">生活资料</a><span class="category-list-count">2</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/方法-数据异常分析/">数据异常分析方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/生活-个人总结-利用环境来辅助自己的进步/">利用环境来辅助自己进步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/方法-如何用数据说话/">如何用数据说话</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/22/方法-改版分析/">改版分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/方法-常用指标/">搭建业务运营指标</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/22/方法-营销活动分析/">营销活动分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/技能-Hive-SQL学习/">Hive-SQL学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/方法-常见的分析方法/">常见的分析思维方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/技能-Hive常见面试题/">Hive-SQL练习题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/方法-常见的分析模型/">常见的分析思维模型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Hive/" style="font-size: 15px;">Hive</a> <a href="/tags/sql/" style="font-size: 15px;">sql</a> <a href="/tags/数据分析/" style="font-size: 15px;">数据分析</a> <a href="/tags/报告/" style="font-size: 15px;">报告</a> <a href="/tags/统计学/" style="font-size: 15px;">统计学</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/岗位介绍/" style="font-size: 15px;">岗位介绍</a> <a href="/tags/常用指标/" style="font-size: 15px;">常用指标</a> <a href="/tags/异常分析/" style="font-size: 15px;">异常分析</a> <a href="/tags/活动分析/" style="font-size: 15px;">活动分析</a> <a href="/tags/改版分析/" style="font-size: 15px;">改版分析</a> <a href="/tags/心理/" style="font-size: 15px;">心理</a> <a href="/tags/方法/" style="font-size: 15px;">方法</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/逻辑/" style="font-size: 15px;">逻辑</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.chinawebanalytics.cn/" title="互联网分析在中国" target="_blank">互联网分析在中国</a><ul></ul><a href="https://www.yangzhiping.com/" title="阳志平的网志" target="_blank">阳志平的网志</a><ul></ul><a href="https://maxoxo.me/" title="maxOS" target="_blank">maxOS</a><ul></ul><a href="https://thelongestway.com/" title="The Longest Way" target="_blank">The Longest Way</a><ul></ul><a href="https://christophrehage.cn/" title="Christoph Rehage" target="_blank">Christoph Rehage</a><ul></ul><a href="https://codechina.org/" title="Tinyfool的中文Blog" target="_blank">Tinyfool的中文Blog</a><ul></ul><a href="http://sunny.blogchina.com/" title="梁宁的专栏" target="_blank">梁宁的专栏</a><ul></ul><a href="https://ayearofreadingtheworld.com/" title="A year of reading the world" target="_blank">A year of reading the world</a><ul></ul><a href="http://www.storytellingwithdata.com/blog/" title="storytelling-data" target="_blank">storytelling-data</a><ul></ul><a href="https://github.com/xiaolai/xiaolai.github.io" title="李笑来网站" target="_blank">李笑来网站</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">怪兽宇的小站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/love/js/love.js"></script><script type="text/javascript" src="/copycode/js/copycode.js"></script><link rel="stylesheet" type="text/css" href="/copycode/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

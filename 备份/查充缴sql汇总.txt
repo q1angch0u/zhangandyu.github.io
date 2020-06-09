@@ -1,0 +1,986 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# coding: utf-8
+
+import sys
+from HiveClient import HiveClient
+from MysqlClient import MysqlClient
+from HiveClient import DateHelp
+import pandas as pd
+from pyhive import hive
+import time
+from datetime import datetime, date
+from datetime import timedelta
+
+
+#查询hive数据库
+hiveDB = {'host':'10.128.112.185', 'port':10000,'username':'root', 'database':'default','auth':'NOSASL'}
+#插入mysql数据库
+mysqlDB ={'host':'10.128.121.141','port':3300, 'user':'customize_reports', 'passwd':'eship001~','db':'customize_reports'}
+
+hive = HiveClient(hiveDB,mysqlDB)
+mysql = MysqlClient(mysqlDB)
+
+# 产品销售累计
+#获得倒退数量
+num = int(sys.argv[1])
+now = datetime.now()
+
+# 月初1号
+startdatess = now.replace(day =1)
+startdates = startdatess.__format__("%Y-%m-%d")
+# 昨天
+enddates =now - timedelta(days = num)
+enddates = enddates.__format__("%Y-%m-%d")
+
+# 上月第一天
+last_moth_f = now.replace(month =now.month-1, day=1).__format__("%Y-%m-%d")
+# 上月最后一天
+last_moth_e = (startdatess - timedelta(days =1)).__format__("%Y-%m-%d")
+
+# 目标值月份
+#  mubiao_dates = startdates[0:7]
+
+mubiao_dates = '2019-11'
+
+#公共变量
+replaceMap = {
+	'database': 'hlwk_db.hlwk_twelve_allfield',
+	'type': 'day',
+    'start_date' : enddates,
+    'first_date': startdates,
+    'end_date' : enddates,
+    'mb_month' : mubiao_dates,
+    'last_moth_f' :last_moth_f,
+    'last_moth_e' : last_moth_e
+}
+
+print(replaceMap['start_date'],replaceMap['end_date'],replaceMap['first_date'])
+# ---------------------------
+#  话费账单-当日数据
+sql_huafeizhangdan = """with a1 as (
+SELECT
+user_account
+FROM
+apache_computer_view.client_android_log
+WHERE
+( 
+--话费余额
+nbtn_name like "%话费余额%" or 
+page_name like "%Cxpd-hfye%" or 
+page_name = "话费及余额" or
+btn_name like "%信用度查询%" or
+nbtn_name like "%信用度查询%" or
+nbtn_name like "%余额变动%" or
+page_name like "%Cxpd-yebd%" or 
+page_name = "余额变动明细" or
+nbtn_name like "%信用额度%" or 
+page_name = "信用额度查询"  or
+nbtn_name like "%话费充值记录%" or 
+page_name = "话费充值记录" or
+nbtn_name like "%话费预存返还%"  or
+page_name = "话费预存返还" or 
+--历史账单
+nbtn_name like "%账单%" or
+nbtn_name like "%历史账单%" or
+page_name like "%lm.189.cn/yearbill/yearbill_details%" or
+page_name like  "%lm.189.cn/monthlybill/monthlybill_details%" or
+( nbtn_position like "%Xxjh-xx%"   and  nbtn_name like '%账单%') or
+(nbtn_position like "%Syjh-%-xxts%"   and  nbtn_name like '%账单%') or 
+( nbtn_position like "%Myjh-message-list%"  and  nbtn_name like '%账单%')  or
+nbtn_name like "%通信消费记录%" or 
+page_name = "智能账单"  or
+page_name like  "%wapact.189.cn:9000/zfzq/zfzq.html%" or
+
+--电子发票
+page_name like "%Cxpd-dzfp%" or 
+page_name = "电子发票" or
+btn_name like "%电子发票%" or 
+nbtn_name like "%发票%" or 
+nbtn_name like "%电子发票%" or
+nbtn_name like "%发票提醒%"   or
+nbtn_name like "%通信消费%" or 
+--服务评价
+nbtn_name like "办理订单" or
+nbtn_name like "%服务评价%" or 
+(btn_name rlike "(.*充值成功|积分到期提醒，速来兑换|发票|账单|积分到期提醒|余额不足啦，充值立享995折|余额提醒：信用不足啦，快来充值吧|您的通话时长已用完|通话时长需要您的关注|您的短彩信条数已用完|短彩信需要您的关注|您的WiFi上网时长已用完|WiFi上网时长需要您的关注|消费提醒：流量产生费用啦|注意您的定向流量已用完|哎呀您的定向流量已用完|流量所剩无几啦|流量告急您将进入流量荒|注意流量已耗尽|报告您的流量已被消耗完毕|注意流量已超|OMG~您现在使用的流量开始收费啦|流量费用封顶提醒|上网服务将暂时关闭，次月恢复|流量达封顶值，服务将暂停.*)"
+and 
+btn_position  like "%消息推送%" )
+
+)
+and
+hit_date between #{first_date} and #{end_date}
+union all 
+SELECT
+user_account
+FROM
+apache_computer_view.client_ios_log
+WHERE
+( 
+--话费余额
+nbtn_name like "%话费余额%" or 
+page_name like "%Cxpd-hfye%" or 
+page_name = "话费及余额" or
+btn_name like "%信用度查询%" or
+nbtn_name like "%信用度查询%" or
+nbtn_name like "%余额变动%" or
+page_name like "%Cxpd-yebd%" or 
+page_name = "余额变动明细" or
+nbtn_name like "%信用额度%" or 
+page_name = "信用额度查询"  or
+nbtn_name like "%话费充值记录%" or 
+page_name = "话费充值记录" or
+nbtn_name like "%话费预存返还%"  or
+page_name = "话费预存返还" or 
+--历史账单
+nbtn_name like "%账单%" or
+nbtn_name like "%历史账单%" or
+page_name like "%lm.189.cn/yearbill/yearbill_details%" or
+page_name like  "%lm.189.cn/monthlybill/monthlybill_details%" or
+( nbtn_position like "%Xxjh-xx%"   and  nbtn_name like '%账单%') or
+(nbtn_position like "%Syjh-%-xxts%"   and  nbtn_name like '%账单%') or 
+( nbtn_position like "%Myjh-message%"  and  nbtn_name like '%账单%') or 
+nbtn_name like "%通信消费记录%" or 
+page_name = "智能账单"  or
+page_name like  "%资费查询%" or
+
+--电子发票
+
+page_name like "%Cxpd-dzfp%" or 
+page_name = "电子发票" or
+btn_name like "%电子发票%" or 
+nbtn_name like "%发票%" or 
+nbtn_name like "%电子发票%" or
+nbtn_name like "%发票提醒%" or 
+nbtn_name like "%通信发票%" or 
+--我频道等
+nbtn_name like "办理订单" or
+nbtn_name like "%服务评价%" or 
+(btn_name rlike "(.*充值成功|积分到期提醒，速来兑换|发票|账单|积分到期提醒|余额不足啦，充值立享995折|余额提醒：信用不足啦，快来充值吧|您的通话时长已用完|通话时长需要您的关注|您的短彩信条数已用完|短彩信需要您的关注|您的WiFi上网时长已用完|WiFi上网时长需要您的关注|消费提醒：流量产生费用啦|注意您的定向流量已用完|哎呀您的定向流量已用完|流量所剩无几啦|流量告急您将进入流量荒|注意流量已耗尽|报告您的流量已被消耗完毕|注意流量已超|OMG~您现在使用的流量开始收费啦|流量费用封顶提醒|上网服务将暂时关闭，次月恢复|流量达封顶值，服务将暂停.*)"
+and 
+btn_position  like "%消息推送%" )
+
+)
+and
+hit_date between #{first_date} and #{end_date})
+SELECT
+#{start_date} as create_date,
+'话费账单' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+
+
+
+
+#------------------------------------------------------------------------
+# 充值
+sql_huafei_chong = """
+with a1 as (
+SELECT
+user_account
+FROM
+apache_computer_view.client_android_log
+WHERE
+( 
+
+--首页-充值
+page_name = "充值"  or
+nbtn_name = "充值"  or
+nbtn_name like "10元" or 
+nbtn_name like "30元" or 
+nbtn_name like "50元" or 
+nbtn_name like "快速充值"  or
+nbtn_position like "%Syjh-sjsy-kscz%" or 
+--首页-第二屏充值
+(nbtn_name rlike "(.*宽带充值|存费送费.*)"  and nbtn_position rlike "(.*Syjh-%-kdzq|Syjh-%-dfhw.*)")  or
+nbtn_name rlike  "(.*宽带充值|存费送费.*)" or
+---查询办理-充值
+nbtn_name like "%话费-充话费%" or 
+(btn_name rlike  "(.*宽带充值|存费送费.*)"  and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or 
+
+
+---消息推送
+(  nbtn_position like "%Myjh-message%"   and  nbtn_name like '%话费充值成功%') or
+( btn_position like "%消息推送%"   and  btn_name like '%话费充值成功%') or
+( nbtn_position like "%Myjh-message%"  and  nbtn_name like '%充值金额%') or
+( btn_position like "%消息推送%"   and  btn_name like '%充值金额%') or
+( nbtn_position like "%Myjh-message%"   and  nbtn_name like '%扣费成功%') or
+
+
+
+---第三方阈值提醒
+( nbtn_position like "%Myjh-message%"  and  nbtn_name like '%余额有变动%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额有变动%') or 
+( nbtn_position like "%Myjh-message%"  and  nbtn_name like '%余额不足？积分来换%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额不足？积分来换%') or 
+
+---充值活动
+nbtn_name like "%充话费，抽大奖%"  or
+btn_name like "%充值抽大奖%" or
+nbtn_name like "%充值抽大奖%" or
+page_name like "%充话费抽大奖%" or
+nbtn_name like "%充值抽大奖%" or
+page_name like "%lm.189.cn/untelecomrecharge/untelecomrecharge_index.html%" or 
+ page_name = "智能账单"  or
+btn_name like "%你充我送%" or 
+nbtn_name like "%你充我送%" or 
+nbtn_name like "%话费自动充%" or
+btn_name like "%话费自动充%" or 
+btn_name like "%充值送好礼%" or 
+nbtn_name like "%充值送好礼%" or 
+nbtn_name like "%充值记录%" or 
+nbtn_name like "%自动充值%"  or
+--我的频道
+nbtn_name like "%充值记录%" or
+nbtn_name like "%充值订单%"  or
+nbtn_name like "%限时领6元话费%"
+)
+and
+hit_date between #{first_date} and #{end_date}
+union all 
+SELECT
+user_account
+FROM
+apache_computer_view.client_ios_log
+WHERE
+( 
+
+--首页-充值
+page_name = "充值"  or
+nbtn_name = "充值"  or
+nbtn_name like "10元" or 
+nbtn_name like "30元" or 
+nbtn_name like "50元" or 
+nbtn_name like "快速充值"  or
+nbtn_position like "%Syjh-sjsy-kscz%" or 
+--首页-第二屏充值
+(nbtn_name rlike "(.*宽带充值|存费送费.*)"  and nbtn_position rlike "(.*Syjh-%-kdzq|Syjh-%-dfhw.*)")  or
+nbtn_name rlike  "(.*宽带充值|存费送费.*)" or
+
+---查询办理-充值
+nbtn_name like "%话费-充话费%" or 
+(btn_name rlike  "(.*宽带充值|存费送费.*)"  and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or 
+
+
+---消息推送
+( nbtn_position like  "%Myjh-message%"   and  nbtn_name like '%话费充值成功%') or
+( btn_position like "%消息推送%"   and  btn_name like '%话费充值成功%') or
+( nbtn_position like "%Myjh-message%"   and  nbtn_name like '%充值金额%') or
+( btn_position like "%消息推送%"   and  btn_name like '%充值金额%') or
+( nbtn_position like "%Myjh-message%"   and  nbtn_name like '%扣费成功%') or
+
+---第三方阈值提醒
+( nbtn_position like "%Myjh-message%"  and  nbtn_name like '%余额有变动%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额有变动%') or 
+( nbtn_position like "%Myjh-message%" and  nbtn_name like '%余额不足？积分来换%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额不足？积分来换%') or 
+
+---充值活动
+nbtn_name like "%充话费，抽大奖%"  or
+btn_name like "%充值抽大奖%" or
+nbtn_name like "%充值抽大奖%" or
+page_name like "%充话费抽大奖%" or
+nbtn_name like "%充值抽大奖%" or
+ page_name = "智能账单"  or
+page_name like "%lm.189.cn/untelecomrecharge/untelecomrecharge_index.html%" or 
+btn_name like "%你充我送%" or 
+nbtn_name like "%你充我送%" or 
+nbtn_name like "%话费自动充%" or
+btn_name like "%话费自动充%" or 
+btn_name like "%充值送好礼%" or 
+nbtn_name like "%充值送好礼%" or 
+nbtn_name like "%充值记录%" or 
+nbtn_name like "%自动充值%" or
+--我的频道
+nbtn_name like "%充值记录%" or
+nbtn_name like "%充值订单%"  or
+nbtn_name like "%限时领6元话费%"
+)
+and
+hit_date between #{first_date} and #{end_date})
+SELECT
+#{start_date} as create_date,
+'充值' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+# ------------------------------------------------------------------------
+
+# 积分办理
+sql_jifenbanli = """
+with a1 as (
+SELECT
+user_account
+FROM
+apache_computer_view.client_android_log
+WHERE
+(
+--首页-积分
+nbtn_name like "%当前积分%" or
+nbtn_name like "%积分兑换%" or 
+page_name like "%积分查询%"   or
+page_name like "%momall.telefen.com/mobilemallkhd/SingleSignOn/HuangoAccess%" or 
+
+---查询办理-积分
+nbtn_name like "%积分-积分服务%" or 
+( btn_name rlike "(.*套餐变更|港澳台|升级畅享套餐|挂失解挂|进度查询|基础功能开通|高清通话|基础业务变更|境外漫游服务|升级畅享套餐|来电显示|换套餐|套餐续约|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|畅享存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or 
+( nbtn_name rlike "(.*套餐变更|港澳台|升级畅享套餐|挂失解挂|进度查询|基础功能开通|高清通话|基础业务变更|境外漫游服务|升级畅享套餐|来电显示|换套餐|套餐续约|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|畅享存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+and nbtn_position =  "Cxpd-cxsy-gnd")   or
+
+--我的频道-积分
+nbtn_name like "我的积分" or 
+nbtn_name like "%积分%" or
+nbtn_name like "未登录订单" or
+
+page_name = "jifencx:jifcxym"   or
+page_name = "jifencx:jifdhjlym" or
+page_name = "jifencx:jifcsjlym" or
+page_name like "%momall.telefen.com/mobilemallkhd/SingleSignOn/HuangoAccessOrderList%" or
+page_name like "%cservice.client.189.cn:9092/international/international_home.html%" or
+page_name like "%/images/client/commonupload/2019/1/8/174358/voltewap/index.html%" or
+page_name like "%/images/client/commonupload/2019/1/8/174358/voltewap/index.html%" or
+page_name like  "%images/client/commonupload/2019/3/26/17443/iphonevolte/index.html%" or
+page_name like "%/client/wap/wapproject/personalcustom/volte/volte_index.html%" or 
+page_name like "%189.cn:8011/volte/volte_indexV2.html?%" or
+btn_name = "升级畅享套餐" or
+btn_name = "停机复机" or
+btn_name = "停机保号" or
+nbtn_name like "%升级畅享套餐%" or
+nbtn_name like "%停机复机%" or
+nbtn_name like "%停机保号%" or
+nbtn_name like "%套餐续约%" or 
+nbtn_name like "%积分兑换流量%" or 
+btn_name like "%得话费不花钱%" or 
+btn_name like "%这里有10元话费奉上%" or 
+btn_name like "%免费拿话费啦，速来%" or 
+nbtn_name like "%得话费不花钱%" or 
+nbtn_name like "%这里有10元话费奉上%" or 
+nbtn_name like "%免费拿话费啦，速来%" or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and   nbtn_position like "%Xxjh-xx%")  or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and   nbtn_position like "%Myjh-messag%")  or 
+( btn_position like "%消息推送%"   and  btn_name like '%教你抢占复联4观影%')or
+(nbtn_name like "%积分%"  and  nbtn_position like "%Xxjh%") or
+(nbtn_name like "%积分%"  and  nbtn_position like "%Myjh-messag%") or
+page_name like "%https://jiyue.telefen.com/wapflow/flow/ValidSSO.do%" or 
+page_name like "%client/wap/wapproject/personalcustom/svcomment/svcomment_index.html%" or 
+nbtn_name like "%在线投诉%" or 
+nbtn_name like "%功能上新，求轻拍%" or 
+---流量充值
+( btn_position like "%消息推送%"   and  btn_name like '%积分%')or
+(nbtn_name rlike "(.*升级畅享套餐|存费送礼|存费送费.*)"  and   nbtn_position like "%Syjh-%-kjrk%") or
+(nbtn_name rlike "(.*存费送礼|存费送费|积分兑换业务|积分兑换影视包.*)"  and  nbtn_position like "%Syjh-%-dfhw%") or 
+--- 个人信息保护
+nbtn_name = "互联网用户个人信息保护调查" or 
+nbtn_name = "常用APP用户个人信息保护调查" or 
+page_name like "%http://diaocha.caict.ac.cn/t/YfuU%" or 
+page_name like "%http://diaocha.caict.ac.cn/t/UJje%"
+)
+and
+hit_date between #{first_date} and #{end_date}
+union all 
+SELECT
+user_account
+FROM
+apache_computer_view.client_ios_log
+WHERE
+(nbtn_name like "%当前积分%" or
+page_name like "%当前积分%" or
+nbtn_name like "%积分兑换%" or 
+page_name like "积分查询"   or
+
+---查询办理-积分
+nbtn_name like "%积分-积分服务%" or 
+
+--我的频道-积分
+nbtn_name like "我的积分" or 
+nbtn_name like "%积分%" or
+nbtn_name like "未登录订单" or
+
+page_name = "积分兑换" or
+page_name = "积分查询" or
+page_name = "积分兑换记录" or
+page_name = "积分产生记录" or
+page_name = "积分订单查询"  or
+page_name like "%VoLTE高清通话%" or
+page_name like "%volte%" or
+page_name like "%iphone开通volte%" or
+page_name like "%VoLTE业务办理%" or
+btn_name = "升级畅享套餐" or
+btn_name = "停机复机" or
+btn_name = "停机保号" or
+nbtn_name like "%升级畅享套餐%" or
+nbtn_name like "%停机复机%" or
+nbtn_name like "%停机保号%" or
+nbtn_name like "%套餐续约%" or 
+btn_name like "%得话费不花钱%" or 
+btn_name like "%这里有10元话费奉上%" or 
+btn_name like "%免费拿话费啦，速来%" or 
+nbtn_name like "%得话费不花钱%" or 
+nbtn_name like "%这里有10元话费奉上%" or 
+nbtn_name like "%免费拿话费啦，速来%" or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and  nbtn_position like "%Xxjh-xx%")  or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and  nbtn_position like "%Myjh-messag%")  or 
+( btn_position like "%消息推送%"   and  btn_name like '%教你抢占复联4观影%') or
+(nbtn_name like "%积分%"  and  nbtn_position like "%Xxjh%")  or 
+(nbtn_name like "%积分%"  and  nbtn_position like "%Myjh-messag%")  or 
+page_name like "%流量充值%" or 
+nbtn_name like "%在线投诉%" or
+nbtn_name like "%功能上新，求轻拍%" or 
+page_name like "%client/wap/wapproject/personalcustom/svcomment/svcomment_index.html%" or 
+( btn_position like "%消息推送%"   and  btn_name like '%积分%') or
+btn_name rlike "(.*套餐变更|港澳台业务|挂失解挂|升级畅享套餐|进度查询|境外漫游服务|高清通话|基础功能开通|基础业务变更|升级畅享套餐|来电显示|换套餐|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐升级|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|畅享存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+ or 
+ ( nbtn_name rlike "(.*套餐变更|港澳台|升级畅享套餐|挂失解挂|进度查询|基础功能开通|高清通话|基础业务变更|境外漫游服务|升级畅享套餐|来电显示|换套餐|套餐续约|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|畅享存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+and nbtn_position =  "Cxpd-cxsy-gnd" ) or 
+(nbtn_name rlike "(.*升级畅享套餐|存费送礼.*)"
+and
+nbtn_position like "%Syjh-sy-kjrk%") or
+( nbtn_name rlike "(.*存费送礼|存费送费|积分兑换业务|积分兑换影视包.*)"
+and
+nbtn_position like "%Syjh-sy-dfhw%") or 
+nbtn_name = "互联网用户个人信息保护调查" or 
+nbtn_name = "常用APP用户个人信息保护调查" or 
+page_name like "%http://diaocha.caict.ac.cn/t/YfuU%" or 
+page_name like "%http://diaocha.caict.ac.cn/t/UJje%" )
+and
+hit_date between #{first_date} and #{end_date}
+
+union all 
+select 
+user_account
+from 
+apache_computer_view.client_android_log
+where 
+(nbtn_position like "%Syjh-sjsy-zygn-3_2%" or 
+(nbtn_position like "%Syjh-sjsy-kjrk-4_8%" and 
+nbtn_name != "在线客服"))
+and 
+hit_date between '2019-12-01' and #{end_date}
+
+union all 
+select 
+user_account
+from 
+apache_computer_view.client_ios_log
+where 
+(nbtn_position like "%Syjh-sjsy-zygn-3_2%" or 
+(nbtn_position like "%Syjh-sjsy-kjrk-4_8%" and 
+nbtn_name != "在线客服"))
+and 
+hit_date between '2019-12-01' and #{end_date})
+SELECT
+#{start_date} as create_date,
+'积分办理' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+
+# -------------------------------
+
+#语音流量
+sql_yuyinliuliang = """
+with a1 as (
+SELECT
+user_account
+FROM
+apache_computer_view.client_android_log
+WHERE
+(
+---首页-流量查询
+nbtn_name like "%流量查询%" or 
+page_name like "%流量查询%" or
+nbtn_name like "%套餐用量%" or
+page_name = "套餐用量" or
+nbtn_name like "%语音剩余%" or 
+page_name = "语音查询" or
+---查询办理
+nbtn_name like "%套餐-查套餐%" or
+nbtn_name like "%流量-查流量%" or 
+nbtn_name like "%流量-充流量%" or 
+( btn_name rlike "(.*语音包|大语音包|语音包订购.*)" 
+and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or
+( nbtn_name rlike "(.*语音包|大语音包|语音包订购.*)" 
+and nbtn_position =  "Cxpd-cxsy-gnd") or 
+
+---我的频道
+nbtn_name like "%流量详单%" or 
+page_name like "%短%详单%" or
+page_name like "%彩信详单%"  or
+page_name = "语音详单" or
+page_name = "通话详单"or
+page_name like "%上网详单%" or
+page_name like  "%流量详单%" or
+page_name like "%详单查询%" or 
+page_name = "流量使用历史" or
+page_name like "%已订业务%" or
+page_name = "账户号码信息"or
+page_name = "短信查询" or
+nbtn_name like "%漫游%" or 
+
+nbtn_name like "%已定业务%" or 
+page_name = "增值业务详单"or
+page_name like "%client/wap/wapproject/personalcustom/global/global_roam.html%" or
+page_name like "%client/wap/wapproject/personalcustom/global/global_calls.html%" or 
+page_name like "%国际%" or
+btn_name like "%国际%长途%" or 
+nbtn_name like "%国际%长途%" or 
+btn_name like "%国际%漫游%" or 
+nbtn_name like "%国际%漫游%" or 
+nbtn_name like "%暑假向世界触发%" or 
+nbtn_name like "%漫游%" or 
+btn_name = "增值业务查询" or
+nbtn_name like  "%增值业务查询%" or
+nbtn_name like "%你的流量还够用吗%" or 
+
+---消息推送提醒
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%流量不足提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%流量不足提醒%') or
+( btn_position like "%消息推送%"   and  btn_name like '%流量不足提醒%')  or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%升级提醒%') or
+( btn_position like "%消息推送%"   and  btn_name like '%升级提醒%')  or
+( nbtn_position like "%Xxjh-xx%"   and   nbtn_name like '%流量降速提醒%') or
+( nbtn_position like "%Myjh-messag%"   and   nbtn_name like '%流量降速提醒%') or
+( btn_position like "%消息推送%"   and  btn_name like '%流量降速提醒%') or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%共享用量%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%共享用量%') or
+( btn_position like "%消息推送%"   and  btn_name like '%共享用量%')  or
+
+nbtn_name like "%我的协议%"  or
+nbtn_name like "%漫游业务%"  or 
+page_name like "%http://wapact.189.cn:9000/IntlRoamPush/IntlRoamPush.html%" or
+nbtn_name like "星级服务" or 
+page_name like "%http://xjfw.189.cn:15168/gonet/gateway/authentication%" or 
+nbtn_name like "高清通话" or 
+nbtn_name like "在线客服" or 
+nbtn_name like "%客服%" or
+btn_name like "%已订业务%" or
+btn_name like "%我的宽带%" or 
+btn_name like "%我的协议%" or 
+btn_name like "%账户号码信息%" or 
+nbtn_name like "%已订业务%" or
+nbtn_name like "%我的宽带%" or 
+nbtn_name like "%我的协议%" or 
+nbtn_name like "%账户号码信息%" or
+nbtn_name like "%国庆出游请注意%" or 
+nbtn_name like "%装移修%" or
+(btn_position like "%充值成功%" and 
+btn_name like "充话费"))
+and
+hit_date between #{first_date} and #{end_date}
+union all 
+SELECT
+user_account
+FROM
+apache_computer_view.client_ios_log
+WHERE
+(---首页-流量查询
+nbtn_name like "%流量查询%" or 
+page_name like "%流量查询%" or
+nbtn_name like "%套餐用量%" or
+page_name = "套餐用量" or
+nbtn_name like "%语音剩余%" or 
+page_name = "语音查询" or
+---查询办理
+nbtn_name like "%套餐-查套餐%" or
+nbtn_name like "%流量-查流量%" or 
+nbtn_name like "%流量-充流量%" or 
+( btn_name rlike "(.*语音包|大语音包|语音包订购.*)" 
+and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or
+( nbtn_name rlike "(.*语音包|大语音包|语音包订购.*)" 
+and nbtn_position =  "Cxpd-cxsy-gnd") or 
+---我的频道
+nbtn_name like "%流量详单%" or 
+page_name like "%短%详单%" or
+page_name like "%彩信详单%"  or
+page_name = "语音详单" or
+page_name = "通话详单"or
+page_name like "%上网详单%" or
+page_name like  "%流量详单%" or
+page_name like "%详单查询%" or 
+page_name = "流量使用历史" or
+page_name like "%已订业务%" or
+page_name = "账户号码信息"or
+page_name = "短信查询" or
+nbtn_name like "%漫游%" or 
+nbtn_name like "%你的流量还够用吗%" or 
+page_name = "流量使用历史" or
+page_name like "%已订业务%" or
+page_name = "账户号码信息" or
+(page_name like "%短%详单%" or
+page_name like "%彩信详单%" ) or
+page_name = "增值业务详单" or
+page_name like "%详单查询%" or 
+btn_name = "增值业务查询" or
+nbtn_name like "%增值业务查询%" or
+nbtn_name = "增值业务查询" or
+nbtn_name like "%已定业务%" or 
+nbtn_name like "%升级提醒%" or 
+page_name like "%国际%" or
+btn_name like "%国际%长途%" or 
+nbtn_name like "%国际%长途%" or 
+btn_name like "%国际%漫游%" or 
+nbtn_name like "%国际%漫游%" or 
+nbtn_name like "%漫游攻略%" or 
+nbtn_name like "%暑假向世界触发%" or 
+( nbtn_position like "%Xxjh-xx%" and  nbtn_name like '%流量不足提醒%')  or
+( nbtn_position like "%Myjh-messag%" and  nbtn_name like '%流量不足提醒%')  or
+( btn_position like "%消息推送%"   and  btn_name like '%流量不足提醒%')or
+( nbtn_position like "%Xxjh-xx%" and  nbtn_name like '%流量降速提醒%')  or
+( nbtn_position like "%Myjh-messag%" and  nbtn_name like '%流量降速提醒%')  or
+( btn_position like "%消息推送%"   and  btn_name like '%流量降速提醒%')or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%升级提醒%') or
+( btn_position like "%消息推送%"   and  btn_name like '%升级提醒%')  or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%共享用量%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%共享用量%') or
+( btn_position like "%消息推送%"   and  btn_name like '%共享用量%')  or
+ btn_query_transaction rlike "(.*语音包|大语音包|语音包订购.*)"  or 
+ nbtn_name rlike "(.*语音包|大语音包|语音包订购.*)"  or 
+ nbtn_name like "%我的协议%"  or
+nbtn_name like "%漫游业务%" or 
+page_name like "%漫游业务%" or
+nbtn_name like "星级服务" or 
+page_name like "星级服务" or 
+nbtn_name like "高清通话" or 
+nbtn_name like "在线客服" or 
+nbtn_name like "%客服%"  or
+btn_name like "%已订业务%" or
+btn_name like "%我的宽带%" or 
+btn_name like "%我的协议%" or 
+nbtn_name like "%已订业务%" or
+nbtn_name like "%我的宽带%" or 
+nbtn_name like "%我的协议%" or 
+nbtn_name like "%账户号码信息%" or 
+btn_name like "%账户号码信息%" or
+nbtn_name like "%国庆出游请注意%"  or 
+nbtn_name like "%装移修%" or
+(btn_position like "%充值成功%" and 
+btn_name like "充话费"))
+and
+hit_date between #{first_date} and #{end_date})
+SELECT
+#{start_date} as create_date,
+'语音流量' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+#-------------------------------------------------------
+# 宽带
+sql_kuandai = """
+with a1 as (
+SELECT
+user_account
+FROM
+apache_computer_view.client_android_log
+WHERE(
+---宽带首页
+(nbtn_position like "%Syjh-kdsy%"
+and 
+nbtn_name not in  ("手机","搜索","扫一扫"))  or 
+nbtn_name = "宽带" or
+
+---宽带首页第二屏
+ ( nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)"
+and nbtn_position rlike "(.*Syjh-%-kdzq|Syjh-%-dfhw.*)")  or 
+
+--- 宽带查询办理
+nbtn_name like "%宽带-宽带办理%" or 
+nbtn_name like "%宽带-宽带服务%" or
+( btn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+ or (nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+and  nbtn_position like "%Cxpd-cxsy-gnd%")
+or 
+(nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+and  nbtn_position = "Cxpd-cxsy-gnd")
+ ))
+and
+hit_date between #{first_date} and #{end_date}
+union all 
+SELECT
+user_account
+FROM
+apache_computer_view.client_ios_log
+WHERE(
+---宽带首页
+(nbtn_position like "%Syjh-kdsy%"
+and 
+nbtn_name not in  ("手机","搜索","扫一扫"))  or 
+nbtn_name = "宽带" or
+
+---宽带首页第二屏
+ ( nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)"
+and nbtn_position rlike "(.*Syjh-%-kdzq|Syjh-%-dfhw.*)")  or 
+( nbtn_name rlike "(.*宽带自助服务|我的宽带|密码服务|天翼高清包|ITV优品包|智能组网|宽带提速|宽带续约|宽带服务|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+and nbtn_position rlike "(.*Syjh-sy-kdzq|Syjh-sy-dfhw.*)") or 
+
+--- 宽带查询办理
+nbtn_name like "%宽带-宽带办理%" or 
+nbtn_name like "%宽带-宽带服务%" or
+ btn_name rlike "(.*宽带自助服务|我的宽带|密码服务|天翼高清包|ITV优品包|智能组网|宽带提速|宽带续约|宽带服务|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+or 
+(nbtn_name rlike "(.*宽带自助服务|我的宽带|密码服务|天翼高清包|ITV优品包|智能组网|宽带提速|宽带续约|宽带服务|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+and 
+nbtn_position like "%Cxpd-cxsy-gnd%")
+or
+(nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|宽带装移修|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)" 
+and 
+nbtn_position = "Cxpd-cxsy-gnd")
+or  (btn_query_transaction rlike "(.*宽带自助服务|密码服务|天翼高清包|智能组网|ITV优品包|宽带提速|宽带续约|宽带服务|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|宽带装移修|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)"  
+ ) or 
+  (
+nbtn_name rlike "(.*宽带自助服务|密码服务|天翼高清包|智能组网|ITV优品包|宽带提速|宽带续约|宽带服务|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|宽带装移修|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)"  
+and 
+nbtn_position like "%Cxpd-cxsy-gnd%"))
+and
+hit_date between #{first_date} and #{end_date})
+SELECT
+#{start_date} as create_date,
+'宽带' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+
+# ----------------------------
+
+# 查充缴-an
+sql_huizong_an = """
+with a1 as (
+select 
+user_account 
+FROM
+apache_computer_view.client_android_log
+WHERE
+(
+
+nbtn_name rlike  "(.*升级畅享套餐|限时领6元话费|电信5G 正式商用|你的流量还够用吗|互联网用户个人信息保护调查|常用APP用户个人信息保护调查|服务评价|充值订单|办理订单|漫游|充值记录|流量详单|实用服务|存费送礼存费送礼|存费送费|积分兑换业务|积分兑换影视包|存费送费|话费余额|信用度查询|余额变动|信用额度|话费充值记录|话费预存返还|账单|历史账单|9月通信消费记录新鲜出炉|发票|电子发票|发票提醒|10元|30元|50元|快速充值|话费-充话费|充话费，抽大奖|充值抽大奖|你充我送|话费自动充|充值送好礼|充值记录|自动充值|当前积分|积分兑换|我的积分|积分|积分-积分服务|升级畅享套餐|停机复机|停机保号|套餐续约|积分兑换流量|得话费不花钱|这里有10元话费奉上|免费拿话费啦，速来|流量查询|套餐用量|语音剩余|套餐-查套餐|流量-查流量|流量-充流量|流量详单|已定业务|宽带-宽带办理|宽带-宽带服务|在线投诉|功能上新，求轻拍|高清通话|在线客服|客服|国际长途|国际漫游|暑假向世界触发|漫游|漫游业务|增值业务查询|星级服务|已订业务|我的宽带|我的协议|账户号码信息|国庆出游请注意|宽带充值|存费送费.*)" or
+btn_name rlike  "(.*信用度查询|发票|充值抽大奖|宽带充值|你充我送|话费自动充|充值送好礼|存费送费|得话费不花钱|这里有10元话费奉上|免费拿话费啦，速来|国际长途|国际漫游|增值业务查询|已订业务|我的宽带|我的协议|账户号码信息|升级畅享套餐|停机复机|停机保号.*)" 
+or 
+(btn_name rlike "(.*套餐变更|港澳台|升级畅享套餐|挂失解挂|进度查询|基础功能开通|高清通话|基础业务变更|境外漫游服务|升级畅享套餐|来电显示|换套餐|套餐续约|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or
+nbtn_name  in  ("宽带","充值") or 
+page_name in ("话费及余额","余额变动明细","信用额度查询","话费充值记录","话费预存返还", "智能账单","电子发票","充值","jifencx:jifcxym","jifencx:jifdhjlym","jifencx:jifcsjlym","套餐用量","语音查询","语音详单","通话详单","流量使用历史","账户号码信息", "短信查询","增值业务详单" )
+or 
+page_name like "%Cxpd-hfye%" or 
+page_name like "%Cxpd-yebd%" or 
+page_name like "%lm.189.cn/yearbill/yearbill_details%" or
+page_name like  "%lm.189.cn/monthlybill/monthlybill_details%" or
+page_name like  "%wapact.189.cn:9000/zfzq/zfzq.html%" or
+page_name like "%Cxpd-dzfp%" or 
+page_name like "%充话费抽大奖%" or
+page_name like "%lm.189.cn/untelecomrecharge/untelecomrecharge_index.html%" or 
+page_name like "%积分查询%"   or
+page_name like "%momall.telefen.com/mobilemallkhd/SingleSignOn/HuangoAccess%" or 
+page_name like "%momall.telefen.com/mobilemallkhd/SingleSignOn/HuangoAccessOrderList%" or
+page_name like "%cservice.client.189.cn:9092/international/international_home.html%" or
+page_name like "%/images/client/commonupload/2019/1/8/174358/voltewap/index.html%" or
+page_name like "%/images/client/commonupload/2019/1/8/174358/voltewap/index.html%" or
+page_name like  "%images/client/commonupload/2019/3/26/17443/iphonevolte/index.html%" or
+page_name like "%/client/wap/wapproject/personalcustom/volte/volte_index.html%" or 
+page_name like "%189.cn:8011/volte/volte_indexV2.html?%" or
+page_name like "%流量查询%" or
+page_name like "%短%详单%" or
+page_name like "%彩信详单%"  or
+page_name like "%上网详单%" or
+page_name like  "%流量详单%" or
+nbtn_name like "%通信消费记录%" or
+nbtn_name like "%通信发票%" or 
+page_name like "%详单查询%" or 
+page_name like "%已订业务%" or
+page_name like "%client/wap/wapproject/personalcustom/global/global_roam.html%" or
+page_name like "%client/wap/wapproject/personalcustom/global/global_calls.html%" or 
+page_name like "%国际%" or
+page_name like "%http://wapact.189.cn:9000/IntlRoamPush/IntlRoamPush.html%" or
+page_name like "%http://xjfw.189.cn:15168/gonet/gateway/authentication%" or 
+page_name like "%http://diaocha.caict.ac.cn/t/YfuU%" or 
+page_name like "%http://diaocha.caict.ac.cn/t/UJje%" or 
+---消息推送
+( nbtn_position like "%Xxjh-xx%"   and  nbtn_name like '%话费充值成功%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%话费充值成功%') or
+( btn_position like "%消息推送%"   and  btn_name like '%话费充值成功%') or
+( nbtn_position like "%Xxjh-xx%"   and  nbtn_name like '%充值金额%') or
+( nbtn_position like "%Myjh-messag%"   and  nbtn_name like '%充值金额%') or
+( btn_position like "%消息推送%"   and  btn_name like '%充值金额%') or
+---第三方阈值提醒
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%余额有变动%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额有变动%') or 
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%余额不足？积分来换%') or
+( btn_position like "%消息推送%"   and  btn_name like '%余额不足？积分来换%') or 
+
+(nbtn_name like "%教你抢占复联4观影C位%"  and   nbtn_position like "%Xxjh-xx%")  or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and   nbtn_position like "%Myjh-messag%")  or 
+( btn_position like "%消息推送%"   and  btn_name like '%教你抢占复联4观影%') or
+page_name like "%https://jiyue.telefen.com/wapflow/flow/ValidSSO.do%" or 
+page_name like "%client/wap/wapproject/personalcustom/svcomment/svcomment_index.html%" or 
+
+( btn_name rlike "(.*语音包|大语音包|语音包订购.*)"  and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or
+
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%流量不足提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%流量不足提醒%') or
+( nbtn_position like "%Myjh-messag%"   and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Myjh-messag%"   and   nbtn_name like '%流量降速提醒%') or
+( nbtn_position like "%Myjh-messag%"   and   nbtn_name like '%流量降速提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%共享用量%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%共享用量%') or
+(nbtn_position like "%Syjh-kdsy%"  and  nbtn_name not in  ("手机","搜索","扫一扫"))  or 
+( nbtn_name rlike "(.*宽带自助服务|我的宽带|宽带提速|宽带续约|宽带服务|智能组网|加装宽带|宽带充值|加装itv|宽带快修|天翼高清|ITV新装|宽带加装|宽带提速|宽带新装|宽带账户查询|宽带充值|宽带续约|宽带修障|远程开关|宽带账号查询|宽带测速|宽带信息查询|密码服务|宽带资源查询|宽带订单查询|宽带移机|iTV修障|订单查询|账户查询|宽带报障|故障快修|一键测速|宽带速率查询|宽带续费|升级智能宽带|宽带资源|装移进度查询|工单查询|账号查询|宽带套餐变更|智能组网|网龄升速|宽带交费|远程测速|宽带服务|进度查询|Wi-Fi家庭网|修障进度查询|一键提速|老用户升级|第2条宽带免费|我的订单|网关体检|故障查询|20M随选宽带|装移机|光小区查询|天翼高清|故障申报|加装iTV|装移机查询|单C加宽|宽带装移修|智慧家庭|自助排障|宽带订购查询|0元提速|第2部iTV免费|超牛加装|融合宽带提速|IPTV|第二条宽带|光纤资源查询|新装订单查询|手机加装宽带|宽带 ITV|iTV新装|加装移动业务|免费提速|百兆宽带续约|查宽带资源|电视加装|新装iTV|地址资源查询|自助修障|装移机进度|充值缴费|预约查询|宽带安装地址查询|宽带密码服务|在线移机|续约订单查询|申请单进度查询|查资源|加装IPTV|单宽转融合|融合速装|宽带加装手机|天翼高清充值|转融合套餐|装移机进度查询|iTV加装|融合加装|装移修进度查询|宽带故障申报|宽带缴费查询|第2条宽带优惠|装移单查询|IPTV加装|ITV报障|预约订单查询|ITV加装|ITV迁转|49加装|移动修障|加天翼高清|密码重置|自助充值|故障单查询|自助诊断|宽带紧急复机|故障申告|天翼高清加装|移机|融合续约|第二宽带|装移修进度|预约单查询?|宽带快捷提速|修障进度|iTV充值|宽带移机预约|预约单查询|光纤资源查询|宽带快修|宽带续费|宽带续约|光纤查询|宽带提速|宽带续约|加装第2条宽带|100元宽带提速|加宽带升套餐|宽带续约|宽带资源查询|宽带自助服务|宽带升速|加装两条宽带|宽带测速|百兆宽带续约|加装宽带|宽带天翼高清|IPTV加装|加装天翼高清|宽带预约拆机|智能组网|智能家居|宽带充值|宽带移机|宽带密码服务|49加装.*)"
+and nbtn_position rlike "(.*Syjh-%-kdzq|Syjh-%-dfhw.*)")  or 
+nbtn_position like "%Cxpd-cxsy-gnd%"  or 
+page_name like "%https://1892139.com/hd/web/index.php?r=dxzt_app_hongbao/index/details%" or 
+(btn_name rlike "(.*充值成功|积分到期提醒，速来兑换|升级提醒|流量不足提醒|流量降速提醒|共享用量|发票|账单|积分到期提醒|余额不足啦，充值立享995折|余额提醒：信用不足啦，快来充值吧|您的通话时长已用完|通话时长需要您的关注|您的短彩信条数已用完|短彩信需要您的关注|您的WiFi上网时长已用完|WiFi上网时长需要您的关注|消费提醒：流量产生费用啦|注意您的定向流量已用完|哎呀您的定向流量已用完|流量所剩无几啦|流量告急您将进入流量荒|注意流量已耗尽|报告您的流量已被消耗完毕|注意流量已超|OMG~您现在使用的流量开始收费啦|流量费用封顶提醒|上网服务将暂时关闭，次月恢复|流量达封顶值，服务将暂停.*)"
+and 
+btn_position  like "%消息推送%" ) or 
+(btn_position like "%充值成功%" and 
+btn_name like "充话费") or 
+((nbtn_name like "%Hello 5G%" or
+nbtn_name like "5G专区")
+and 
+(nbtn_position like "%Syjh-sjsy-jdt%" or 
+nbtn_position like "%Shanpingjh-spsy-adym%")) or
+nbtn_name like "%升级5G套餐%" or 
+---4升5页面
+page_name like "%www.189.cn/client/wap/wapproject/wapclient/upgrade5g/upgrade5g_index.html%"
+)
+and 
+hit_date between #{first_date} and #{end_date}
+union all 
+select 
+user_account
+from 
+apache_computer_view.client_android_log
+where 
+(nbtn_position like "%Syjh-sjsy-zygn-3_2%" or 
+(nbtn_position like "%Syjh-sjsy-kjrk-4_8%" and 
+nbtn_name != "在线客服"))
+and 
+hit_date between '2019-12-01' and #{end_date})
+select
+#{start_date} as create_date,
+'查充缴_an' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+
+#--------------------------------------------------------------------------
+#查充缴-ios
+
+
+#查充缴-ios
+sql_huizong_ios = """
+with a1 as (
+select 
+user_account 
+from 
+apache_computer_view.client_ios_log
+where
+(---话费余额-ios
+nbtn_name rlike "(.*服务评价|你的流量还够用吗|限时领6元话费|电信5G 正式商用|互联网用户个人信息保护调查|常用APP用户个人信息保护调查|充值订单|办理订单|漫游|充值记录|流量详单|实用服务|话费余额|信用度查询|余额变动|信用额度|话费充值记录|话费预存返还|账单|9月通信消费记录新鲜出炉|发票|宽带充值|存费送费|话费-充话费|充话费，抽大奖|充值抽大奖|充值送好礼|充值记录|自动充值|充值抽大奖|你充我送|话费自动充|积分|升级畅享套餐|停机复机|停机保号|套餐续约|得话费不花钱|这里有10元话费奉上|免费拿话费啦，速来|在线投诉|功能上新，求轻拍|流量查询|套餐用量|语音剩余|套餐-查套餐|流量-查流量|流量-充流量|通信消费记录|流量详单|已定业务|升级提醒|国际%长途|暑假向世界触发|语音包|大语音包|语音包订购|我的协议|星级服务|高清通话|客服|已订业务|我的宽带|我的协议|账户号码信息|国庆出游请注意|宽带-宽带办理|宽带-宽带服务|升级5G套餐.*)"  
+or 
+nbtn_name in ("宽带","增值业务查询","充值","10元","30元","50元","快速充值") or 
+page_name rlike "(.*Cxpd-hfye|Cxpd-yebd|lm.189.cn/yearbill/yearbill_details|lm.189.cn/monthlybill/monthlybill_details|资费查询|Cxpd-dzfp|充话费抽大奖|lm.189.cn/untelecomrecharge/untelecomrecharge_index.html|当前积分|VoLTE高清通话|volte|iphone开通volte|VoLTE业务办理|流量充值|client/wap/wapproject/personalcustom/svcomment/svcomment_index.html|流量查询|短%详单|彩信详单|上网详单|流量详单|详单查询|已订业务|已订业务|短%详单|彩信详单|详单查询|国际|漫游业务|https://1892139.com/hd/web/index.php?r=dxzt_app_hongbao/index/details|升级5G.*)"
+or 
+page_name like("%http://diaocha.caict.ac.cn/t/YfuU%") or 
+page_name like("%http://diaocha.caict.ac.cn/t/UJje%") or 
+page_name in ( "话费及余额","余额变动明细","信用额度查询","话费充值记录","话费预存返还","智能账单","电子发票","充值","积分兑换","积分查询","积分兑换记录","积分产生记录","积分订单查询","套餐用量","语音查询","语音详单","通话详单","流量使用历史","账户号码信息","短信查询","流量使用历史","账户号码信息","增值业务详单","积分查询","星级服务")
+or 
+(btn_name rlike  "(.*宽带充值|存费送费.*)"  and btn_position rlike  "(.*服务-宽带|服务-办理.*)") or 
+( nbtn_position like "%Myjh-message%"   and  nbtn_name like '%话费充值成功%') or
+( nbtn_position like "%Myjh-message%"    and  nbtn_name like '%充值金额%') or
+( nbtn_position like  "%Myjh-message%"  and  nbtn_name like '%余额有变动%') or
+
+btn_name rlike "(.*充值抽大奖|你充我送|话费自动充|充值送好礼|电子发票|信用度查询|得话费不花钱|这里有10元话费奉上|免费拿话费啦，速来|国际%长途|国际%漫游|已订业务|我的宽带|我的协议|账户号码信息.*)"
+or 
+btn_name in ("升级畅享套餐","停机复机","停机保号" ) or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and  nbtn_position like "%Xxjh-xx%")  or 
+(nbtn_name like "%教你抢占复联4观影C位%"  and  nbtn_position like "%Myjh-messag%")  or 
+( btn_position like "%消息推送%"   and  btn_name like '%教你抢占复联4观影%') or
+( btn_position like "%消息推送%"   and  btn_name like '%积分%') or
+btn_name rlike "(.*套餐变更|港澳台业务|挂失解挂|升级畅享套餐|进度查询|境外漫游服务|高清通话|基础功能开通|基础业务变更|升级畅享套餐|来电显示|换套餐|停机保号|停机复机|停复机|老用户升级|套餐续约|呼叫转移|立即转移|遇忙转移|无应答转移|呼叫等待|套餐升级|套餐迁转|套餐转换|加手机升套餐|套餐迁转|套餐变更|升级畅享套餐|缴费赠礼|畅享存费送费|预存送话费|存费赠费|预存送翼支付|预存送流量|王卡存费送费|存费送礼|福卡存费送费|存费送费|移动业务报障|在线移机|补换卡|自助排障|故障申告|故障申报|装移进度查询|修障进度查询|投诉进度查询|漏话提醒|装移机|补换卡|业务办理|办理|增值业务|积分兑换|积分兑换增值|积分俱乐部|积分换流量卡.*)" 
+or 
+(nbtn_name rlike "(.*升级畅享套餐|存费送礼.*)"
+and
+nbtn_position like "%Syjh-sy-kjrk%") or
+( nbtn_name rlike "(.*存费送礼|存费送费.*)"
+and
+nbtn_position like "%Syjh-sy-dfhw%")  or 
+( btn_name rlike "(.*语音包|大语音包|语音包订购.*)" 
+and btn_position rlike  "(.*服务-宽带|服务-办理.*)")  or 
+btn_name = "增值业务查询" or
+( nbtn_position like "%Xxjh-xx%" and  nbtn_name like '%流量不足提醒%')  or
+( nbtn_position like "%Myjh-messag%" and  nbtn_name like '%流量不足提醒%')  or
+( nbtn_position like "%Xxjh-xx%" and  nbtn_name like '%流量降速提醒%')  or
+( nbtn_position like "%Myjh-messag%" and  nbtn_name like '%流量降速提醒%')  or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%升级提醒%') or
+( nbtn_position like "%Xxjh-xx%"  and  nbtn_name like '%共享用量%') or
+( nbtn_position like "%Myjh-messag%"  and  nbtn_name like '%共享用量%') or
+ btn_query_transaction rlike "(.*语音包|大语音包|语音包订购.*)"  or 
+(nbtn_position like "%Syjh-kdsy%"
+and 
+nbtn_name not in  ("手机","搜索","扫一扫"))  or 
+nbtn_position like "%Syjh-%-kdzq%"  or  
+nbtn_position like "%Cxpd-cxsy-gnd%"  or 
+(btn_name rlike "(.*充值成功|积分到期提醒，速来兑换|升级提醒|话费充值成功|充值金额|余额有变动|余额不足？积分来换|流量不足提醒|流量降速提醒|共享用量|发票|账单|积分到期提醒|余额不足啦，充值立享995折|余额提醒：信用不足啦，快来充值吧|您的通话时长已用完|通话时长需要您的关注|您的短彩信条数已用完|短彩信需要您的关注|您的WiFi上网时长已用完|WiFi上网时长需要您的关注|消费提醒：流量产生费用啦|注意您的定向流量已用完|哎呀您的定向流量已用完|流量所剩无几啦|流量告急您将进入流量荒|注意流量已耗尽|报告您的流量已被消耗完毕|注意流量已超|OMG~您现在使用的流量开始收费啦|流量费用封顶提醒|上网服务将暂时关闭，次月恢复|流量达封顶值，服务将暂停.*)"
+and 
+btn_position  like "%消息推送%" ) or 
+(btn_position like "%充值成功%" and   btn_name like "充话费") or 
+((nbtn_name like "%Hello 5G%" or   nbtn_name like "5G专区")
+and 
+(nbtn_position like "%Syjh-sjsy-jdt%" or  nbtn_position like "%Shanpingjh-spsy-adym%")) 
+)
+and 
+hit_date between #{first_date} and #{end_date}
+union all 
+select 
+user_account
+from 
+apache_computer_view.client_ios_log
+where 
+(nbtn_position like "%Syjh-sjsy-zygn-3_2%" or 
+(nbtn_position like "%Syjh-sjsy-kjrk-4_8%" and 
+nbtn_name != "在线客服"))
+and 
+hit_date between '2019-12-01' and #{end_date})
+select
+#{start_date} as create_date,
+'查充缴_ios' as t_name,
+'day' as data_type,
+count(distinct user_account) as acc_val
+from 
+a1"""
+
+
+
+#话费账单
+hive.execute(sql_huafeizhangdan,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =True)
+
+#充值
+hive.execute(sql_huafei_chong,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
+
+# 积分办理
+hive.execute(sql_jifenbanli,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
+
+
+# 语音流量
+hive.execute(sql_yuyinliuliang,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
+
+# 宽带
+hive.execute(sql_kuandai,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
+
+
+# 查充缴-an
+hive.execute(sql_huizong_an,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
+
+# 查充缴-ios
+hive.execute(sql_huizong_ios,replaceMap).insert('ccj_acc_val','day',ignore = False, delete =False)
